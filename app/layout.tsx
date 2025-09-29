@@ -1,14 +1,19 @@
 import type { Metadata } from "next";
-import { Inter as FontSans } from "next/font/google";
+import { Comfortaa, DM_Sans } from "next/font/google";
 import { Layout } from "@/components/craft";
 
 import "./globals.css";
 
 import { cn } from "@/lib/utils";
 
-const fontSans = FontSans({
+const comfortaa = Comfortaa({
   subsets: ["latin"],
-  variable: "--font-sans",
+  variable: "--font-comfortaa",
+});
+
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  variable: "--font-dm-sans",
 });
 
 export const metadata: Metadata = {
@@ -26,8 +31,10 @@ export default function RootLayout({
     <Layout>
       <body
         className={cn(
-          "min-h-screen bg-background font-sans antialiased w-screen",
-          fontSans.variable
+          "min-h-screen bg-background antialiased w-screen",
+          comfortaa.variable,
+          dmSans.variable,
+          comfortaa.className
         )}
       >
         {children}
