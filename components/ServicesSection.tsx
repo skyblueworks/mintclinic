@@ -71,9 +71,9 @@ export default function ServicesSection() {
 
   return (
     <section className="py-16 bg-white">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="px-6 w-full">
         {/* Header */}
-        <div className="flex justify-between items-center mb-12">
+        <div className="max-w-7xl flex justify-between items-center mb-12 w-full mx-auto">
           <h2 className="text-3xl lg:text-4xl font-bold text-primary">
             Нашите услуги
           </h2>
@@ -87,6 +87,7 @@ export default function ServicesSection() {
       <div className="">
         <Carousel
           opts={{
+            duration: 40,
             align: "center",
             loop: true,
           }}
@@ -95,6 +96,7 @@ export default function ServicesSection() {
               stopOnInteraction: false,
               stopOnMouseEnter: true,
               stopOnFocusIn: true,
+              delay: 3000,
             }),
           ]}
           className="w-full"
