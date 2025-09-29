@@ -21,6 +21,7 @@
     "embla-carousel-autoplay": "^8.6.0",
     "embla-carousel-react": "^8.6.0",
     "lucide-react": "^0.468.0",
+    "motion": "^12.23.22",
     "next": "15.1.7",
     "prism-react-renderer": "^2.4.1",
     "react": "19.0.0",
