@@ -5,6 +5,7 @@
 @layer base {
   :root {
     --mintclinic-mint-dark: #096b6a;
+    --mintclinic-mint-dark-hsl: 179 84.5% 22.7%;
 
     --background: 0 0% 100%;
     --foreground: 0 0% 27.8%;

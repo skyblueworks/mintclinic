@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils";
 const comfortaa = Comfortaa({
   subsets: ["latin"],
   variable: "--font-comfortaa",
+  weight: ["400", "500", "600", "700"],
 });
 
 const dmSans = DM_Sans({
