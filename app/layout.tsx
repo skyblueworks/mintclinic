@@ -80,7 +80,7 @@ export default function RootLayout({
       </Head>
       <body
         className={cn(
-          "min-h-screen bg-background antialiased w-screen",
+          "min-h-screen bg-background antialiased w-full",
           comfortaa.variable,
           dmSans.variable,
           comfortaa.className

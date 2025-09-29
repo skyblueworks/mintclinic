@@ -105,23 +105,23 @@ export default function ServicesSection() {
                 key={service.id}
                 className="pl-[1rem] md:pl-[2rem] basis-[calc(100%-8rem)] md:basis-[40%]  lg:basis-[30%] xl:basis-1/4 select-none"
               >
-                <div className="bg-white border-2 border-primary/20 rounded-2xl rounded-tr-none rounded-bl-none p-6 h-full flex flex-col justify-between duration-300">
+                <div className="bg-white border border-primary/20 rounded-2xl rounded-tr-none rounded-bl-none p-6 h-full flex flex-col justify-between duration-300">
                   <div>
+                    <div className="mb-12 flex justify-end items-start rounded-lg">
+                      <Image
+                        src="/mint-colored.svg"
+                        alt={service.title}
+                        width={60}
+                        height={60}
+                        className="opacity-20"
+                      />
+                    </div>
                     <h3 className="text-xl font-bold text-primary mb-3">
                       {service.title}
                     </h3>
                     <p className="text-foreground/80 font-dm-sans leading-relaxed mb-6">
                       {service.description}
                     </p>
-                    <div className="mb-6 flex justify-end items-end h-32 rounded-lg">
-                      <Image
-                        src="/mint-colored.svg"
-                        alt={service.title}
-                        width={60}
-                        height={60}
-                        className=""
-                      />
-                    </div>
                   </div>
                   <button className="bg-transparent border border-primary text-primary font-extrabold px-6 py-3 rounded-full hover:bg-primary hover:text-white transition-colors duration-200 w-full">
                     Към услугата
