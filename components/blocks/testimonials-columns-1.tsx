@@ -2,6 +2,8 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "motion/react";
+import { FiExternalLink } from "react-icons/fi";
+import { FaStar } from "react-icons/fa";
 
 export const TestimonialsColumn = (props: {
   className?: string;
@@ -26,13 +28,46 @@ export const TestimonialsColumn = (props: {
           ...new Array(2).fill(0).map((_, index) => (
             <React.Fragment key={index}>
               {props.testimonials.map(
-                ({ text, image, name, role }, i: number) => (
+                ({ text, image, name, role, reviewUrl, stars }, i: number) => (
                   <div
-                    className="p-10 rounded-3xl border shadow-lg shadow-primary/10 max-w-md w-full"
+                    className="p-6 rounded-3xl rounded-bl-none rounded-tr-none border shadow-lg shadow-primary/10 max-w-md w-full relative"
                     key={i}
                   >
+                    {/* Star Rating with Link Icon */}
+                    {stars && (
+                      <div className="flex items-center justify-between mb-4">
+                        <div className="flex items-center gap-1">
+                          {[...Array(5)].map((_, starIndex) => (
+                            <FaStar
+                              key={starIndex}
+                              size={14}
+                              className={
+                                starIndex < stars
+                                  ? "text-yellow-400"
+                                  : "text-gray-200"
+                              }
+                            />
+                          ))}
+                          <span className="ml-1 text-sm text-primary/60 font-medium">
+                            {stars}/5
+                          </span>
+                        </div>
+                        {reviewUrl && (
+                          <a
+                            href={reviewUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-primary/60 hover:text-primary transition-colors flex-shrink-0"
+                            title="View on Google Reviews"
+                          >
+                            <FiExternalLink size={16} />
+                          </a>
+                        )}
+                      </div>
+                    )}
+
                     <div>{text}</div>
-                    <div className="flex items-center gap-2 mt-5">
+                    <div className="flex items-center gap-3 mt-5">
                       {image.startsWith("http") ? (
                         <img
                           width={40}
@@ -50,11 +85,11 @@ export const TestimonialsColumn = (props: {
                           className="h-10 w-10 rounded-full object-cover"
                         />
                       )}
-                      <div className="flex flex-col">
+                      <div className="flex flex-col gap-0.5">
                         <div className="font-medium tracking-tight leading-5">
                           {name}
                         </div>
-                        <div className="leading-5 opacity-60 tracking-tight">
+                        <div className="leading-5 opacity-60 tracking-tight text-sm">
                           {role}
                         </div>
                       </div>

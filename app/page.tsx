@@ -14,11 +14,11 @@ export default function HomePage() {
       <HeaderSection />
       <HeroSection />
       <WhoWeAre />
+      <TestimonialsSection />
       <InfoSection />
       <ServicesSection />
       <WhyMintSection />
       <TeamSection />
-      <TestimonialsSection />
       <FAQSection />
     </div>
   );
