@@ -10,7 +10,7 @@ import Head from "next/head";
 const comfortaa = Comfortaa({
   subsets: ["latin"],
   variable: "--font-comfortaa",
-  weight: ["400", "500", "600", "700"],
+  // weight: [""400", "500", "600", "700"],
 });
 
 const dmSans = DM_Sans({

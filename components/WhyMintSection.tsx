@@ -35,7 +35,7 @@ export default function WhyMintSection() {
           />
         </div>
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row gap-16 items-start mb-16">
+        <div className="flex flex-col md:flex-row gap-16 items-start">
           <div className="hidden md:block w-full md:w-1/3 sticky top-16">
             <h2 className="text-5xl font-bold text-primary top-32">
               Защо MINT

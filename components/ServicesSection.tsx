@@ -132,8 +132,8 @@ export default function ServicesSection() {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="left-6 bg-primary text-white border-primary hover:bg-primary/90 hover:text-white" />
-          <CarouselNext className="right-6 bg-primary text-white border-primary hover:bg-primary/90 hover:text-white" />
+          <CarouselPrevious className="size-12 left-6 bg-primary text-white border-primary hover:bg-primary/90 hover:text-white" />
+          <CarouselNext className="size-12 right-6 bg-primary text-white border-primary hover:bg-primary/90 hover:text-white" />
         </Carousel>
       </div>
     </section>
