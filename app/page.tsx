@@ -5,6 +5,7 @@ import InfoSection from "@/components/InfoSection";
 import ServicesSection from "@/components/ServicesSection";
 import WhyMintSection from "@/components/WhyMintSection";
 import TeamSection from "@/components/TeamSection";
+import FAQSection from "@/components/FAQSection";
 
 export default function HomePage() {
   return (
@@ -16,6 +17,7 @@ export default function HomePage() {
       <ServicesSection />
       <WhyMintSection />
       <TeamSection />
+      <FAQSection />
     </div>
   );
 }
