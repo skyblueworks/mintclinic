@@ -5,6 +5,7 @@ import { Layout } from "@/components/craft";
 import "./globals.css";
 
 import { cn } from "@/lib/utils";
+import Head from "next/head";
 
 const comfortaa = Comfortaa({
   subsets: ["latin"],
@@ -18,9 +19,53 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "MDX Starter Template for Building Websites",
+  title: "Mint Clinic – Dental Clinic in Sofia",
   description:
-    "MDX and Next.js Starter made by Bridger Tower at 9d8 and WIP / AC",
+    "Немска дентална клиника в центъра на София. Персонализирана грижа, модерно зъболечение с висококвалифициран екип.",
+  keywords: [
+    "дентална клиника София",
+    "зъболечение",
+    "импланти",
+    "естетична стоматология",
+    "Digital Smile Design",
+    "фасети",
+    "избелване на зъби",
+    "зъболекар София",
+    "дентални услуги",
+  ],
+  authors: [{ name: "Mint Clinic" }],
+  creator: "Mint Clinic",
+  publisher: "Mint Clinic",
+  metadataBase: new URL("https://mintclinic.com"),
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "Mint Clinic – Dental Clinic in Sofia",
+    description:
+      "Немска дентална клиника в центъра на София. Персонализирана грижа, модерно зъболечение с висококвалифициран екип.",
+    url: "https://mintclinic.com",
+    siteName: "Mint Clinic",
+    locale: "bg_BG",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Mint Clinic – Dental Clinic in Sofia",
+    description:
+      "Немска дентална клиника в центъра на София. Персонализирана грижа, модерно зъболечение с висококвалифициран екип.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 };
 
 export default function RootLayout({
@@ -30,6 +75,9 @@ export default function RootLayout({
 }) {
   return (
     <Layout>
+      <Head>
+        <meta name="apple-mobile-web-app-title" content="MintClinic" />
+      </Head>
       <body
         className={cn(
           "min-h-screen bg-background antialiased w-screen",
