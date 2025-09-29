@@ -3,7 +3,7 @@ import { FaTooth } from "react-icons/fa";
 
 export default function HeroSection() {
   return (
-    <div className="min-h-screen relative overflow-hidden">
+    <div className="relative overflow-hidden">
       {/* Hero Content */}
       <div className="bg-white relative">
         <div className="relative z-10 px-6 pt-8 pb-16">
