@@ -2,6 +2,7 @@ import HeaderSection from "@/components/HeaderSection";
 import HeroSection from "@/components/HeroSection";
 import WhoWeAre from "@/components/WhoWeAre";
 import InfoSection from "@/components/InfoSection";
+import ServicesSection from "@/components/ServicesSection";
 
 export default function HomePage() {
   return (
@@ -10,6 +11,7 @@ export default function HomePage() {
       <HeroSection />
       <WhoWeAre />
       <InfoSection />
+      <ServicesSection />
     </div>
   );
 }
