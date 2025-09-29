@@ -7,7 +7,6 @@ A minimal, modern MDX starter template built with Next.js 15 and Tailwind CSS.
 - **Next.js 15** - Latest App Router and React Server Components
 - **MDX** - Write content using Markdown + React components
 - **Code Highlighting** - Syntax highlighting with copy-to-clipboard
-- **Dark Mode** - Built-in dark mode with system preference detection
 - **Anchor Links** - Clickable heading anchors for easy sharing
 - **Metadata Support** - Built-in frontmatter-style metadata for MDX files
 - **Shadcn/UI** - Beautiful and accessible components
@@ -39,7 +38,6 @@ mdx/
 │   └── page.tsx       # Landing page
 ├── components/        # React components
 │   ├── mdx/          # MDX-specific components
-│   └── theme/        # Theme components
 └── styles/           # Global styles
 ```
 
@@ -93,17 +91,12 @@ The metadata component will automatically display:
 #### Code Blocks
 - Syntax highlighting for multiple languages
 - Copy-to-clipboard button
-- Dark mode support
 
 #### Anchor Links
 - Clickable `#` next to headings
 - Automatically copies URL with anchor
 - Perfect for sharing specific sections
 
-#### Dark Mode
-- System preference detection
-- Manual toggle option
-- Persists across sessions
 
 #### Metadata Support
 - TypeScript interfaces for type safety
