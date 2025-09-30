@@ -45,7 +45,7 @@ export default function HeroSection() {
               </p>
 
               <button className="bg-primary text-white font-bold self-center lg:self-start tracking-wider px-8 py-4 rounded-full hover:bg-primary/90 transition-colors duration-200">
-                Свържи се с нас
+                Запази час
               </button>
             </div>
           </div>
