@@ -51,7 +51,7 @@ export default function HeroSection() {
           </div>
 
           {/* Right Column - Image (Mobile Only) */}
-          <div className="lg:hidden bg-gradient-to-br from-primary to-primary/80 relative rounded-tl-[6rem] rounded-br-[7rem] overflow-hidden flex items-center justify-center">
+          <div className="lg:hidden aspect-square bg-gradient-to-br from-primary to-primary/80 relative rounded-tl-[6rem] rounded-br-[7rem] overflow-hidden flex items-center justify-center">
             {/* Decorative tooth icons */}
             <div className="absolute inset-0 pointer-events-none">
               <FaTooth className="absolute top-8 left-8 text-white/10 text-6xl rotate-12" />
@@ -61,15 +61,13 @@ export default function HeroSection() {
             </div>
 
             {/* Hero Image */}
-            <div className="w-full relative z-10 px-6 py-16 pb-0">
-              <Image
-                src="/hero-girl-v2.png"
-                alt="Happy patient"
-                width={936}
-                height={1046}
-                className="mx-auto w-full h-auto"
-              />
-            </div>
+            <Image
+              src="/hero-girl-v2.png"
+              alt="Happy patient"
+              width={936}
+              height={1046}
+              className="mx-auto w-full h-full pt-12 object-contain object-bottom"
+            />
           </div>
         </div>
       </div>
