@@ -12,7 +12,7 @@ export default function Footer() {
   return (
     <footer className="bg-primary text-white">
       {/* Top Row - Tagline & Contact Info */}
-      <div className="max-w-7xl mx-auto px-6 pt-16 pb-8">
+      <div className="max-w-7xl mx-auto px-6 py-16 ">
         <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-8">
           {/* Left - Tagline */}
           <div className="lg:w-1/2">

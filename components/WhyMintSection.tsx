@@ -61,13 +61,13 @@ export default function WhyMintSection() {
       </div>
 
       {/* Decorative Image */}
-      <div className="hidden md:block absolute bottom-8 left-8 opacity-20 pointer-events-none -z-10">
+      <div className="hidden md:block absolute bottom-16 left-0 opacity-20 pointer-events-none -z-10">
         <Image
           src="/mint-colored.svg"
           alt="Decorative mints"
           width={240}
           height={182}
-          className="w-auto h-auto"
+          className="w-2/3 h-auto"
         />
       </div>
     </section>

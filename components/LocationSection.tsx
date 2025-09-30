@@ -2,7 +2,7 @@ import { FaMapMarkerAlt } from "react-icons/fa";
 
 export default function LocationSection() {
   return (
-    <section className="bg-white py-16">
+    <section className="bg-white py-16 lg:py-32">
       {/* Header with Icon */}
       <div className="max-w-7xl mx-auto px-6 mb-8">
         <a

@@ -28,8 +28,12 @@ export default function InfoSection() {
   ];
 
   return (
-    <section className="py-16 px-6 bg-primary/5">
+    <section className="py-16 lg:py-32 px-6 bg-primary/5">
       <div className="max-w-7xl mx-auto">
+        <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-12">
+          <span className="font-light">Индивидуален подход</span> към всеки
+          пациент
+        </h2>
         <div className="flex flex-col gap-6 h-auto lg:flex-row">
           {infoCards.map((card) => (
             <div
