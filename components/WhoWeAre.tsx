@@ -4,7 +4,7 @@ export default function WhoWeAre() {
       <div className="max-w-7xl mx-auto">
         <div className="lg:grid lg:grid-cols-2 lg:gap-12 lg:items-center">
           {/* Content Section */}
-          <div className="lg:pr-8 mb-8 lg:mb-0">
+          <div className="lg:pr-8 mb-8 lg:mb-0 lg:order-2">
             <p className="text-sm uppercase tracking-wider text-foreground font-bold mb-4">
               КОИ СМЕ НИЕ
             </p>
@@ -31,8 +31,8 @@ export default function WhoWeAre() {
           </div>
 
           {/* Video Section */}
-          <div className="lg:order-last">
-            <div className="aspect-video rounded-lg rounded-tr-none rounded-bl-none overflow-hidden">
+          <div className="lg:order-1">
+            <div className="aspect-video rounded-3xl rounded-tr-none rounded-bl-none overflow-hidden">
               <iframe
                 className="w-full h-full"
                 src="https://www.youtube-nocookie.com/embed/GB_lUZMX1sM?controls=1&rel=0&playsinline=0&modestbranding=0&autoplay=0"

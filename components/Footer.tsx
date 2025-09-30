@@ -1,4 +1,3 @@
-"use client";
 import Image from "next/image";
 import {
   FaPhone,
@@ -7,14 +6,9 @@ import {
   FaMapPin,
   FaFacebook,
   FaInstagram,
-  FaChevronUp,
 } from "react-icons/fa";
 
 export default function Footer() {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
   return (
     <footer className="bg-primary text-white">
       {/* Top Row - Tagline & Contact Info */}
@@ -272,15 +266,6 @@ export default function Footer() {
           </div>
         </div>
       </div>
-
-      {/* Scroll to Top Button */}
-      <button
-        onClick={scrollToTop}
-        className="fixed bottom-8 right-8 w-14 h-14 bg-primary text-white rounded-full flex items-center justify-center shadow-lg hover:bg-primary/90 transition-colors z-50"
-        aria-label="Scroll to top"
-      >
-        <FaChevronUp className="text-xl" />
-      </button>
     </footer>
   );
 }
