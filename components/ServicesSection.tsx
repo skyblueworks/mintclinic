@@ -94,9 +94,7 @@ export default function ServicesSection() {
           plugins={[
             Autoplay({
               stopOnInteraction: false,
-              stopOnMouseEnter: true,
               stopOnFocusIn: true,
-              delay: 3000,
             }),
           ]}
           className="w-full"
