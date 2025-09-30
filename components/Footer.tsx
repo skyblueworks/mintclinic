@@ -67,7 +67,7 @@ export default function Footer() {
       {/* Bottom Section - Logo/CTA & Navigation/Social */}
       <div className="max-w-7xl mx-auto px-6 pb-16">
         <div className="bg-[#14B0B080] rounded-tl-3xl rounded-br-3xl p-8 lg:p-12">
-          <div className="flex flex-col lg:flex-row lg:justify-between gap-4 lg:gap-12">
+          <div className="flex flex-col lg:flex-row lg:justify-between gap-0 lg:gap-12">
             {/* Left - Logo & CTA */}
             <div className="lg:w-1/3 space-y-6">
               {/* Logo */}

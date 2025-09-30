@@ -30,7 +30,7 @@ export default function HeroSection() {
       <div className="max-w-7xl mx-auto h-full relative z-10">
         <div className="flex flex-col lg:flex-row lg:gap-8 lg:items-center h-full">
           {/* Left Column - Text Content */}
-          <div className="relative z-10 px-6 pr-12 pt-8 pb-16 lg:w-1/2 lg:py-20">
+          <div className="relative z-10 px-6 lg:pr-12 pt-8 pb-16 lg:w-1/2 lg:py-20">
             <div className="text-left text-foreground flex flex-col">
               <h1 className="text-3xl lg:text-4xl xl:text-5xl leading-tight mb-6">
                 <span className="font-normal">Вашата усмивка,</span>{" "}
