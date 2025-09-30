@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { FaTimes, FaChevronDown, FaChevronRight } from "react-icons/fa";
 
@@ -19,7 +20,7 @@ export default function HeaderSection() {
       <div className="max-w-7xl mx-auto px-6 w-full">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <a href="/">
+          <Link href="/">
             <Image
               src="/logo-colored-cropped.svg"
               alt="Mint Clinic"
@@ -27,16 +28,16 @@ export default function HeaderSection() {
               height={35}
               className="h-10 w-auto"
             />
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-8">
-            <a
+            <Link
               href="/"
               className="text-gray-700 hover:text-primary transition-colors font-medium"
             >
               Начало
-            </a>
+            </Link>
 
             {/* Услуги Dropdown */}
             <div
@@ -235,13 +236,13 @@ export default function HeaderSection() {
 
               {/* Mobile Navigation */}
               <nav className="space-y-2">
-                <a
+                <Link
                   href="/"
                   className="block py-3 text-gray-700 hover:text-primary transition-colors font-medium"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   Начало
-                </a>
+                </Link>
 
                 {/* Услуги */}
                 <div>
