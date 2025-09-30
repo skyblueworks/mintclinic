@@ -30,7 +30,7 @@ export const TestimonialsColumn = (props: {
               {props.testimonials.map(
                 ({ text, image, name, role, reviewUrl, stars }, i: number) => (
                   <div
-                    className="p-6 rounded-3xl rounded-bl-none rounded-tr-none border shadow-lg shadow-primary/10 max-w-md w-full relative"
+                    className="p-6 rounded-3xl rounded-bl-none rounded-tr-none border border-primary/10 shadow-lg shadow-primary/10 max-w-md w-full relative"
                     key={i}
                   >
                     {/* Star Rating with Link Icon */}
