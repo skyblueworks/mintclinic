@@ -23,7 +23,7 @@ export default function WhyMintSection() {
   ];
 
   return (
-    <section className="py-8 lg:py-16 bg-white relative px-6 isolate">
+    <section className="py-8 lg:py-16 bg-white relative lg:px-6 isolate">
       <div className="max-w-3xl mx-auto relative">
         {/* Decorative mint - top left */}
         <div className="hidden lg:block absolute top-6 -left-48 opacity-20 pointer-events-none -z-10">

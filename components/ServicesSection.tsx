@@ -70,7 +70,7 @@ export default function ServicesSection() {
   ];
 
   return (
-    <section className="pt-16 pb-8 lg:pt-32 lg:pb-16 bg-white">
+    <section className="py-16  lg:pt-32 lg:pb-16 bg-white">
       <div className="px-6 w-full">
         {/* Header */}
         <div className="max-w-7xl flex justify-between items-center mb-12 w-full mx-auto">

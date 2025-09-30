@@ -41,12 +41,9 @@ export default function InfoSection() {
               className="bg-white rounded-2xl rounded-tr-none rounded-bl-none p-6 flex-1 flex flex-col justify-between transition-shadow duration-300 [box-shadow:0px_4px_20px_2px_hsla(var(--mintclinic-mint-dark-hsl)_/_.10)]"
             >
               <div>
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-xl font-bold text-primary">
-                    {card.title}
-                  </h3>
-                  <span className="text-primary text-2xl font-light">+</span>
-                </div>
+                <h3 className="text-xl font-bold text-primary mb-4">
+                  {card.title}
+                </h3>
                 {card.subtitle && (
                   <h4 className="text-lg font-semibold mb-4 text-foreground font-dm-sans">
                     {card.subtitle}
