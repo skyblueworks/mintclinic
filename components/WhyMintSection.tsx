@@ -23,7 +23,7 @@ export default function WhyMintSection() {
   ];
 
   return (
-    <section className="py-16 bg-white relative md:px-6 isolate">
+    <section className="py-8 lg:py-16 bg-white relative md:px-6 isolate">
       <div className="max-w-7xl mx-auto">
         <div className="md:hidden absolute top-[215px] right-8 opacity-20 pointer-events-none z-10">
           <Image

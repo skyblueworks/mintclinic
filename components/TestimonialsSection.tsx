@@ -110,7 +110,7 @@ export default function TestimonialsSection() {
   }, [columnCount]); // Only recalculate when column count changes
 
   return (
-    <section className="pt-16 pb-32 px-6 bg-white overflow-hidden">
+    <section className="py-16 lg:pt-16 lg:pb-32 px-6 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto mb-12">
         <div className="text-left">
           <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-4">

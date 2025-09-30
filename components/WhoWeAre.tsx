@@ -1,6 +1,6 @@
 export default function WhoWeAre() {
   return (
-    <section className="pb-16 pt-32 px-6 bg-white">
+    <section className="pt-16 pb-8 lg:pb-16 lg:pt-32 px-6 bg-white">
       <div className="max-w-7xl mx-auto">
         <div className="lg:grid lg:grid-cols-2 lg:gap-12 lg:items-center">
           {/* Content Section */}
