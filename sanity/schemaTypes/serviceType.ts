@@ -18,24 +18,23 @@ export const serviceType = defineType({
     }),
     defineField({
       name: 'slug',
-      type: 'object',
-      fields: [
-        {name: 'bg', type: 'slug', title: 'Bulgarian', options: {source: 'title.bg'}},
-        {name: 'en', type: 'slug', title: 'English', options: {source: 'title.en'}},
-      ],
+      type: 'slug',
+      options: {source: 'title.bg'},
       validation: Rule => Rule.required(),
     }),
     defineField({
       name: 'category',
-      type: 'string',
-      options: {
-        list: [
-          {title: 'Aesthetics / Estetika', value: 'aesthetics'},
-          {title: 'Surgery / Hirurgiya', value: 'surgery'},
-          {title: 'Prosthetics / Protetika', value: 'prosthetics'},
-          {title: 'Conservative / Konservativna', value: 'conservative'},
-        ],
-      },
+      type: 'reference',
+      to: [{type: 'category'}],
+      validation: Rule => Rule.required(),
+    }),
+    defineField({
+      name: 'excerpt',
+      type: 'object',
+      fields: [
+        {name: 'bg', type: 'text', title: 'Bulgarian', rows: 3},
+        {name: 'en', type: 'text', title: 'English', rows: 3},
+      ],
     }),
     defineField({
       name: 'mainImage',
@@ -56,11 +55,19 @@ export const serviceType = defineType({
       ],
     }),
     defineField({
-      name: 'metaDescription',
+      name: 'seo',
       type: 'object',
+      title: 'SEO',
       fields: [
-        {name: 'bg', type: 'text', title: 'Bulgarian', rows: 2},
-        {name: 'en', type: 'text', title: 'English', rows: 2},
+        {
+          name: 'metaDescription',
+          type: 'object',
+          title: 'Meta Description',
+          fields: [
+            {name: 'bg', type: 'text', title: 'Bulgarian', rows: 2},
+            {name: 'en', type: 'text', title: 'English', rows: 2},
+          ],
+        },
       ],
     }),
   ],
@@ -68,13 +75,14 @@ export const serviceType = defineType({
     select: {
       titleBg: 'title.bg',
       titleEn: 'title.en',
-      subtitle: 'category',
+      categoryTitleBg: 'category.title.bg',
+      categoryTitleEn: 'category.title.en',
       media: 'mainImage',
     },
-    prepare({titleBg, titleEn, subtitle, media}) {
+    prepare({titleBg, titleEn, categoryTitleBg, categoryTitleEn, media}) {
       return {
         title: titleBg || titleEn || 'Untitled',
-        subtitle,
+        subtitle: categoryTitleBg || categoryTitleEn || 'No category',
         media,
       }
     },

@@ -1,3 +1,4 @@
+"use client";
 import { compile } from "@mdx-js/mdx";
 import { mdxComponents } from "@/components/mdx";
 import { MDXProvider } from "@mdx-js/react";
@@ -7,6 +8,14 @@ export interface MDXContent {
   code: {
     code: string;
   };
+}
+
+export interface PageMeta {
+  title?: string;
+  description?: string;
+  date?: string;
+  author?: string;
+  tags?: string[];
 }
 
 /**
@@ -33,7 +42,7 @@ export async function renderMDX(
       "jsxs",
       "Fragment",
       String(compiled)
-    );
+    ) as any;
 
     // Return the component wrapped in MDX provider
     return (
@@ -84,11 +93,17 @@ export function extractTextFromMDX(mdxContent: MDXContent): string {
 }
 
 /**
- * Get language-specific MDX content
+ * Format date for display
  */
-export function getLocalizedMDX(
-  content: { bg?: MDXContent; en?: MDXContent },
-  locale: string = "bg"
-): MDXContent | null {
-  return content[locale as "bg" | "en"] || content.bg || content.en || null;
+export function formatDate(dateString: string): string {
+  try {
+    const date = new Date(dateString);
+    return date.toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
+  } catch {
+    return dateString;
+  }
 }

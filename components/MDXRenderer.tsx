@@ -6,13 +6,10 @@ import { mdxComponents } from "./mdx/index";
 import { evaluate } from "@mdx-js/mdx";
 import * as runtime from "react/jsx-runtime";
 import * as devRuntime from "react/jsx-dev-runtime";
+import { MDXContent } from "@/lib/getLocalized";
 
 interface MDXRendererProps {
-  mdxContent: {
-    code: {
-      code: string;
-    };
-  };
+  mdxContent: MDXContent;
   className?: string;
 }
 

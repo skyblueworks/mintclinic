@@ -9,31 +9,22 @@ export const teamMemberType = defineType({
   fields: [
     defineField({
       name: "name",
+      type: "string",
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: "slug",
+      type: "slug",
+      options: { source: "name" },
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: "role",
       type: "object",
       fields: [
         { name: "bg", type: "string", title: "Bulgarian" },
         { name: "en", type: "string", title: "English" },
       ],
-      validation: (Rule) => Rule.required(),
-    }),
-    defineField({
-      name: "slug",
-      type: "object",
-      fields: [
-        {
-          name: "bg",
-          type: "slug",
-          title: "Bulgarian",
-          options: { source: "name.bg" },
-        },
-        {
-          name: "en",
-          type: "slug",
-          title: "English",
-          options: { source: "name.en" },
-        },
-      ],
-      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "photo",
@@ -42,6 +33,14 @@ export const teamMemberType = defineType({
     }),
     defineField({
       name: "bio",
+      type: "object",
+      fields: [
+        { name: "bg", type: "text", title: "Bulgarian", rows: 3 },
+        { name: "en", type: "text", title: "English", rows: 3 },
+      ],
+    }),
+    defineField({
+      name: "content",
       type: "object",
       fields: [
         { name: "bg", type: "mdx", title: "Bulgarian" },
@@ -56,27 +55,18 @@ export const teamMemberType = defineType({
         { name: "en", type: "string", title: "English" },
       ],
     }),
-    defineField({
-      name: "metaDescription",
-      type: "object",
-      fields: [
-        { name: "bg", type: "text", title: "Bulgarian", rows: 2 },
-        { name: "en", type: "text", title: "English", rows: 2 },
-      ],
-    }),
   ],
   preview: {
     select: {
-      nameBg: "name.bg",
-      nameEn: "name.en",
-      specializationBg: "specialization.bg",
-      specializationEn: "specialization.en",
+      name: "name",
+      roleBg: "role.bg",
+      roleEn: "role.en",
       media: "photo",
     },
-    prepare({ nameBg, nameEn, specializationBg, specializationEn, media }) {
+    prepare({ name, roleBg, roleEn, media }) {
       return {
-        title: nameBg || nameEn || "Unnamed Doctor",
-        subtitle: specializationBg || specializationEn,
+        title: name || "Unnamed Doctor",
+        subtitle: roleBg || roleEn,
         media,
       };
     },

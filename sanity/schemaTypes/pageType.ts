@@ -18,11 +18,12 @@ export const pageType = defineType({
     }),
     defineField({
       name: 'slug',
-      type: 'object',
-      fields: [
-        {name: 'bg', type: 'slug', title: 'Bulgarian', options: {source: 'title.bg'}},
-        {name: 'en', type: 'slug', title: 'English', options: {source: 'title.en'}},
-      ],
+      type: 'slug',
+      title: 'Slug',
+      options: {
+        source: 'title.bg',
+        maxLength: 96,
+      },
       validation: Rule => Rule.required(),
     }),
     defineField({
@@ -34,11 +35,45 @@ export const pageType = defineType({
       ],
     }),
     defineField({
-      name: 'metaDescription',
+      name: 'seo',
       type: 'object',
+      title: 'SEO',
       fields: [
-        {name: 'bg', type: 'text', title: 'Bulgarian', rows: 2},
-        {name: 'en', type: 'text', title: 'English', rows: 2},
+        {
+          name: 'metaDescription',
+          type: 'object',
+          title: 'Meta Description',
+          fields: [
+            {name: 'bg', type: 'text', title: 'Bulgarian', rows: 2},
+            {name: 'en', type: 'text', title: 'English', rows: 2},
+          ],
+        },
+        {
+          name: 'ogImage',
+          type: 'image',
+          title: 'Open Graph Image',
+        },
+      ],
+    }),
+    defineField({
+      name: 'images',
+      type: 'array',
+      title: 'Images',
+      description: 'Gallery images for gallery page',
+      of: [
+        {
+          type: 'image',
+          options: {
+            hotspot: true,
+          },
+          fields: [
+            {
+              name: 'alt',
+              type: 'string',
+              title: 'Alternative text',
+            },
+          ],
+        },
       ],
     }),
   ],

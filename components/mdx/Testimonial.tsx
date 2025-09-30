@@ -30,7 +30,7 @@ export function Testimonial({
       </div>
       
       <blockquote className="text-lg text-gray-700 leading-relaxed mb-6 italic">
-        "{quote}"
+        &ldquo;{quote}&rdquo;
       </blockquote>
       
       <div className="flex items-center gap-4">
