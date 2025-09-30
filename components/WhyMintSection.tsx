@@ -23,9 +23,32 @@ export default function WhyMintSection() {
   ];
 
   return (
-    <section className="py-8 lg:py-16 bg-white relative md:px-6 isolate">
-      <div className="max-w-7xl mx-auto">
-        <div className="md:hidden absolute top-[215px] right-8 opacity-20 pointer-events-none z-10">
+    <section className="py-8 lg:py-16 bg-white relative px-6 isolate">
+      <div className="max-w-3xl mx-auto relative">
+        {/* Decorative mint - top left */}
+        <div className="hidden lg:block absolute top-6 -left-48 opacity-20 pointer-events-none -z-10">
+          <Image
+            src="/mint-colored.svg"
+            alt="Decorative mint"
+            width={240}
+            height={182}
+            className="w-48 h-auto -scale-x-100 -rotate-90"
+          />
+        </div>
+
+        {/* Decorative mint - bottom right */}
+        <div className="hidden lg:block absolute bottom-6 -right-48 opacity-20 pointer-events-none -z-10">
+          <Image
+            src="/mint-colored.svg"
+            alt="Decorative mint"
+            width={240}
+            height={182}
+            className="w-48 h-auto rotate-90"
+          />
+        </div>
+
+        {/* Mobile decorative mint */}
+        <div className="lg:hidden absolute top-[215px] right-8 opacity-20 pointer-events-none z-10">
           <Image
             src="/mint.svg"
             alt="Decorative mints"
@@ -34,17 +57,13 @@ export default function WhyMintSection() {
             className="w-[100px]"
           />
         </div>
-        {/* Section Header */}
-        <div className="flex flex-col md:flex-row gap-16 items-start">
-          <div className="hidden md:block w-full md:w-1/3 sticky top-16">
-            <h2 className="text-5xl font-bold text-primary top-32">
-              Защо MINT
-            </h2>
-          </div>
-          <div className="w-full md:w-2/3 gap-12 flex flex-col bg-primary rounded-big rounded-tr-none rounded-bl-none p-12 py-[6rem] text-white relative">
-            <h2 className="md:hidden text-4xl text-center mb-8 -mt-8 lg:text-6xl font-bold text-white">
-              Защо MINT
-            </h2>
+
+        {/* Card */}
+        <div className="bg-primary rounded-big rounded-tr-none rounded-bl-none p-12 py-[6rem] text-white relative">
+          <h2 className="text-4xl text-center mb-12 lg:text-5xl font-bold text-white">
+            Защо MINT
+          </h2>
+          <div className="gap-12 flex flex-col">
             {reasons.map((reason) => (
               <div key={reason.id} className="flex flex-col gap-4">
                 <div className="flex-shrink-0 text-6xl font-bold">
@@ -58,17 +77,6 @@ export default function WhyMintSection() {
             ))}
           </div>
         </div>
-      </div>
-
-      {/* Decorative Image */}
-      <div className="hidden md:block absolute bottom-16 left-0 opacity-20 pointer-events-none -z-10">
-        <Image
-          src="/mint-colored.svg"
-          alt="Decorative mints"
-          width={240}
-          height={182}
-          className="w-2/3 h-auto"
-        />
       </div>
     </section>
   );
