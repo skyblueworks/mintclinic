@@ -117,7 +117,7 @@ export default function TestimonialsSection() {
             <span className="font-light">Какво казват</span> нашите пациенти
           </h2>
           <p className="text-foreground text-lg">
-            Стотици пациенти са ни се доверили с грижата за своите усмивки:
+            Хиляди пациенти са ни се доверили с грижата за своите усмивки:
           </p>
         </div>
       </div>

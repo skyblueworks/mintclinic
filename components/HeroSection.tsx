@@ -17,7 +17,7 @@ export default function HeroSection() {
         {/* Hero Image */}
         <div className="absolute inset-0 top-24 flex items-end justify-center px-6">
           <Image
-            src="/hero-girl-v2.png"
+            src="/hero-girl-v3.webp"
             alt="Happy patient"
             width={936}
             height={1046}
@@ -62,7 +62,7 @@ export default function HeroSection() {
 
             {/* Hero Image */}
             <Image
-              src="/hero-girl-v2.png"
+              src="/hero-girl-v3.webp"
               alt="Happy patient"
               width={936}
               height={1046}
