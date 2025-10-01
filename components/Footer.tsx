@@ -16,11 +16,11 @@ export default function Footer() {
   return (
     <motion.footer className="bg-primary text-white" {...fadeInMotionProps}>
       {/* Top Row - Tagline & Contact Info */}
-      <div className="max-w-7xl mx-auto px-6 py-16 ">
-        <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-8">
+      <div className="mx-auto max-w-7xl px-6 py-16">
+        <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between">
           {/* Left - Tagline */}
           <div className="lg:w-1/2">
-            <p className="text-white/90 text-lg leading-relaxed">
+            <p className="text-lg leading-relaxed text-white/90">
               Усмивката е нашето вдъхновение, а вашето здраве – наш приоритет.
               Доверете се на нашата професионална грижа за вашите зъби.
             </p>
@@ -28,18 +28,18 @@ export default function Footer() {
 
           {/* Right - Contact Info */}
           <div className="lg:w-1/2">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6">
               {/* Contact Info Column 1 */}
               <div className="space-y-4">
                 <a
                   href="tel:+359888436838"
-                  className="flex items-center gap-3 text-white/90 hover:text-white transition-colors"
+                  className="flex items-center gap-3 text-white/90 transition-colors hover:text-white"
                 >
-                  <FaPhone className="text-xl flex-shrink-0" />
+                  <FaPhone className="flex-shrink-0 text-xl" />
                   <span>+359 888 436 838</span>
                 </a>
                 <div className="flex items-center gap-3 text-white/90">
-                  <FaClock className="text-xl flex-shrink-0" />
+                  <FaClock className="flex-shrink-0 text-xl" />
                   <span>Пон - Пет, 09:00 - 18:00</span>
                 </div>
               </div>
@@ -48,18 +48,18 @@ export default function Footer() {
               <div className="space-y-4">
                 <a
                   href="mailto:info@mintclinic.com"
-                  className="flex items-center gap-3 text-white/90 hover:text-white transition-colors"
+                  className="flex items-center gap-3 text-white/90 transition-colors hover:text-white"
                 >
-                  <FaEnvelope className="text-xl flex-shrink-0" />
+                  <FaEnvelope className="flex-shrink-0 text-xl" />
                   <span>info@mintclinic.com</span>
                 </a>
                 <a
                   href="https://maps.app.goo.gl/N5WDg2yrsyfKvW7M6"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 text-white/90 hover:text-white transition-colors"
+                  className="flex items-center gap-3 text-white/90 transition-colors hover:text-white"
                 >
-                  <FaMapPin className="text-xl flex-shrink-0" />
+                  <FaMapPin className="flex-shrink-0 text-xl" />
                   <span>ул. Д-р Стефан Сарафов 20, София</span>
                 </a>
               </div>
@@ -69,11 +69,11 @@ export default function Footer() {
       </div>
 
       {/* Bottom Section - Logo/CTA & Navigation/Social */}
-      <div className="max-w-7xl mx-auto px-6 pb-16">
-        <div className="bg-[#14B0B080] rounded-tl-3xl rounded-br-3xl p-8 lg:p-12">
-          <div className="flex flex-col lg:flex-row lg:justify-between gap-0 lg:gap-12">
+      <div className="mx-auto max-w-7xl px-6 pb-16">
+        <div className="rounded-br-3xl rounded-tl-3xl bg-[#14B0B080] p-8 lg:p-12">
+          <div className="flex flex-col gap-0 lg:flex-row lg:justify-between lg:gap-12">
             {/* Left - Logo & CTA */}
-            <div className="lg:w-1/3 space-y-6">
+            <div className="space-y-6 lg:w-1/3">
               {/* Logo */}
               <div className="flex justify-center lg:justify-start">
                 <Image
@@ -88,21 +88,21 @@ export default function Footer() {
               {/* CTA Button */}
               <a
                 href="tel:+359888436838"
-                className="block w-full bg-accent text-accent-foreground font-extrabold py-3 px-6 rounded-full text-center hover:bg-accent/90 transition-colors"
+                className="block w-full rounded-full bg-accent px-6 py-3 text-center font-extrabold text-accent-foreground transition-colors hover:bg-accent/90"
               >
                 Запази час
               </a>
             </div>
 
             {/* Right - Navigation & Social */}
-            <div className="lg:w-2/3 space-y-8">
+            <div className="space-y-8 lg:w-2/3">
               {/* Navigation - Desktop */}
               <nav className="hidden lg:block">
-                <ul className="flex flex-wrap gap-x-8 gap-y-2 text-white/90 justify-end">
+                <ul className="flex flex-wrap justify-end gap-x-8 gap-y-2 text-white/90">
                   <li>
                     <Link
                       href="/za-nas"
-                      className="hover:text-white transition-colors"
+                      className="transition-colors hover:text-white"
                     >
                       За нас
                     </Link>
@@ -110,7 +110,7 @@ export default function Footer() {
                   <li>
                     <Link
                       href="/ekip"
-                      className="hover:text-white transition-colors"
+                      className="transition-colors hover:text-white"
                     >
                       Екип
                     </Link>
@@ -118,7 +118,7 @@ export default function Footer() {
                   <li>
                     <Link
                       href="/uslugi"
-                      className="hover:text-white transition-colors"
+                      className="transition-colors hover:text-white"
                     >
                       Услуги
                     </Link>
@@ -126,7 +126,7 @@ export default function Footer() {
                   <li>
                     <Link
                       href="/galeriya"
-                      className="hover:text-white transition-colors"
+                      className="transition-colors hover:text-white"
                     >
                       Галерия
                     </Link>
@@ -134,7 +134,7 @@ export default function Footer() {
                   <li>
                     <Link
                       href="/blog"
-                      className="hover:text-white transition-colors"
+                      className="transition-colors hover:text-white"
                     >
                       Блог
                     </Link>
@@ -142,7 +142,7 @@ export default function Footer() {
                   <li>
                     <Link
                       href="/kontakti"
-                      className="hover:text-white transition-colors"
+                      className="transition-colors hover:text-white"
                     >
                       Контакт
                     </Link>
@@ -152,11 +152,11 @@ export default function Footer() {
 
               {/* Navigation - Mobile */}
               <nav className="lg:hidden">
-                <ul className="flex flex-col sm:grid sm:grid-cols-2 gap-4 text-white/90 text-center text-lg">
+                <ul className="flex flex-col gap-4 text-center text-lg text-white/90 sm:grid sm:grid-cols-2">
                   <li>
                     <Link
                       href="/za-nas"
-                      className="hover:text-white transition-colors"
+                      className="transition-colors hover:text-white"
                     >
                       За нас
                     </Link>
@@ -164,7 +164,7 @@ export default function Footer() {
                   <li>
                     <Link
                       href="/uslugi"
-                      className="hover:text-white transition-colors"
+                      className="transition-colors hover:text-white"
                     >
                       Услуги
                     </Link>
@@ -172,7 +172,7 @@ export default function Footer() {
                   <li>
                     <Link
                       href="/ekip"
-                      className="hover:text-white transition-colors"
+                      className="transition-colors hover:text-white"
                     >
                       Екип
                     </Link>
@@ -180,7 +180,7 @@ export default function Footer() {
                   <li>
                     <Link
                       href="/galeriya"
-                      className="hover:text-white transition-colors"
+                      className="transition-colors hover:text-white"
                     >
                       Галерия
                     </Link>
@@ -188,7 +188,7 @@ export default function Footer() {
                   <li>
                     <Link
                       href="/blog"
-                      className="hover:text-white transition-colors"
+                      className="transition-colors hover:text-white"
                     >
                       Блог
                     </Link>
@@ -196,7 +196,7 @@ export default function Footer() {
                   <li>
                     <Link
                       href="/kontakti"
-                      className="hover:text-white transition-colors"
+                      className="transition-colors hover:text-white"
                     >
                       Контакт
                     </Link>
@@ -205,14 +205,14 @@ export default function Footer() {
               </nav>
 
               {/* Social Media */}
-              <div className="flex flex-col lg:flex-row items-center lg:items-center lg:justify-end gap-4">
+              <div className="flex flex-col items-center gap-4 lg:flex-row lg:items-center lg:justify-end">
                 <h3 className="text-xl font-bold">Последвай ни</h3>
                 <div className="flex gap-4">
                   <a
                     href="https://www.facebook.com/mintclinic.bg/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors"
+                    className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10 transition-colors hover:bg-white/20"
                     aria-label="Facebook"
                   >
                     <FaFacebook className="text-xl" />
@@ -221,7 +221,7 @@ export default function Footer() {
                     href="https://www.instagram.com/_mintclinic_"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors"
+                    className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10 transition-colors hover:bg-white/20"
                     aria-label="Instagram"
                   >
                     <FaInstagram className="text-xl" />
@@ -235,8 +235,8 @@ export default function Footer() {
 
       {/* Bottom Bar */}
       <div className="bg-primary-dark">
-        <div className="max-w-7xl mx-auto px-6 py-6">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-white/70 text-sm">
+        <div className="mx-auto max-w-7xl px-6 py-6">
+          <div className="flex flex-col items-center justify-between gap-4 text-sm text-white/70 md:flex-row">
             <p className="text-center md:text-left">
               <span className="inline-block">© 2024 Mint Clinic.</span>{" "}
               <span className="inline-block">Всички права са запазени.</span>{" "}
@@ -246,7 +246,7 @@ export default function Footer() {
                   href="https://simplifixstudio.bg/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-white/90 hover:text-white transition-colors"
+                  className="text-white/90 transition-colors hover:text-white"
                 >
                   Simplifix Studio
                 </a>
@@ -256,13 +256,13 @@ export default function Footer() {
             <div className="flex gap-6">
               <Link
                 href="/obshti-usloviya"
-                className="hover:text-white transition-colors"
+                className="transition-colors hover:text-white"
               >
                 Общи Условия
               </Link>
               <Link
                 href="/politika-za-poveritelnost"
-                className="hover:text-white transition-colors"
+                className="transition-colors hover:text-white"
               >
                 Политика за поверителност
               </Link>

@@ -73,16 +73,16 @@ export default function ServicesSection() {
 
   return (
     <motion.section
-      className="py-16  lg:pt-32 lg:pb-16 bg-white"
+      className="bg-white py-16 lg:pb-16 lg:pt-32"
       {...fadeInMotionProps}
     >
-      <div className="px-6 w-full">
+      <div className="w-full px-6">
         {/* Header */}
-        <div className="max-w-7xl flex justify-between items-center mb-12 w-full mx-auto">
-          <h2 className="text-3xl lg:text-4xl font-bold text-primary">
+        <div className="mx-auto mb-12 flex w-full max-w-7xl items-center justify-between">
+          <h2 className="text-3xl font-bold text-primary lg:text-4xl">
             Нашите услуги
           </h2>
-          <button className="bg-transparent text-nowrap border border-primary text-primary font-extrabold px-8 py-3 rounded-full hover:bg-primary hover:text-white transition-colors duration-200">
+          <button className="text-nowrap rounded-full border border-primary bg-transparent px-8 py-3 font-extrabold text-primary transition-colors duration-200 hover:bg-primary hover:text-white">
             Виж всички
           </button>
         </div>
@@ -108,11 +108,11 @@ export default function ServicesSection() {
             {services.map((service) => (
               <CarouselItem
                 key={service.id}
-                className="pl-[1rem] md:pl-[2rem] basis-[calc(100%-8rem)] md:basis-[40%]  lg:basis-[30%] xl:basis-1/4 select-none"
+                className="basis-[calc(100%-8rem)] select-none pl-[1rem] md:basis-[40%] md:pl-[2rem] lg:basis-[30%] xl:basis-1/4"
               >
-                <div className="bg-white border border-primary/20 rounded-2xl rounded-tr-none rounded-bl-none p-6 h-full flex flex-col justify-between duration-300">
+                <div className="flex h-full flex-col justify-between rounded-2xl rounded-bl-none rounded-tr-none border border-primary/20 bg-white p-6 duration-300">
                   <div>
-                    <div className="mb-12 flex justify-end items-start rounded-lg">
+                    <div className="mb-12 flex items-start justify-end rounded-lg">
                       <Image
                         src="/mint-colored.svg"
                         alt={service.title}
@@ -121,22 +121,22 @@ export default function ServicesSection() {
                         className="opacity-20"
                       />
                     </div>
-                    <h3 className="text-xl font-bold text-primary mb-3">
+                    <h3 className="mb-3 text-xl font-bold text-primary">
                       {service.title}
                     </h3>
-                    <p className="text-foreground/80 font-dm-sans leading-relaxed mb-6">
+                    <p className="mb-6 font-dm-sans leading-relaxed text-foreground/80">
                       {service.description}
                     </p>
                   </div>
-                  <button className="bg-transparent border border-primary text-primary font-extrabold px-6 py-3 rounded-full hover:bg-primary hover:text-white transition-colors duration-200 w-full">
+                  <button className="w-full rounded-full border border-primary bg-transparent px-6 py-3 font-extrabold text-primary transition-colors duration-200 hover:bg-primary hover:text-white">
                     Към услугата
                   </button>
                 </div>
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="size-12 left-6 bg-primary text-white border-primary hover:bg-primary/90 hover:text-white" />
-          <CarouselNext className="size-12 right-6 bg-primary text-white border-primary hover:bg-primary/90 hover:text-white" />
+          <CarouselPrevious className="left-6 size-12 border-primary bg-primary text-white hover:bg-primary/90 hover:text-white" />
+          <CarouselNext className="right-6 size-12 border-primary bg-primary text-white hover:bg-primary/90 hover:text-white" />
         </Carousel>
       </div>
     </motion.section>

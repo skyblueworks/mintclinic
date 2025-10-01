@@ -22,7 +22,7 @@ export const TestimonialsColumn = (props: {
           ease: "linear",
           repeatType: "loop",
         }}
-        className="flex flex-col gap-6 pb-6 bg-background"
+        className="flex flex-col gap-6 bg-background pb-6"
       >
         {[
           ...new Array(2).fill(0).map((_, index) => (
@@ -30,12 +30,12 @@ export const TestimonialsColumn = (props: {
               {props.testimonials.map(
                 ({ text, image, name, role, reviewUrl, stars }, i: number) => (
                   <div
-                    className="p-6 rounded-3xl rounded-bl-none rounded-tr-none border border-primary/10 shadow-lg shadow-primary/10 max-w-md w-full relative"
+                    className="relative w-full max-w-md rounded-3xl rounded-bl-none rounded-tr-none border border-primary/10 p-6 shadow-lg shadow-primary/10"
                     key={i}
                   >
                     {/* Star Rating with Link Icon */}
                     {stars && (
-                      <div className="flex items-center justify-between mb-4">
+                      <div className="mb-4 flex items-center justify-between">
                         <div className="flex items-center gap-1">
                           {[...Array(5)].map((_, starIndex) => (
                             <FaStar
@@ -48,7 +48,7 @@ export const TestimonialsColumn = (props: {
                               }
                             />
                           ))}
-                          <span className="ml-1 text-sm text-primary/60 font-medium">
+                          <span className="ml-1 text-sm font-medium text-primary/60">
                             {stars}/5
                           </span>
                         </div>
@@ -57,7 +57,7 @@ export const TestimonialsColumn = (props: {
                             href={reviewUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-primary/60 hover:text-primary transition-colors flex-shrink-0"
+                            className="flex-shrink-0 text-primary/60 transition-colors hover:text-primary"
                             title="View on Google Reviews"
                           >
                             <FiExternalLink size={16} />
@@ -67,7 +67,7 @@ export const TestimonialsColumn = (props: {
                     )}
 
                     <div>{text}</div>
-                    <div className="flex items-center gap-3 mt-5">
+                    <div className="mt-5 flex items-center gap-3">
                       {image.startsWith("http") ? (
                         <img
                           width={40}
@@ -86,16 +86,16 @@ export const TestimonialsColumn = (props: {
                         />
                       )}
                       <div className="flex flex-col gap-0.5">
-                        <div className="font-medium tracking-tight leading-5">
+                        <div className="font-medium leading-5 tracking-tight">
                           {name}
                         </div>
-                        <div className="leading-5 opacity-60 tracking-tight text-sm">
+                        <div className="text-sm leading-5 tracking-tight opacity-60">
                           {role}
                         </div>
                       </div>
                     </div>
                   </div>
-                )
+                ),
               )}
             </React.Fragment>
           )),

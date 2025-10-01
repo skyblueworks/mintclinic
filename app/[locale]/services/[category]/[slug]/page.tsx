@@ -13,7 +13,7 @@ async function getServiceByCategory(category: string, slug: string) {
     return await client.fetch(
       serviceBySlugAndCategoryQuery,
       { category, slug },
-      { cache: "no-store" }
+      { cache: "no-store" },
     );
   } catch (error) {
     console.error("Error fetching service:", error);
@@ -28,7 +28,7 @@ export async function generateStaticParams() {
       "category": category->slug.current
     }`,
     {},
-    { cache: "no-store" }
+    { cache: "no-store" },
   );
 
   const locales = ["bg", "en"];
@@ -90,11 +90,11 @@ export default async function ServiceCategoryPage({ params }) {
         <span>{service.title[locale] || service.title.bg}</span>
       </nav>
 
-      <div className="bg-white rounded-lg shadow-md p-8 mb-8">
-        <h1 className="text-4xl font-bold mb-4 text-blue-600">
+      <div className="mb-8 rounded-lg bg-white p-8 shadow-md">
+        <h1 className="mb-4 text-4xl font-bold text-blue-600">
           {service.title[locale] || service.title.bg}
         </h1>
-        <p className="text-lg text-gray-600 mb-6">
+        <p className="mb-6 text-lg text-gray-600">
           {locale === "bg"
             ? "Тестова страница за услуга"
             : "Test page for service"}
@@ -107,11 +107,11 @@ export default async function ServiceCategoryPage({ params }) {
         </div>
 
         {/* Service Data */}
-        <div className="bg-gray-50 p-6 rounded-lg mb-8">
-          <h2 className="text-2xl font-semibold mb-4">
+        <div className="mb-8 rounded-lg bg-gray-50 p-6">
+          <h2 className="mb-4 text-2xl font-semibold">
             {locale === "bg" ? "Данни от услуга" : "Service Data"}
           </h2>
-          <pre className="bg-white p-4 rounded border overflow-x-auto text-sm">
+          <pre className="overflow-x-auto rounded border bg-white p-4 text-sm">
             {JSON.stringify(service, null, 2)}
           </pre>
         </div>
@@ -119,7 +119,7 @@ export default async function ServiceCategoryPage({ params }) {
         {/* Service Content Preview */}
         {service.excerpt && (
           <div className="mb-6">
-            <h2 className="text-2xl font-semibold mb-4">
+            <h2 className="mb-4 text-2xl font-semibold">
               {locale === "bg" ? "Кратко описание" : "Excerpt"}
             </h2>
             <p className="text-gray-700">
@@ -131,7 +131,7 @@ export default async function ServiceCategoryPage({ params }) {
         {/* Service Content */}
         {content && (
           <div className="mb-6">
-            <h2 className="text-2xl font-semibold mb-4">
+            <h2 className="mb-4 text-2xl font-semibold">
               {locale === "bg" ? "Съдържание (MDX)" : "Content (MDX)"}
             </h2>
             <article className="prose prose-lg max-w-none">

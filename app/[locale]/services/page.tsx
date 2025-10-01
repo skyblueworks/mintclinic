@@ -24,7 +24,7 @@ async function getCategories(locale) {
     return await client.fetch(
       categoriesWithServicesListQuery,
       { locale },
-      { cache: "no-store" }
+      { cache: "no-store" },
     );
   } catch (error) {
     console.error("Error fetching categories:", error);
@@ -50,19 +50,19 @@ export default async function ServicesPage({ params }: Props) {
         <span>{locale === "bg" ? "Услуги" : "Services"}</span>
       </nav>
 
-      <div className="bg-white rounded-lg shadow-md p-8 mb-8">
-        <h1 className="text-4xl font-bold mb-4 text-blue-600">
+      <div className="mb-8 rounded-lg bg-white p-8 shadow-md">
+        <h1 className="mb-4 text-4xl font-bold text-blue-600">
           {locale === "bg" ? "Услуги" : "Services"}
         </h1>
-        <p className="text-lg text-gray-600 mb-6">
+        <p className="mb-6 text-lg text-gray-600">
           {locale === "bg"
             ? "Тестова страница за услуги и категории"
             : "Test page for services and categories"}
         </p>
 
         {/* Document Counts */}
-        <div className="grid grid-cols-2 gap-4 mb-8">
-          <div className="bg-blue-50 p-4 rounded-lg text-center">
+        <div className="mb-8 grid grid-cols-2 gap-4">
+          <div className="rounded-lg bg-blue-50 p-4 text-center">
             <div className="text-3xl font-bold text-blue-600">
               {services?.length || 0}
             </div>
@@ -70,7 +70,7 @@ export default async function ServicesPage({ params }: Props) {
               {locale === "bg" ? "Услуги" : "Services"}
             </div>
           </div>
-          <div className="bg-green-50 p-4 rounded-lg text-center">
+          <div className="rounded-lg bg-green-50 p-4 text-center">
             <div className="text-3xl font-bold text-green-600">
               {categories?.length || 0}
             </div>
@@ -83,38 +83,38 @@ export default async function ServicesPage({ params }: Props) {
         {/* Categories Data */}
         {categories && categories.length > 0 ? (
           <div className="mb-8">
-            <h2 className="text-2xl font-semibold mb-4">
+            <h2 className="mb-4 text-2xl font-semibold">
               {locale === "bg" ? "Категории" : "Categories"}
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+            <div className="mb-6 grid grid-cols-1 gap-4 md:grid-cols-3">
               {categories.map((category: any) => (
                 <a
                   key={category._id}
                   href={`/${locale}/services/${category.slug}`}
-                  className="block p-4 border border-gray-200 rounded-lg hover:border-blue-500 hover:shadow-md transition"
+                  className="block rounded-lg border border-gray-200 p-4 transition hover:border-blue-500 hover:shadow-md"
                 >
-                  <h3 className="font-semibold text-lg mb-2">
+                  <h3 className="mb-2 text-lg font-semibold">
                     {category.title[locale] || category.title.bg}
                   </h3>
                   {category.description && (
-                    <p className="text-gray-600 text-sm">
+                    <p className="text-sm text-gray-600">
                       {category.description[locale] || category.description.bg}
                     </p>
                   )}
                 </a>
               ))}
             </div>
-            <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="text-xl font-semibold mb-4">
+            <div className="rounded-lg bg-gray-50 p-6">
+              <h3 className="mb-4 text-xl font-semibold">
                 {locale === "bg" ? "Данни от категории" : "Categories Data"}
               </h3>
-              <pre className="bg-white p-4 rounded border overflow-x-auto text-sm">
+              <pre className="overflow-x-auto rounded border bg-white p-4 text-sm">
                 {JSON.stringify(categories, null, 2)}
               </pre>
             </div>
           </div>
         ) : (
-          <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-8">
+          <div className="mb-8 rounded-lg border border-yellow-200 bg-yellow-50 p-4">
             <p className="text-yellow-800">
               {locale === "bg"
                 ? "Няма данни за категории."
@@ -126,21 +126,21 @@ export default async function ServicesPage({ params }: Props) {
         {/* Services Data */}
         {services && services.length > 0 ? (
           <div>
-            <h2 className="text-2xl font-semibold mb-4">
+            <h2 className="mb-4 text-2xl font-semibold">
               {locale === "bg" ? "Всички услуги" : "All Services"}
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+            <div className="mb-6 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
               {services.map((service: any) => (
                 <a
                   key={service._id}
                   href={`/${locale}/services/${service.category?.slug}/${service.slug}`}
-                  className="block p-4 border border-gray-200 rounded-lg hover:border-blue-500 hover:shadow-md transition"
+                  className="block rounded-lg border border-gray-200 p-4 transition hover:border-blue-500 hover:shadow-md"
                 >
-                  <h3 className="font-semibold text-lg mb-2">
+                  <h3 className="mb-2 text-lg font-semibold">
                     {service.title[locale] || service.title.bg}
                   </h3>
                   {service.excerpt && (
-                    <p className="text-gray-600 text-sm mb-2">
+                    <p className="mb-2 text-sm text-gray-600">
                       {service.excerpt[locale] || service.excerpt.bg}
                     </p>
                   )}
@@ -153,17 +153,17 @@ export default async function ServicesPage({ params }: Props) {
                 </a>
               ))}
             </div>
-            <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="text-xl font-semibold mb-4">
+            <div className="rounded-lg bg-gray-50 p-6">
+              <h3 className="mb-4 text-xl font-semibold">
                 {locale === "bg" ? "Данни от услуги" : "Services Data"}
               </h3>
-              <pre className="bg-white p-4 rounded border overflow-x-auto text-sm">
+              <pre className="overflow-x-auto rounded border bg-white p-4 text-sm">
                 {JSON.stringify(services, null, 2)}
               </pre>
             </div>
           </div>
         ) : (
-          <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+          <div className="rounded-lg border border-yellow-200 bg-yellow-50 p-4">
             <p className="text-yellow-800">
               {locale === "bg" ? "Няма данни за услуги." : "No services data."}
             </p>

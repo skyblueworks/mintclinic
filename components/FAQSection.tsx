@@ -51,14 +51,14 @@ export default function FAQSection() {
 
   return (
     <motion.section
-      className="py-16 lg:py-32 bg-primary"
+      className="bg-primary py-16 lg:py-32"
       {...fadeInMotionProps}
     >
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="flex flex-col lg:flex-row gap-16">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="flex flex-col gap-16 lg:flex-row">
           {/* Header */}
           <div className="w-full lg:w-1/3">
-            <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">
+            <h2 className="mb-4 text-4xl font-bold text-white lg:text-5xl">
               <span className="font-light">Често задавани</span> въпроси
             </h2>
           </div>
@@ -75,13 +75,13 @@ export default function FAQSection() {
                 <AccordionItem
                   key={faq.id}
                   value={faq.id}
-                  className="bg-white rounded-2xl rounded-tr-none rounded-bl-none px-6 py-2"
+                  className="rounded-2xl rounded-bl-none rounded-tr-none bg-white px-6 py-2"
                 >
-                  <AccordionTrigger className="text-left text-2xl font-semibold text-primary hover:no-underline py-4">
+                  <AccordionTrigger className="py-4 text-left text-2xl font-semibold text-primary hover:no-underline">
                     {faq.question}
                   </AccordionTrigger>
                   <AccordionContent className="pb-4 pt-2">
-                    <p className="text-primary font-dm-sans leading-relaxed text-lg">
+                    <p className="font-dm-sans text-lg leading-relaxed text-primary">
                       {faq.answer}
                     </p>
                   </AccordionContent>

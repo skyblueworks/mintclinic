@@ -53,21 +53,21 @@ export function Navigation({ locale, categories = [] }: NavigationProps) {
   ];
 
   return (
-    <nav className="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+    <nav className="sticky top-0 z-50 border-b border-gray-200 bg-white shadow-sm">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <Link href={`/${locale}`} className="text-xl font-bold text-blue-600">
             Mint Clinic
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-1">
+          <div className="hidden items-center space-x-1 md:flex">
             {mainLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                className={`rounded-md px-3 py-2 text-sm font-medium transition-colors ${
                   isActive(link.href)
                     ? "bg-blue-100 text-blue-700"
                     : "text-gray-700 hover:bg-gray-100"
@@ -79,8 +79,8 @@ export function Navigation({ locale, categories = [] }: NavigationProps) {
 
             {/* Services Dropdown */}
             {categories.length > 0 && (
-              <div className="relative group">
-                <button className="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-100 flex items-center">
+              <div className="group relative">
+                <button className="flex items-center rounded-md px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100">
                   {locale === "bg" ? "Категории" : "Categories"}
                   <svg
                     className="ml-1 h-4 w-4"
@@ -96,16 +96,13 @@ export function Navigation({ locale, categories = [] }: NavigationProps) {
                     />
                   </svg>
                 </button>
-                <div className="absolute left-0 mt-2 w-56 bg-white border border-gray-200 rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
+                <div className="invisible absolute left-0 mt-2 w-56 rounded-md border border-gray-200 bg-white opacity-0 shadow-lg transition-all group-hover:visible group-hover:opacity-100">
                   {categories.map((cat) => (
                     <div key={cat.slug} className="group relative">
                       <Link href={`/${locale}/services/${cat.slug}`}>
                         {cat.title}
                       </Link>
-                      <div
-                        className="absolute left-full top-0 ml-2 bg-white border border-gray-200 rounded-md shadow-lg
-                hidden group-hover:block z-50 min-w-48"
-                      >
+                      <div className="absolute left-full top-0 z-50 ml-2 hidden min-w-48 rounded-md border border-gray-200 bg-white shadow-lg group-hover:block">
                         {cat.services &&
                           cat.services.map((s) => (
                             <Link
@@ -128,7 +125,7 @@ export function Navigation({ locale, categories = [] }: NavigationProps) {
           <div className="flex items-center space-x-4">
             <Link
               href={switchLocale()}
-              className="px-3 py-1 text-sm font-medium border border-gray-300 rounded-md hover:bg-gray-50 transition-colors"
+              className="rounded-md border border-gray-300 px-3 py-1 text-sm font-medium transition-colors hover:bg-gray-50"
             >
               {locale === "bg" ? "EN" : "BG"}
             </Link>
@@ -136,7 +133,7 @@ export function Navigation({ locale, categories = [] }: NavigationProps) {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2 rounded-md text-gray-700 hover:bg-gray-100"
+              className="rounded-md p-2 text-gray-700 hover:bg-gray-100 md:hidden"
             >
               <svg
                 className="h-6 w-6"
@@ -166,13 +163,13 @@ export function Navigation({ locale, categories = [] }: NavigationProps) {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-gray-200">
+          <div className="border-t border-gray-200 py-4 md:hidden">
             {mainLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className={`block px-3 py-2 rounded-md text-base font-medium ${
+                className={`block rounded-md px-3 py-2 text-base font-medium ${
                   isActive(link.href)
                     ? "bg-blue-100 text-blue-700"
                     : "text-gray-700 hover:bg-gray-100"

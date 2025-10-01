@@ -243,7 +243,7 @@ export const homePageType = defineType({
                   options: { hotspot: true },
                 }),
                 defineField({
-                  name: "afterImage", 
+                  name: "afterImage",
                   type: "image",
                   title: "After Image",
                   options: { hotspot: true },

@@ -40,6 +40,9 @@ export const translations = {
   },
 } as const;
 
-export function getTranslation(locale: Locale, key: keyof typeof translations.bg): string {
+export function getTranslation(
+  locale: Locale,
+  key: keyof typeof translations.bg,
+): string {
   return translations[locale][key];
 }

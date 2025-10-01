@@ -184,7 +184,7 @@ export const Article = ({
       baseTypographyStyles,
       styles.layout.spacing,
       styles.layout.article,
-      className
+      className,
     )}
     id={id}
   >
@@ -210,7 +210,7 @@ export const Prose = ({
 // Utility function for responsive classes
 const getResponsiveClass = <T extends string | number>(
   value: ResponsiveValue<T> | undefined,
-  classMap: Record<T, string>
+  classMap: Record<T, string>,
 ): string => {
   if (!value) return "";
   if (typeof value === "object") {
@@ -282,7 +282,7 @@ export const Box = ({
         getResponsiveClass(gap, gapClasses),
         cols && getResponsiveClass(cols, colsClasses),
         rows && getResponsiveClass(rows, colsClasses),
-        className
+        className,
       )}
       id={id}
     >

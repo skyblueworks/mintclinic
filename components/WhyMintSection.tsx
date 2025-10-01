@@ -27,34 +27,34 @@ export default function WhyMintSection() {
 
   return (
     <motion.section
-      className="py-8 lg:py-16 bg-white relative lg:px-6 isolate"
+      className="relative isolate bg-white py-8 lg:px-6 lg:py-16"
       {...fadeInMotionProps}
     >
-      <div className="max-w-3xl mx-auto relative">
+      <div className="relative mx-auto max-w-3xl">
         {/* Decorative mint - top left */}
-        <div className="hidden lg:block absolute top-6 -left-48 opacity-20 pointer-events-none -z-10">
+        <div className="pointer-events-none absolute -left-48 top-6 -z-10 hidden opacity-20 lg:block">
           <Image
             src="/mint-colored.svg"
             alt="Decorative mint"
             width={240}
             height={182}
-            className="w-48 h-auto -scale-x-100 -rotate-90"
+            className="h-auto w-48 -rotate-90 -scale-x-100"
           />
         </div>
 
         {/* Decorative mint - bottom right */}
-        <div className="hidden lg:block absolute bottom-6 -right-48 opacity-20 pointer-events-none -z-10">
+        <div className="pointer-events-none absolute -right-48 bottom-6 -z-10 hidden opacity-20 lg:block">
           <Image
             src="/mint-colored.svg"
             alt="Decorative mint"
             width={240}
             height={182}
-            className="w-48 h-auto rotate-90"
+            className="h-auto w-48 rotate-90"
           />
         </div>
 
         {/* Mobile decorative mint */}
-        <div className="lg:hidden absolute top-[215px] right-8 opacity-20 pointer-events-none z-10">
+        <div className="pointer-events-none absolute right-8 top-[215px] z-10 opacity-20 lg:hidden">
           <Image
             src="/mint.svg"
             alt="Decorative mints"
@@ -65,18 +65,18 @@ export default function WhyMintSection() {
         </div>
 
         {/* Card */}
-        <div className="bg-primary rounded-big rounded-tr-none rounded-bl-none p-12 py-[6rem] text-white relative">
-          <h2 className="text-4xl text-center mb-12 lg:text-5xl font-bold text-white">
+        <div className="relative rounded-big rounded-bl-none rounded-tr-none bg-primary p-12 py-[6rem] text-white">
+          <h2 className="mb-12 text-center text-4xl font-bold text-white lg:text-5xl">
             Защо MINT
           </h2>
-          <div className="gap-12 flex flex-col">
+          <div className="flex flex-col gap-12">
             {reasons.map((reason) => (
               <div key={reason.id} className="flex flex-col gap-4">
                 <div className="flex-shrink-0 text-6xl font-bold">
                   {reason.id}.
                 </div>
                 <h4 className="text-2xl font-bold">{reason.title}</h4>
-                <p className="text-white font-dm-sans leading-relaxed">
+                <p className="font-dm-sans leading-relaxed text-white">
                   {reason.description}
                 </p>
               </div>

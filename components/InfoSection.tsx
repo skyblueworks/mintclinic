@@ -33,34 +33,34 @@ export default function InfoSection() {
 
   return (
     <motion.section
-      className="py-16 lg:py-32 px-6 bg-primary/5"
+      className="bg-primary/5 px-6 py-16 lg:py-32"
       {...fadeInMotionProps}
     >
-      <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-12">
+      <div className="mx-auto max-w-7xl">
+        <h2 className="mb-12 text-3xl font-bold text-primary lg:text-4xl">
           <span className="font-light">Индивидуален подход</span> към всеки
           пациент
         </h2>
-        <div className="flex flex-col gap-6 h-auto lg:flex-row">
+        <div className="flex h-auto flex-col gap-6 lg:flex-row">
           {infoCards.map((card) => (
             <div
               key={card.id}
-              className="bg-white rounded-2xl rounded-tr-none rounded-bl-none p-6 flex-1 flex flex-col justify-between transition-shadow duration-300 [box-shadow:0px_4px_20px_2px_hsla(var(--mintclinic-mint-dark-hsl)_/_.10)]"
+              className="flex flex-1 flex-col justify-between rounded-2xl rounded-bl-none rounded-tr-none bg-white p-6 transition-shadow duration-300 [box-shadow:0px_4px_20px_2px_hsla(var(--mintclinic-mint-dark-hsl)_/_.10)]"
             >
               <div>
-                <h3 className="text-xl font-bold text-primary mb-4">
+                <h3 className="mb-4 text-xl font-bold text-primary">
                   {card.title}
                 </h3>
                 {card.subtitle && (
-                  <h4 className="text-lg font-semibold mb-4 text-foreground font-dm-sans">
+                  <h4 className="mb-4 font-dm-sans text-lg font-semibold text-foreground">
                     {card.subtitle}
                   </h4>
                 )}
-                <p className="text-foreground/90 font-dm-sans leading-relaxed mb-6">
+                <p className="mb-6 font-dm-sans leading-relaxed text-foreground/90">
                   {card.description}
                 </p>
               </div>
-              <button className="bg-transparent border border-primary text-primary font-extrabold px-6 py-3 rounded-full hover:bg-primary hover:text-white transition-colors duration-200 self-start w-full">
+              <button className="w-full self-start rounded-full border border-primary bg-transparent px-6 py-3 font-extrabold text-primary transition-colors duration-200 hover:bg-primary hover:text-white">
                 {card.buttonText}
               </button>
             </div>

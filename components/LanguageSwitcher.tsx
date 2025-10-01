@@ -6,16 +6,16 @@ interface LanguageSwitcherProps {
   className?: string;
 }
 
-export function LanguageSwitcher({ 
-  currentLanguage, 
-  onLanguageChange, 
-  className = "" 
+export function LanguageSwitcher({
+  currentLanguage,
+  onLanguageChange,
+  className = "",
 }: LanguageSwitcherProps) {
   return (
-    <div className={`flex bg-white rounded-full shadow-lg p-1 ${className}`}>
+    <div className={`flex rounded-full bg-white p-1 shadow-lg ${className}`}>
       <button
         onClick={() => onLanguageChange("en")}
-        className={`px-4 py-2 rounded-full font-medium transition-all text-sm ${
+        className={`rounded-full px-4 py-2 text-sm font-medium transition-all ${
           currentLanguage === "en"
             ? "bg-blue-600 text-white shadow-md"
             : "text-gray-600 hover:text-gray-900"
@@ -25,7 +25,7 @@ export function LanguageSwitcher({
       </button>
       <button
         onClick={() => onLanguageChange("bg")}
-        className={`px-4 py-2 rounded-full font-medium transition-all text-sm ${
+        className={`rounded-full px-4 py-2 text-sm font-medium transition-all ${
           currentLanguage === "bg"
             ? "bg-blue-600 text-white shadow-md"
             : "text-gray-600 hover:text-gray-900"

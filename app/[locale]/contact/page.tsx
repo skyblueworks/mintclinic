@@ -12,7 +12,7 @@ async function getContactPage() {
     return await client.fetch(
       pageBySlugQuery,
       { slug: "contact" },
-      { cache: "no-store" }
+      { cache: "no-store" },
     );
   } catch (error) {
     console.error("Error fetching contact page:", error);
@@ -35,13 +35,13 @@ export default async function ContactPage({ params }) {
         <span>{locale === "bg" ? "Контакти" : "Contact"}</span>
       </nav>
 
-      <div className="bg-white rounded-lg shadow-md p-8 mb-8">
-        <h1 className="text-4xl font-bold mb-4 text-blue-600">
+      <div className="mb-8 rounded-lg bg-white p-8 shadow-md">
+        <h1 className="mb-4 text-4xl font-bold text-blue-600">
           {page?.title?.[locale] ||
             page?.title?.bg ||
             (locale === "bg" ? "Контакти" : "Contact")}
         </h1>
-        <p className="text-lg text-gray-600 mb-6">
+        <p className="mb-6 text-lg text-gray-600">
           {locale === "bg"
             ? "Тестова страница за контакти"
             : "Test page for contact"}
@@ -56,11 +56,11 @@ export default async function ContactPage({ params }) {
         {/* Page Data */}
         {page ? (
           <div>
-            <div className="bg-gray-50 p-6 rounded-lg mb-8">
-              <h2 className="text-2xl font-semibold mb-4">
+            <div className="mb-8 rounded-lg bg-gray-50 p-6">
+              <h2 className="mb-4 text-2xl font-semibold">
                 {locale === "bg" ? "Данни от страница" : "Page Data"}
               </h2>
-              <pre className="bg-white p-4 rounded border overflow-x-auto text-sm">
+              <pre className="overflow-x-auto rounded border bg-white p-4 text-sm">
                 {JSON.stringify(page, null, 2)}
               </pre>
             </div>
@@ -68,7 +68,7 @@ export default async function ContactPage({ params }) {
             {/* Page Content Preview */}
             {page.content && (
               <div className="mb-8">
-                <h2 className="text-2xl font-semibold mb-4">
+                <h2 className="mb-4 text-2xl font-semibold">
                   {locale === "bg" ? "Съдържание (MDX)" : "Content (MDX)"}
                 </h2>
                 <article className="prose prose-lg max-w-none">
@@ -89,7 +89,7 @@ export default async function ContactPage({ params }) {
             )}
           </div>
         ) : (
-          <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-8">
+          <div className="mb-8 rounded-lg border border-yellow-200 bg-yellow-50 p-4">
             <p className="text-yellow-800">
               {locale === "bg"
                 ? "Няма данни за тази страница. Моля, добавете страница с slug 'contact' в Sanity Studio."
@@ -99,10 +99,10 @@ export default async function ContactPage({ params }) {
         )}
 
         {/* Static Contact Info */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+        <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2">
           {/* Contact Info */}
           <div>
-            <h2 className="text-2xl font-semibold mb-4">
+            <h2 className="mb-4 text-2xl font-semibold">
               {locale === "bg"
                 ? "Информация за контакт"
                 : "Contact Information"}
@@ -110,7 +110,7 @@ export default async function ContactPage({ params }) {
 
             <div className="space-y-4">
               <div>
-                <h3 className="font-semibold mb-1">
+                <h3 className="mb-1 font-semibold">
                   {locale === "bg" ? "Адрес" : "Address"}
                 </h3>
                 <p className="text-gray-600">
@@ -121,7 +121,7 @@ export default async function ContactPage({ params }) {
               </div>
 
               <div>
-                <h3 className="font-semibold mb-1">
+                <h3 className="mb-1 font-semibold">
                   {locale === "bg" ? "Телефон" : "Phone"}
                 </h3>
                 <p className="text-gray-600">
@@ -132,7 +132,7 @@ export default async function ContactPage({ params }) {
               </div>
 
               <div>
-                <h3 className="font-semibold mb-1">
+                <h3 className="mb-1 font-semibold">
                   {locale === "bg" ? "Имейл" : "Email"}
                 </h3>
                 <p className="text-gray-600">
@@ -146,7 +146,7 @@ export default async function ContactPage({ params }) {
               </div>
 
               <div>
-                <h3 className="font-semibold mb-1">
+                <h3 className="mb-1 font-semibold">
                   {locale === "bg" ? "Работно време" : "Working Hours"}
                 </h3>
                 <p className="text-gray-600">
@@ -160,10 +160,10 @@ export default async function ContactPage({ params }) {
 
           {/* Contact Form Placeholder */}
           <div>
-            <h2 className="text-2xl font-semibold mb-4">
+            <h2 className="mb-4 text-2xl font-semibold">
               {locale === "bg" ? "Изпратете съобщение" : "Send a Message"}
             </h2>
-            <div className="p-6 bg-gray-50 rounded-lg">
+            <div className="rounded-lg bg-gray-50 p-6">
               <p className="text-gray-600">
                 {locale === "bg"
                   ? "Формата за контакт предстои да бъде добавена."

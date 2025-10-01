@@ -106,15 +106,15 @@ export default function TestStructuredContentPage() {
     },
     block: {
       h1: ({ children }: any) => (
-        <h1 className="text-4xl font-bold text-gray-900 mb-6">{children}</h1>
+        <h1 className="mb-6 text-4xl font-bold text-gray-900">{children}</h1>
       ),
       h2: ({ children }: any) => (
-        <h2 className="text-3xl font-bold text-gray-900 mt-8 mb-4">
+        <h2 className="mb-4 mt-8 text-3xl font-bold text-gray-900">
           {children}
         </h2>
       ),
       normal: ({ children }: any) => (
-        <p className="text-gray-700 mb-4 leading-relaxed">{children}</p>
+        <p className="mb-4 leading-relaxed text-gray-700">{children}</p>
       ),
     },
   };
@@ -122,8 +122,8 @@ export default function TestStructuredContentPage() {
   if (loading) {
     return (
       <div className="min-h-screen bg-gray-50 py-12">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="bg-white rounded-lg shadow-lg p-8">
+        <div className="mx-auto max-w-6xl px-4">
+          <div className="rounded-lg bg-white p-8 shadow-lg">
             <p className="text-gray-600">Loading...</p>
           </div>
         </div>
@@ -133,10 +133,10 @@ export default function TestStructuredContentPage() {
 
   return (
     <div className="min-h-screen bg-gray-50 py-12">
-      <div className="max-w-6xl mx-auto px-4">
+      <div className="mx-auto max-w-6xl px-4">
         {/* Header */}
         <div className="mb-8">
-          <div className="flex items-center justify-between mb-6">
+          <div className="mb-6 flex items-center justify-between">
             <LanguageSwitcher
               currentLanguage={language}
               onLanguageChange={setLanguage}
@@ -144,65 +144,60 @@ export default function TestStructuredContentPage() {
           </div>
 
           <div className="text-center">
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">
+            <h1 className="mb-4 text-4xl font-bold text-gray-900">
               Structured Content & i18n Testing
             </h1>
             <p className="text-gray-600">
-              Testing homepage sections, PortableText blocks, and internationalization
+              Testing homepage sections, PortableText blocks, and
+              internationalization
             </p>
           </div>
         </div>
 
         {/* Test Type Selector */}
-        <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">
+        <div className="mb-8 rounded-lg bg-white p-6 shadow-lg">
+          <h2 className="mb-4 text-2xl font-bold text-gray-900">
             Select Content Type
           </h2>
           <div className="grid grid-cols-3 gap-4">
             <button
               onClick={() => setSelectedTest("homepage")}
-              className={`p-4 rounded-lg border-2 text-left transition-colors ${
+              className={`rounded-lg border-2 p-4 text-left transition-colors ${
                 selectedTest === "homepage"
                   ? "border-blue-500 bg-blue-50 text-blue-900"
-                  : "border-gray-200 hover:border-gray-300 text-gray-700"
+                  : "border-gray-200 text-gray-700 hover:border-gray-300"
               }`}
             >
-              <div className="font-medium">
-                Homepage Sections
-              </div>
-              <div className="text-sm opacity-75 mt-1">
+              <div className="font-medium">Homepage Sections</div>
+              <div className="mt-1 text-sm opacity-75">
                 Hero, About, BeforeAfter
               </div>
             </button>
 
             <button
               onClick={() => setSelectedTest("blockcontent")}
-              className={`p-4 rounded-lg border-2 text-left transition-colors ${
+              className={`rounded-lg border-2 p-4 text-left transition-colors ${
                 selectedTest === "blockcontent"
                   ? "border-blue-500 bg-blue-50 text-blue-900"
-                  : "border-gray-200 hover:border-gray-300 text-gray-700"
+                  : "border-gray-200 text-gray-700 hover:border-gray-300"
               }`}
             >
-              <div className="font-medium">
-                PortableText Blocks
-              </div>
-              <div className="text-sm opacity-75 mt-1">
+              <div className="font-medium">PortableText Blocks</div>
+              <div className="mt-1 text-sm opacity-75">
                 Rich text + components
               </div>
             </button>
 
             <button
               onClick={() => setSelectedTest("i18n")}
-              className={`p-4 rounded-lg border-2 text-left transition-colors ${
+              className={`rounded-lg border-2 p-4 text-left transition-colors ${
                 selectedTest === "i18n"
                   ? "border-blue-500 bg-blue-50 text-blue-900"
-                  : "border-gray-200 hover:border-gray-300 text-gray-700"
+                  : "border-gray-200 text-gray-700 hover:border-gray-300"
               }`}
             >
-              <div className="font-medium">
-                i18n Comparison
-              </div>
-              <div className="text-sm opacity-75 mt-1">
+              <div className="font-medium">i18n Comparison</div>
+              <div className="mt-1 text-sm opacity-75">
                 Side-by-side languages
               </div>
             </button>
@@ -210,25 +205,25 @@ export default function TestStructuredContentPage() {
         </div>
 
         {/* Content Area */}
-        <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+        <div className="overflow-hidden rounded-lg bg-white shadow-lg">
           {/* Homepage Sections Test */}
           {selectedTest === "homepage" && data.homepage && (
             <div className="space-y-8">
               {/* Hero Section */}
-              <div className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white p-8">
-                <div className="flex items-center justify-between mb-4">
+              <div className="bg-gradient-to-r from-blue-600 to-indigo-600 p-8 text-white">
+                <div className="mb-4 flex items-center justify-between">
                   <h2 className="text-3xl font-bold">
                     {data.homepage.hero?.title?.[language]}
                   </h2>
-                  <span className="bg-white bg-opacity-20 px-3 py-1 rounded-full text-sm">
+                  <span className="rounded-full bg-white bg-opacity-20 px-3 py-1 text-sm">
                     Hero Section
                   </span>
                 </div>
-                <p className="text-blue-100 mb-6">
+                <p className="mb-6 text-blue-100">
                   {data.homepage.hero?.subtitle?.[language]}
                 </p>
                 {data.homepage.hero?.ctaButton && (
-                  <button className="bg-white text-blue-600 px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors">
+                  <button className="rounded-lg bg-white px-6 py-3 font-medium text-blue-600 transition-colors hover:bg-gray-100">
                     {data.homepage.hero.ctaButton.text?.[language]}
                   </button>
                 )}
@@ -237,18 +232,19 @@ export default function TestStructuredContentPage() {
               {/* About Section */}
               {data.homepage.aboutSection && (
                 <div className="p-8">
-                  <div className="flex items-center justify-between mb-6">
+                  <div className="mb-6 flex items-center justify-between">
                     <h2 className="text-3xl font-bold text-gray-900">
                       {data.homepage.aboutSection.title?.[language]}
                     </h2>
-                    <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">
+                    <span className="rounded-full bg-green-100 px-3 py-1 text-sm text-green-800">
                       MDX Section
                     </span>
                   </div>
 
-                  <div className="mb-4 p-4 bg-green-50 rounded-lg">
-                    <p className="text-green-800 text-sm">
-                      This section uses MDX content stored in Sanity, allowing rich formatting and components.
+                  <div className="mb-4 rounded-lg bg-green-50 p-4">
+                    <p className="text-sm text-green-800">
+                      This section uses MDX content stored in Sanity, allowing
+                      rich formatting and components.
                     </p>
                   </div>
 
@@ -261,12 +257,13 @@ export default function TestStructuredContentPage() {
 
               {/* BeforeAfter Section */}
               {data.homepage.beforeAfterSection && (
-                <div className="p-8 bg-gray-50">
-                  <div className="flex items-center justify-between mb-6">
+                <div className="bg-gray-50 p-8">
+                  <div className="mb-6 flex items-center justify-between">
                     <h2 className="text-3xl font-bold text-gray-900">
-                      {data.homepage.beforeAfterSection.title?.[language] || "Treatment Results"}
+                      {data.homepage.beforeAfterSection.title?.[language] ||
+                        "Treatment Results"}
                     </h2>
-                    <span className="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">
+                    <span className="rounded-full bg-purple-100 px-3 py-1 text-sm text-purple-800">
                       BeforeAfter Gallery
                     </span>
                   </div>
@@ -283,7 +280,7 @@ export default function TestStructuredContentPage() {
                             `Treatment result ${index + 1}`
                           }
                         />
-                      )
+                      ),
                     )}
                   </div>
                 </div>
@@ -294,20 +291,20 @@ export default function TestStructuredContentPage() {
           {/* BlockContent Test */}
           {selectedTest === "blockcontent" && data.blockContentPage && (
             <div className="p-8">
-              <div className="flex items-center justify-between mb-6">
+              <div className="mb-6 flex items-center justify-between">
                 <h2 className="text-3xl font-bold text-gray-900">
                   {data.blockContentPage.title?.[language]}
                 </h2>
-                <span className="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm">
+                <span className="rounded-full bg-orange-100 px-3 py-1 text-sm text-orange-800">
                   PortableText
                 </span>
               </div>
 
-              <div className="mb-6 p-4 bg-orange-50 rounded-lg">
-                <h3 className="font-bold text-orange-900 mb-2">
+              <div className="mb-6 rounded-lg bg-orange-50 p-4">
+                <h3 className="mb-2 font-bold text-orange-900">
                   PortableText Features:
                 </h3>
-                <ul className="text-orange-800 space-y-1 text-sm">
+                <ul className="space-y-1 text-sm text-orange-800">
                   <li>• Rich text with custom components</li>
                   <li>• Structured content blocks</li>
                   <li>• CTA, Testimonial, BeforeAfter blocks</li>
@@ -328,21 +325,21 @@ export default function TestStructuredContentPage() {
           {selectedTest === "i18n" &&
             (data.homepage || data.blockContentPage) && (
               <div className="p-8">
-                <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                <h2 className="mb-6 text-3xl font-bold text-gray-900">
                   Internationalization Comparison
                 </h2>
 
                 <div className="space-y-8">
                   {/* Homepage i18n */}
                   {data.homepage && (
-                    <div className="border border-gray-200 rounded-lg p-6">
-                      <h3 className="text-xl font-bold text-gray-900 mb-4">
+                    <div className="rounded-lg border border-gray-200 p-6">
+                      <h3 className="mb-4 text-xl font-bold text-gray-900">
                         Homepage Content
                       </h3>
-                      <div className="grid md:grid-cols-2 gap-6">
+                      <div className="grid gap-6 md:grid-cols-2">
                         <div>
-                          <h4 className="font-medium text-gray-900 mb-3 flex items-center">
-                            <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm mr-2">
+                          <h4 className="mb-3 flex items-center font-medium text-gray-900">
+                            <span className="mr-2 rounded bg-blue-100 px-2 py-1 text-sm text-blue-800">
                               EN
                             </span>
                             English Version
@@ -364,8 +361,8 @@ export default function TestStructuredContentPage() {
                         </div>
 
                         <div>
-                          <h4 className="font-medium text-gray-900 mb-3 flex items-center">
-                            <span className="bg-green-100 text-green-800 px-2 py-1 rounded text-sm mr-2">
+                          <h4 className="mb-3 flex items-center font-medium text-gray-900">
+                            <span className="mr-2 rounded bg-green-100 px-2 py-1 text-sm text-green-800">
                               БГ
                             </span>
                             Bulgarian Version
@@ -390,26 +387,26 @@ export default function TestStructuredContentPage() {
                   )}
 
                   {/* Implementation Notes */}
-                  <div className="bg-gray-50 rounded-lg p-6">
-                    <h3 className="text-xl font-bold text-gray-900 mb-4">
+                  <div className="rounded-lg bg-gray-50 p-6">
+                    <h3 className="mb-4 text-xl font-bold text-gray-900">
                       i18n Implementation Notes
                     </h3>
-                    <div className="grid md:grid-cols-2 gap-6 text-sm">
+                    <div className="grid gap-6 text-sm md:grid-cols-2">
                       <div>
-                        <h4 className="font-medium text-gray-900 mb-2">
+                        <h4 className="mb-2 font-medium text-gray-900">
                           Schema Structure:
                         </h4>
-                        <ul className="text-gray-700 space-y-1">
+                        <ul className="space-y-1 text-gray-700">
                           <li>• Object fields with bg/en keys</li>
                           <li>• Consistent naming convention</li>
                           <li>• Separate MDX content per language</li>
                         </ul>
                       </div>
                       <div>
-                        <h4 className="font-medium text-gray-900 mb-2">
+                        <h4 className="mb-2 font-medium text-gray-900">
                           Frontend Handling:
                         </h4>
-                        <ul className="text-gray-700 space-y-1">
+                        <ul className="space-y-1 text-gray-700">
                           <li>• Client-side language switching</li>
                           <li>• Real-time content updates</li>
                           <li>• Fallback to default language</li>

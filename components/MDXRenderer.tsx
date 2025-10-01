@@ -49,11 +49,11 @@ export function MDXRenderer({ mdxContent, className = "" }: MDXRendererProps) {
   if (error) {
     return (
       <div
-        className={`bg-red-50 border border-red-200 rounded-lg p-4 my-4 ${className}`}
+        className={`my-4 rounded-lg border border-red-200 bg-red-50 p-4 ${className}`}
       >
-        <p className="text-red-800 font-medium">Error rendering content</p>
+        <p className="font-medium text-red-800">Error rendering content</p>
         {process.env.NODE_ENV === "development" && (
-          <pre className="mt-2 text-xs text-red-600 overflow-auto whitespace-pre-wrap">
+          <pre className="mt-2 overflow-auto whitespace-pre-wrap text-xs text-red-600">
             {error}
           </pre>
         )}
@@ -63,7 +63,7 @@ export function MDXRenderer({ mdxContent, className = "" }: MDXRendererProps) {
 
   if (!Component) {
     return (
-      <div className={`text-gray-500 italic ${className}`}>
+      <div className={`italic text-gray-500 ${className}`}>
         No content available
       </div>
     );

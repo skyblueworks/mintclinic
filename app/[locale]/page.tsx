@@ -32,11 +32,13 @@ export default async function HomePage({ params }: Props) {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <div className="bg-white rounded-lg shadow-md p-8 mb-8">
-        <h1 className="text-4xl font-bold mb-4 text-blue-600">
-          {locale === "bg" ? "Добре дошли в Mint Clinic" : "Welcome to Mint Clinic"}
+      <div className="mb-8 rounded-lg bg-white p-8 shadow-md">
+        <h1 className="mb-4 text-4xl font-bold text-blue-600">
+          {locale === "bg"
+            ? "Добре дошли в Mint Clinic"
+            : "Welcome to Mint Clinic"}
         </h1>
-        <p className="text-lg text-gray-600 mb-6">
+        <p className="mb-6 text-lg text-gray-600">
           {locale === "bg"
             ? "Тестова страница за проверка на маршрутите и данните"
             : "Test page to verify routes and data"}
@@ -44,33 +46,43 @@ export default async function HomePage({ params }: Props) {
 
         {/* Document Counts */}
         {counts && (
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8">
-            <div className="bg-blue-50 p-4 rounded-lg text-center">
-              <div className="text-3xl font-bold text-blue-600">{counts.services}</div>
+          <div className="mb-8 grid grid-cols-2 gap-4 md:grid-cols-5">
+            <div className="rounded-lg bg-blue-50 p-4 text-center">
+              <div className="text-3xl font-bold text-blue-600">
+                {counts.services}
+              </div>
               <div className="text-sm text-gray-600">
                 {locale === "bg" ? "Услуги" : "Services"}
               </div>
             </div>
-            <div className="bg-green-50 p-4 rounded-lg text-center">
-              <div className="text-3xl font-bold text-green-600">{counts.categories}</div>
+            <div className="rounded-lg bg-green-50 p-4 text-center">
+              <div className="text-3xl font-bold text-green-600">
+                {counts.categories}
+              </div>
               <div className="text-sm text-gray-600">
                 {locale === "bg" ? "Категории" : "Categories"}
               </div>
             </div>
-            <div className="bg-purple-50 p-4 rounded-lg text-center">
-              <div className="text-3xl font-bold text-purple-600">{counts.teamMembers}</div>
+            <div className="rounded-lg bg-purple-50 p-4 text-center">
+              <div className="text-3xl font-bold text-purple-600">
+                {counts.teamMembers}
+              </div>
               <div className="text-sm text-gray-600">
                 {locale === "bg" ? "Екип" : "Team"}
               </div>
             </div>
-            <div className="bg-yellow-50 p-4 rounded-lg text-center">
-              <div className="text-3xl font-bold text-yellow-600">{counts.posts}</div>
+            <div className="rounded-lg bg-yellow-50 p-4 text-center">
+              <div className="text-3xl font-bold text-yellow-600">
+                {counts.posts}
+              </div>
               <div className="text-sm text-gray-600">
                 {locale === "bg" ? "Публикации" : "Posts"}
               </div>
             </div>
-            <div className="bg-red-50 p-4 rounded-lg text-center">
-              <div className="text-3xl font-bold text-red-600">{counts.pages}</div>
+            <div className="rounded-lg bg-red-50 p-4 text-center">
+              <div className="text-3xl font-bold text-red-600">
+                {counts.pages}
+              </div>
               <div className="text-sm text-gray-600">
                 {locale === "bg" ? "Страници" : "Pages"}
               </div>
@@ -80,16 +92,16 @@ export default async function HomePage({ params }: Props) {
 
         {/* Homepage Data */}
         {homepage ? (
-          <div className="bg-gray-50 p-6 rounded-lg">
-            <h2 className="text-2xl font-semibold mb-4">
+          <div className="rounded-lg bg-gray-50 p-6">
+            <h2 className="mb-4 text-2xl font-semibold">
               {locale === "bg" ? "Данни от Homepage" : "Homepage Data"}
             </h2>
-            <pre className="bg-white p-4 rounded border overflow-x-auto text-sm">
+            <pre className="overflow-x-auto rounded border bg-white p-4 text-sm">
               {JSON.stringify(homepage, null, 2)}
             </pre>
           </div>
         ) : (
-          <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+          <div className="rounded-lg border border-yellow-200 bg-yellow-50 p-4">
             <p className="text-yellow-800">
               {locale === "bg"
                 ? "Няма данни за homepage. Моля, добавете съдържание в Sanity Studio."
@@ -100,41 +112,43 @@ export default async function HomePage({ params }: Props) {
       </div>
 
       {/* Quick Links */}
-      <div className="bg-white rounded-lg shadow-md p-8">
-        <h2 className="text-2xl font-semibold mb-4">
+      <div className="rounded-lg bg-white p-8 shadow-md">
+        <h2 className="mb-4 text-2xl font-semibold">
           {locale === "bg" ? "Бързи връзки" : "Quick Links"}
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
           <a
             href={`/${locale}/services`}
-            className="block p-4 border border-gray-200 rounded-lg hover:border-blue-500 hover:shadow-md transition"
+            className="block rounded-lg border border-gray-200 p-4 transition hover:border-blue-500 hover:shadow-md"
           >
-            <h3 className="font-semibold text-lg mb-2">
+            <h3 className="mb-2 text-lg font-semibold">
               {locale === "bg" ? "Услуги" : "Services"}
             </h3>
-            <p className="text-gray-600 text-sm">
-              {locale === "bg" ? "Преглед на всички услуги" : "View all services"}
+            <p className="text-sm text-gray-600">
+              {locale === "bg"
+                ? "Преглед на всички услуги"
+                : "View all services"}
             </p>
           </a>
           <a
             href={`/${locale}/team`}
-            className="block p-4 border border-gray-200 rounded-lg hover:border-blue-500 hover:shadow-md transition"
+            className="block rounded-lg border border-gray-200 p-4 transition hover:border-blue-500 hover:shadow-md"
           >
-            <h3 className="font-semibold text-lg mb-2">
+            <h3 className="mb-2 text-lg font-semibold">
               {locale === "bg" ? "Екип" : "Team"}
             </h3>
-            <p className="text-gray-600 text-sm">
+            <p className="text-sm text-gray-600">
               {locale === "bg" ? "Запознайте се с екипа" : "Meet the team"}
             </p>
           </a>
           <a
             href={`/${locale}/blog`}
-            className="block p-4 border border-gray-200 rounded-lg hover:border-blue-500 hover:shadow-md transition"
+            className="block rounded-lg border border-gray-200 p-4 transition hover:border-blue-500 hover:shadow-md"
           >
-            <h3 className="font-semibold text-lg mb-2">
+            <h3 className="mb-2 text-lg font-semibold">
               {locale === "bg" ? "Блог" : "Blog"}
             </h3>
-            <p className="text-gray-600 text-sm">
+            <p className="text-sm text-gray-600">
               {locale === "bg" ? "Прочетете статиите ни" : "Read our articles"}
             </p>
           </a>

@@ -12,7 +12,7 @@ async function getAboutPage() {
     return await client.fetch(
       pageBySlugQuery,
       { slug: "about-us" },
-      { cache: "no-store" }
+      { cache: "no-store" },
     );
   } catch (error) {
     console.error("Error fetching about page:", error);
@@ -35,13 +35,13 @@ export default async function AboutPage({ params }) {
         <span>{locale === "bg" ? "За нас" : "About Us"}</span>
       </nav>
 
-      <div className="bg-white rounded-lg shadow-md p-8 mb-8">
-        <h1 className="text-4xl font-bold mb-4 text-blue-600">
+      <div className="mb-8 rounded-lg bg-white p-8 shadow-md">
+        <h1 className="mb-4 text-4xl font-bold text-blue-600">
           {page?.title?.[locale] ||
             page?.title?.bg ||
             (locale === "bg" ? "За нас" : "About Us")}
         </h1>
-        <p className="text-lg text-gray-600 mb-6">
+        <p className="mb-6 text-lg text-gray-600">
           {locale === "bg"
             ? "Тестова страница за 'За нас'"
             : "Test page for 'About Us'"}
@@ -56,11 +56,11 @@ export default async function AboutPage({ params }) {
         {/* Page Data */}
         {page ? (
           <div>
-            <div className="bg-gray-50 p-6 rounded-lg mb-8">
-              <h2 className="text-2xl font-semibold mb-4">
+            <div className="mb-8 rounded-lg bg-gray-50 p-6">
+              <h2 className="mb-4 text-2xl font-semibold">
                 {locale === "bg" ? "Данни от страница" : "Page Data"}
               </h2>
-              <pre className="bg-white p-4 rounded border overflow-x-auto text-sm">
+              <pre className="overflow-x-auto rounded border bg-white p-4 text-sm">
                 {JSON.stringify(page, null, 2)}
               </pre>
             </div>
@@ -68,7 +68,7 @@ export default async function AboutPage({ params }) {
             {/* Page Content Preview */}
             {page.content && (
               <div>
-                <h2 className="text-2xl font-semibold mb-4">
+                <h2 className="mb-4 text-2xl font-semibold">
                   {locale === "bg" ? "Съдържание (MDX)" : "Content (MDX)"}
                 </h2>
                 <article className="prose prose-lg max-w-none">
@@ -89,7 +89,7 @@ export default async function AboutPage({ params }) {
             )}
           </div>
         ) : (
-          <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+          <div className="rounded-lg border border-yellow-200 bg-yellow-50 p-4">
             <p className="text-yellow-800">
               {locale === "bg"
                 ? "Няма данни за тази страница. Моля, добавете страница с slug 'about-us' в Sanity Studio."

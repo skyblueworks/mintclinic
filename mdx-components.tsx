@@ -31,8 +31,8 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
           (child) =>
             React.isValidElement(child) &&
             /^(pre|div|table)$/.test(
-              (child.type as any)?.name || child.type || ""
-            )
+              (child.type as any)?.name || child.type || "",
+            ),
         )
       ) {
         return <>{children}</>;

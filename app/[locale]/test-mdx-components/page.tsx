@@ -59,8 +59,8 @@ export default function TestMDXComponentsPage() {
   if (loading) {
     return (
       <div className="min-h-screen bg-gray-50 py-12">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="bg-white rounded-lg shadow-lg p-8">
+        <div className="mx-auto max-w-6xl px-4">
+          <div className="rounded-lg bg-white p-8 shadow-lg">
             <p className="text-gray-600">Loading...</p>
           </div>
         </div>
@@ -73,10 +73,10 @@ export default function TestMDXComponentsPage() {
 
   return (
     <div className="min-h-screen bg-gray-50 py-12">
-      <div className="max-w-6xl mx-auto px-4">
+      <div className="mx-auto max-w-6xl px-4">
         {/* Header */}
         <div className="mb-8">
-          <div className="flex items-center justify-between mb-6">
+          <div className="mb-6 flex items-center justify-between">
             <LanguageSwitcher
               currentLanguage={language}
               onLanguageChange={setLanguage}
@@ -84,75 +84,70 @@ export default function TestMDXComponentsPage() {
           </div>
 
           <div className="text-center">
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">
+            <h1 className="mb-4 text-4xl font-bold text-gray-900">
               MDX Components & Error Testing
             </h1>
             <p className="text-gray-600">
-              Comprehensive testing of MDX rendering, components, and error handling
+              Comprehensive testing of MDX rendering, components, and error
+              handling
             </p>
           </div>
         </div>
 
         {/* Test Type Selector */}
-        <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">
+        <div className="mb-8 rounded-lg bg-white p-6 shadow-lg">
+          <h2 className="mb-4 text-2xl font-bold text-gray-900">
             Select Test Type
           </h2>
           <div className="grid grid-cols-2 gap-4">
             <button
               onClick={() => setSelectedTest("components")}
-              className={`p-4 rounded-lg border-2 text-left transition-colors ${
+              className={`rounded-lg border-2 p-4 text-left transition-colors ${
                 selectedTest === "components"
                   ? "border-blue-500 bg-blue-50 text-blue-900"
-                  : "border-gray-200 hover:border-gray-300 text-gray-700"
+                  : "border-gray-200 text-gray-700 hover:border-gray-300"
               }`}
             >
-              <div className="font-medium">
-                MDX Components
-              </div>
-              <div className="text-sm opacity-75 mt-1">
+              <div className="font-medium">MDX Components</div>
+              <div className="mt-1 text-sm opacity-75">
                 Gallery, FAQ, CTA, etc.
               </div>
             </button>
 
             <button
               onClick={() => setSelectedTest("service")}
-              className={`p-4 rounded-lg border-2 text-left transition-colors ${
+              className={`rounded-lg border-2 p-4 text-left transition-colors ${
                 selectedTest === "service"
                   ? "border-blue-500 bg-blue-50 text-blue-900"
-                  : "border-gray-200 hover:border-gray-300 text-gray-700"
+                  : "border-gray-200 text-gray-700 hover:border-gray-300"
               }`}
             >
-              <div className="font-medium">
-                Service Schema
-              </div>
-              <div className="text-sm opacity-75 mt-1">
-                Real service data
-              </div>
+              <div className="font-medium">Service Schema</div>
+              <div className="mt-1 text-sm opacity-75">Real service data</div>
             </button>
           </div>
         </div>
 
         {/* Content Area */}
-        <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+        <div className="overflow-hidden rounded-lg bg-white shadow-lg">
           {/* Components Test */}
           {selectedTest === "components" && currentTestPage && (
             <div className="p-8">
-              <div className="flex items-center justify-between mb-6">
+              <div className="mb-6 flex items-center justify-between">
                 <h2 className="text-3xl font-bold text-gray-900">
                   {currentTestPage.title?.[language] || "MDX Components Test"}
                 </h2>
-                <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">
+                <span className="rounded-full bg-blue-100 px-3 py-1 text-sm font-medium text-blue-800">
                   Sanity Content: {language.toUpperCase()}
                 </span>
               </div>
 
-              <div className="mb-6 p-4 bg-blue-50 rounded-lg">
-                <h3 className="font-bold text-blue-900 mb-2">
-                  Testing:
-                </h3>
-                <ul className="text-blue-800 space-y-1 text-sm">
-                  <li>• Gallery, FAQ, CTA, Testimonial, BeforeAfter components</li>
+              <div className="mb-6 rounded-lg bg-blue-50 p-4">
+                <h3 className="mb-2 font-bold text-blue-900">Testing:</h3>
+                <ul className="space-y-1 text-sm text-blue-800">
+                  <li>
+                    • Gallery, FAQ, CTA, Testimonial, BeforeAfter components
+                  </li>
                   <li>• MDX compilation from Sanity CMS</li>
                   <li>• Component prop handling and validation</li>
                   <li>• Language switching affects only Sanity content</li>
@@ -169,12 +164,12 @@ export default function TestMDXComponentsPage() {
           {/* Service Test */}
           {selectedTest === "service" && currentService && (
             <div>
-              <div className="bg-blue-600 text-white p-8">
-                <div className="flex items-center justify-between mb-2">
+              <div className="bg-blue-600 p-8 text-white">
+                <div className="mb-2 flex items-center justify-between">
                   <h2 className="text-3xl font-bold">
                     {currentService.title?.[language]}
                   </h2>
-                  <span className="bg-blue-500 px-3 py-1 rounded-full text-sm font-medium">
+                  <span className="rounded-full bg-blue-500 px-3 py-1 text-sm font-medium">
                     {language.toUpperCase()}
                   </span>
                 </div>
@@ -183,24 +178,22 @@ export default function TestMDXComponentsPage() {
                 </p>
               </div>
 
-              <div className="relative h-64 w-full bg-gray-200 flex items-center justify-center">
+              <div className="relative flex h-64 w-full items-center justify-center bg-gray-200">
                 <div className="text-center">
-                  <div className="text-gray-500 mb-2">📸</div>
-                  <p className="text-gray-600 text-sm">
+                  <div className="mb-2 text-gray-500">📸</div>
+                  <p className="text-sm text-gray-600">
                     Service Image Placeholder
                   </p>
-                  <p className="text-xs text-gray-500 mt-1">
+                  <p className="mt-1 text-xs text-gray-500">
                     Real images would use urlFor(mainImage)
                   </p>
                 </div>
               </div>
 
               <div className="p-8">
-                <div className="mb-6 p-4 bg-green-50 rounded-lg">
-                  <h3 className="font-bold text-green-900 mb-2">
-                    Testing:
-                  </h3>
-                  <ul className="text-green-800 space-y-1 text-sm">
+                <div className="mb-6 rounded-lg bg-green-50 p-4">
+                  <h3 className="mb-2 font-bold text-green-900">Testing:</h3>
+                  <ul className="space-y-1 text-sm text-green-800">
                     <li>• Service schema structure from Sanity</li>
                     <li>• Image URL generation (placeholder demo)</li>
                     <li>• i18n content switching (Sanity content only)</li>
@@ -208,7 +201,7 @@ export default function TestMDXComponentsPage() {
                   </ul>
                 </div>
 
-                <p className="text-gray-600 mb-6">
+                <p className="mb-6 text-gray-600">
                   {currentService.metaDescription?.[language]}
                 </p>
 

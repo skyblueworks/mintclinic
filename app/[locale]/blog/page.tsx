@@ -30,11 +30,11 @@ export default async function BlogPage({ params }: Props) {
         <span>{locale === "bg" ? "Блог" : "Blog"}</span>
       </nav>
 
-      <div className="bg-white rounded-lg shadow-md p-8 mb-8">
-        <h1 className="text-4xl font-bold mb-4 text-blue-600">
+      <div className="mb-8 rounded-lg bg-white p-8 shadow-md">
+        <h1 className="mb-4 text-4xl font-bold text-blue-600">
           {locale === "bg" ? "Блог" : "Blog"}
         </h1>
-        <p className="text-lg text-gray-600 mb-6">
+        <p className="mb-6 text-lg text-gray-600">
           {locale === "bg"
             ? "Тестова страница за публикации"
             : "Test page for blog posts"}
@@ -47,7 +47,7 @@ export default async function BlogPage({ params }: Props) {
         </div>
 
         {/* Document Count */}
-        <div className="bg-yellow-50 p-4 rounded-lg text-center mb-8 inline-block">
+        <div className="mb-8 inline-block rounded-lg bg-yellow-50 p-4 text-center">
           <div className="text-3xl font-bold text-yellow-600">
             {posts?.length || 0}
           </div>
@@ -59,30 +59,30 @@ export default async function BlogPage({ params }: Props) {
         {/* Blog Posts */}
         {posts && posts.length > 0 ? (
           <div>
-            <h2 className="text-2xl font-semibold mb-4">
+            <h2 className="mb-4 text-2xl font-semibold">
               {locale === "bg" ? "Публикации" : "Posts"}
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+            <div className="mb-6 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
               {posts.map((post: any) => (
                 <a
                   key={post._id}
                   href={`/${locale}/blog/${post.slug}`}
-                  className="block p-4 border border-gray-200 rounded-lg hover:border-blue-500 hover:shadow-md transition"
+                  className="block rounded-lg border border-gray-200 p-4 transition hover:border-blue-500 hover:shadow-md"
                 >
                   {post.mainImage && (
-                    <div className="aspect-video rounded-lg overflow-hidden mb-4 bg-gray-200">
+                    <div className="mb-4 aspect-video overflow-hidden rounded-lg bg-gray-200">
                       <img
                         src={post.mainImage}
                         alt={post.title[locale] || post.title.bg}
-                        className="w-full h-full object-cover"
+                        className="h-full w-full object-cover"
                       />
                     </div>
                   )}
-                  <h3 className="font-semibold text-lg mb-2">
+                  <h3 className="mb-2 text-lg font-semibold">
                     {post.title[locale] || post.title.bg}
                   </h3>
                   {post.excerpt && (
-                    <p className="text-gray-600 text-sm mb-2 line-clamp-3">
+                    <p className="mb-2 line-clamp-3 text-sm text-gray-600">
                       {post.excerpt[locale] || post.excerpt.bg}
                     </p>
                   )}
@@ -91,7 +91,7 @@ export default async function BlogPage({ params }: Props) {
                       <time dateTime={post.publishedAt}>
                         {new Date(post.publishedAt).toLocaleDateString(
                           locale === "bg" ? "bg-BG" : "en-US",
-                          { year: "numeric", month: "long", day: "numeric" }
+                          { year: "numeric", month: "long", day: "numeric" },
                         )}
                       </time>
                     )}
@@ -100,17 +100,17 @@ export default async function BlogPage({ params }: Props) {
                 </a>
               ))}
             </div>
-            <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="text-xl font-semibold mb-4">
+            <div className="rounded-lg bg-gray-50 p-6">
+              <h3 className="mb-4 text-xl font-semibold">
                 {locale === "bg" ? "Данни от публикации" : "Posts Data"}
               </h3>
-              <pre className="bg-white p-4 rounded border overflow-x-auto text-sm">
+              <pre className="overflow-x-auto rounded border bg-white p-4 text-sm">
                 {JSON.stringify(posts, null, 2)}
               </pre>
             </div>
           </div>
         ) : (
-          <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+          <div className="rounded-lg border border-yellow-200 bg-yellow-50 p-4">
             <p className="text-yellow-800">
               {locale === "bg"
                 ? "Няма налични публикации."

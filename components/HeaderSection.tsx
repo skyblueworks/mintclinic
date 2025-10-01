@@ -111,7 +111,7 @@ export default function HeaderSection() {
   // Render mobile navigation item recursively
   const renderMobileNavItem = (
     item: NavItem,
-    depth: number = 0
+    depth: number = 0,
   ): React.ReactNode => {
     const key = item.href;
     const isOpen = mobileOpenStates[key] || false;
@@ -123,9 +123,9 @@ export default function HeaderSection() {
           href={item.href}
           className={`block ${
             depth === 0
-              ? "py-3 text-gray-700 font-medium"
+              ? "py-3 font-medium text-gray-700"
               : "py-2 text-gray-600"
-          } hover:text-primary transition-colors`}
+          } transition-colors hover:text-primary`}
           onClick={() => setMobileMenuOpen(false)}
         >
           {item.label}
@@ -140,22 +140,22 @@ export default function HeaderSection() {
         onOpenChange={() => toggleMobileState(key)}
       >
         <CollapsibleTrigger
-          className={`w-full flex items-center justify-between ${
+          className={`flex w-full items-center justify-between ${
             depth === 0
-              ? "py-3 text-gray-700 font-medium"
+              ? "py-3 font-medium text-gray-700"
               : "py-2 text-gray-600"
-          } hover:text-primary transition-colors ${
+          } transition-colors hover:text-primary ${
             depth > 0 ? "text-left" : ""
           }`}
         >
           <span>{item.label}</span>
           <RxChevronRight
-            className={`text-sm transition-transform flex-shrink-0 ${
+            className={`flex-shrink-0 text-sm transition-transform ${
               isOpen ? "rotate-90" : ""
             }`}
           />
         </CollapsibleTrigger>
-        <CollapsibleContent className="pl-4 space-y-2">
+        <CollapsibleContent className="space-y-2 pl-4">
           {item.children.map((child) => renderMobileNavItem(child, depth + 1))}
         </CollapsibleContent>
       </Collapsible>
@@ -165,14 +165,14 @@ export default function HeaderSection() {
   // Render desktop navigation item recursively
   const renderDesktopNavItem = (
     item: NavItem,
-    index: number
+    index: number,
   ): React.ReactNode => {
     if (!item.children) {
       return (
         <MenubarMenu key={item.href}>
           <Link
             href={item.href}
-            className="text-gray-700 hover:text-primary transition-colors font-medium px-3 py-1.5"
+            className="px-3 py-1.5 font-medium text-gray-700 transition-colors hover:text-primary"
           >
             {item.label}
           </Link>
@@ -185,19 +185,19 @@ export default function HeaderSection() {
       menuValue === "услуги"
         ? servicesMenuOpen
         : menuValue === "за нас"
-        ? aboutMenuOpen
-        : false;
+          ? aboutMenuOpen
+          : false;
     const setOpen =
       menuValue === "услуги"
         ? setServicesMenuOpen
         : menuValue === "за нас"
-        ? setAboutMenuOpen
-        : () => {};
+          ? setAboutMenuOpen
+          : () => {};
 
     return (
       <MenubarMenu key={item.href} value={menuValue}>
         <MenubarTrigger
-          className="flex items-center gap-1 text-gray-700 hover:text-primary transition-colors font-medium cursor-pointer"
+          className="flex cursor-pointer items-center gap-1 font-medium text-gray-700 transition-colors hover:text-primary"
           onMouseEnter={() => setOpen(true)}
           asChild
         >
@@ -237,8 +237,8 @@ export default function HeaderSection() {
   };
 
   return (
-    <header className="relative z-50 bg-white h-[130px] flex items-center">
-      <div className="max-w-7xl mx-auto px-6 w-full">
+    <header className="relative z-50 flex h-[130px] items-center bg-white">
+      <div className="mx-auto w-full max-w-7xl px-6">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/">
@@ -253,7 +253,7 @@ export default function HeaderSection() {
 
           {/* Desktop Navigation */}
           <Menubar
-            className="hidden lg:flex items-center gap-6 border-0 bg-transparent"
+            className="hidden items-center gap-6 border-0 bg-transparent lg:flex"
             value={servicesMenuOpen ? "услуги" : aboutMenuOpen ? "за нас" : ""}
             onValueChange={(value) => {
               setServicesMenuOpen(value === "услуги");
@@ -265,7 +265,7 @@ export default function HeaderSection() {
             <MenubarMenu>
               <a
                 href="tel:+359888436838"
-                className="bg-accent text-accent-foreground font-bold py-2 px-6 rounded-full hover:bg-accent/90 transition-colors"
+                className="rounded-full bg-accent px-6 py-2 font-bold text-accent-foreground transition-colors hover:bg-accent/90"
               >
                 Запази час
               </a>
@@ -275,8 +275,8 @@ export default function HeaderSection() {
           {/* Mobile Menu */}
           <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
             <SheetTrigger asChild>
-              <button className="lg:hidden text-primary p-2">
-                <RxHamburgerMenu className="w-6 h-6" />
+              <button className="p-2 text-primary lg:hidden">
+                <RxHamburgerMenu className="h-6 w-6" />
               </button>
             </SheetTrigger>
             <SheetContent side="left" className="w-80 overflow-y-auto">
@@ -293,13 +293,13 @@ export default function HeaderSection() {
               </SheetHeader>
 
               {/* Mobile Navigation */}
-              <nav className="space-y-2 mt-8 text-left">
+              <nav className="mt-8 space-y-2 text-left">
                 {NAV_ITEMS.map((item) => renderMobileNavItem(item))}
 
                 {/* Mobile CTA */}
                 <a
                   href="tel:+359888436838"
-                  className="block mt-6 bg-accent text-accent-foreground font-bold py-3 px-6 rounded-full text-center hover:bg-accent/90 transition-colors"
+                  className="mt-6 block rounded-full bg-accent px-6 py-3 text-center font-bold text-accent-foreground transition-colors hover:bg-accent/90"
                 >
                   Запази час
                 </a>

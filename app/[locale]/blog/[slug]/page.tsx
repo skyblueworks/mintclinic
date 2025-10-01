@@ -21,14 +21,14 @@ export async function generateStaticParams() {
   const posts = await client.fetch(
     `*[_type == "post" && defined(slug.current)]{ "slug": slug.current }`,
     {},
-    { cache: "no-store" }
+    { cache: "no-store" },
   );
 
   const locales = ["bg", "en"];
   const params: { locale: string; slug: string }[] = [];
 
   for (const post of posts) {
-    if (post.slug && typeof post.slug === 'string') {
+    if (post.slug && typeof post.slug === "string") {
       for (const locale of locales) {
         params.push({ locale, slug: post.slug });
       }
@@ -63,11 +63,11 @@ export default async function BlogPostPage({ params }: Props) {
         <span>{post.title[locale] || post.title.bg}</span>
       </nav>
 
-      <div className="bg-white rounded-lg shadow-md p-8 mb-8">
-        <h1 className="text-4xl font-bold mb-4 text-blue-600">
+      <div className="mb-8 rounded-lg bg-white p-8 shadow-md">
+        <h1 className="mb-4 text-4xl font-bold text-blue-600">
           {post.title[locale] || post.title.bg}
         </h1>
-        <p className="text-lg text-gray-600 mb-6">
+        <p className="mb-6 text-lg text-gray-600">
           {locale === "bg"
             ? "Тестова страница за публикация"
             : "Test page for blog post"}
@@ -80,11 +80,11 @@ export default async function BlogPostPage({ params }: Props) {
         </div>
 
         {/* Post Data */}
-        <div className="bg-gray-50 p-6 rounded-lg mb-8">
-          <h2 className="text-2xl font-semibold mb-4">
+        <div className="mb-8 rounded-lg bg-gray-50 p-6">
+          <h2 className="mb-4 text-2xl font-semibold">
             {locale === "bg" ? "Данни от публикация" : "Post Data"}
           </h2>
-          <pre className="bg-white p-4 rounded border overflow-x-auto text-sm">
+          <pre className="overflow-x-auto rounded border bg-white p-4 text-sm">
             {JSON.stringify(post, null, 2)}
           </pre>
         </div>
@@ -94,14 +94,14 @@ export default async function BlogPostPage({ params }: Props) {
           {/* Post Header */}
           <header className="mb-8">
             {/* Meta Info */}
-            <div className="flex items-center gap-4 text-gray-600 mb-6">
+            <div className="mb-6 flex items-center gap-4 text-gray-600">
               {post.author && (
                 <div className="flex items-center gap-2">
                   {post.author.photo && (
                     <img
                       src={post.author.photo}
                       alt={post.author.name}
-                      className="w-10 h-10 rounded-full"
+                      className="h-10 w-10 rounded-full"
                     />
                   )}
                   <span>{post.author.name}</span>
@@ -111,25 +111,25 @@ export default async function BlogPostPage({ params }: Props) {
                 <time dateTime={post.publishedAt}>
                   {new Date(post.publishedAt).toLocaleDateString(
                     locale === "bg" ? "bg-BG" : "en-US",
-                    { year: "numeric", month: "long", day: "numeric" }
+                    { year: "numeric", month: "long", day: "numeric" },
                   )}
                 </time>
               )}
             </div>
 
             {post.excerpt && (
-              <p className="text-lg text-gray-600 mb-6">
+              <p className="mb-6 text-lg text-gray-600">
                 {post.excerpt[locale] || post.excerpt.bg}
               </p>
             )}
 
             {/* Featured Image */}
             {post.mainImage && (
-              <div className="aspect-video rounded-lg overflow-hidden mb-6 bg-gray-200">
+              <div className="mb-6 aspect-video overflow-hidden rounded-lg bg-gray-200">
                 <img
                   src={post.mainImage}
                   alt={post.title[locale] || post.title.bg}
-                  className="w-full h-full object-cover"
+                  className="h-full w-full object-cover"
                 />
               </div>
             )}
@@ -138,7 +138,7 @@ export default async function BlogPostPage({ params }: Props) {
           {/* Post Content */}
           {content && (
             <div className="mb-8">
-              <h2 className="text-2xl font-semibold mb-4">
+              <h2 className="mb-4 text-2xl font-semibold">
                 {locale === "bg" ? "Съдържание (MDX)" : "Content (MDX)"}
               </h2>
               <div className="prose prose-lg max-w-none">
@@ -149,15 +149,15 @@ export default async function BlogPostPage({ params }: Props) {
 
           {/* Categories */}
           {post.categories && post.categories.length > 0 && (
-            <div className="mt-8 pt-8 border-t">
-              <h3 className="text-sm font-semibold text-gray-600 mb-2">
+            <div className="mt-8 border-t pt-8">
+              <h3 className="mb-2 text-sm font-semibold text-gray-600">
                 {locale === "bg" ? "Категории:" : "Categories:"}
               </h3>
               <div className="flex gap-2">
                 {post.categories.map((category: any, idx: number) => (
                   <span
                     key={idx}
-                    className="px-3 py-1 bg-gray-100 rounded-full text-sm"
+                    className="rounded-full bg-gray-100 px-3 py-1 text-sm"
                   >
                     {category.title[locale] || category.title.bg}
                   </span>

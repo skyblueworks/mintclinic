@@ -55,7 +55,7 @@ Welcome to my **MDX** page!
 \`\`\`typescript
 // Code with syntax highlighting
 function hello(name: string) {
-  return `Hello, ${name}!`;
+return `Hello, ${name}!`;
 }
 \`\`\`
 ```
@@ -81,6 +81,7 @@ export const metadata = {
 ```
 
 The metadata component will automatically display:
+
 - Title and description
 - Publication date
 - Author information
@@ -89,16 +90,18 @@ The metadata component will automatically display:
 ### Features
 
 #### Code Blocks
+
 - Syntax highlighting for multiple languages
 - Copy-to-clipboard button
 
 #### Anchor Links
+
 - Clickable `#` next to headings
 - Automatically copies URL with anchor
 - Perfect for sharing specific sections
 
-
 #### Metadata Support
+
 - TypeScript interfaces for type safety
 - Customizable metadata fields
 - Beautiful component for displaying metadata

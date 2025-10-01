@@ -43,12 +43,12 @@ function chunkArray<T>(array: T[], chunks: number): T[][] {
 function calculateColumnDuration(
   columnTestimonials: typeof testimonials,
   columnIndex: number,
-  totalColumns: number
+  totalColumns: number,
 ): number {
   const totalCharacters = columnTestimonials.reduce(
     (sum, testimonial) =>
       sum + (testimonial.text?.length || 0) + (testimonial.name?.length || 0),
-    0
+    0,
   );
 
   // Base speed: 40 seconds per 1000 characters
@@ -61,7 +61,7 @@ function calculateColumnDuration(
   // Apply bounds that work with our doubled base speed
   const baseDuration = Math.max(
     30,
-    Math.min(150, baseSpeed * columnMultiplier)
+    Math.min(150, baseSpeed * columnMultiplier),
   );
 
   // Small variation to prevent sync (max 10% difference)
@@ -89,7 +89,7 @@ export default function TestimonialsSection() {
       const duration = calculateColumnDuration(
         columnTestimonials,
         index,
-        columnCount
+        columnCount,
       );
 
       // Debug logging (only when columns change)
@@ -97,7 +97,7 @@ export default function TestimonialsSection() {
         testimonialsCount: columnTestimonials.length,
         totalCharacters: columnTestimonials.reduce(
           (sum, t) => sum + (t.text?.length || 0) + (t.name?.length || 0),
-          0
+          0,
         ),
         finalDuration: Math.round(duration),
         multiplier: columnCount === 1 ? 3.0 : columnCount === 2 ? 2.0 : 1.0,
@@ -113,21 +113,21 @@ export default function TestimonialsSection() {
 
   return (
     <motion.section
-      className="py-16 lg:pt-16 lg:pb-32 px-6 bg-white overflow-hidden"
+      className="overflow-hidden bg-white px-6 py-16 lg:pb-32 lg:pt-16"
       {...fadeInMotionProps}
     >
-      <div className="max-w-7xl mx-auto mb-12">
+      <div className="mx-auto mb-12 max-w-7xl">
         <div className="text-left">
-          <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-4">
+          <h2 className="mb-4 text-3xl font-bold text-primary lg:text-4xl">
             <span className="font-light">Какво казват</span> нашите пациенти
           </h2>
-          <p className="text-foreground text-lg">
+          <p className="text-lg text-foreground">
             Хиляди пациенти са ни се доверили с грижата за своите усмивки:
           </p>
         </div>
       </div>
 
-      <div className="max-h-[60vh] flex w-full justify-center gap-6 [mask-image:linear-gradient(to_bottom,transparent,white_20%,white_80%,transparent)]">
+      <div className="flex max-h-[60vh] w-full justify-center gap-6 [mask-image:linear-gradient(to_bottom,transparent,white_20%,white_80%,transparent)]">
         {columnsWithDurations.map(
           ({ testimonials: columnTestimonials, duration, index }) => {
             // Stagger the animation start times
@@ -141,19 +141,19 @@ export default function TestimonialsSection() {
                   columnCount === 1
                     ? "block"
                     : columnCount === 2
-                    ? index === 0
-                      ? "block"
-                      : "hidden sm:block"
-                    : index === 0
-                    ? "hidden sm:block"
-                    : index === 1
-                    ? "hidden md:block"
-                    : "hidden lg:block"
+                      ? index === 0
+                        ? "block"
+                        : "hidden sm:block"
+                      : index === 0
+                        ? "hidden sm:block"
+                        : index === 1
+                          ? "hidden md:block"
+                          : "hidden lg:block"
                 } ${marginTopClasses[index % marginTopClasses.length]}`}
                 duration={duration}
               />
             );
-          }
+          },
         )}
       </div>
     </motion.section>

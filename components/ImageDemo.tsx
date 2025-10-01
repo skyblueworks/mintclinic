@@ -1,17 +1,17 @@
 export function ImageDemo() {
   return (
-    <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
-      <h3 className="font-bold text-blue-900 mb-4">
+    <div className="rounded-lg border border-blue-200 bg-blue-50 p-6">
+      <h3 className="mb-4 font-bold text-blue-900">
         Image Implementation Guide
       </h3>
-      
+
       <div className="space-y-4 text-sm">
         <div>
-          <h4 className="font-medium text-blue-800 mb-2">
+          <h4 className="mb-2 font-medium text-blue-800">
             1. With Real Sanity Images:
           </h4>
-          <pre className="bg-white p-3 rounded text-xs overflow-x-auto">
-{`// When you have real image assets in Sanity:
+          <pre className="overflow-x-auto rounded bg-white p-3 text-xs">
+            {`// When you have real image assets in Sanity:
 import { urlFor } from "@/sanity/lib/image";
 
 <Image
@@ -24,11 +24,11 @@ import { urlFor } from "@/sanity/lib/image";
         </div>
 
         <div>
-          <h4 className="font-medium text-blue-800 mb-2">
+          <h4 className="mb-2 font-medium text-blue-800">
             2. Current Demo Approach:
           </h4>
-          <pre className="bg-white p-3 rounded text-xs overflow-x-auto">
-{`// For testing without real images:
+          <pre className="overflow-x-auto rounded bg-white p-3 text-xs">
+            {`// For testing without real images:
 <div className="bg-gray-200 flex items-center justify-center">
   <p>Image Placeholder</p>
 </div>`}
@@ -36,10 +36,10 @@ import { urlFor } from "@/sanity/lib/image";
         </div>
 
         <div>
-          <h4 className="font-medium text-blue-800 mb-2">
+          <h4 className="mb-2 font-medium text-blue-800">
             3. To Add Real Images:
           </h4>
-          <ul className="text-blue-700 space-y-1">
+          <ul className="space-y-1 text-blue-700">
             <li>• Upload images in Sanity Studio</li>
             <li>• Reference them in your documents</li>
             <li>• Use urlFor() to generate URLs</li>

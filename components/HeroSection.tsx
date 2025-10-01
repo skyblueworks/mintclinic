@@ -11,13 +11,13 @@ export default function HeroSection() {
       {...fadeInMotionProps}
     >
       {/* Desktop Background Extension - Hidden on Mobile */}
-      <div className="hidden lg:block absolute bg-primary top-0 bottom-0 left-1/2 right-0 rounded-tl-[6rem] rounded-br-[6rem]">
+      <div className="absolute bottom-0 left-1/2 right-0 top-0 hidden rounded-br-[6rem] rounded-tl-[6rem] bg-primary lg:block">
         {/* Decorative tooth icons */}
-        <div className="absolute inset-0 pointer-events-none">
-          <FaTooth className="absolute top-8 left-8 text-white/10 text-6xl rotate-12" />
-          <FaTooth className="absolute top-20 right-12 text-white/10 text-4xl -rotate-12" />
-          <FaTooth className="absolute bottom-32 left-16 text-white/10 text-5xl rotate-45" />
-          <FaTooth className="absolute bottom-20 right-8 text-white/10 text-3xl -rotate-45" />
+        <div className="pointer-events-none absolute inset-0">
+          <FaTooth className="absolute left-8 top-8 rotate-12 text-6xl text-white/10" />
+          <FaTooth className="absolute right-12 top-20 -rotate-12 text-4xl text-white/10" />
+          <FaTooth className="absolute bottom-32 left-16 rotate-45 text-5xl text-white/10" />
+          <FaTooth className="absolute bottom-20 right-8 -rotate-45 text-3xl text-white/10" />
         </div>
 
         {/* Hero Image */}
@@ -27,43 +27,43 @@ export default function HeroSection() {
             alt="Happy patient"
             width={936}
             height={1046}
-            className="w-full h-full object-contain object-bottom"
+            className="h-full w-full object-contain object-bottom"
           />
         </div>
       </div>
 
       {/* Hero Content */}
-      <div className="max-w-7xl mx-auto h-full relative z-10">
-        <div className="flex flex-col lg:flex-row lg:gap-8 lg:items-center h-full">
+      <div className="relative z-10 mx-auto h-full max-w-7xl">
+        <div className="flex h-full flex-col lg:flex-row lg:items-center lg:gap-8">
           {/* Left Column - Text Content */}
-          <div className="relative z-10 px-6 lg:pr-12 pt-8 pb-16 lg:w-1/2 lg:py-20">
-            <div className="text-left text-foreground flex flex-col">
-              <h1 className="text-3xl lg:text-4xl xl:text-5xl leading-tight mb-6">
+          <div className="relative z-10 px-6 pb-16 pt-8 lg:w-1/2 lg:py-20 lg:pr-12">
+            <div className="flex flex-col text-left text-foreground">
+              <h1 className="mb-6 text-3xl leading-tight lg:text-4xl xl:text-5xl">
                 <span className="font-normal">Вашата усмивка,</span>{" "}
                 <span className="font-bold">усъвършенствана с прецизност</span>
               </h1>
 
-              <p className="text-md lg:text-lg mb-8 font-dm-sans">
+              <p className="text-md mb-8 font-dm-sans lg:text-lg">
                 Изпитайте персонализирана грижа в бутикова дентална клиника,
                 където естетиката среща експертизата. Тук сме, за да направим
                 вашата усмивка по-ярка, посещението ви по-гладко и грижата ви –
                 изключителна!
               </p>
 
-              <button className="bg-primary text-white font-bold self-center lg:self-start tracking-wider px-8 py-4 rounded-full hover:bg-primary/90 transition-colors duration-200">
+              <button className="self-center rounded-full bg-primary px-8 py-4 font-bold tracking-wider text-white transition-colors duration-200 hover:bg-primary/90 lg:self-start">
                 Запази час
               </button>
             </div>
           </div>
 
           {/* Right Column - Image (Mobile Only) */}
-          <div className="lg:hidden aspect-square bg-gradient-to-br from-primary to-primary/80 relative rounded-tl-[6rem] rounded-br-[7rem] overflow-hidden flex items-center justify-center">
+          <div className="relative flex aspect-square items-center justify-center overflow-hidden rounded-br-[7rem] rounded-tl-[6rem] bg-gradient-to-br from-primary to-primary/80 lg:hidden">
             {/* Decorative tooth icons */}
-            <div className="absolute inset-0 pointer-events-none">
-              <FaTooth className="absolute top-8 left-8 text-white/10 text-6xl rotate-12" />
-              <FaTooth className="absolute top-20 right-12 text-white/10 text-4xl -rotate-12" />
-              <FaTooth className="absolute bottom-32 left-16 text-white/10 text-5xl rotate-45" />
-              <FaTooth className="absolute bottom-20 right-8 text-white/10 text-3xl -rotate-45" />
+            <div className="pointer-events-none absolute inset-0">
+              <FaTooth className="absolute left-8 top-8 rotate-12 text-6xl text-white/10" />
+              <FaTooth className="absolute right-12 top-20 -rotate-12 text-4xl text-white/10" />
+              <FaTooth className="absolute bottom-32 left-16 rotate-45 text-5xl text-white/10" />
+              <FaTooth className="absolute bottom-20 right-8 -rotate-45 text-3xl text-white/10" />
             </div>
 
             {/* Hero Image */}
@@ -72,7 +72,7 @@ export default function HeroSection() {
               alt="Happy patient"
               width={936}
               height={1046}
-              className="mx-auto w-full h-full pt-12 object-contain object-bottom"
+              className="mx-auto h-full w-full object-contain object-bottom pt-12"
             />
           </div>
         </div>

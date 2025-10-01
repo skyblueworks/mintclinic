@@ -14,6 +14,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 This is a Next.js 15 MDX starter template built for creating content websites with React and Markdown.
 
 ### Tech Stack
+
 - **Next.js 15** with App Router and React Server Components
 - **MDX** for writing content with embedded React components
 - **TypeScript** for type safety
@@ -43,11 +44,13 @@ components/
 ### Key Components
 
 **Craft Design System** (`components/craft.tsx`):
+
 - Provides Layout, Main, Section, Container, Article, Prose, and Box components
 - Built-in responsive typography styles and spacing
 - Handles all markdown content styling through CSS-in-JS classes
 
 **MDX Configuration** (`mdx-components.tsx`):
+
 - Custom code block component with copy-to-clipboard functionality
 - Prevents invalid HTML nesting in markdown
 - Custom paragraph and blockquote styling

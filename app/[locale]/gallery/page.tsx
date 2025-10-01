@@ -10,7 +10,7 @@ async function getGalleryPage() {
     return await client.fetch(
       pageBySlugQuery,
       { slug: "gallery" },
-      { cache: "no-store" }
+      { cache: "no-store" },
     );
   } catch (error) {
     console.error("Error fetching gallery page:", error);
@@ -33,11 +33,13 @@ export default async function GalleryPage({ params }: Props) {
         <span>{locale === "bg" ? "Галерия" : "Gallery"}</span>
       </nav>
 
-      <div className="bg-white rounded-lg shadow-md p-8 mb-8">
-        <h1 className="text-4xl font-bold mb-4 text-blue-600">
-          {page?.title?.[locale] || page?.title?.bg || (locale === "bg" ? "Галерия" : "Gallery")}
+      <div className="mb-8 rounded-lg bg-white p-8 shadow-md">
+        <h1 className="mb-4 text-4xl font-bold text-blue-600">
+          {page?.title?.[locale] ||
+            page?.title?.bg ||
+            (locale === "bg" ? "Галерия" : "Gallery")}
         </h1>
-        <p className="text-lg text-gray-600 mb-6">
+        <p className="mb-6 text-lg text-gray-600">
           {locale === "bg"
             ? "Тестова страница за галерия"
             : "Test page for gallery"}
@@ -52,11 +54,11 @@ export default async function GalleryPage({ params }: Props) {
         {/* Page Data */}
         {page ? (
           <div>
-            <div className="bg-gray-50 p-6 rounded-lg mb-8">
-              <h2 className="text-2xl font-semibold mb-4">
+            <div className="mb-8 rounded-lg bg-gray-50 p-6">
+              <h2 className="mb-4 text-2xl font-semibold">
                 {locale === "bg" ? "Данни от страница" : "Page Data"}
               </h2>
-              <pre className="bg-white p-4 rounded border overflow-x-auto text-sm">
+              <pre className="overflow-x-auto rounded border bg-white p-4 text-sm">
                 {JSON.stringify(page, null, 2)}
               </pre>
             </div>
@@ -64,28 +66,28 @@ export default async function GalleryPage({ params }: Props) {
             {/* Gallery Images */}
             {page.images && page.images.length > 0 ? (
               <div>
-                <h2 className="text-2xl font-semibold mb-4">
+                <h2 className="mb-4 text-2xl font-semibold">
                   {locale === "bg"
                     ? `Изображения в галерията (${page.images.length})`
                     : `Gallery Images (${page.images.length})`}
                 </h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                   {page.images.map((image: any, idx: number) => (
                     <div
                       key={idx}
-                      className="aspect-square rounded-lg overflow-hidden bg-gray-200"
+                      className="aspect-square overflow-hidden rounded-lg bg-gray-200"
                     >
                       <img
                         src={image.url || "/placeholder.jpg"}
                         alt={image.alt || `Gallery image ${idx + 1}`}
-                        className="w-full h-full object-cover hover:scale-105 transition"
+                        className="h-full w-full object-cover transition hover:scale-105"
                       />
                     </div>
                   ))}
                 </div>
               </div>
             ) : (
-              <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+              <div className="rounded-lg border border-yellow-200 bg-yellow-50 p-4">
                 <p className="text-yellow-800">
                   {locale === "bg"
                     ? "Няма изображения в галерията."
@@ -95,7 +97,7 @@ export default async function GalleryPage({ params }: Props) {
             )}
           </div>
         ) : (
-          <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+          <div className="rounded-lg border border-yellow-200 bg-yellow-50 p-4">
             <p className="text-yellow-800">
               {locale === "bg"
                 ? "Няма данни за тази страница. Моля, добавете страница с slug 'gallery' в Sanity Studio."

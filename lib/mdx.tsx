@@ -21,7 +21,7 @@ export interface PageMeta {
  * Render MDX content from Sanity
  */
 export async function renderMDX(
-  mdxContent: MDXContent
+  mdxContent: MDXContent,
 ): Promise<ReactElement | null> {
   if (!mdxContent?.code?.code) {
     return null;
@@ -40,7 +40,7 @@ export async function renderMDX(
       "jsx",
       "jsxs",
       "Fragment",
-      String(compiled)
+      String(compiled),
     ) as any;
 
     // Return the component wrapped in MDX provider
@@ -54,12 +54,12 @@ export async function renderMDX(
 
     // Return fallback content on error
     return (
-      <div className="bg-red-50 border border-red-200 rounded-lg p-4 my-4">
+      <div className="my-4 rounded-lg border border-red-200 bg-red-50 p-4">
         <p className="text-red-800">
           Error rendering content. Please check the MDX syntax.
         </p>
         {process.env.NODE_ENV === "development" && (
-          <pre className="mt-2 text-xs text-red-600 overflow-auto">
+          <pre className="mt-2 overflow-auto text-xs text-red-600">
             {error instanceof Error ? error.message : "Unknown error"}
           </pre>
         )}
