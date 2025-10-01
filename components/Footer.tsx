@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import {
   FaPhone,
   FaClock,
@@ -96,52 +97,52 @@ export default function Footer() {
               <nav className="hidden lg:block">
                 <ul className="flex flex-wrap gap-x-8 gap-y-2 text-white/90 justify-end">
                   <li>
-                    <a
+                    <Link
                       href="/za-nas"
                       className="hover:text-white transition-colors"
                     >
                       За нас
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       href="/ekip"
                       className="hover:text-white transition-colors"
                     >
                       Екип
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       href="/uslugi"
                       className="hover:text-white transition-colors"
                     >
                       Услуги
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       href="/galeriya"
                       className="hover:text-white transition-colors"
                     >
                       Галерия
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       href="/blog"
                       className="hover:text-white transition-colors"
                     >
                       Блог
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       href="/kontakti"
                       className="hover:text-white transition-colors"
                     >
                       Контакт
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </nav>
@@ -150,52 +151,52 @@ export default function Footer() {
               <nav className="lg:hidden">
                 <ul className="flex flex-col sm:grid sm:grid-cols-2 gap-4 text-white/90 text-center text-lg">
                   <li>
-                    <a
+                    <Link
                       href="/za-nas"
                       className="hover:text-white transition-colors"
                     >
                       За нас
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       href="/uslugi"
                       className="hover:text-white transition-colors"
                     >
                       Услуги
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       href="/ekip"
                       className="hover:text-white transition-colors"
                     >
                       Екип
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       href="/galeriya"
                       className="hover:text-white transition-colors"
                     >
                       Галерия
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       href="/blog"
                       className="hover:text-white transition-colors"
                     >
                       Блог
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       href="/kontakti"
                       className="hover:text-white transition-colors"
                     >
                       Контакт
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </nav>
@@ -250,18 +251,18 @@ export default function Footer() {
               </span>
             </p>
             <div className="flex gap-6">
-              <a
+              <Link
                 href="/obshti-usloviya"
                 className="hover:text-white transition-colors"
               >
                 Общи Условия
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/politika-za-poveritelnost"
                 className="hover:text-white transition-colors"
               >
                 Политика за поверителност
-              </a>
+              </Link>
             </div>
           </div>
         </div>

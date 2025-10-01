@@ -1,6 +1,6 @@
 import { client } from "@/sanity/lib/client";
 import { postBySlugQuery } from "@/sanity/lib/queries";
-import { getLocalizedMDX } from "@/lib/mdx";
+import { getLocalizedMDX } from "@/lib/getLocalized";
 import { MDXRenderer } from "@/components/MDXRenderer";
 import { notFound } from "next/navigation";
 
@@ -46,7 +46,7 @@ export default async function BlogPostPage({ params }: Props) {
     notFound();
   }
 
-  const content = getLocalizedMDX(post.content, locale);
+  const content = getLocalizedMDX(post.content, locale as "bg" | "en");
 
   return (
     <div className="container mx-auto px-4 py-8">

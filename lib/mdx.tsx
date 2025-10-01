@@ -1,4 +1,3 @@
-"use client";
 import { compile } from "@mdx-js/mdx";
 import { mdxComponents } from "@/components/mdx";
 import { MDXProvider } from "@mdx-js/react";
