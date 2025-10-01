@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@heroicons/react": "^2.2.0",
     "@hookform/resolvers": "^3.10.0",
     "@mdx-js/loader": "^3.1.0",
     "@mdx-js/react": "^3.1.0",
@@ -22,6 +23,10 @@
     "@radix-ui/react-navigation-menu": "^1.2.14",
     "@radix-ui/react-slot": "^1.1.2",
     "@uidotdev/usehooks": "^2.4.1",
+    "@sanity/code-input": "^6.0.1",
+    "@sanity/icons": "^3.7.4",
+    "@sanity/image-url": "^1.2.0",
+    "@sanity/vision": "^4.10.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "embla-carousel-autoplay": "^8.6.0",
@@ -29,6 +34,7 @@
     "lucide-react": "^0.468.0",
     "motion": "^12.23.22",
     "next": "15.1.7",
+    "next-sanity": "^11.4.2",
     "prism-react-renderer": "^2.4.1",
     "react": "19.0.0",
     "react-dom": "19.0.0",
@@ -39,11 +45,13 @@
     "rehype-pretty-code": "^0.14.0",
     "rehype-slug": "^6.0.0",
     "shiki": "^1.29.2",
+    "styled-components": "^6.1.19",
     "tailwind-merge": "^2.6.0",
     "tailwindcss-animate": "^1.0.7",
     "zod": "^3.24.2"
   },
   "devDependencies": {
+    "@sanity/cli": "^4.10.1",
     "@tailwindcss/typography": "^0.5.16",
     "@types/hast": "^3.0.4",
     "@types/mdx": "^2.0.13",
@@ -51,9 +59,11 @@
     "@types/react": "19.0.1",
     "@types/react-dom": "19.0.2",
     "autoprefixer": "^10.4.20",
+    "dotenv": "^17.2.2",
     "eslint": "^9.20.1",
     "eslint-config-next": "15.0.4",
     "postcss": "^8.5.3",
+    "sanity": "^4.10.1",
     "tailwindcss": "^3.4.17",
     "typescript": "^5.7.3"
   },
