@@ -1,8 +1,14 @@
+"use client";
 import { FaMapMarkerAlt } from "react-icons/fa";
+import { motion } from "motion/react";
+import { fadeInMotionProps } from "@/lib/animations";
 
 export default function LocationSection() {
   return (
-    <section className="bg-white py-16 lg:py-32">
+    <motion.section
+      className="bg-white py-16 lg:py-32"
+      {...fadeInMotionProps}
+    >
       {/* Header with Icon */}
       <div className="max-w-7xl mx-auto px-6 mb-8">
         <a
@@ -31,6 +37,6 @@ export default function LocationSection() {
           />
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

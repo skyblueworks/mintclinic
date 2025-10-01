@@ -1,4 +1,7 @@
+"use client";
 import Image from "next/image";
+import { motion } from "motion/react";
+import { fadeInMotionProps } from "@/lib/animations";
 
 export default function WhyMintSection() {
   const reasons = [
@@ -23,7 +26,10 @@ export default function WhyMintSection() {
   ];
 
   return (
-    <section className="py-8 lg:py-16 bg-white relative lg:px-6 isolate">
+    <motion.section
+      className="py-8 lg:py-16 bg-white relative lg:px-6 isolate"
+      {...fadeInMotionProps}
+    >
       <div className="max-w-3xl mx-auto relative">
         {/* Decorative mint - top left */}
         <div className="hidden lg:block absolute top-6 -left-48 opacity-20 pointer-events-none -z-10">
@@ -78,6 +84,6 @@ export default function WhyMintSection() {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

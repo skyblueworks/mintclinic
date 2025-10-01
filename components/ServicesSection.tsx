@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import { motion } from "motion/react";
 import {
   Carousel,
   CarouselContent,
@@ -8,6 +9,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
+import { fadeInMotionProps } from "@/lib/animations";
 
 export default function ServicesSection() {
   const services = [
@@ -70,7 +72,10 @@ export default function ServicesSection() {
   ];
 
   return (
-    <section className="py-16  lg:pt-32 lg:pb-16 bg-white">
+    <motion.section
+      className="py-16  lg:pt-32 lg:pb-16 bg-white"
+      {...fadeInMotionProps}
+    >
       <div className="px-6 w-full">
         {/* Header */}
         <div className="max-w-7xl flex justify-between items-center mb-12 w-full mx-auto">
@@ -134,6 +139,6 @@ export default function ServicesSection() {
           <CarouselNext className="size-12 right-6 bg-primary text-white border-primary hover:bg-primary/90 hover:text-white" />
         </Carousel>
       </div>
-    </section>
+    </motion.section>
   );
 }

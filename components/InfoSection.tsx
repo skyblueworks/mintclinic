@@ -1,3 +1,7 @@
+"use client";
+import { motion } from "motion/react";
+import { fadeInMotionProps } from "@/lib/animations";
+
 export default function InfoSection() {
   const infoCards = [
     {
@@ -28,7 +32,10 @@ export default function InfoSection() {
   ];
 
   return (
-    <section className="py-16 lg:py-32 px-6 bg-primary/5">
+    <motion.section
+      className="py-16 lg:py-32 px-6 bg-primary/5"
+      {...fadeInMotionProps}
+    >
       <div className="max-w-7xl mx-auto">
         <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-12">
           <span className="font-light">Индивидуален подход</span> към всеки
@@ -60,6 +67,6 @@ export default function InfoSection() {
           ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

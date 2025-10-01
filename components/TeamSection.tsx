@@ -1,8 +1,14 @@
+"use client";
 import Image from "next/image";
+import { motion } from "motion/react";
+import { fadeInMotionProps } from "@/lib/animations";
 
 export default function TeamSection() {
   return (
-    <section className="py-16 lg:pb-32 bg-white">
+    <motion.section
+      className="py-16 lg:pb-32 bg-white"
+      {...fadeInMotionProps}
+    >
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col lg:flex-row items-center gap-16">
           <img
@@ -43,6 +49,6 @@ export default function TeamSection() {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

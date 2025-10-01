@@ -1,9 +1,15 @@
+"use client";
 import Image from "next/image";
 import { FaTooth } from "react-icons/fa";
+import { motion } from "motion/react";
+import { fadeInMotionProps } from "@/lib/animations";
 
 export default function HeroSection() {
   return (
-    <div className="relative overflow-hidden bg-white lg:h-[calc(100vh-130px)]">
+    <motion.div
+      className="relative overflow-hidden bg-white lg:h-[calc(100vh-130px)]"
+      {...fadeInMotionProps}
+    >
       {/* Desktop Background Extension - Hidden on Mobile */}
       <div className="hidden lg:block absolute bg-primary top-0 bottom-0 left-1/2 right-0 rounded-tl-[6rem] rounded-br-[6rem]">
         {/* Decorative tooth icons */}
@@ -71,6 +77,6 @@ export default function HeroSection() {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

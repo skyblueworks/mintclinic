@@ -1,9 +1,12 @@
+"use client";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { motion } from "motion/react";
+import { fadeInMotionProps } from "@/lib/animations";
 
 export default function FAQSection() {
   const faqs = [
@@ -47,7 +50,10 @@ export default function FAQSection() {
   ];
 
   return (
-    <section className="py-16 lg:py-32 bg-primary">
+    <motion.section
+      className="py-16 lg:py-32 bg-primary"
+      {...fadeInMotionProps}
+    >
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col lg:flex-row gap-16">
           {/* Header */}
@@ -85,6 +91,6 @@ export default function FAQSection() {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

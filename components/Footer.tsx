@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -8,10 +9,12 @@ import {
   FaFacebook,
   FaInstagram,
 } from "react-icons/fa";
+import { motion } from "motion/react";
+import { fadeInMotionProps } from "@/lib/animations";
 
 export default function Footer() {
   return (
-    <footer className="bg-primary text-white">
+    <motion.footer className="bg-primary text-white" {...fadeInMotionProps}>
       {/* Top Row - Tagline & Contact Info */}
       <div className="max-w-7xl mx-auto px-6 py-16 ">
         <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-8">
@@ -267,6 +270,6 @@ export default function Footer() {
           </div>
         </div>
       </div>
-    </footer>
+    </motion.footer>
   );
 }

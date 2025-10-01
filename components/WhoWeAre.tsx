@@ -1,6 +1,13 @@
+"use client";
+import { motion } from "motion/react";
+import { fadeInMotionProps } from "@/lib/animations";
+
 export default function WhoWeAre() {
   return (
-    <section className="pt-16 pb-8 lg:pb-16 lg:pt-32 px-6 bg-white">
+    <motion.section
+      className="pt-16 pb-8 lg:pb-16 lg:pt-32 px-6 bg-white"
+      {...fadeInMotionProps}
+    >
       <div className="max-w-7xl mx-auto">
         <div className="lg:grid lg:grid-cols-2 lg:gap-12 lg:items-center">
           {/* Content Section */}
@@ -44,6 +51,6 @@ export default function WhoWeAre() {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

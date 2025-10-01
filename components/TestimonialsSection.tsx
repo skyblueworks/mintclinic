@@ -1,7 +1,9 @@
 "use client";
 import React, { useMemo } from "react";
 import { useWindowSize } from "@uidotdev/usehooks";
+import { motion } from "motion/react";
 import { TestimonialsColumn } from "./blocks/testimonials-columns-1";
+import { fadeInMotionProps } from "@/lib/animations";
 
 import reviews from "@/assets/reviews.json";
 import photoMapping from "@/assets/reviewer-photos/url-to-filename.json";
@@ -110,7 +112,10 @@ export default function TestimonialsSection() {
   }, [columnCount]); // Only recalculate when column count changes
 
   return (
-    <section className="py-16 lg:pt-16 lg:pb-32 px-6 bg-white overflow-hidden">
+    <motion.section
+      className="py-16 lg:pt-16 lg:pb-32 px-6 bg-white overflow-hidden"
+      {...fadeInMotionProps}
+    >
       <div className="max-w-7xl mx-auto mb-12">
         <div className="text-left">
           <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-4">
@@ -151,6 +156,6 @@ export default function TestimonialsSection() {
           }
         )}
       </div>
-    </section>
+    </motion.section>
   );
 }
