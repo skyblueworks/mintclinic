@@ -2,18 +2,35 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { RxHamburgerMenu } from "react-icons/rx";
-import { FaTimes, FaChevronDown, FaChevronRight } from "react-icons/fa";
+import { RxHamburgerMenu, RxChevronDown, RxChevronRight } from "react-icons/rx";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+import {
+  Menubar,
+  MenubarContent,
+  MenubarItem,
+  MenubarMenu,
+  MenubarSub,
+  MenubarSubContent,
+  MenubarSubTrigger,
+  MenubarTrigger,
+} from "@/components/ui/menubar";
 
 export default function HeaderSection() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [openMobileSubmenu, setOpenMobileSubmenu] = useState<string | null>(
     null
   );
   const [openMobileNestedSubmenu, setOpenMobileNestedSubmenu] = useState<
     string | null
   >(null);
+  const [servicesMenuOpen, setServicesMenuOpen] = useState(false);
+  const [aboutMenuOpen, setAboutMenuOpen] = useState(false);
 
   return (
     <header className="relative z-50 bg-white h-[130px] flex items-center">
@@ -31,211 +48,167 @@ export default function HeaderSection() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-8">
-            <Link
-              href="/"
-              className="text-gray-700 hover:text-primary transition-colors font-medium"
-            >
-              Начало
-            </Link>
-
-            {/* Услуги Dropdown */}
-            <div
-              className="relative"
-              onMouseEnter={() => setOpenDropdown("services")}
-              onMouseLeave={() => setOpenDropdown(null)}
-            >
-              <button className="flex items-center gap-1 text-gray-700 hover:text-primary transition-colors font-medium">
-                Услуги
-                <FaChevronDown className="text-xs" />
-              </button>
-
-              {openDropdown === "services" && (
-                <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-xl py-2 z-50">
-                  <div className="relative group">
-                    <button className="w-full text-left px-4 py-3 hover:bg-gray-50 flex items-center justify-between">
-                      <span>Естетична дентална медицина</span>
-                      <FaChevronRight className="text-xs" />
-                    </button>
-                    <div className="hidden group-hover:block absolute left-full top-0 ml-1 w-56 bg-white rounded-lg shadow-xl py-2">
-                      <a
-                        href="/uslugi/estetichna/viniri"
-                        className="block px-4 py-2 hover:bg-gray-50"
-                      >
-                        Винири
-                      </a>
-                      <a
-                        href="/uslugi/estetichna/koroni"
-                        className="block px-4 py-2 hover:bg-gray-50"
-                      >
-                        Корони
-                      </a>
-                      <a
-                        href="/uslugi/estetichna/избелване"
-                        className="block px-4 py-2 hover:bg-gray-50"
-                      >
-                        Избелване
-                      </a>
-                    </div>
-                  </div>
-
-                  <div className="relative group">
-                    <button className="w-full text-left px-4 py-3 hover:bg-gray-50 flex items-center justify-between">
-                      <span>Имплантология</span>
-                      <FaChevronRight className="text-xs" />
-                    </button>
-                    <div className="hidden group-hover:block absolute left-full top-0 ml-1 w-56 bg-white rounded-lg shadow-xl py-2">
-                      <a
-                        href="/uslugi/implantologiya/implanti"
-                        className="block px-4 py-2 hover:bg-gray-50"
-                      >
-                        Зъбни импланти
-                      </a>
-                      <a
-                        href="/uslugi/implantologiya/bone-grafting"
-                        className="block px-4 py-2 hover:bg-gray-50"
-                      >
-                        Костна пластика
-                      </a>
-                    </div>
-                  </div>
-
-                  <div className="relative group">
-                    <button className="w-full text-left px-4 py-3 hover:bg-gray-50 flex items-center justify-between">
-                      <span>Пародонтология</span>
-                      <FaChevronRight className="text-xs" />
-                    </button>
-                    <div className="hidden group-hover:block absolute left-full top-0 ml-1 w-56 bg-white rounded-lg shadow-xl py-2">
-                      <a
-                        href="/uslugi/parodontologiya/lechenie"
-                        className="block px-4 py-2 hover:bg-gray-50"
-                      >
-                        Лечение на венци
-                      </a>
-                      <a
-                        href="/uslugi/parodontologiya/profilaktika"
-                        className="block px-4 py-2 hover:bg-gray-50"
-                      >
-                        Профилактика
-                      </a>
-                    </div>
-                  </div>
-
-                  <div className="relative group">
-                    <button className="w-full text-left px-4 py-3 hover:bg-gray-50 flex items-center justify-between">
-                      <span>Ортодонтия</span>
-                      <FaChevronRight className="text-xs" />
-                    </button>
-                    <div className="hidden group-hover:block absolute left-full top-0 ml-1 w-56 bg-white rounded-lg shadow-xl py-2">
-                      <a
-                        href="/uslugi/ortodontiya/braces"
-                        className="block px-4 py-2 hover:bg-gray-50"
-                      >
-                        Брекети
-                      </a>
-                      <a
-                        href="/uslugi/ortodontiya/invisalign"
-                        className="block px-4 py-2 hover:bg-gray-50"
-                      >
-                        Invisalign
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              )}
-            </div>
-
-            {/* За Нас Dropdown */}
-            <div
-              className="relative"
-              onMouseEnter={() => setOpenDropdown("about")}
-              onMouseLeave={() => setOpenDropdown(null)}
-            >
-              <button className="flex items-center gap-1 text-gray-700 hover:text-primary transition-colors font-medium">
-                За Нас
-                <FaChevronDown className="text-xs" />
-              </button>
-
-              {openDropdown === "about" && (
-                <div className="absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-xl py-2 z-50">
-                  <a
-                    href="/za-nas"
-                    className="block px-4 py-3 hover:bg-gray-50"
-                  >
-                    Кои сме ние
-                  </a>
-                  <a
-                    href="/ekip/dr-aleksov"
-                    className="block px-4 py-3 hover:bg-gray-50"
-                  >
-                    Д-р Алексов
-                  </a>
-                  <a
-                    href="/ekip/dr-doganova"
-                    className="block px-4 py-3 hover:bg-gray-50"
-                  >
-                    Д-р Доганова
-                  </a>
-                </div>
-              )}
-            </div>
-
-            <a
-              href="/kontakti"
-              className="text-gray-700 hover:text-primary transition-colors font-medium"
-            >
-              Контакти
-            </a>
-
-            {/* CTA Button */}
-            <a
-              href="tel:+359888436838"
-              className="bg-accent text-accent-foreground font-bold py-2 px-6 rounded-full hover:bg-accent/90 transition-colors"
-            >
-              Запази час
-            </a>
-          </nav>
-
-          {/* Mobile Hamburger */}
-          <button
-            className="lg:hidden text-primary p-2"
-            onClick={() => setMobileMenuOpen(true)}
+          <Menubar
+            className="hidden lg:flex items-center gap-6 border-0 bg-transparent"
+            value={servicesMenuOpen ? "services" : aboutMenuOpen ? "about" : ""}
+            onValueChange={(value) => {
+              setServicesMenuOpen(value === "services");
+              setAboutMenuOpen(value === "about");
+            }}
           >
-            <RxHamburgerMenu className="w-6 h-6" />
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile Menu Overlay */}
-      {mobileMenuOpen && (
-        <>
-          <div
-            className="fixed inset-0 bg-black/50 z-40"
-            onClick={() => setMobileMenuOpen(false)}
-          />
-          <div className="fixed top-0 right-0 bottom-0 w-80 max-w-full bg-white z-50 overflow-y-auto">
-            <div className="p-6">
-              {/* Close Button */}
-              <button
-                onClick={() => setMobileMenuOpen(false)}
-                className="absolute top-6 right-6 text-gray-700"
+            <MenubarMenu>
+              <Link
+                href="/"
+                className="text-gray-700 hover:text-primary transition-colors font-medium px-3 py-1.5"
               >
-                <FaTimes className="w-6 h-6" />
-              </button>
+                Начало
+              </Link>
+            </MenubarMenu>
 
-              {/* Mobile Logo */}
-              <div className="mb-8">
-                <Image
-                  src="/logo-colored-cropped.svg"
-                  alt="Mint Clinic"
-                  width={120}
-                  height={35}
-                  className="h-10 w-auto"
-                />
-              </div>
+            {/* Услуги Menu */}
+            <MenubarMenu value="services">
+              <MenubarTrigger
+                className="flex items-center gap-1 text-gray-700 hover:text-primary transition-colors font-medium cursor-pointer"
+                onMouseEnter={() => setServicesMenuOpen(true)}
+                asChild
+              >
+                <Link href="/uslugi">
+                  Услуги
+                  <RxChevronDown className="text-sm" />
+                </Link>
+              </MenubarTrigger>
+              <MenubarContent className="w-64">
+                <MenubarSub>
+                  <MenubarSubTrigger>
+                    Естетична дентална медицина
+                  </MenubarSubTrigger>
+                  <MenubarSubContent>
+                    <MenubarItem asChild>
+                      <Link href="/uslugi/estetichna/viniri">Винири</Link>
+                    </MenubarItem>
+                    <MenubarItem asChild>
+                      <Link href="/uslugi/estetichna/koroni">Корони</Link>
+                    </MenubarItem>
+                    <MenubarItem asChild>
+                      <Link href="/uslugi/estetichna/izbelvane">Избелване</Link>
+                    </MenubarItem>
+                  </MenubarSubContent>
+                </MenubarSub>
+
+                <MenubarSub>
+                  <MenubarSubTrigger>Имплантология</MenubarSubTrigger>
+                  <MenubarSubContent>
+                    <MenubarItem asChild>
+                      <Link href="/uslugi/implantologiya/implanti">
+                        Зъбни импланти
+                      </Link>
+                    </MenubarItem>
+                    <MenubarItem asChild>
+                      <Link href="/uslugi/implantologiya/bone-grafting">
+                        Костна пластика
+                      </Link>
+                    </MenubarItem>
+                  </MenubarSubContent>
+                </MenubarSub>
+
+                <MenubarSub>
+                  <MenubarSubTrigger>Пародонтология</MenubarSubTrigger>
+                  <MenubarSubContent>
+                    <MenubarItem asChild>
+                      <Link href="/uslugi/parodontologiya/lechenie">
+                        Лечение на венци
+                      </Link>
+                    </MenubarItem>
+                    <MenubarItem asChild>
+                      <Link href="/uslugi/parodontologiya/profilaktika">
+                        Профилактика
+                      </Link>
+                    </MenubarItem>
+                  </MenubarSubContent>
+                </MenubarSub>
+
+                <MenubarSub>
+                  <MenubarSubTrigger>Ортодонтия</MenubarSubTrigger>
+                  <MenubarSubContent>
+                    <MenubarItem asChild>
+                      <Link href="/uslugi/ortodontiya/braces">Брекети</Link>
+                    </MenubarItem>
+                    <MenubarItem asChild>
+                      <Link href="/uslugi/ortodontiya/invisalign">
+                        Invisalign
+                      </Link>
+                    </MenubarItem>
+                  </MenubarSubContent>
+                </MenubarSub>
+              </MenubarContent>
+            </MenubarMenu>
+
+            {/* За Нас Menu */}
+            <MenubarMenu value="about">
+              <MenubarTrigger
+                className="flex items-center gap-1 text-gray-700 hover:text-primary transition-colors font-medium cursor-pointer"
+                onMouseEnter={() => setAboutMenuOpen(true)}
+                asChild
+              >
+                <Link href="/za-nas">
+                  За Нас
+                  <RxChevronDown className="text-sm" />
+                </Link>
+              </MenubarTrigger>
+              <MenubarContent className="w-56">
+                <MenubarItem asChild>
+                  <Link href="/za-nas">Кои сме ние</Link>
+                </MenubarItem>
+                <MenubarItem asChild>
+                  <Link href="/ekip/dr-aleksov">Д-р Алексов</Link>
+                </MenubarItem>
+                <MenubarItem asChild>
+                  <Link href="/ekip/dr-doganova">Д-р Доганова</Link>
+                </MenubarItem>
+              </MenubarContent>
+            </MenubarMenu>
+
+            <MenubarMenu>
+              <Link
+                href="/kontakti"
+                className="text-gray-700 hover:text-primary transition-colors font-medium px-3 py-1.5"
+              >
+                Контакти
+              </Link>
+            </MenubarMenu>
+
+            <MenubarMenu>
+              <a
+                href="tel:+359888436838"
+                className="bg-accent text-accent-foreground font-bold py-2 px-6 rounded-full hover:bg-accent/90 transition-colors"
+              >
+                Запази час
+              </a>
+            </MenubarMenu>
+          </Menubar>
+
+          {/* Mobile Menu */}
+          <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
+            <SheetTrigger asChild>
+              <button className="lg:hidden text-primary p-2">
+                <RxHamburgerMenu className="w-6 h-6" />
+              </button>
+            </SheetTrigger>
+            <SheetContent side="left" className="w-80 overflow-y-auto">
+              <SheetHeader>
+                <SheetTitle>
+                  <Image
+                    src="/logo-colored-cropped.svg"
+                    alt="Mint Clinic"
+                    width={120}
+                    height={35}
+                    className="h-10 w-auto"
+                  />
+                </SheetTitle>
+              </SheetHeader>
 
               {/* Mobile Navigation */}
-              <nav className="space-y-2">
+              <nav className="space-y-2 mt-8 text-left">
                 <Link
                   href="/"
                   className="block py-3 text-gray-700 hover:text-primary transition-colors font-medium"
@@ -255,7 +228,7 @@ export default function HeaderSection() {
                     className="w-full flex items-center justify-between py-3 text-gray-700 hover:text-primary transition-colors font-medium"
                   >
                     <span>Услуги</span>
-                    <FaChevronDown
+                    <RxChevronDown
                       className={`text-xs transition-transform ${
                         openMobileSubmenu === "services" ? "rotate-180" : ""
                       }`}
@@ -274,10 +247,10 @@ export default function HeaderSection() {
                                 : "aesthetic"
                             )
                           }
-                          className="w-full flex items-center justify-between py-2 text-gray-600 hover:text-primary transition-colors"
+                          className="w-full flex items-center justify-between py-2 text-gray-600 hover:text-primary transition-colors text-left"
                         >
                           <span>Естетична дентална медицина</span>
-                          <FaChevronRight
+                          <RxChevronRight
                             className={`text-xs transition-transform ${
                               openMobileNestedSubmenu === "aesthetic"
                                 ? "rotate-90"
@@ -325,7 +298,7 @@ export default function HeaderSection() {
                           className="w-full flex items-center justify-between py-2 text-gray-600 hover:text-primary transition-colors"
                         >
                           <span>Имплантология</span>
-                          <FaChevronRight
+                          <RxChevronRight
                             className={`text-xs transition-transform ${
                               openMobileNestedSubmenu === "implantology"
                                 ? "rotate-90"
@@ -366,7 +339,7 @@ export default function HeaderSection() {
                           className="w-full flex items-center justify-between py-2 text-gray-600 hover:text-primary transition-colors"
                         >
                           <span>Пародонтология</span>
-                          <FaChevronRight
+                          <RxChevronRight
                             className={`text-xs transition-transform ${
                               openMobileNestedSubmenu === "periodontology"
                                 ? "rotate-90"
@@ -407,7 +380,7 @@ export default function HeaderSection() {
                           className="w-full flex items-center justify-between py-2 text-gray-600 hover:text-primary transition-colors"
                         >
                           <span>Ортодонтия</span>
-                          <FaChevronRight
+                          <RxChevronRight
                             className={`text-xs transition-transform ${
                               openMobileNestedSubmenu === "orthodontics"
                                 ? "rotate-90"
@@ -449,7 +422,7 @@ export default function HeaderSection() {
                     className="w-full flex items-center justify-between py-3 text-gray-700 hover:text-primary transition-colors font-medium"
                   >
                     <span>За Нас</span>
-                    <FaChevronDown
+                    <RxChevronDown
                       className={`text-xs transition-transform ${
                         openMobileSubmenu === "about" ? "rotate-180" : ""
                       }`}
@@ -499,10 +472,10 @@ export default function HeaderSection() {
                   Запази час
                 </a>
               </nav>
-            </div>
-          </div>
-        </>
-      )}
+            </SheetContent>
+          </Sheet>
+        </div>
+      </div>
     </header>
   );
 }

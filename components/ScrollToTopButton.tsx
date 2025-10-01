@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { FaChevronUp } from "react-icons/fa";
+import { RxChevronUp } from "react-icons/rx";
 
 export default function ScrollToTopButton() {
   const [isVisible, setIsVisible] = useState(false);
@@ -39,7 +39,7 @@ export default function ScrollToTopButton() {
           className="fixed bottom-8 right-8 w-14 h-14 bg-primary text-white rounded-full flex items-center justify-center shadow-lg hover:bg-primary/90 transition-colors z-50"
           aria-label="Scroll to top"
         >
-          <FaChevronUp className="text-xl" />
+          <RxChevronUp className="text-xl" />
         </motion.button>
       )}
     </AnimatePresence>
