@@ -1,6 +1,5 @@
 import { compile } from "@mdx-js/mdx";
 import { mdxComponents } from "@/components/mdx";
-import { MDXProvider } from "@mdx-js/react";
 import { ReactElement } from "react";
 
 export interface MDXContent {
@@ -43,12 +42,8 @@ export async function renderMDX(
       String(compiled),
     ) as any;
 
-    // Return the component wrapped in MDX provider
-    return (
-      <MDXProvider components={mdxComponents}>
-        <Component />
-      </MDXProvider>
-    );
+    // Return the component directly (MDX components are handled by mdx-components.tsx)
+    return <Component />;
   } catch (error) {
     console.error("MDX compilation error:", error);
 

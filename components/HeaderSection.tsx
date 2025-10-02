@@ -40,45 +40,83 @@ const NAV_ITEMS: NavItem[] = [
     children: [
       {
         label: "Естетична дентална медицина",
-        href: "/uslugi/estetichna",
+        href: "/uslugi/estetika",
         children: [
-          { label: "Винири", href: "/uslugi/estetichna/viniri" },
-          { label: "Корони", href: "/uslugi/estetichna/koroni" },
-          { label: "Избелване", href: "/uslugi/estetichna/izbelvane" },
-        ],
-      },
-      {
-        label: "Имплантология",
-        href: "/uslugi/implantologiya",
-        children: [
-          { label: "Зъбни импланти", href: "/uslugi/implantologiya/implanti" },
+          { label: "Фасети", href: "/uslugi/estetika/faseti" },
+          { label: "Bonding", href: "/uslugi/estetika/bonding" },
           {
-            label: "Костна пластика",
-            href: "/uslugi/implantologiya/bone-grafting",
+            label: "Digital Smile Design",
+            href: "/uslugi/estetika/digital-smile-design",
+          },
+          {
+            label: "Избелване на зъбите",
+            href: "/uslugi/estetika/izbelvane-na-zabite",
           },
         ],
       },
       {
-        label: "Пародонтология",
-        href: "/uslugi/parodontologiya",
+        label: "Хирургия",
+        href: "/uslugi/hirurgiya",
         children: [
           {
-            label: "Лечение на венци",
-            href: "/uslugi/parodontologiya/lechenie",
+            label: "Дентални импланти",
+            href: "/uslugi/hirurgiya/dentalni-implanti",
+          },
+          { label: "Екстракции", href: "/uslugi/hirurgiya/ekstrakczii" },
+          {
+            label: "Покриване на рецесии",
+            href: "/uslugi/hirurgiya/pokrivane-na-reczesii",
           },
           {
-            label: "Профилактика",
-            href: "/uslugi/parodontologiya/profilaktika",
+            label: "Оформяне на венеца",
+            href: "/uslugi/hirurgiya/oformyane-na-venecza",
           },
         ],
       },
       {
-        label: "Ортодонтия",
-        href: "/uslugi/ortodontiya",
+        label: "Протетика",
+        href: "/uslugi/protetika",
         children: [
-          { label: "Брекети", href: "/uslugi/ortodontiya/braces" },
-          { label: "Invisalign", href: "/uslugi/ortodontiya/invisalign" },
+          { label: "Коронки", href: "/uslugi/protetika/koronki" },
+          { label: "Мостове", href: "/uslugi/protetika/mostove" },
+          { label: "Inlay и Onlay", href: "/uslugi/protetika/inlej-i-onlej" },
+          { label: "Протези", href: "/uslugi/protetika/protezi" },
+          {
+            label: "Функционална рехабилитация",
+            href: "/uslugi/protetika/funkczionalna-rehabilitacziya",
+          },
+          {
+            label: "Шини за бруксисти",
+            href: "/uslugi/protetika/shini-za-bruksisti",
+          },
         ],
+      },
+      {
+        label: "Консервативна терапия",
+        href: "/uslugi/konservativna-terapiya",
+        children: [
+          {
+            label: "Обтурации",
+            href: "/uslugi/konservativna-terapiya/obturaczii",
+          },
+          {
+            label: "Кореново лечение",
+            href: "/uslugi/konservativna-terapiya/korenovo-lechenie",
+          },
+          {
+            label: "Професионално почистване и профилактика",
+            href: "/uslugi/konservativna-terapiya/profesionalno-pochistvane-i-profilaktika",
+          },
+          {
+            label: "Гингивит, пародонтит",
+            href: "/uslugi/konservativna-terapiya/gingivit-parodontit",
+          },
+        ],
+      },
+      { label: "Алайнери", href: "/uslugi/alajneri" },
+      {
+        label: "Спешна дентална помощ",
+        href: "/uslugi/speshna-dentalna-pomosth",
       },
     ],
   },
@@ -86,11 +124,14 @@ const NAV_ITEMS: NavItem[] = [
     label: "За Нас",
     href: "/za-nas",
     children: [
-      { label: "Кои сме ние", href: "/za-nas" },
-      { label: "Д-р Алексов", href: "/ekip/dr-aleksov" },
-      { label: "Д-р Доганова", href: "/ekip/dr-doganova" },
+      { label: "За нас", href: "/za-nas" },
+      { label: "Екип", href: "/ekip" },
+      { label: "Д-р Алексов", href: "/ekip/d-r-aleksov" },
+      { label: "Д-р Доганова", href: "/d-r-doganova" },
     ],
   },
+  // { label: "Галерия", href: "/galeriya" },
+  // { label: "Блог", href: "/blog" },
   { label: "Контакти", href: "/kontakti" },
 ];
 
