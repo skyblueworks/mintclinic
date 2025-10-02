@@ -239,19 +239,9 @@ export default function Footer() {
           <div className="flex flex-col items-center justify-between gap-4 text-sm text-white/70 md:flex-row">
             <p className="text-center md:text-left">
               <span className="inline-block">© 2024 Mint Clinic.</span>{" "}
-              <span className="inline-block">Всички права са запазени.</span>{" "}
               <span className="inline-block">
-                Дизайн от{" "}
-                <a
-                  href="https://simplifixstudio.bg/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-white/90 transition-colors hover:text-white"
-                >
-                  Simplifix Studio
-                </a>
-                .
-              </span>
+                Всички права са запазени.
+              </span>{" "}
             </p>
             <div className="flex gap-6">
               <Link
