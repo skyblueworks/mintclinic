@@ -17,7 +17,7 @@ export function middleware(request: NextRequest) {
 
   // Redirect to default locale if no locale is present
   request.nextUrl.pathname = `/${defaultLocale}${pathname}`;
-  return NextResponse.redirect(request.nextUrl);
+  // return NextResponse.redirect(request.nextUrl);
 }
 
 export const config = {
