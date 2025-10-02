@@ -1,54 +1,62 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import Image from 'next/image'
-import { ChevronLeftIcon, ChevronRightIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { useState } from "react";
+import Image from "next/image";
+import {
+  ChevronLeftIcon,
+  ChevronRightIcon,
+  XMarkIcon,
+} from "@heroicons/react/24/outline";
 
 interface GalleryProps {
   images: {
-    src: string
-    alt?: string
-    caption?: string
-  }[]
-  columns?: 2 | 3 | 4
+    src: string;
+    alt?: string;
+    caption?: string;
+  }[];
+  columns?: 2 | 3 | 4;
 }
 
 export function Gallery({ images, columns = 3 }: GalleryProps) {
-  const [selectedIndex, setSelectedIndex] = useState<number | null>(null)
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
   const openLightbox = (index: number) => {
-    setSelectedIndex(index)
-  }
+    setSelectedIndex(index);
+  };
 
   const closeLightbox = () => {
-    setSelectedIndex(null)
-  }
+    setSelectedIndex(null);
+  };
 
   const goToPrevious = () => {
     if (selectedIndex !== null) {
-      setSelectedIndex(selectedIndex === 0 ? images.length - 1 : selectedIndex - 1)
+      setSelectedIndex(
+        selectedIndex === 0 ? images.length - 1 : selectedIndex - 1,
+      );
     }
-  }
+  };
 
   const goToNext = () => {
     if (selectedIndex !== null) {
-      setSelectedIndex(selectedIndex === images.length - 1 ? 0 : selectedIndex + 1)
+      setSelectedIndex(
+        selectedIndex === images.length - 1 ? 0 : selectedIndex + 1,
+      );
     }
-  }
+  };
 
   const gridCols = {
-    2: 'grid-cols-2',
-    3: 'grid-cols-2 md:grid-cols-3',
-    4: 'grid-cols-2 md:grid-cols-4',
-  }
+    2: "grid-cols-2",
+    3: "grid-cols-2 md:grid-cols-3",
+    4: "grid-cols-2 md:grid-cols-4",
+  };
 
   return (
     <>
-      <div className={`grid ${gridCols[columns]} gap-4 my-8`}>
+      <div className={`grid ${gridCols[columns]} my-8 gap-4`}>
         {images.map((image, index) => (
           <div
             key={index}
-            className="relative aspect-square overflow-hidden rounded-lg bg-gray-100 cursor-pointer hover:opacity-90 transition-opacity"
+            className="relative aspect-square cursor-pointer overflow-hidden rounded-lg bg-gray-100 transition-opacity hover:opacity-90"
             onClick={() => openLightbox(index)}
           >
             <Image
@@ -65,11 +73,11 @@ export function Gallery({ images, columns = 3 }: GalleryProps) {
       {/* Lightbox */}
       {selectedIndex !== null && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-90">
-          <div className="relative max-w-4xl max-h-screen w-full h-full flex items-center justify-center p-4">
+          <div className="relative flex h-full max-h-screen w-full max-w-4xl items-center justify-center p-4">
             {/* Close button */}
             <button
               onClick={closeLightbox}
-              className="absolute top-4 right-4 z-10 p-2 text-white hover:text-gray-300 transition-colors"
+              className="absolute right-4 top-4 z-10 p-2 text-white transition-colors hover:text-gray-300"
             >
               <XMarkIcon className="h-6 w-6" />
             </button>
@@ -77,7 +85,7 @@ export function Gallery({ images, columns = 3 }: GalleryProps) {
             {/* Previous button */}
             <button
               onClick={goToPrevious}
-              className="absolute left-4 z-10 p-2 text-white hover:text-gray-300 transition-colors"
+              className="absolute left-4 z-10 p-2 text-white transition-colors hover:text-gray-300"
             >
               <ChevronLeftIcon className="h-8 w-8" />
             </button>
@@ -85,16 +93,19 @@ export function Gallery({ images, columns = 3 }: GalleryProps) {
             {/* Next button */}
             <button
               onClick={goToNext}
-              className="absolute right-4 z-10 p-2 text-white hover:text-gray-300 transition-colors"
+              className="absolute right-4 z-10 p-2 text-white transition-colors hover:text-gray-300"
             >
               <ChevronRightIcon className="h-8 w-8" />
             </button>
 
             {/* Image */}
-            <div className="relative w-full h-full">
+            <div className="relative h-full w-full">
               <Image
                 src={images[selectedIndex].src}
-                alt={images[selectedIndex].alt || `Gallery image ${selectedIndex + 1}`}
+                alt={
+                  images[selectedIndex].alt ||
+                  `Gallery image ${selectedIndex + 1}`
+                }
                 fill
                 className="object-contain"
                 sizes="100vw"
@@ -104,7 +115,7 @@ export function Gallery({ images, columns = 3 }: GalleryProps) {
             {/* Caption */}
             {images[selectedIndex].caption && (
               <div className="absolute bottom-4 left-4 right-4 text-center">
-                <p className="text-white text-sm bg-black bg-opacity-50 px-4 py-2 rounded">
+                <p className="rounded bg-black bg-opacity-50 px-4 py-2 text-sm text-white">
                   {images[selectedIndex].caption}
                 </p>
               </div>
@@ -112,7 +123,7 @@ export function Gallery({ images, columns = 3 }: GalleryProps) {
 
             {/* Counter */}
             <div className="absolute bottom-4 right-4">
-              <span className="text-white text-sm bg-black bg-opacity-50 px-3 py-1 rounded">
+              <span className="rounded bg-black bg-opacity-50 px-3 py-1 text-sm text-white">
                 {selectedIndex + 1} / {images.length}
               </span>
             </div>
@@ -120,5 +131,5 @@ export function Gallery({ images, columns = 3 }: GalleryProps) {
         </div>
       )}
     </>
-  )
+  );
 }
