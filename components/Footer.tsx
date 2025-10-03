@@ -17,6 +17,10 @@ export default function Footer() {
     <motion.footer
       className="bg-gradient-to-br from-primary/80 to-primary text-white"
       {...fadeInMotionProps}
+      viewport={{
+        ...fadeInMotionProps.viewport,
+        margin: "-50px",
+      }}
     >
       {/* Top Row - Tagline & Contact Info */}
       <div className="mx-auto max-w-7xl px-6 py-16">
