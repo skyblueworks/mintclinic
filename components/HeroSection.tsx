@@ -11,7 +11,7 @@ export default function HeroSection() {
       {...fadeInMotionProps}
     >
       {/* Desktop Background Extension - Hidden on Mobile */}
-      <div className="absolute bottom-0 left-1/2 right-0 top-0 hidden rounded-br-[6rem] rounded-tl-[6rem] bg-primary lg:block">
+      <div className="absolute bottom-0 left-1/2 right-0 top-0 hidden rounded-br-[6rem] rounded-tl-[6rem] bg-gradient-to-br from-primary/80 to-primary lg:block">
         {/* Decorative tooth icons */}
         <div className="pointer-events-none absolute inset-0">
           <FaTooth className="absolute left-8 top-8 rotate-12 text-6xl text-white/10" />

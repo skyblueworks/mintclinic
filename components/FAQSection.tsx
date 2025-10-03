@@ -51,7 +51,7 @@ export default function FAQSection() {
 
   return (
     <motion.section
-      className="bg-primary py-16 lg:py-32"
+      className="bg-gradient-to-br from-primary/80 to-primary py-16 lg:py-32"
       {...fadeInMotionProps}
     >
       <div className="mx-auto max-w-7xl px-6">

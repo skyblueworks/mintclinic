@@ -79,7 +79,7 @@ export default function ServicesSection() {
       <div className="w-full px-6">
         {/* Header */}
         <div className="mx-auto mb-12 flex w-full max-w-7xl items-center justify-between">
-          <h2 className="text-3xl font-bold text-primary lg:text-4xl">
+          <h2 className="text-3xl font-light text-primary lg:text-4xl">
             Нашите услуги
           </h2>
           <button className="text-nowrap rounded-full border border-primary bg-transparent px-8 py-3 font-extrabold text-primary transition-colors duration-200 hover:bg-primary hover:text-white">

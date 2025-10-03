@@ -14,7 +14,10 @@ import { fadeInMotionProps } from "@/lib/animations";
 
 export default function Footer() {
   return (
-    <motion.footer className="bg-primary text-white" {...fadeInMotionProps}>
+    <motion.footer
+      className="bg-gradient-to-br from-primary/80 to-primary text-white"
+      {...fadeInMotionProps}
+    >
       {/* Top Row - Tagline & Contact Info */}
       <div className="mx-auto max-w-7xl px-6 py-16">
         <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between">
@@ -70,7 +73,7 @@ export default function Footer() {
 
       {/* Bottom Section - Logo/CTA & Navigation/Social */}
       <div className="mx-auto max-w-7xl px-6 pb-16">
-        <div className="rounded-br-3xl rounded-tl-3xl bg-[#14B0B080] p-8 lg:p-12">
+        <div className="rounded-br-3xl rounded-tl-3xl bg-gradient-to-br from-[#14B0B060] to-[#14B0B090] p-8 shadow-2xl shadow-primary/10 lg:p-12">
           <div className="flex flex-col gap-0 lg:flex-row lg:justify-between lg:gap-12">
             {/* Left - Logo & CTA */}
             <div className="space-y-6 lg:w-1/3">

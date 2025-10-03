@@ -17,7 +17,8 @@ export default function WhoWeAre() {
             </p>
 
             <h2 className="mb-6 text-3xl font-bold leading-tight text-primary lg:text-4xl">
-              Немска дентална Клиника в центъра на София
+              <span className="font-light">Немска дентална клиника</span> в
+              центъра на София
             </h2>
 
             <p className="text-md mb-8 font-dm-sans text-foreground">
