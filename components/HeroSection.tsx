@@ -7,7 +7,7 @@ import { fadeInMotionProps } from "@/lib/animations";
 export default function HeroSection() {
   return (
     <motion.div
-      className="relative overflow-hidden bg-white lg:h-[calc(100vh-130px)]"
+      className="relative overflow-hidden lg:h-[calc(100vh-130px)]"
       {...fadeInMotionProps}
     >
       {/* Desktop Background Extension - Hidden on Mobile */}

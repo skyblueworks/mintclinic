@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { RxHamburgerMenu, RxChevronDown, RxChevronRight } from "react-icons/rx";
@@ -25,6 +26,7 @@ import {
   MenubarSubTrigger,
   MenubarTrigger,
 } from "@/components/ui/menubar";
+import { cn } from "@/lib/utils";
 
 type NavItem = {
   label: string;
@@ -132,10 +134,14 @@ const NAV_ITEMS: NavItem[] = [
   },
   // { label: "Галерия", href: "/galeriya" },
   // { label: "Блог", href: "/blog" },
-  { label: "Контакти", href: "/kontakti" },
+  // { label: "Контакти", href: "/kontakti" },
+  { label: "Контакти", href: "/test" },
 ];
 
-export default function HeaderSection() {
+export default function HeaderSection({ className }: { className?: string }) {
+  const pathname = usePathname();
+  const isHomePage = pathname === "/";
+
   const [servicesMenuOpen, setServicesMenuOpen] = useState(false);
   const [aboutMenuOpen, setAboutMenuOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -278,7 +284,13 @@ export default function HeaderSection() {
   };
 
   return (
-    <header className="relative z-50 flex h-[130px] items-center bg-white">
+    <header
+      className={cn(
+        "relative z-50 flex h-[130px] items-center bg-white shadow-2xl shadow-transparent transition-shadow duration-500",
+        !isHomePage && "shadow-primary/10",
+        className,
+      )}
+    >
       <div className="mx-auto w-full max-w-7xl px-6">
         <div className="flex items-center justify-between">
           {/* Logo */}

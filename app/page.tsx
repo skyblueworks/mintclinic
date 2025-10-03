@@ -1,4 +1,3 @@
-import HeaderSection from "@/components/HeaderSection";
 import HeroSection from "@/components/HeroSection";
 import WhoWeAre from "@/components/WhoWeAre";
 import InfoSection from "@/components/InfoSection";
@@ -8,13 +7,10 @@ import TeamSection from "@/components/TeamSection";
 import FAQSection from "@/components/FAQSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import LocationSection from "@/components/LocationSection";
-import Footer from "@/components/Footer";
-import ScrollToTopButton from "@/components/ScrollToTopButton";
 
 export default function HomePage() {
   return (
     <div>
-      <HeaderSection />
       <HeroSection />
       <WhoWeAre />
       <TestimonialsSection />
@@ -24,8 +20,6 @@ export default function HomePage() {
       <TeamSection />
       <FAQSection />
       <LocationSection />
-      <Footer />
-      <ScrollToTopButton />
     </div>
   );
 }

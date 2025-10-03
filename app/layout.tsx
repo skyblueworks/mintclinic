@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Comfortaa, DM_Sans } from "next/font/google";
 import { Layout } from "@/components/craft";
+import HeaderSection from "@/components/HeaderSection";
+import Footer from "@/components/Footer";
+import ScrollToTopButton from "@/components/ScrollToTopButton";
 
 import "./globals.css";
 
@@ -86,7 +89,10 @@ export default function RootLayout({
           comfortaa.className,
         )}
       >
+        <HeaderSection />
         {children}
+        <Footer />
+        <ScrollToTopButton />
       </body>
     </Layout>
   );
