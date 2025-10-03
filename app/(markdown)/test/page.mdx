@@ -1,4 +1,13 @@
-import { TwoColumn, ThreeColumn, Column, Card, Grid } from "@/components/mdx";
+import {
+  TwoColumn,
+  ThreeColumn,
+  Column,
+  Card,
+  Grid,
+  Hero,
+  Process,
+  Video,
+} from "@/components/mdx";
 import Image from "next/image";
 import heroImage from "../uslugi/estetika/faseti/assets/faseti-isnovna-2-1024x566.webp";
 import processImage from "../uslugi/estetika/faseti/assets/faseti-snimka.webp";
@@ -9,6 +18,37 @@ export const metadata = {
 };
 
 # Layout Showcase
+
+<Process
+  title="Процесът на поставяне на фасети"
+  steps={[
+    {
+      title: "Консултация и планиране",
+      description: "По време на първата консултация ще обсъдим вашите цели и ще направим оценка на здравето на зъбите и венците ви. Ще направим няколко снимки, с които изготвяме индивидуален дигитален дизайн, или така наречения Wax-up."
+    },
+    {
+      title: "Mock-up (мок-ъп)",
+      description: "Пренасяме дизайна върху вашите зъби чрез специална пластмаса. Така можем да оценим ефекта на дизайна и да правим промени докато намерим вашата перфектна усмивка. Неслучайно корая казват два пъти мери, веднъж режи!"
+    },
+    {
+      title: "Подготовка на зъбите",
+      description: "Зъбите се подготвят чрез минимално изпилване на емайла, ако е необходимо, за да се създаде място за фасетите. След това ще вземем отпечатъци."
+    },
+    {
+      title: "Поставяне на фасетите",
+      description: "След изработка, те се залепват здраво към зъбите ви с помощта на адхезивно лепило. Фасетите се полират за финален блясък и естествен вид."
+    },
+  ]}
+/>
+
+## Video Component
+
+<Video
+  src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+  title="Dental Procedure Demonstration"
+/>
+
+---
 
 ## Single Column Layout
 

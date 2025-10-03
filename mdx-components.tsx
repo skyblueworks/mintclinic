@@ -6,6 +6,8 @@ import {
   Column,
   Card,
   Grid,
+  Process,
+  Video,
 } from "@/components/mdx/layouts";
 import React from "react";
 
@@ -58,6 +60,9 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     Column,
     Card,
     Grid,
+    // Service page components
+    Process,
+    Video,
     // Inherit any custom components passed in
     ...components,
   };

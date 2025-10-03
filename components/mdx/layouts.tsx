@@ -1,5 +1,8 @@
 import { Box, Prose } from "@/components/craft";
 import { cn } from "@/components/craft";
+import Image, { type StaticImageData } from "next/image";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -28,6 +31,22 @@ interface GridProps {
     lg?: 1 | 2 | 3 | 4;
     xl?: 1 | 2 | 3 | 4;
   };
+}
+interface ProcessStep {
+  title: string;
+  description: string;
+}
+
+interface ProcessProps {
+  title?: string;
+  steps: ProcessStep[];
+  className?: string;
+}
+
+interface VideoProps {
+  src: string;
+  title?: string;
+  className?: string;
 }
 
 /**
@@ -141,5 +160,69 @@ export function Grid({
     <Box cols={cols} gap={gap} className={cn("my-8", className)}>
       {children}
     </Box>
+  );
+}
+
+/**
+ * Process - Step-by-step process component with numbered steps
+ * Perfect for explaining procedures and workflows
+ *
+ * @example
+ * <Process
+ *   steps={[
+ *     { title: "Consultation", description: "Initial assessment and planning" },
+ *     { title: "Preparation", description: "Tooth preparation and impressions" },
+ *     { title: "Placement", description: "Final veneer placement" }
+ *   ]}
+ * />
+ */
+export function Process({ title, steps, className }: ProcessProps) {
+  return (
+    <div className={cn("my-8", className)}>
+      {title && (
+        <h2 className="mb-8 text-3xl font-semibold text-primary">{title}</h2>
+      )}
+      <Box cols={{ base: 1, md: 2, lg: 3 }} gap={8}>
+        {steps.map((step, index) => (
+          <div key={index} className="flex flex-col gap-4">
+            <div className="flex min-h-[2.5rem] items-baseline gap-2">
+              <span className="text-2xl font-bold text-primary">
+                {index + 1}.
+              </span>
+              <h3 className="text-xl font-semibold">{step.title}</h3>
+            </div>
+            <p className="leading-7 text-muted-foreground">
+              {step.description}
+            </p>
+          </div>
+        ))}
+      </Box>
+    </div>
+  );
+}
+
+/**
+ * Video - Responsive video embed component
+ * Supports YouTube, Vimeo, and other iframe-based video platforms
+ *
+ * @example
+ * <Video
+ *   src="https://www.youtube.com/embed/VIDEO_ID"
+ *   title="Dental Procedure Video"
+ * />
+ */
+export function Video({ src, title = "Video", className }: VideoProps) {
+  return (
+    <div className={cn("my-8", className)}>
+      <div className="relative overflow-hidden rounded-lg pb-[56.25%]">
+        <iframe
+          src={src}
+          title={title}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+          className="absolute inset-0 h-full w-full"
+        />
+      </div>
+    </div>
   );
 }
