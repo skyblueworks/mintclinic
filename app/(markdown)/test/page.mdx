@@ -1,0 +1,134 @@
+import { TwoColumn, ThreeColumn, Column, Card, Grid } from "@/components/mdx";
+import Image from "next/image";
+import heroImage from "../uslugi/estetika/faseti/assets/faseti-isnovna-2-1024x566.webp";
+import processImage from "../uslugi/estetika/faseti/assets/faseti-snimka.webp";
+
+export const metadata = {
+  title: "Layout Showcase – Mint Clinic",
+  description: "Test page for responsive layout components",
+};
+
+# Layout Showcase
+
+## Single Column Layout
+
+### Full Width Content
+
+This is a single column layout that spans the full width of the container. Perfect for introductory text, hero sections, or content that needs maximum readability and focus.
+
+<Image src={heroImage} alt="Example image" className="my-8 w-full rounded-lg" />
+
+Single column layouts work great for all screen sizes and provide a clean, distraction-free reading experience.
+
+---
+
+## 2-Column Layout (Image Left)
+
+<TwoColumn>
+  <Column>
+    <Image src={processImage} alt="Process image" className="w-full rounded-lg" />
+  </Column>
+  <Column>
+    ### Image & Text
+
+    This layout places the image on the left and text on the right. On mobile devices (base), it stacks into a single column for better readability.
+
+    The responsive behavior ensures that content remains accessible and visually appealing across all device sizes.
+
+  </Column>
+</TwoColumn>
+
+---
+
+## 2-Column Layout (Image Right)
+
+<TwoColumn>
+  <Column>
+    ### Text & Image
+
+    This layout reverses the order, placing text on the left and the image on the right. Great for alternating content sections to create visual rhythm.
+
+    - Mobile-first responsive design
+    - Automatic stacking on small screens
+    - Flexible gap spacing
+
+  </Column>
+  <Column>
+    <Image src={heroImage} alt="Hero image" className="w-full rounded-lg" />
+  </Column>
+</TwoColumn>
+
+---
+
+## 3-Column Layout
+
+<ThreeColumn>
+  <Card>
+    ### Feature One
+
+    Three column layouts are perfect for feature grids, service listings, or card-based content. Responsive: 1 column on mobile, 2 on tablets, 3 on desktop.
+
+  </Card>
+  <Card>
+    ### Feature Two
+
+    Each column automatically adjusts its width based on the screen size, ensuring optimal readability and visual balance across all devices.
+
+  </Card>
+  <Card>
+    ### Feature Three
+
+    The gap property controls the spacing between columns, making it easy to create consistent, professional-looking layouts.
+
+  </Card>
+</ThreeColumn>
+
+---
+
+## Mixed Responsive Grid
+
+This advanced grid changes column count at different breakpoints for optimal content presentation.
+
+<Grid cols={{ base: 1, sm: 2, lg: 4 }} gap={4}>
+  <div className="rounded-lg bg-muted/50 p-4 text-center">
+    <p className="font-medium">Item 1</p>
+  </div>
+  <div className="rounded-lg bg-muted/50 p-4 text-center">
+    <p className="font-medium">Item 2</p>
+  </div>
+  <div className="rounded-lg bg-muted/50 p-4 text-center">
+    <p className="font-medium">Item 3</p>
+  </div>
+  <div className="rounded-lg bg-muted/50 p-4 text-center">
+    <p className="font-medium">Item 4</p>
+  </div>
+  <div className="rounded-lg bg-muted/50 p-4 text-center">
+    <p className="font-medium">Item 5</p>
+  </div>
+  <div className="rounded-lg bg-muted/50 p-4 text-center">
+    <p className="font-medium">Item 6</p>
+  </div>
+  <div className="rounded-lg bg-muted/50 p-4 text-center">
+    <p className="font-medium">Item 7</p>
+  </div>
+  <div className="rounded-lg bg-muted/50 p-4 text-center">
+    <p className="font-medium">Item 8</p>
+  </div>
+</Grid>
+
+---
+
+## Responsive Breakpoints
+
+<Card className="bg-muted/30">
+  ### Breakpoint Reference
+
+  <ul>
+    <li><strong>base</strong>: Mobile devices (default, no prefix)</li>
+    <li><strong>sm</strong>: Tablets (640px+)</li>
+    <li><strong>md</strong>: Small laptops (768px+)</li>
+    <li><strong>lg</strong>: Desktops (1024px+)</li>
+    <li><strong>xl</strong>: Large screens (1280px+)</li>
+    <li><strong>2xl</strong>: Extra large screens (1536px+)</li>
+  </ul>
+</Card>

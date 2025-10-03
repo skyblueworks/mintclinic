@@ -101,7 +101,7 @@ const styles = {
       "[&_td]:border-r [&_td]:px-4 [&_td]:py-2 [&_td]:last:border-0",
     ],
     media: [
-      "[&_img]:rounded-lg [&_img]:border [&_img]:my-4 [&_img]:max-w-full [&_img]:h-auto",
+      "[&_img]:rounded-2xl [&_img]:rounded-tr-none [&_img]:rounded-bl-none [&_img]:shadow-2xl [&_img]:shadow-primary/5 [&_img]:border-primary/10 [&_img]:border [&_img]:my-4 [&_img]:max-w-full [&_img]:h-auto",
       "[&_video]:rounded-lg [&_video]:border [&_video]:my-4",
       "[&_figure]:my-4",
       "[&_figure_img]:my-0",

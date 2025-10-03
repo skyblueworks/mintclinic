@@ -14,7 +14,7 @@ export default function LocationSection() {
           rel="noopener noreferrer"
           className="group inline-flex items-center gap-3"
         >
-          <h2 className="text-3xl font-bold text-primary transition-colors group-hover:text-primary/80 lg:text-4xl">
+          <h2 className="text-3xl font-light text-primary transition-colors group-hover:text-primary/80 lg:text-4xl">
             Къде да ни намерите
           </h2>
           <FaMapMarkerAlt className="text-2xl text-primary transition-colors group-hover:text-primary/80" />

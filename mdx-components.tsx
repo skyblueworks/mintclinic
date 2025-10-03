@@ -1,5 +1,12 @@
 import type { MDXComponents } from "mdx/types";
 import { Code } from "@/components/mdx/code";
+import {
+  TwoColumn,
+  ThreeColumn,
+  Column,
+  Card,
+  Grid,
+} from "@/components/mdx/layouts";
 import React from "react";
 
 // Default components for MDX files
@@ -45,6 +52,12 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         {children}
       </blockquote>
     ),
+    // Layout components
+    TwoColumn,
+    ThreeColumn,
+    Column,
+    Card,
+    Grid,
     // Inherit any custom components passed in
     ...components,
   };
