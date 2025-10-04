@@ -74,20 +74,23 @@ export function TwoColumn({ children, className, gap = 8 }: LayoutProps) {
 }
 
 /**
- * ThreeColumn - Responsive 3-column layout
+ * CardGrid - Responsive grid layout for N number of card items
  * Stacks: 1 column on mobile → 2 columns on tablet → 3 columns on desktop
  *
+ * Supports any number of items - automatically flows into grid
+ *
  * @example
- * <ThreeColumn>
+ * <CardGrid>
  *   <Card>
  *     ### Feature One
  *     Description text
  *   </Card>
  *   <Card>...</Card>
  *   <Card>...</Card>
- * </ThreeColumn>
+ *   <Card>...</Card>
+ * </CardGrid>
  */
-export function ThreeColumn({ children, className, gap = 6 }: LayoutProps) {
+export function CardGrid({ children, className, gap = 6 }: LayoutProps) {
   return (
     <Box
       cols={{ base: 1, md: 2, lg: 3 }}
@@ -98,6 +101,9 @@ export function ThreeColumn({ children, className, gap = 6 }: LayoutProps) {
     </Box>
   );
 }
+
+// Backwards compatibility alias
+export const ThreeColumn = CardGrid;
 
 /**
  * Column - Individual column wrapper for layout components
@@ -113,8 +119,9 @@ export function Column({ children, className }: ColumnProps) {
 }
 
 /**
- * Card - Bordered card component for feature boxes
+ * Card - Clean card component for feature boxes
  * Perfect for displaying features, services, or information blocks
+ * Features teal headings and light background for optimal readability
  *
  * @example
  * <Card>
@@ -126,7 +133,9 @@ export function Card({ children, className }: CardProps) {
   return (
     <Prose
       className={cn(
-        "rounded-2xl rounded-bl-none rounded-tr-none border border-primary/5 bg-gradient-to-br from-primary/5 to-primary/10 p-6 shadow-2xl shadow-primary/5",
+        "rounded-2xl rounded-bl-none rounded-tr-none border border-border bg-card p-8 shadow-sm transition-shadow hover:shadow-md",
+        "[&_h3]:mb-4 [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:text-primary",
+        "[&_p]:leading-relaxed [&_p]:text-muted-foreground",
         className,
       )}
     >

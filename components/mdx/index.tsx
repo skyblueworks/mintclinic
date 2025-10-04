@@ -7,6 +7,7 @@ export { BeforeAfter } from "./BeforeAfter";
 export {
   TwoColumn,
   ThreeColumn,
+  CardGrid,
   Column,
   Card,
   Grid,
@@ -23,6 +24,7 @@ import { BeforeAfter } from "./BeforeAfter";
 import {
   TwoColumn,
   ThreeColumn,
+  CardGrid,
   Column,
   Card,
   Grid,
@@ -38,6 +40,7 @@ export const mdxComponents = {
   BeforeAfter,
   TwoColumn,
   ThreeColumn,
+  CardGrid,
   Column,
   Card,
   Grid,
