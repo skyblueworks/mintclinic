@@ -118,7 +118,7 @@ const NAV_ITEMS: NavItem[] = [
       { label: "Алайнери", href: "/uslugi/alajneri" },
       {
         label: "Спешна дентална помощ",
-        href: "/uslugi/speshna-dentalna-pomosth",
+        href: "/uslugi/speshna-dentalna-pomosht",
       },
     ],
   },
