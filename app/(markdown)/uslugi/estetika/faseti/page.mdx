@@ -1,4 +1,4 @@
-import { Process, TwoColumn, Column, ImageCard } from "@/components/mdx";
+import { Process, TwoColumn, Column, Video } from "@/components/mdx";
 import Image from "next/image";
 import heroImage from "./assets/faseti-isnovna-2-1024x566.webp";
 import processImage from "./assets/faseti-snimka.webp";
@@ -18,7 +18,7 @@ export const metadata = {
 
 <TwoColumn>
   <Column>
-    <ImageCard
+    <Image
       src={heroImage}
       alt="Порцеланови фасети - Mint Clinic"
       priority
@@ -76,11 +76,18 @@ export const metadata = {
 
 </Column>
   <Column>
-    <ImageCard
+    <Image
       src={processImage}
       alt="Процес на поставяне на фасети"
     />
   </Column>
 </TwoColumn>
+
+# Видео
+
+<Video
+  src="https://www.youtube.com/embed/QtUbca1EHZo?si=Gwn5XMKUMhc_25Hx"
+  title="Фасети - Mint Clinic"
+/>
 
 </ServiceLayout>

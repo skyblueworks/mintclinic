@@ -1,8 +1,5 @@
 import { Box, Prose } from "@/components/craft";
 import { cn } from "@/components/craft";
-import Image, { type StaticImageData } from "next/image";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -207,20 +204,20 @@ export function Process({ title, steps, className }: ProcessProps) {
  *
  * @example
  * <Video
- *   src="https://www.youtube.com/embed/VIDEO_ID"
+ *   src="https://www.youtube-nocookie.com/embed/VIDEO_ID"
  *   title="Dental Procedure Video"
  * />
  */
 export function Video({ src, title = "Video", className }: VideoProps) {
   return (
     <div className={cn("my-8", className)}>
-      <div className="relative overflow-hidden rounded-lg pb-[56.25%]">
+      <div className="aspect-video overflow-hidden rounded-3xl rounded-bl-none rounded-tr-none shadow-xl shadow-primary/10">
         <iframe
           src={src}
           title={title}
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen
-          className="absolute inset-0 h-full w-full"
+          className="h-full w-full"
         />
       </div>
     </div>
