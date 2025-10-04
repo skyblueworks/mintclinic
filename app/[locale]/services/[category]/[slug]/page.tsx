@@ -1,6 +1,7 @@
 import { client } from "@/sanity/lib/client";
 import { serviceBySlugAndCategoryQuery } from "@/sanity/lib/queries";
 import { MDXRenderer } from "@/components/MDXRenderer";
+import ServiceLayout from "@/components/layouts/ServiceLayout";
 import { notFound } from "next/navigation";
 import { getLocalizedMDX } from "@/lib/getLocalized";
 
@@ -54,7 +55,7 @@ export async function generateStaticParams() {
   return params;
 }
 
-export default async function ServiceCategoryPage({ params }) {
+export default async function ServicePage({ params }) {
   const { locale, category, slug } = params;
   const service = await getServiceByCategory(category, slug);
 
@@ -63,83 +64,38 @@ export default async function ServiceCategoryPage({ params }) {
   }
 
   const content = getLocalizedMDX(service.content, locale);
+  const title = service.title?.[locale] || service.title?.bg || "Service";
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      {/* Breadcrumb */}
-      <nav className="mb-6 text-sm text-gray-600">
-        <a href={`/${locale}`} className="hover:text-blue-600">
-          {locale === "bg" ? "Начало" : "Home"}
-        </a>
-        {" / "}
-        <a href={`/${locale}/services`} className="hover:text-blue-600">
-          {locale === "bg" ? "Услуги" : "Services"}
-        </a>
-        {service.category && (
-          <>
-            {" / "}
-            <a
-              href={`/${locale}/services/${service.category.slug}`}
-              className="hover:text-blue-600"
-            >
-              {service.category.title[locale] || service.category.title.bg}
-            </a>
-          </>
-        )}
-        {" / "}
-        <span>{service.title[locale] || service.title.bg}</span>
-      </nav>
-
-      <div className="mb-8 rounded-lg bg-white p-8 shadow-md">
-        <h1 className="mb-4 text-4xl font-bold text-blue-600">
-          {service.title[locale] || service.title.bg}
-        </h1>
-        <p className="mb-6 text-lg text-gray-600">
-          {locale === "bg"
-            ? "Тестова страница за услуга"
-            : "Test page for service"}
-        </p>
-
-        {/* Current Locale */}
-        <div className="mb-6">
-          <span className="text-sm text-gray-600">Locale: </span>
-          <span className="font-semibold">{locale}</span>
+    <ServiceLayout
+      title={title}
+      locale={locale}
+      category={category}
+      currentSlug={slug}
+    >
+      {/* Service excerpt if available */}
+      {service.excerpt?.[locale] && (
+        <div className="mb-8">
+          <p className="text-lg text-muted-foreground">
+            {service.excerpt[locale]}
+          </p>
         </div>
+      )}
 
-        {/* Service Data */}
-        <div className="mb-8 rounded-lg bg-gray-50 p-6">
-          <h2 className="mb-4 text-2xl font-semibold">
-            {locale === "bg" ? "Данни от услуга" : "Service Data"}
-          </h2>
-          <pre className="overflow-x-auto rounded border bg-white p-4 text-sm">
+      {/* MDX Content */}
+      {content && <MDXRenderer mdxContent={content} />}
+
+      {/* Debug info in development */}
+      {process.env.NODE_ENV === "development" && (
+        <details className="mt-8 rounded-lg border border-gray-200 bg-gray-50 p-4">
+          <summary className="cursor-pointer font-semibold text-gray-700">
+            Debug: Service Data
+          </summary>
+          <pre className="mt-4 overflow-x-auto rounded border bg-white p-4 text-xs">
             {JSON.stringify(service, null, 2)}
           </pre>
-        </div>
-
-        {/* Service Content Preview */}
-        {service.excerpt && (
-          <div className="mb-6">
-            <h2 className="mb-4 text-2xl font-semibold">
-              {locale === "bg" ? "Кратко описание" : "Excerpt"}
-            </h2>
-            <p className="text-gray-700">
-              {service.excerpt[locale] || service.excerpt.bg}
-            </p>
-          </div>
-        )}
-
-        {/* Service Content */}
-        {content && (
-          <div className="mb-6">
-            <h2 className="mb-4 text-2xl font-semibold">
-              {locale === "bg" ? "Съдържание (MDX)" : "Content (MDX)"}
-            </h2>
-            <article className="prose prose-lg max-w-none">
-              <MDXRenderer mdxContent={content} />
-            </article>
-          </div>
-        )}
-      </div>
-    </div>
+        </details>
+      )}
+    </ServiceLayout>
   );
 }

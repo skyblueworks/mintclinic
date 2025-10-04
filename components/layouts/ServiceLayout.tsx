@@ -1,6 +1,6 @@
 import * as Craft from "@/components/craft";
 import TitleSection from "@/components/TitleSection";
-import CategoryServicesSection from "@/components/CategoryServicesSection";
+import ServicesSection from "@/components/ServicesSection";
 
 interface ServiceLayoutProps {
   title: string;
@@ -49,7 +49,7 @@ export default function ServiceLayout({
           <Craft.Container>{children}</Craft.Container>
         </Craft.Section>
       </Craft.Main>
-      <CategoryServicesSection
+      <ServicesSection
         category={category}
         currentSlug={currentSlug}
         locale={locale}

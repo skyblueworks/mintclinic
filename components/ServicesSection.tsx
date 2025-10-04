@@ -11,7 +11,16 @@ import {
 import Autoplay from "embla-carousel-autoplay";
 import { fadeInMotionProps } from "@/lib/animations";
 
-export default function ServicesSection() {
+// TODO: Show services by category, not all services
+export default function ServicesSection({
+  locale = "bg",
+  category,
+  currentSlug,
+}: {
+  locale?: string;
+  category?: string;
+  currentSlug?: string;
+}) {
   const services = [
     {
       id: 1,
