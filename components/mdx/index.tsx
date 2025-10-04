@@ -4,7 +4,6 @@ export { FAQ } from "./FAQ";
 export { CTA } from "./CTA";
 export { Testimonial } from "./Testimonial";
 export { BeforeAfter } from "./BeforeAfter";
-export { RelatedServices } from "./RelatedServices";
 export {
   TwoColumn,
   ThreeColumn,
@@ -21,7 +20,6 @@ import { FAQ } from "./FAQ";
 import { CTA } from "./CTA";
 import { Testimonial } from "./Testimonial";
 import { BeforeAfter } from "./BeforeAfter";
-import { RelatedServices } from "./RelatedServices";
 import {
   TwoColumn,
   ThreeColumn,
@@ -38,7 +36,6 @@ export const mdxComponents = {
   CTA,
   Testimonial,
   BeforeAfter,
-  RelatedServices,
   TwoColumn,
   ThreeColumn,
   Column,
