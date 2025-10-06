@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
-import Link from "next/link";
+import LocalizedLink from "@/components/LocalizedLink";
 import { RxHamburgerMenu, RxChevronDown, RxChevronRight } from "react-icons/rx";
 import {
   Collapsible,
@@ -135,12 +135,15 @@ const NAV_ITEMS: NavItem[] = [
   // { label: "Галерия", href: "/galeriya" },
   // { label: "Блог", href: "/blog" },
   // { label: "Контакти", href: "/kontakti" },
-  { label: "Контакти", href: "/test" },
+  { label: "Контакти", href: "/contacts" },
 ];
 
 export default function HeaderSection({ className }: { className?: string }) {
   const pathname = usePathname();
-  const isHomePage = pathname === "/";
+
+  // Extract locale from pathname (e.g., "/bg/page" -> "bg")
+  const locale = pathname.split("/")[1] || "bg";
+  const isHomePage = pathname === `/${locale}` || pathname === "/";
 
   const [servicesMenuOpen, setServicesMenuOpen] = useState(false);
   const [aboutMenuOpen, setAboutMenuOpen] = useState(false);
@@ -165,7 +168,7 @@ export default function HeaderSection({ className }: { className?: string }) {
 
     if (!item.children) {
       return (
-        <Link
+        <LocalizedLink
           key={key}
           href={item.href}
           className={`block ${
@@ -176,7 +179,7 @@ export default function HeaderSection({ className }: { className?: string }) {
           onClick={() => setMobileMenuOpen(false)}
         >
           {item.label}
-        </Link>
+        </LocalizedLink>
       );
     }
 
@@ -217,12 +220,12 @@ export default function HeaderSection({ className }: { className?: string }) {
     if (!item.children) {
       return (
         <MenubarMenu key={item.href}>
-          <Link
+          <LocalizedLink
             href={item.href}
             className="px-3 py-1.5 font-medium text-gray-700 transition-colors hover:text-primary"
           >
             {item.label}
-          </Link>
+          </LocalizedLink>
         </MenubarMenu>
       );
     }
@@ -248,10 +251,10 @@ export default function HeaderSection({ className }: { className?: string }) {
           onMouseEnter={() => setOpen(true)}
           asChild
         >
-          <Link href={item.href}>
+          <LocalizedLink href={item.href}>
             {item.label}
             <RxChevronDown className="text-sm" />
-          </Link>
+          </LocalizedLink>
         </MenubarTrigger>
         <MenubarContent className="w-64">
           {item.children.map((child) => renderDesktopSubmenu(child))}
@@ -264,7 +267,7 @@ export default function HeaderSection({ className }: { className?: string }) {
     if (!item.children) {
       return (
         <MenubarItem key={item.href} asChild>
-          <Link href={item.href}>{item.label}</Link>
+          <LocalizedLink href={item.href}>{item.label}</LocalizedLink>
         </MenubarItem>
       );
     }
@@ -275,7 +278,7 @@ export default function HeaderSection({ className }: { className?: string }) {
         <MenubarSubContent>
           {item.children.map((child) => (
             <MenubarItem key={child.href} asChild>
-              <Link href={child.href}>{child.label}</Link>
+              <LocalizedLink href={child.href}>{child.label}</LocalizedLink>
             </MenubarItem>
           ))}
         </MenubarSubContent>
@@ -294,7 +297,7 @@ export default function HeaderSection({ className }: { className?: string }) {
       <div className="mx-auto w-full max-w-7xl px-6">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/">
+          <LocalizedLink href="/">
             <Image
               src="/logo-colored-cropped.svg"
               alt="Mint Clinic"
@@ -302,7 +305,7 @@ export default function HeaderSection({ className }: { className?: string }) {
               height={35}
               className="h-10 w-auto"
             />
-          </Link>
+          </LocalizedLink>
 
           {/* Desktop Navigation */}
           <Menubar

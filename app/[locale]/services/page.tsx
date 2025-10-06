@@ -1,10 +1,8 @@
 import { client } from "@/sanity/lib/client";
 import {
   servicesListQuery,
-  categoriesListQuery,
   categoriesWithServicesListQuery,
 } from "@/sanity/lib/queries";
-import Link from "next/link";
 
 type Props = {
   params: Promise<{ locale: string }>;

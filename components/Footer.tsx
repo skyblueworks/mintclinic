@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import Link from "next/link";
+import LocalizedLink from "@/components/LocalizedLink";
 import {
   FaPhone,
   FaClock,
@@ -107,52 +107,52 @@ export default function Footer() {
               <nav className="hidden lg:block">
                 <ul className="flex flex-wrap justify-end gap-x-8 gap-y-2 text-white/90">
                   <li>
-                    <Link
+                    <LocalizedLink
                       href="/za-nas"
                       className="transition-colors hover:text-white"
                     >
                       За нас
-                    </Link>
+                    </LocalizedLink>
                   </li>
                   <li>
-                    <Link
+                    <LocalizedLink
                       href="/ekip"
                       className="transition-colors hover:text-white"
                     >
                       Екип
-                    </Link>
+                    </LocalizedLink>
                   </li>
                   <li>
-                    <Link
+                    <LocalizedLink
                       href="/uslugi"
                       className="transition-colors hover:text-white"
                     >
                       Услуги
-                    </Link>
+                    </LocalizedLink>
                   </li>
                   <li>
-                    <Link
+                    <LocalizedLink
                       href="/galeriya"
                       className="transition-colors hover:text-white"
                     >
                       Галерия
-                    </Link>
+                    </LocalizedLink>
                   </li>
                   <li>
-                    <Link
+                    <LocalizedLink
                       href="/blog"
                       className="transition-colors hover:text-white"
                     >
                       Блог
-                    </Link>
+                    </LocalizedLink>
                   </li>
                   <li>
-                    <Link
+                    <LocalizedLink
                       href="/kontakti"
                       className="transition-colors hover:text-white"
                     >
                       Контакт
-                    </Link>
+                    </LocalizedLink>
                   </li>
                 </ul>
               </nav>
@@ -161,52 +161,52 @@ export default function Footer() {
               <nav className="lg:hidden">
                 <ul className="flex flex-col gap-4 text-center text-lg text-white/90 sm:grid sm:grid-cols-2">
                   <li>
-                    <Link
+                    <LocalizedLink
                       href="/za-nas"
                       className="transition-colors hover:text-white"
                     >
                       За нас
-                    </Link>
+                    </LocalizedLink>
                   </li>
                   <li>
-                    <Link
+                    <LocalizedLink
                       href="/uslugi"
                       className="transition-colors hover:text-white"
                     >
                       Услуги
-                    </Link>
+                    </LocalizedLink>
                   </li>
                   <li>
-                    <Link
+                    <LocalizedLink
                       href="/ekip"
                       className="transition-colors hover:text-white"
                     >
                       Екип
-                    </Link>
+                    </LocalizedLink>
                   </li>
                   <li>
-                    <Link
+                    <LocalizedLink
                       href="/galeriya"
                       className="transition-colors hover:text-white"
                     >
                       Галерия
-                    </Link>
+                    </LocalizedLink>
                   </li>
                   <li>
-                    <Link
+                    <LocalizedLink
                       href="/blog"
                       className="transition-colors hover:text-white"
                     >
                       Блог
-                    </Link>
+                    </LocalizedLink>
                   </li>
                   <li>
-                    <Link
+                    <LocalizedLink
                       href="/kontakti"
                       className="transition-colors hover:text-white"
                     >
                       Контакт
-                    </Link>
+                    </LocalizedLink>
                   </li>
                 </ul>
               </nav>
@@ -251,18 +251,18 @@ export default function Footer() {
               </span>{" "}
             </p>
             <div className="flex gap-6">
-              <Link
+              <LocalizedLink
                 href="/obshti-usloviya"
                 className="transition-colors hover:text-white"
               >
                 Общи Условия
-              </Link>
-              <Link
+              </LocalizedLink>
+              <LocalizedLink
                 href="/politika-za-poveritelnost"
                 className="transition-colors hover:text-white"
               >
                 Политика за поверителност
-              </Link>
+              </LocalizedLink>
             </div>
           </div>
         </div>

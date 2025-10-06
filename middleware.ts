@@ -17,12 +17,12 @@ export function middleware(request: NextRequest) {
 
   // Redirect to default locale if no locale is present
   request.nextUrl.pathname = `/${defaultLocale}${pathname}`;
-  // return NextResponse.redirect(request.nextUrl);
+  return NextResponse.redirect(request.nextUrl);
 }
 
 export const config = {
   matcher: [
-    // Skip all internal paths (_next, assets, api)
-    "/((?!api|_next/static|_next/image|assets|favicon.ico|studio).*)",
+    // Skip all internal paths (_next, assets, api) and static files
+    "/((?!api|_next/static|_next/image|assets|favicon.ico|studio|.*\\.svg|.*\\.png|.*\\.jpg|.*\\.jpeg|.*\\.gif|.*\\.webp|.*\\.ico|.*\\.json).*)",
   ],
 };

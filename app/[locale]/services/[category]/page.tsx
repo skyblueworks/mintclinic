@@ -3,7 +3,6 @@ import {
   categoryBySlugQuery,
   servicesByCategoryQuery,
 } from "@/sanity/lib/queries";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 
 type Props = {
