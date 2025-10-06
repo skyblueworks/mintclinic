@@ -5,10 +5,10 @@ import { fadeInMotionProps } from "@/lib/animations";
 export default function WhoWeAre() {
   return (
     <motion.section
-      className="bg-white px-6 pb-8 pt-16 lg:pb-16 lg:pt-32"
+      className="bg-white pb-8 pt-16 lg:pb-16 lg:pt-32"
       {...fadeInMotionProps}
     >
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-7xl px-6">
         <div className="lg:grid lg:grid-cols-2 lg:items-center lg:gap-12">
           {/* Content Section */}
           <div className="mb-8 lg:order-2 lg:mb-0 lg:pr-8">

@@ -65,7 +65,7 @@ export default function WhyMintSection() {
         </div>
 
         {/* Card */}
-        <div className="relative rounded-big rounded-bl-none rounded-tr-none bg-gradient-to-br from-primary/80 to-primary p-12 py-[6rem] text-white">
+        <div className="relative rounded-big rounded-bl-none rounded-tr-none bg-gradient-to-br from-primary/80 to-primary p-12 px-6 py-[6rem] text-white md:px-12">
           <h2 className="mb-12 text-center text-4xl font-light text-white lg:text-5xl">
             Защо MINT?
           </h2>

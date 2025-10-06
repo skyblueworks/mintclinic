@@ -85,9 +85,9 @@ export default function ServicesSection({
       className="bg-white py-16 lg:pb-16 lg:pt-32"
       {...fadeInMotionProps}
     >
-      <div className="w-full px-6">
+      <div className="w-full">
         {/* Header */}
-        <div className="mx-auto mb-12 flex w-full max-w-7xl items-center justify-between">
+        <div className="mx-auto mb-12 flex w-full max-w-7xl items-center justify-between px-6">
           <h2 className="text-3xl font-light text-primary lg:text-4xl">
             Нашите услуги
           </h2>

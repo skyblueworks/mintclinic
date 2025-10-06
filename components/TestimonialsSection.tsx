@@ -113,10 +113,10 @@ export default function TestimonialsSection() {
 
   return (
     <motion.section
-      className="overflow-hidden bg-white px-6 py-16 lg:pb-32 lg:pt-16"
+      className="overflow-hidden bg-white py-16 lg:pb-32 lg:pt-16"
       {...fadeInMotionProps}
     >
-      <div className="mx-auto mb-12 max-w-7xl">
+      <div className="mx-auto mb-12 max-w-7xl px-6">
         <div className="text-left">
           <h2 className="mb-4 text-3xl font-bold text-primary lg:text-4xl">
             <span className="font-light">Какво казват</span> нашите пациенти

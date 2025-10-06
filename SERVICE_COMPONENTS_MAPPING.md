@@ -50,6 +50,7 @@ This document maps out the component structure for each service page on mintclin
 ### Standard Markdown
 
 Use standard markdown for:
+
 - **Headings** - Use `##`, `###` for section titles
 - **Paragraphs** - Regular text
 - **Lists** - Use `-` or `*` for bulleted lists
@@ -61,6 +62,7 @@ Use standard markdown for:
 ## Естетика (Aesthetics)
 
 ### 1. Фасети (Veneers)
+
 **URL:** `/uslugi/estetika/faseti/`
 
 1. Heading + Paragraph (Hero intro with markdown)
@@ -73,6 +75,7 @@ Use standard markdown for:
 8. RelatedServices (3 columns - Related services)
 
 ### 2. Digital Smile Design
+
 **URL:** `/uslugi/estetika/digital-smile-design/`
 
 1. Heading + Paragraph (Hero intro)
@@ -84,6 +87,7 @@ Use standard markdown for:
 7. RelatedServices (3 columns - Related services)
 
 ### 3. Избелване на зъбите (Teeth Whitening)
+
 **URL:** `/uslugi/estetika/izbelvane-na-zabite/`
 
 1. Heading + Paragraph (Hero intro)
@@ -98,6 +102,7 @@ Use standard markdown for:
 10. RelatedServices (3 columns - Related services)
 
 ### 4. Бондинг (Bonding)
+
 **URL:** `/uslugi/estetika/bonding/`
 
 1. TwoColumn (Text left, Image right - Hero)
@@ -113,6 +118,7 @@ Use standard markdown for:
 ## Хирургия (Surgery)
 
 ### 5. Дентални импланти (Dental Implants)
+
 **URL:** `/uslugi/hirurgiya/dentalni-implanti/`
 
 1. Heading + Paragraph (Hero intro)
@@ -126,6 +132,7 @@ Use standard markdown for:
 9. RelatedServices (3 columns - Related services)
 
 ### 6. Екстракции (Extractions)
+
 **URL:** `/uslugi/hirurgiya/ekstrakczii/`
 
 1. Heading + Paragraph (Hero intro)
@@ -134,6 +141,7 @@ Use standard markdown for:
 4. RelatedServices (3 columns - Related services)
 
 ### 7. Оформяне на венеца (Gum Shaping)
+
 **URL:** `/uslugi/hirurgiya/oformyane-na-venecza/`
 
 1. Heading + Paragraph (Hero intro)
@@ -145,6 +153,7 @@ Use standard markdown for:
 7. RelatedServices (3 columns - Related services)
 
 ### 8. Покриване на рецесии (Recession Coverage)
+
 **URL:** `/uslugi/hirurgiya/pokrivane-na-reczesii/`
 
 1. Heading + Paragraph (Hero intro)
@@ -160,6 +169,7 @@ Use standard markdown for:
 ## Протетика (Prosthetics)
 
 ### 9. Коронки (Crowns)
+
 **URL:** `/uslugi/protetika/koronki/`
 
 1. Heading + Paragraph (Hero intro)
@@ -171,6 +181,7 @@ Use standard markdown for:
 7. RelatedServices (6 columns - Related services - 6 items)
 
 ### 10. Мостове (Bridges)
+
 **URL:** `/uslugi/protetika/mostove/`
 
 1. Heading + Paragraph (Hero intro)
@@ -183,6 +194,7 @@ Use standard markdown for:
 8. RelatedServices (6 columns - Related services - 6 items)
 
 ### 11. Інлей и Онлей (Inlay & Onlay)
+
 **URL:** `/uslugi/protetika/inlej-i-onlej/`
 
 1. Heading + Paragraph (Hero intro)
@@ -195,6 +207,7 @@ Use standard markdown for:
 8. RelatedServices (3 columns - Related services)
 
 ### 12. Функционална рехабилитация (Functional Rehabilitation)
+
 **URL:** `/uslugi/protetika/funkczionalna-rehabilitacziya/`
 
 1. Heading + Paragraph (Hero intro)
@@ -207,6 +220,7 @@ Use standard markdown for:
 8. RelatedServices (6 columns - Related services - 6 items)
 
 ### 13. Шини за бруксисти (Bruxism Splints)
+
 **URL:** `/uslugi/protetika/shini-za-bruksisti/`
 
 1. Heading + Paragraph (Hero intro)
@@ -217,6 +231,7 @@ Use standard markdown for:
 6. RelatedServices (6 columns - Related services - 6 items)
 
 ### 14. Протези (Prostheses)
+
 **URL:** `/uslugi/protetika/protezi/`
 
 1. Heading + Paragraph (Hero intro)
@@ -231,6 +246,7 @@ Use standard markdown for:
 ## Консервативна терапия (Conservative Therapy)
 
 ### 15. Професионално почистване и профилактика (Professional Cleaning)
+
 **URL:** `/uslugi/konservativna-terapiya/profesionalno-pochistvane-i-profilaktika/`
 
 1. Heading + Paragraph (Hero intro)
@@ -243,6 +259,7 @@ Use standard markdown for:
 8. RelatedServices (3 columns - Related services - 3 items)
 
 ### 16. Обтурации (Dental Fillings)
+
 **URL:** `/uslugi/konservativna-terapiya/obturaczii/`
 
 1. Heading + Paragraph (Hero intro)
@@ -253,6 +270,7 @@ Use standard markdown for:
 6. RelatedServices (3 columns - Related services)
 
 ### 17. Кореново лечение (Root Canal Treatment)
+
 **URL:** `/uslugi/konservativna-terapiya/korenovo-lechenie/`
 
 1. Heading + Paragraph (Hero intro)
@@ -271,6 +289,7 @@ Use standard markdown for:
 ## Ортодонтия (Orthodontics)
 
 ### 18. Алайнери (Aligners)
+
 **URL:** `/uslugi/alajneri/`
 
 1. Heading + Paragraph (Hero intro)
@@ -287,6 +306,7 @@ Use standard markdown for:
 ## Спешна помощ (Emergency)
 
 ### 19. Спешна дентална помощ (Emergency Dental Help)
+
 **URL:** `/uslugi/speshna-dentalna-pomosth/`
 
 1. Heading + Paragraph (Hero intro)
@@ -301,6 +321,7 @@ Use standard markdown for:
 ## Component Usage Summary
 
 ### Most Common Components (in order of frequency):
+
 1. **Markdown heading + paragraph** - Hero intro on every page (19/19)
 2. **RelatedServices** - Used for related services on every page (19/19)
 3. **Markdown image** - Hero images and full-width images (18/19)
@@ -314,6 +335,7 @@ Use standard markdown for:
 ### Common Page Patterns:
 
 **Pattern A: Standard Service Page**
+
 1. Markdown heading + paragraph (Hero intro)
 2. Markdown image (Hero image)
 3. Markdown heading + paragraph (What is X)
@@ -323,6 +345,7 @@ Use standard markdown for:
 7. RelatedServices (3 columns)
 
 **Pattern B: Prosthetic Page**
+
 1. Markdown heading + paragraph (Hero intro)
 2. Markdown image (Hero image)
 3. Markdown heading + paragraph (What is X)
@@ -332,12 +355,14 @@ Use standard markdown for:
 7. RelatedServices (6 columns)
 
 **Pattern C: Simple Service Page**
+
 1. Markdown heading + paragraph (Hero intro)
 2. Markdown lists or Process
 3. Video (optional)
 4. RelatedServices (3 columns)
 
 **Pattern D: Image-Heavy Service Page**
+
 1. TwoColumn (Text + Image for hero)
 2. Markdown heading + paragraph (Explanation)
 3. Process or markdown lists

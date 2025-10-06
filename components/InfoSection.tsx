@@ -33,10 +33,10 @@ export default function InfoSection() {
 
   return (
     <motion.section
-      className="bg-primary/5 px-6 py-16 lg:py-32"
+      className="bg-primary/5 py-16 lg:py-32"
       {...fadeInMotionProps}
     >
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-7xl px-6">
         <h2 className="mb-12 text-3xl font-bold text-primary lg:text-4xl">
           <span className="font-light">Индивидуален подход</span> към всеки
           пациент
