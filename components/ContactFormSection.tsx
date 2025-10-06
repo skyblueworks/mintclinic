@@ -82,7 +82,7 @@ export default function ContactFormSection() {
                   {...register("name")}
                   type="text"
                   placeholder="Име"
-                  className="w-full rounded-full border border-gray-300 px-6 py-3.5 font-dm-sans text-base transition-colors placeholder:text-gray-400 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+                  className="w-full rounded-full border border-primary/30 px-6 py-3.5 font-dm-sans text-base transition-colors placeholder:text-gray-400 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
                 />
                 {errors.name && (
                   <p className="mt-2 px-6 text-sm text-red-600">
@@ -97,7 +97,7 @@ export default function ContactFormSection() {
                   {...register("email")}
                   type="email"
                   placeholder="Имейл"
-                  className="w-full rounded-full border border-gray-300 px-6 py-3.5 font-dm-sans text-base transition-colors placeholder:text-gray-400 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+                  className="w-full rounded-full border border-primary/30 px-6 py-3.5 font-dm-sans text-base transition-colors placeholder:text-gray-400 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
                 />
                 {errors.email && (
                   <p className="mt-2 px-6 text-sm text-red-600">
@@ -112,7 +112,7 @@ export default function ContactFormSection() {
                   {...register("phone")}
                   type="tel"
                   placeholder="Телефон"
-                  className="w-full rounded-full border border-gray-300 px-6 py-3.5 font-dm-sans text-base transition-colors placeholder:text-gray-400 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+                  className="w-full rounded-full border border-primary/30 px-6 py-3.5 font-dm-sans text-base transition-colors placeholder:text-gray-400 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
                 />
                 {errors.phone && (
                   <p className="mt-2 px-6 text-sm text-red-600">
@@ -127,7 +127,7 @@ export default function ContactFormSection() {
                   {...register("message")}
                   rows={3}
                   placeholder="Съобщение"
-                  className="w-full rounded-3xl border border-gray-300 px-6 py-3.5 font-dm-sans text-base transition-colors placeholder:text-gray-400 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+                  className="w-full rounded-3xl border border-primary/30 px-6 py-3.5 font-dm-sans text-base transition-colors placeholder:text-gray-400 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
                 />
                 {errors.message && (
                   <p className="mt-2 px-6 text-sm text-red-600">
