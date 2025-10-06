@@ -48,8 +48,7 @@ export default async function GalleryPage({ params }: Props) {
   return (
     <>
       <TitleSection title={locale === "bg" ? "Галерия" : "Gallery"} />
-
-      <div className="mx-auto max-w-7xl px-6 py-16 md:py-24">
+      <div className="mx-auto max-w-7xl px-6 pb-16 md:pb-24">
         <GalleryGrid images={galleryImages} />
       </div>
     </>

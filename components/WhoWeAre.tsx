@@ -1,11 +1,12 @@
 "use client";
 import { motion } from "motion/react";
 import { fadeInMotionProps } from "@/lib/animations";
+import { cn } from "@/lib/utils";
 
-export default function WhoWeAre() {
+export default function WhoWeAre({ className }: { className?: string }) {
   return (
     <motion.section
-      className="bg-white pb-8 pt-16 lg:pb-16 lg:pt-32"
+      className={cn("bg-white pb-8 pt-16 lg:pb-16 lg:pt-32", className)}
       {...fadeInMotionProps}
     >
       <div className="mx-auto max-w-7xl px-6">

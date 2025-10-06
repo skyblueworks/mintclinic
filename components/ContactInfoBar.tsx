@@ -26,7 +26,7 @@ const contactItems = [
 export default function ContactInfoBar() {
   return (
     <motion.section
-      className="bg-white px-6 py-12 lg:py-16"
+      className="bg-white px-6 pb-12 lg:pb-16"
       {...fadeInMotionProps}
     >
       <div className="mx-auto max-w-7xl">

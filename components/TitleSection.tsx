@@ -1,16 +1,20 @@
-"use client";
-import { motion } from "motion/react";
-import { fadeInMotionProps } from "@/lib/animations";
+interface TitleSectionProps {
+  title: string;
+  description?: string;
+}
 
-export default function TitleSection({ title }: { title: string }) {
+export default function TitleSection({
+  title,
+  description,
+}: TitleSectionProps) {
   return (
-    <motion.section
-      className="relative isolate bg-white"
-      {...fadeInMotionProps}
-    >
-      <h1 className="mb-8 mt-24 px-6 text-center text-5xl font-extrabold text-foreground *:text-center">
-        {title}
-      </h1>
-    </motion.section>
+    <section className="flex flex-col gap-4 bg-white px-6 pb-12 pt-16 text-center lg:pb-16 lg:pt-32">
+      <h1 className="text-4xl font-light text-primary lg:text-5xl">{title}</h1>
+      {description && (
+        <p className="mx-auto max-w-2xl font-dm-sans text-lg leading-relaxed text-primary/80">
+          {description}
+        </p>
+      )}
+    </section>
   );
 }

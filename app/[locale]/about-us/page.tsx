@@ -1,4 +1,5 @@
 "use client";
+import TitleSection from "@/components/TitleSection";
 import WhoWeAre from "@/components/WhoWeAre";
 import WhyMintSection from "@/components/WhyMintSection";
 import AboutUsSection from "@/components/AboutUsSection";
@@ -14,7 +15,8 @@ export default function AboutUsPage() {
 
   return (
     <div>
-      <WhoWeAre />
+      <TitleSection title="За нас" />
+      <WhoWeAre className="pt-0 lg:pt-0" />
       <motion.div
         {...fadeInMotionProps}
         className="mx-auto max-w-7xl px-6 py-16"
