@@ -1,6 +1,12 @@
 import type { Config } from "tailwindcss";
 const { fontFamily } = require("tailwindcss/defaultTheme");
 
+function generateSafelist() {
+  const gaps = [0, 1, 2, 3, 4, 5, 6, 8, 10, 12, 16];
+  const breakpoints = ["", "sm:", "md:", "lg:", "xl:", "2xl:"];
+  return breakpoints.flatMap((bp) => gaps.map((gap) => `${bp}gap-${gap}`));
+}
+
 const config = {
   darkMode: ["class"],
   content: [
@@ -9,6 +15,7 @@ const config = {
     "./app/**/*.{ts,tsx,mdx}",
     "./src/**/*.{ts,tsx,mdx}",
   ],
+  safelist: generateSafelist(),
   prefix: "",
   theme: {
     container: {

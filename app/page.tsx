@@ -15,7 +15,7 @@ export default function HomePage() {
       <WhoWeAre />
       <TestimonialsSection />
       <InfoSection />
-      <ServicesSection />
+      <ServicesSection className="lg:pt-32" />
       <WhyMintSection />
       <TeamSection />
       <FAQSection />

@@ -1,10 +1,10 @@
-import { Box, Prose } from "@/components/craft";
+import { Box, Prose, type ResponsiveValue } from "@/components/craft";
 import { cn } from "@/components/craft";
 
 interface LayoutProps {
   children: React.ReactNode;
   className?: string;
-  gap?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 8 | 10 | 12;
+  gap?: ResponsiveValue<0 | 1 | 2 | 3 | 4 | 5 | 6 | 8 | 10 | 12 | 16>;
 }
 
 interface ColumnProps {
@@ -20,7 +20,7 @@ interface CardProps {
 interface GridProps {
   children: React.ReactNode;
   className?: string;
-  gap?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 8 | 10 | 12;
+  gap?: ResponsiveValue<0 | 1 | 2 | 3 | 4 | 5 | 6 | 8 | 10 | 12 | 16>;
   cols?: {
     base?: 1 | 2 | 3 | 4;
     sm?: 1 | 2 | 3 | 4;
@@ -61,12 +61,16 @@ interface VideoProps {
  *   </Column>
  * </TwoColumn>
  */
-export function TwoColumn({ children, className, gap = 8 }: LayoutProps) {
+export function TwoColumn({
+  children,
+  className,
+  gap = { base: 8, lg: 16 },
+}: LayoutProps) {
   return (
     <Box
       cols={{ base: 1, md: 2 }}
       gap={gap}
-      className={cn("my-8 items-center", className)}
+      className={cn("my-8 items-start", className)}
     >
       {children}
     </Box>
@@ -90,7 +94,11 @@ export function TwoColumn({ children, className, gap = 8 }: LayoutProps) {
  *   <Card>...</Card>
  * </CardGrid>
  */
-export function CardGrid({ children, className, gap = 6 }: LayoutProps) {
+export function CardGrid({
+  children,
+  className,
+  gap = { base: 6, lg: 16 },
+}: LayoutProps) {
   return (
     <Box
       cols={{ base: 1, md: 2, lg: 3 }}
@@ -159,7 +167,7 @@ export function Card({ children, className }: CardProps) {
 export function Grid({
   children,
   className,
-  gap = 6,
+  gap = { base: 6, lg: 16 },
   cols = { base: 1, md: 2, lg: 3 },
 }: GridProps) {
   return (
@@ -188,18 +196,22 @@ export function Process({ title, steps, className }: ProcessProps) {
       {title && (
         <h2 className="mb-8 text-3xl font-semibold text-primary">{title}</h2>
       )}
-      <Box cols={{ base: 1, md: 2, lg: 3 }} gap={8}>
+      <Box
+        cols={{ base: 1, md: 2, lg: 3 }}
+        gap={{ base: 8, md: 16 }}
+        className="!gap-y-4"
+      >
         {steps.map((step, index) => (
           <div key={index} className="flex flex-col gap-4">
             <div className="flex min-h-[2.5rem] items-baseline gap-2">
               <span className="text-2xl font-bold text-primary">
                 {index + 1}.
               </span>
-              <h3 className="text-xl font-semibold">{step.title}</h3>
+              <h3 className="text-xl font-semibold text-primary">
+                {step.title}
+              </h3>
             </div>
-            <p className="leading-7 text-muted-foreground">
-              {step.description}
-            </p>
+            <p className="leading-7">{step.description}</p>
           </div>
         ))}
       </Box>

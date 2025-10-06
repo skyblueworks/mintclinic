@@ -22,17 +22,17 @@ interface HTMLProps {
   dangerouslySetInnerHTML?: { __html: string };
 }
 
-// Responsive property type
-type ResponsiveValue<T> = T | Partial<Record<Breakpoint, T>>;
-
 // Available breakpoints
 type Breakpoint = "base" | "sm" | "md" | "lg" | "xl" | "2xl";
+
+// Responsive property type
+export type ResponsiveValue<T> = T | Partial<Record<Breakpoint, T>>;
 
 // Box-specific props
 interface BoxProps extends BaseProps {
   direction?: ResponsiveValue<"row" | "col">;
   wrap?: ResponsiveValue<"wrap" | "nowrap">;
-  gap?: ResponsiveValue<0 | 1 | 2 | 3 | 4 | 5 | 6 | 8 | 10 | 12>;
+  gap?: ResponsiveValue<0 | 1 | 2 | 3 | 4 | 5 | 6 | 8 | 10 | 12 | 16>;
   cols?: ResponsiveValue<1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12>;
   rows?: ResponsiveValue<1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12>;
 }
@@ -41,16 +41,16 @@ interface BoxProps extends BaseProps {
 const styles = {
   typography: {
     base: [
-      "font-sans antialiased",
+      "font-dm-sans antialiased",
       // Headings
-      "[&_h1]:text-4xl [&_h1]:font-medium [&_h1]:tracking-tight [&_h1]:mt-8 [&_h1]:mb-4",
-      "[&_h2]:text-3xl [&_h2]:font-medium [&_h2]:tracking-tight [&_h2]:mt-8 [&_h2]:mb-4",
-      "[&_h3]:text-2xl [&_h3]:font-medium [&_h3]:tracking-tight [&_h3]:mt-6 [&_h3]:mb-3",
-      "[&_h4]:text-xl [&_h4]:font-medium [&_h4]:tracking-tight [&_h4]:mt-6 [&_h4]:mb-3",
-      "[&_h5]:text-lg [&_h5]:font-medium [&_h5]:tracking-tight [&_h5]:mt-4 [&_h5]:mb-2",
-      "[&_h6]:text-base [&_h6]:font-medium [&_h6]:tracking-tight [&_h6]:mt-4 [&_h6]:mb-2",
+      "[&_h1]:font-sans [&_h1]:text-4xl [&_h1]:font-medium [&_h1]:tracking-tight [&_h1]:mt-8 [&_h1]:mb-4",
+      "[&_h2]:font-sans [&_h2]:text-3xl [&_h2]:font-medium [&_h2]:tracking-tight [&_h2]:mt-8 [&_h2]:mb-4",
+      "[&_h3]:font-sans [&_h3]:text-2xl [&_h3]:font-medium [&_h3]:tracking-tight [&_h3]:mt-6 [&_h3]:mb-3",
+      "[&_h4]:font-sans [&_h4]:text-xl [&_h4]:font-medium [&_h4]:tracking-tight [&_h4]:mt-6 [&_h4]:mb-3",
+      "[&_h5]:font-sans [&_h5]:text-lg [&_h5]:font-medium [&_h5]:tracking-tight [&_h5]:mt-4 [&_h5]:mb-2",
+      "[&_h6]:font-sans [&_h6]:text-base [&_h6]:font-medium [&_h6]:tracking-tight [&_h6]:mt-4 [&_h6]:mb-2",
       // Text elements
-      "[&_p]:text-base [&_p]:leading-7 [&_p]:mb-4",
+      "[&_p]:text-base [&_p]:leading-7 [&_p]:mb-4 [&_p]:font-dm-sans",
       "[&_strong]:font-semibold",
       "[&_em]:italic",
       "[&_del]:line-through",
@@ -256,6 +256,7 @@ export const Box = ({
     8: "gap-8",
     10: "gap-10",
     12: "gap-12",
+    16: "gap-16",
   };
 
   const colsClasses = {

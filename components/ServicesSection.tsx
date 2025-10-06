@@ -10,16 +10,19 @@ import {
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import { fadeInMotionProps } from "@/lib/animations";
+import { cn } from "@/lib/utils";
 
 // TODO: Show services by category, not all services
 export default function ServicesSection({
   locale = "bg",
   category,
   currentSlug,
+  className,
 }: {
   locale?: string;
   category?: string;
   currentSlug?: string;
+  className?: string;
 }) {
   const services = [
     {
@@ -82,7 +85,7 @@ export default function ServicesSection({
 
   return (
     <motion.section
-      className="bg-white py-16 lg:pb-16 lg:pt-32"
+      className={cn("bg-white py-16", className)}
       {...fadeInMotionProps}
     >
       <div className="w-full">
