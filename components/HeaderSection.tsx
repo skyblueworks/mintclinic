@@ -127,14 +127,12 @@ const NAV_ITEMS: NavItem[] = [
     href: "/about-us",
     children: [
       { label: "За нас", href: "/about-us" },
-      { label: "Екип", href: "/ekip" },
-      { label: "Д-р Алексов", href: "/ekip/d-r-aleksov" },
-      { label: "Д-р Доганова", href: "/d-r-doganova" },
+      { label: "Д-р Алексов", href: "/team/dr-aleksov" },
+      { label: "Д-р Доганова", href: "/team/dr-doganova" },
+      { label: "Галерия", href: "/gallery" },
+      { label: "Блог", href: "/blog" },
     ],
   },
-  // { label: "Галерия", href: "/galeriya" },
-  // { label: "Блог", href: "/blog" },
-  // { label: "Контакти", href: "/kontakti" },
   { label: "Контакти", href: "/contacts" },
 ];
 

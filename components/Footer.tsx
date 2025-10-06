@@ -108,7 +108,7 @@ export default function Footer() {
                 <ul className="flex flex-wrap justify-end gap-x-8 gap-y-2 text-white/90">
                   <li>
                     <LocalizedLink
-                      href="/za-nas"
+                      href="/about-us"
                       className="transition-colors hover:text-white"
                     >
                       За нас
@@ -116,7 +116,7 @@ export default function Footer() {
                   </li>
                   <li>
                     <LocalizedLink
-                      href="/ekip"
+                      href="/team"
                       className="transition-colors hover:text-white"
                     >
                       Екип
@@ -132,7 +132,7 @@ export default function Footer() {
                   </li>
                   <li>
                     <LocalizedLink
-                      href="/galeriya"
+                      href="/gallery"
                       className="transition-colors hover:text-white"
                     >
                       Галерия
@@ -148,7 +148,7 @@ export default function Footer() {
                   </li>
                   <li>
                     <LocalizedLink
-                      href="/kontakti"
+                      href="/contacts"
                       className="transition-colors hover:text-white"
                     >
                       Контакт
@@ -162,7 +162,7 @@ export default function Footer() {
                 <ul className="flex flex-col gap-4 text-center text-lg text-white/90 sm:grid sm:grid-cols-2">
                   <li>
                     <LocalizedLink
-                      href="/za-nas"
+                      href="/about-us"
                       className="transition-colors hover:text-white"
                     >
                       За нас
@@ -178,7 +178,7 @@ export default function Footer() {
                   </li>
                   <li>
                     <LocalizedLink
-                      href="/ekip"
+                      href="/team"
                       className="transition-colors hover:text-white"
                     >
                       Екип
@@ -186,7 +186,7 @@ export default function Footer() {
                   </li>
                   <li>
                     <LocalizedLink
-                      href="/galeriya"
+                      href="/gallery"
                       className="transition-colors hover:text-white"
                     >
                       Галерия
@@ -202,7 +202,7 @@ export default function Footer() {
                   </li>
                   <li>
                     <LocalizedLink
-                      href="/kontakti"
+                      href="/contacts"
                       className="transition-colors hover:text-white"
                     >
                       Контакт
