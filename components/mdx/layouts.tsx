@@ -79,9 +79,8 @@ export function TwoColumn({
 
 /**
  * CardGrid - Responsive grid layout for N number of card items
- * Stacks: 1 column on mobile → 2 columns on tablet → 3 columns on desktop
- *
- * Supports any number of items - automatically flows into grid
+ * Automatically adjusts columns based on number of items and screen size
+ * Uses CSS Grid auto-fit to create optimal layouts
  *
  * @example
  * <CardGrid>
@@ -99,14 +98,31 @@ export function CardGrid({
   className,
   gap = { base: 6, lg: 8 },
 }: LayoutProps) {
+  // Convert gap prop to Tailwind classes
+  const getGapClass = (
+    gapValue: ResponsiveValue<0 | 1 | 2 | 3 | 4 | 5 | 6 | 8 | 10 | 12 | 16>,
+  ) => {
+    if (typeof gapValue === "object") {
+      return Object.entries(gapValue)
+        .map(([breakpoint, value]) => {
+          const prefix = breakpoint === "base" ? "" : `${breakpoint}:`;
+          return `${prefix}gap-${value}`;
+        })
+        .join(" ");
+    }
+    return `gap-${gapValue}`;
+  };
+
   return (
-    <Box
-      cols={{ base: 1, md: 2, lg: 3 }}
-      gap={gap}
-      className={cn("my-8", className)}
+    <div
+      className={cn(
+        "my-8 grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))]",
+        getGapClass(gap),
+        className,
+      )}
     >
       {children}
-    </Box>
+    </div>
   );
 }
 
