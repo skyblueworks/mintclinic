@@ -124,9 +124,9 @@ const NAV_ITEMS: NavItem[] = [
   },
   {
     label: "За Нас",
-    href: "/za-nas",
+    href: "/about-us",
     children: [
-      { label: "За нас", href: "/za-nas" },
+      { label: "За нас", href: "/about-us" },
       { label: "Екип", href: "/ekip" },
       { label: "Д-р Алексов", href: "/ekip/d-r-aleksov" },
       { label: "Д-р Доганова", href: "/d-r-doganova" },
