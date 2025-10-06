@@ -97,7 +97,7 @@ export function TwoColumn({
 export function CardGrid({
   children,
   className,
-  gap = { base: 6, lg: 16 },
+  gap = { base: 6, lg: 8 },
 }: LayoutProps) {
   return (
     <Box
@@ -141,9 +141,11 @@ export function Card({ children, className }: CardProps) {
   return (
     <Prose
       className={cn(
-        "rounded-2xl rounded-bl-none rounded-tr-none border border-border bg-card p-8 shadow-sm transition-shadow hover:shadow-md",
-        "[&_h3]:mb-4 [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:text-primary",
-        "[&_p]:leading-relaxed [&_p]:text-muted-foreground",
+        "rounded-2xl rounded-bl-none rounded-tr-none border border-primary/20 bg-gradient-to-br from-primary/[2%] to-primary/[10%] p-8 shadow-xl shadow-primary/10 transition-shadow hover:shadow-md hover:shadow-primary/10",
+        "[&_h3]:mb-4 [&_h3]:text-2xl [&_h3]:font-semibold [&_h3]:text-primary",
+        "[&_p]:leading-relaxed",
+        "[&_*:first-child]:mt-0 [&_*:last-child]:mb-0",
+
         className,
       )}
     >
@@ -194,7 +196,9 @@ export function Process({ title, steps, className }: ProcessProps) {
   return (
     <div className={cn("my-8", className)}>
       {title && (
-        <h2 className="mb-8 text-3xl font-semibold text-primary">{title}</h2>
+        <h2 className="!mb-8 !mt-12 text-3xl font-semibold text-primary md:!mb-12 md:!mt-16">
+          {title}
+        </h2>
       )}
       <Box
         cols={{ base: 1, md: 2, lg: 3 }}
@@ -203,11 +207,11 @@ export function Process({ title, steps, className }: ProcessProps) {
       >
         {steps.map((step, index) => (
           <div key={index} className="flex flex-col gap-4">
-            <div className="flex min-h-[2.5rem] items-baseline gap-2">
-              <span className="text-2xl font-bold text-primary">
+            <div className="min-h-[2.5rem] gap-2">
+              <span className="mr-2 font-sans text-2xl font-bold text-primary">
                 {index + 1}.
               </span>
-              <h3 className="text-xl font-semibold text-primary">
+              <h3 className="inline text-xl font-semibold text-primary">
                 {step.title}
               </h3>
             </div>
