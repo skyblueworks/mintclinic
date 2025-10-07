@@ -13,39 +13,73 @@ interface BlogPost {
 }
 
 // Define your blog posts here
-// In the future, this could be automated by reading from a CMS or file system
+// TODO: In the future, this will be loaded from Sanity CMS
 const blogPosts: BlogPost[] = [
   {
-    slug: "my-first-post/",
-    title: "My First Blog Post",
+    slug: "kak-raboti-mint",
+    title: "Как работи Минт",
     description:
-      "An example blog post showcasing MDX features with Tailwind prose",
-    date: "2025-01-09",
-    author: "Jane Doe",
-    tags: ["blogging", "mdx", "nextjs"],
-    image: "https://placehold.co/800x400/EEE/31343C?font=lato&text=Blog+Post",
+      "Радваме се, че избирате да ни се доверите и да започнете с консултации и лечение при нас. Изключително много уважаваме всички наши пациенти, дентални лекари.",
+    date: "2024-10-01",
+    author: "Mint Clinic",
   },
   {
-    slug: "my-first-post//",
-    title: "My First Blog Post",
+    slug: "kakvo-bihme-vi-kazali-v-mint-za-silanizacziyata",
+    title: "Какво бихме Ви казали в Минт за силанизацията",
     description:
-      "An example blog post showcasing MDX features with Tailwind prose",
-    date: "2025-01-09",
-    author: "Jane Doe",
-    tags: ["blogging", "mdx", "nextjs"],
-    image: "https://placehold.co/800x400/EEE/31343C?font=lato&text=Blog+Post",
+      "Силанизацията е една много интересна тема в профилактиката на детското дентално здраве.",
+    date: "2024-10-01",
+    author: "Mint Clinic",
   },
   {
-    slug: "my-first-post",
-    title: "My First Blog Post",
+    slug: "kakvo-da-e-hubavo-da-znaem-ako-ni-predstoi-hirurgichna-intervencziya",
+    title: "Какво да е хубаво да знаем, ако ни предстои хирургична интервенция",
     description:
-      "An example blog post showcasing MDX features with Tailwind prose",
-    date: "2025-01-09",
-    author: "Jane Doe",
-    tags: ["blogging", "mdx", "nextjs"],
-    image: "https://placehold.co/800x400/EEE/31343C?font=lato&text=Blog+Post",
+      "Какво и как се случва, когато се налага хирургична интервенция – екстракция на зъб, имплантация, синус лифт, съединителнотъканна присадка.",
+    date: "2024-10-01",
+    author: "Mint Clinic",
   },
-  // Add more blog posts here as you create them
+  {
+    slug: "konsultacziya-za-zabni-implanti-kak-da-sme-sigurni-che-sresthata-ni-s-dentalniya-lekar-e-bila-palnoczenna",
+    title:
+      "Консултация за зъбни импланти. Как да сме сигурни, че срещата ни с денталния лекар е била пълноценна.",
+    description:
+      "Ако по някаква причина смятате, че имате нужда от поставяне на зъбни импланти и ви предстои консултация с дентален лекар – ето какво най-общо трябва да очаквате",
+    date: "2024-10-01",
+    author: "Mint Clinic",
+  },
+  {
+    slug: "loshiyat-dah-sas-strashno-ime-halitoza",
+    title: "Лошият дъх със страшно име ХАЛИТОЗА",
+    description:
+      "Как да кажем на някой до себе си, че има лош дъх. Без да обидим човека. И така, че да ни разбере правилно и да се погрижи за себе си.",
+    date: "2024-10-01",
+    author: "Mint Clinic",
+  },
+  {
+    slug: "okluziya-i-balans-na-zahapkata",
+    title: "Оклузия и баланс на захапката",
+    description:
+      "Оклузия е научният термин, в който се съдържа идеята затова как се пресрещат повърхностите на нашите зъби, когато затваряме уста, отхапваме, дъвчем.",
+    date: "2024-10-01",
+    author: "Mint Clinic",
+  },
+  {
+    slug: "profilaktika-i-grizha-za-prosledyavane",
+    title: "Профилактика и грижа за проследяване",
+    description:
+      "Без колебание можем да заявим, че профилактиката е една от най-важните страни на грижата за денталното здраве. Естествено това е фокус и на нашите услия.",
+    date: "2024-10-01",
+    author: "Mint Clinic",
+  },
+  {
+    slug: "za-implantite-remonta-na-pokrivi-i-yadeneto-na-kotleti",
+    title: "За имплантите, ремонта на покриви и яденето на котлети",
+    description:
+      "Липсват ми доста зъби, а тези, които са ми останали, май хич не стават. През годините постоянно ходех на зъболекар и не знам как се стигна до това положение.",
+    date: "2024-10-01",
+    author: "Mint Clinic",
+  },
 ];
 
 export default function BlogPage() {
