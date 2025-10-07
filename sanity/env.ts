@@ -1,7 +1,5 @@
-export const apiVersion =
-  process.env.NEXT_PUBLIC_SANITY_API_VERSION || "2025-09-29";
+import { sanity } from "@/lib/env";
 
-export const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET || "production";
-
-export const projectId =
-  process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || "wtcdboyg";
+export const apiVersion = sanity.apiVersion;
+export const dataset = sanity.dataset;
+export const projectId = sanity.projectId;
