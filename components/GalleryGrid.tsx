@@ -30,7 +30,7 @@ export function GalleryGrid({ images }: GalleryGridProps) {
           <button
             key={idx}
             onClick={() => handleImageClick(idx)}
-            className="group relative aspect-square cursor-pointer overflow-hidden rounded-2xl shadow-xl shadow-black/5 transition-all hover:shadow-2xl focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+            className="group relative aspect-[4/3] cursor-pointer overflow-hidden rounded-2xl rounded-bl-none rounded-tr-none shadow-xl shadow-black/5 transition-all hover:shadow-2xl focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
           >
             {image.src.startsWith("/") ? (
               <Image

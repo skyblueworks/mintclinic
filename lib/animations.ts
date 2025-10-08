@@ -13,7 +13,7 @@ export const fadeInTransition: Transition = {
 
 export const fadeInViewport = {
   once: true,
-  margin: "-200px",
+  margin: "-150px",
 } as const;
 
 // Combined motion props for fade-in animation

@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "motion/react";
 import { fadeInMotionProps } from "@/lib/animations";
+import { Button } from "./ui/button";
 
 export default function AboutUsSection() {
   return (
@@ -9,8 +10,8 @@ export default function AboutUsSection() {
       {...fadeInMotionProps}
     >
       <div className="mx-auto max-w-5xl">
-        <h2 className="mb-[2%] text-[32px] font-semibold text-primary lg:text-[26px] xl:text-[32px]">
-          Кои сме ние
+        <h2 className="mb-[2%] text-[32px] font-light text-primary lg:text-[26px] xl:text-[32px]">
+          <span>Кои сме ние</span>
         </h2>
 
         <div className="space-y-[0.9rem] text-justify font-dm-sans text-lg font-normal leading-[1.4em] text-foreground lg:text-base xl:text-lg">

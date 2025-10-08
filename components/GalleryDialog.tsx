@@ -35,6 +35,24 @@ export function GalleryDialog({
   const [current, setCurrent] = React.useState(0);
   const [canScrollPrev, setCanScrollPrev] = React.useState(false);
   const [canScrollNext, setCanScrollNext] = React.useState(false);
+  const containerRef = React.useRef<HTMLDivElement>(null);
+
+  // Prevent body scroll when dialog is open and handle focus
+  React.useEffect(() => {
+    if (open) {
+      document.body.style.overflow = "hidden";
+      // Focus the container after a brief delay to ensure DOM is ready
+      const timer = setTimeout(() => {
+        containerRef.current?.focus();
+      }, 100);
+      return () => {
+        document.body.style.overflow = "";
+        clearTimeout(timer);
+      };
+    } else {
+      document.body.style.overflow = "";
+    }
+  }, [open]);
 
   // Set initial slide when dialog opens
   React.useEffect(() => {
@@ -70,15 +88,18 @@ export function GalleryDialog({
     if (!open) return;
 
     const handleKeyDown = (e: KeyboardEvent) => {
-      // Don't handle keyboard navigation if a button or interactive element is focused
+      if (e.key === "Escape") {
+        onOpenChange(false);
+        return;
+      }
+
+      // Don't handle arrow keys if a button or interactive element is focused
       const target = e.target as HTMLElement;
       if (target?.tagName === "BUTTON" || target?.closest("button")) {
         return;
       }
 
-      if (e.key === "Escape") {
-        onOpenChange(false);
-      } else if (e.key === "ArrowLeft") {
+      if (e.key === "ArrowLeft") {
         e.preventDefault();
         api?.scrollPrev();
       } else if (e.key === "ArrowRight") {
@@ -107,11 +128,13 @@ export function GalleryDialog({
 
             {/* Content container with click handler */}
             <motion.div
+              ref={containerRef}
+              tabIndex={-1}
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
               transition={{ duration: 0.2 }}
-              className="fixed inset-0 z-50 flex items-center justify-center"
+              className="fixed inset-0 z-50 flex items-center justify-center outline-none"
               onClick={(e) => {
                 // Only close if clicking the background, not child elements
                 if (e.target === e.currentTarget) {
