@@ -9,6 +9,8 @@ import {
   Process,
   Video,
 } from "@/components/mdx/layouts";
+import { Button as UIButton } from "@/components/ui/button";
+import LocalizedLink from "@/components/LocalizedLink";
 import React from "react";
 
 // Default components for MDX files
@@ -84,6 +86,88 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         {children}
       </blockquote>
     ),
+    // Override link styling
+    a: ({ href, children, ...props }) => {
+      const isExternal = href?.startsWith("http");
+      const isAnchor = href?.startsWith("#");
+
+      if (isExternal) {
+        return (
+          <a
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-medium text-primary underline underline-offset-4 transition-colors hover:text-primary/80"
+            {...props}
+          >
+            {children}
+          </a>
+        );
+      }
+
+      if (isAnchor) {
+        return (
+          <a
+            href={href}
+            className="font-medium text-primary underline underline-offset-4 transition-colors hover:text-primary/80"
+            {...props}
+          >
+            {children}
+          </a>
+        );
+      }
+
+      return (
+        <LocalizedLink
+          href={href || "#"}
+          className="font-medium text-primary underline underline-offset-4 transition-colors hover:text-primary/80"
+          {...props}
+        >
+          {children}
+        </LocalizedLink>
+      );
+    },
+    // Button component for MDX
+    Button: (props: any) => {
+      const {
+        variant = "default",
+        size = "default",
+        children,
+        ...rest
+      } = props;
+      return (
+        <UIButton variant={variant} size={size} {...rest}>
+          {children}
+        </UIButton>
+      );
+    },
+    // LinkButton component - Button styled as a link
+    LinkButton: (props: any) => {
+      const {
+        href,
+        variant = "outline",
+        size = "default",
+        children,
+        ...rest
+      } = props;
+      const isExternal = href?.startsWith("http");
+
+      if (isExternal) {
+        return (
+          <UIButton variant={variant} size={size} asChild {...rest}>
+            <a href={href} target="_blank" rel="noopener noreferrer">
+              {children}
+            </a>
+          </UIButton>
+        );
+      }
+
+      return (
+        <UIButton variant={variant} size={size} asChild {...rest}>
+          <LocalizedLink href={href || "#"}>{children}</LocalizedLink>
+        </UIButton>
+      );
+    },
     // Layout components
     TwoColumn,
     ThreeColumn,
