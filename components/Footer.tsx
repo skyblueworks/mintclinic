@@ -252,13 +252,13 @@ export default function Footer() {
             </p>
             <div className="flex gap-6">
               <LocalizedLink
-                href="/obshti-usloviya"
+                href="/terms"
                 className="transition-colors hover:text-white"
               >
                 Общи Условия
               </LocalizedLink>
               <LocalizedLink
-                href="/politika-za-poveritelnost"
+                href="/privacy-policy"
                 className="transition-colors hover:text-white"
               >
                 Политика за поверителност
