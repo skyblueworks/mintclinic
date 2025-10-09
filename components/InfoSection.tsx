@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "motion/react";
 import { fadeInMotionProps } from "@/lib/animations";
+import { Button } from "@/components/ui/button";
 
 export default function InfoSection() {
   const infoCards = [
@@ -60,9 +61,7 @@ export default function InfoSection() {
                   {card.description}
                 </p>
               </div>
-              <button className="w-full self-start rounded-full border border-primary bg-transparent px-6 py-3 font-extrabold text-primary transition-colors duration-200 hover:bg-primary hover:text-white">
-                {card.buttonText}
-              </button>
+              <Button variant="outline">{card.buttonText}</Button>
             </div>
           ))}
         </div>

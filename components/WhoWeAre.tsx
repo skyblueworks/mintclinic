@@ -2,6 +2,7 @@
 import { motion } from "motion/react";
 import { fadeInMotionProps } from "@/lib/animations";
 import { cn } from "@/lib/utils";
+import { Button } from "./ui/button";
 
 export default function WhoWeAre({ className }: { className?: string }) {
   return (
@@ -30,12 +31,8 @@ export default function WhoWeAre({ className }: { className?: string }) {
             </p>
 
             <div className="flex flex-col gap-4 sm:flex-row">
-              <button className="rounded-full border border-primary bg-transparent px-8 py-3 font-extrabold text-primary transition-colors duration-200 hover:bg-primary hover:text-white">
-                Повече за нас
-              </button>
-              <button className="rounded-full border border-primary bg-transparent px-8 py-3 font-extrabold text-primary transition-colors duration-200 hover:bg-primary hover:text-white">
-                Галерия
-              </button>
+              <Button variant="outline">Повече за нас</Button>
+              <Button variant="outline">Галерия</Button>
             </div>
           </div>
 

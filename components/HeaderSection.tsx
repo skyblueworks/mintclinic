@@ -27,6 +27,7 @@ import {
   MenubarTrigger,
 } from "@/components/ui/menubar";
 import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 
 type NavItem = {
   label: string;
@@ -317,12 +318,12 @@ export default function HeaderSection({ className }: { className?: string }) {
             {NAV_ITEMS.map((item, index) => renderDesktopNavItem(item, index))}
 
             <MenubarMenu>
-              <a
-                href="tel:+359888436838"
-                className="rounded-full bg-accent px-6 py-2 font-bold text-accent-foreground transition-colors hover:bg-accent/90"
+              <Button
+                asChild
+                className="bg-accent text-accent-foreground hover:bg-accent/90"
               >
-                Запази час
-              </a>
+                <a href="tel:+359888436838">Запази час</a>
+              </Button>
             </MenubarMenu>
           </Menubar>
 
@@ -351,12 +352,12 @@ export default function HeaderSection({ className }: { className?: string }) {
                 {NAV_ITEMS.map((item) => renderMobileNavItem(item))}
 
                 {/* Mobile CTA */}
-                <a
-                  href="tel:+359888436838"
-                  className="mt-6 block rounded-full bg-accent px-6 py-3 text-center font-bold text-accent-foreground transition-colors hover:bg-accent/90"
+                <Button
+                  asChild
+                  className="mt-6 w-full bg-accent text-accent-foreground hover:bg-accent/90"
                 >
-                  Запази час
-                </a>
+                  <a href="tel:+359888436838">Запази час</a>
+                </Button>
               </nav>
             </SheetContent>
           </Sheet>

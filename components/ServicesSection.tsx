@@ -11,6 +11,7 @@ import {
 import Autoplay from "embla-carousel-autoplay";
 import { fadeInMotionProps } from "@/lib/animations";
 import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 
 // TODO: Show services by category, not all services
 export default function ServicesSection({
@@ -94,9 +95,9 @@ export default function ServicesSection({
           <h2 className="text-3xl font-light text-primary lg:text-4xl">
             Нашите услуги
           </h2>
-          <button className="text-nowrap rounded-full border border-primary bg-transparent px-8 py-3 font-extrabold text-primary transition-colors duration-200 hover:bg-primary hover:text-white">
+          <Button variant="outline" className="text-nowrap">
             Виж всички
-          </button>
+          </Button>
         </div>
       </div>
 
@@ -140,9 +141,7 @@ export default function ServicesSection({
                       {service.description}
                     </p>
                   </div>
-                  <button className="w-full rounded-full border border-primary bg-transparent px-6 py-3 font-extrabold text-primary transition-colors duration-200 hover:bg-primary hover:text-white">
-                    Към услугата
-                  </button>
+                  <Button variant="outline">Към услугата</Button>
                 </div>
               </CarouselItem>
             ))}

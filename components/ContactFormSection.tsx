@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { useState } from "react";
+import { Button } from "@/components/ui/button";
 
 const contactFormSchema = z.object({
   name: z.string().min(1, "Моля, въведете вашето име"),
@@ -137,13 +138,14 @@ export default function ContactFormSection() {
               </div>
 
               {/* Submit Button */}
-              <button
+              <Button
                 type="submit"
                 disabled={isSubmitting}
-                className="self-center rounded-full bg-primary px-6 py-4 font-bold tracking-wider text-white transition-colors duration-200 hover:bg-primary/90 lg:self-start"
+                className="self-center tracking-wider lg:self-start"
+                size="lg"
               >
                 {isSubmitting ? "Изпращане..." : "Изпращане"}
-              </button>
+              </Button>
 
               {/* Submit Message */}
               {submitMessage && (

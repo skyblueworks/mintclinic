@@ -3,6 +3,7 @@ import Image from "next/image";
 import { FaTooth } from "react-icons/fa";
 import { motion } from "motion/react";
 import { fadeInMotionProps } from "@/lib/animations";
+import { Button } from "./ui/button";
 
 export default function HeroSection() {
   return (
@@ -49,10 +50,9 @@ export default function HeroSection() {
                 вашата усмивка по-ярка, посещението ви по-гладко и грижата ви –
                 изключителна!
               </p>
-
-              <button className="self-center rounded-full bg-primary px-8 py-4 font-bold tracking-wider text-white transition-colors duration-200 hover:bg-primary/90 lg:self-start">
+              <Button className="self-center lg:self-start" size="lg">
                 Запази час
-              </button>
+              </Button>
             </div>
           </div>
 

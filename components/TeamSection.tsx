@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { motion } from "motion/react";
 import { fadeInMotionProps } from "@/lib/animations";
+import { Button } from "@/components/ui/button";
 
 export default function TeamSection() {
   return (
@@ -29,9 +30,7 @@ export default function TeamSection() {
               посещавайки реномирани следдипломни квалификационни курсове.
             </p>
 
-            <button className="rounded-full border border-primary bg-transparent px-8 py-3 font-extrabold text-primary transition-colors duration-200 hover:bg-primary hover:text-white">
-              Екип
-            </button>
+            <Button variant="outline">Екип</Button>
 
             {/* Decorative Image */}
             <div className="pointer-events-none absolute -bottom-0 -right-0 hidden opacity-20 lg:block">
