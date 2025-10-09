@@ -1,7 +1,3 @@
-import { TwoColumn, Column, Process, Video } from "@/components/mdx";
-import Image from "next/image";
-import ServiceLayout from "@/components/layouts/ServiceLayout";
-
 export const metadata = {
   title: "Екстракции – Mint Clinic",
   description:
@@ -32,6 +28,10 @@ export const metadata = {
 
   </Column>
 </TwoColumn>
+
+<div className="my-8 text-center">
+  <CTAButton />
+</div>
 
 <Process
   title="Процес на изваждане на зъб"
@@ -72,5 +72,9 @@ export const metadata = {
   src="https://www.youtube-nocookie.com/embed/L5UwuBMxJY8"
   title="Екстракции процедура - Mint Clinic"
 />
+
+<div className="my-8 text-center">
+  <CTAButton />
+</div>
 
 </ServiceLayout>

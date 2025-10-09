@@ -1,7 +1,3 @@
-import { TwoColumn, Column, Process, CardGrid, Card } from "@/components/mdx";
-import Image from "next/image";
-import ServiceLayout from "@/components/layouts/ServiceLayout";
-
 export const metadata = {
   title: "Спешна дентална помощ – Mint Clinic",
   description:
@@ -43,6 +39,10 @@ export const metadata = {
   </Column>
 </TwoColumn>
 
+<div className="my-8 text-center">
+  <CTAButton />
+</div>
+
 <Process
   title="Какво да правите в случай на спешна ситуация?"
   steps={[
@@ -68,5 +68,9 @@ export const metadata = {
     },
   ]}
 />
+
+<div className="my-8 text-center">
+  <CTAButton />
+</div>
 
 </ServiceLayout>

@@ -8,9 +8,18 @@ import {
   Grid,
   Process,
   Video,
-} from "@/components/mdx/layouts";
+  CTAButton,
+  CardGrid,
+  Gallery,
+  FAQ,
+  CTA,
+  Testimonial,
+  BeforeAfter,
+} from "@/components/mdx";
 import { Button as UIButton } from "@/components/ui/button";
 import LocalizedLink from "@/components/LocalizedLink";
+import ServiceLayout from "@/components/layouts/ServiceLayout";
+import Image from "next/image";
 import React from "react";
 
 // Default components for MDX files
@@ -141,42 +150,27 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         </UIButton>
       );
     },
-    // LinkButton component - Button styled as a link
-    LinkButton: (props: any) => {
-      const {
-        href,
-        variant = "outline",
-        size = "default",
-        children,
-        ...rest
-      } = props;
-      const isExternal = href?.startsWith("http");
-
-      if (isExternal) {
-        return (
-          <UIButton variant={variant} size={size} asChild {...rest}>
-            <a href={href} target="_blank" rel="noopener noreferrer">
-              {children}
-            </a>
-          </UIButton>
-        );
-      }
-
-      return (
-        <UIButton variant={variant} size={size} asChild {...rest}>
-          <LocalizedLink href={href || "#"}>{children}</LocalizedLink>
-        </UIButton>
-      );
-    },
+    // Use the dedicated CTAButton component
+    CTAButton,
     // Layout components
     TwoColumn,
     ThreeColumn,
     Column,
     Card,
     Grid,
+    CardGrid,
     // Service page components
     Process,
     Video,
+    Gallery,
+    FAQ,
+    CTA,
+    Testimonial,
+    BeforeAfter,
+    // Next.js Image component
+    Image,
+    // Service layout
+    ServiceLayout,
     // Inherit any custom components passed in
     ...components,
   };

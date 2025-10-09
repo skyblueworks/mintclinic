@@ -4,6 +4,7 @@ export { FAQ } from "./FAQ";
 export { CTA } from "./CTA";
 export { Testimonial } from "./Testimonial";
 export { BeforeAfter } from "./BeforeAfter";
+export { CTAButton } from "./CTAButton";
 export {
   TwoColumn,
   ThreeColumn,
@@ -21,6 +22,7 @@ import { FAQ } from "./FAQ";
 import { CTA } from "./CTA";
 import { Testimonial } from "./Testimonial";
 import { BeforeAfter } from "./BeforeAfter";
+import { CTAButton } from "./CTAButton";
 import {
   TwoColumn,
   ThreeColumn,
@@ -38,6 +40,7 @@ export const mdxComponents = {
   CTA,
   Testimonial,
   BeforeAfter,
+  CTAButton,
   TwoColumn,
   ThreeColumn,
   CardGrid,

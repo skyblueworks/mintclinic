@@ -1,7 +1,3 @@
-import { TwoColumn, Column, Video } from "@/components/mdx";
-import Image from "next/image";
-import ServiceLayout from "@/components/layouts/ServiceLayout";
-
 export const metadata = {
   title: "Бондинг – Mint Clinic",
   description:
@@ -41,6 +37,10 @@ export const metadata = {
 </Column>
   </TwoColumn>
 
+<div className="my-8 text-center">
+  <CTAButton />
+</div>
+
 <TwoColumn>
 <Column>
 ## Поддръжка след процедурата
@@ -74,5 +74,9 @@ export const metadata = {
   src="https://www.youtube-nocookie.com/embed/5lXrvUtNoGo"
   title="Бондинг процедура - Mint Clinic"
 />
+
+<div className="my-8 text-center">
+  <CTAButton />
+</div>
 
 </ServiceLayout>

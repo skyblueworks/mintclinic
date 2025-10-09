@@ -1,14 +1,3 @@
-import {
-  TwoColumn,
-  Column,
-  Process,
-  CardGrid,
-  Card,
-  Video,
-} from "@/components/mdx";
-import Image from "next/image";
-import ServiceLayout from "@/components/layouts/ServiceLayout";
-
 export const metadata = {
   title: "Гингивит/пародонтит – Mint Clinic",
   description:
@@ -59,6 +48,10 @@ export const metadata = {
 
   </Column>
 </TwoColumn>
+
+<div className="my-8 text-center">
+  <CTAButton />
+</div>
 
 <TwoColumn>
   <Column>
@@ -132,5 +125,9 @@ export const metadata = {
   src="https://www.youtube-nocookie.com/embed/VIDEO_ID"
   title="Гингивит и пародонтит - Mint Clinic"
 />
+
+<div className="my-8 text-center">
+  <CTAButton />
+</div>
 
 </ServiceLayout>

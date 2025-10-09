@@ -1,8 +1,5 @@
-import { Process, TwoColumn, Column, Video } from "@/components/mdx";
-import Image from "next/image";
 import heroImage from "./assets/faseti-isnovna-2-1024x566.webp";
 import processImage from "./assets/faseti-snimka.webp";
-import ServiceLayout from "@/components/layouts/ServiceLayout";
 
 export const metadata = {
   title: "Фасети – Mint Clinic",
@@ -39,6 +36,10 @@ export const metadata = {
 
 </Column>
 </TwoColumn>
+
+<div className="my-8 text-center">
+  <CTAButton />
+</div>
 
 <Process
   title="Процесът на поставяне на фасети"
@@ -89,5 +90,9 @@ export const metadata = {
   src="https://www.youtube.com/embed/QtUbca1EHZo?si=Gwn5XMKUMhc_25Hx"
   title="Фасети - Mint Clinic"
 />
+
+<div className="my-8 text-center">
+  <CTAButton />
+</div>
 
 </ServiceLayout>
