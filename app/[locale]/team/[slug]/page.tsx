@@ -15,7 +15,6 @@ async function getTeamMember(slug: string) {
       { slug },
       { cache: "no-store" },
     );
-    console.log("getTeamMember", teamMember);
     return teamMember;
   } catch (error) {
     console.error("Error fetching team member:", error);

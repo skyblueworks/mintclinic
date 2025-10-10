@@ -50,8 +50,14 @@ export default function HeroSection() {
                 вашата усмивка по-ярка, посещението ви по-гладко и грижата ви –
                 изключителна!
               </p>
-              <Button className="self-center lg:self-start" size="lg">
-                Запази час
+              <Button className="self-center lg:self-start" size="lg" asChild>
+                <a
+                  href="https://superdoc.bg/lekar/aleksandar-aleksov"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Запази час
+                </a>
               </Button>
             </div>
           </div>

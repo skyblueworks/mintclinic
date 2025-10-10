@@ -92,17 +92,6 @@ export default function TestimonialsSection() {
         columnCount,
       );
 
-      // Debug logging (only when columns change)
-      console.log(`Column ${index + 1} (${columnCount} total):`, {
-        testimonialsCount: columnTestimonials.length,
-        totalCharacters: columnTestimonials.reduce(
-          (sum, t) => sum + (t.text?.length || 0) + (t.name?.length || 0),
-          0,
-        ),
-        finalDuration: Math.round(duration),
-        multiplier: columnCount === 1 ? 3.0 : columnCount === 2 ? 2.0 : 1.0,
-      });
-
       return {
         testimonials: columnTestimonials,
         duration,
@@ -127,7 +116,7 @@ export default function TestimonialsSection() {
         </div>
       </div>
 
-      <div className="flex max-h-[60vh] w-full justify-center gap-6 [mask-image:linear-gradient(to_bottom,transparent,white_20%,white_80%,transparent)]">
+      <div className="flex max-h-[60vh] w-full justify-center gap-6 px-6 [mask-image:linear-gradient(to_bottom,transparent,white_20%,white_80%,transparent)]">
         {columnsWithDurations.map(
           ({ testimonials: columnTestimonials, duration, index }) => {
             // Stagger the animation start times

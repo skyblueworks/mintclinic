@@ -13,7 +13,6 @@ async function getTeamMembers() {
       {},
       { cache: "no-store" },
     );
-    console.log("Team members data:", JSON.stringify(data, null, 2));
     return data;
   } catch (error) {
     console.error("Error fetching team members:", error);

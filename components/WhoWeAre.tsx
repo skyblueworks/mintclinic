@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation";
 import { fadeInMotionProps } from "@/lib/animations";
 import { cn } from "@/lib/utils";
 import { Button } from "./ui/button";
+import LocalizedLink from "./LocalizedLink";
 
 export default function WhoWeAre({ className }: { className?: string }) {
   const pathname = usePathname();
@@ -17,9 +18,11 @@ export default function WhoWeAre({ className }: { className?: string }) {
         <div className="lg:grid lg:grid-cols-2 lg:items-center lg:gap-12">
           {/* Content Section */}
           <div className="mb-8 lg:order-2 lg:mb-0 lg:pr-8">
-            <p className="mb-4 text-sm font-bold uppercase tracking-wider text-foreground">
-              КОИ СМЕ НИЕ
-            </p>
+            {!isAboutPage && (
+              <p className="mb-4 text-sm font-bold uppercase tracking-wider text-foreground">
+                КОИ СМЕ НИЕ
+              </p>
+            )}
 
             <h2 className="mb-6 text-3xl font-bold leading-tight text-primary lg:text-4xl">
               <span className="font-light">Немска дентална клиника</span> в
@@ -34,8 +37,14 @@ export default function WhoWeAre({ className }: { className?: string }) {
             </p>
 
             <div className="flex flex-col gap-4 sm:flex-row">
-              {!isAboutPage && <Button variant="outline">Повече за нас</Button>}
-              <Button variant="outline">Галерия</Button>
+              {!isAboutPage && (
+                <Button variant="outline" asChild>
+                  <LocalizedLink href="/about-us">Повече за нас</LocalizedLink>
+                </Button>
+              )}
+              <Button variant="outline" asChild>
+                <LocalizedLink href="/gallery">Галерия</LocalizedLink>
+              </Button>
             </div>
           </div>
 

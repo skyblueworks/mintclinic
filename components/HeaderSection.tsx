@@ -322,7 +322,13 @@ export default function HeaderSection({ className }: { className?: string }) {
                 asChild
                 className="bg-accent text-accent-foreground hover:bg-accent/90"
               >
-                <a href="tel:+359888436838">Запази час</a>
+                <a
+                  href="https://superdoc.bg/lekar/aleksandar-aleksov"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Запази час
+                </a>
               </Button>
             </MenubarMenu>
           </Menubar>
@@ -356,7 +362,13 @@ export default function HeaderSection({ className }: { className?: string }) {
                   asChild
                   className="mt-6 w-full bg-accent text-accent-foreground hover:bg-accent/90"
                 >
-                  <a href="tel:+359888436838">Запази час</a>
+                  <a
+                    href="https://superdoc.bg/lekar/aleksandar-aleksov"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Запази час
+                  </a>
                 </Button>
               </nav>
             </SheetContent>

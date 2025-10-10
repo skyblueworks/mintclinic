@@ -3,6 +3,7 @@ import Image from "next/image";
 import { motion } from "motion/react";
 import { fadeInMotionProps } from "@/lib/animations";
 import { Button } from "@/components/ui/button";
+import LocalizedLink from "./LocalizedLink";
 
 export default function TeamSection() {
   return (
@@ -30,7 +31,9 @@ export default function TeamSection() {
               посещавайки реномирани следдипломни квалификационни курсове.
             </p>
 
-            <Button variant="outline">Екип</Button>
+            <Button variant="outline" asChild>
+              <LocalizedLink href="/about-us">Екип</LocalizedLink>
+            </Button>
 
             {/* Decorative Image */}
             <div className="pointer-events-none absolute -bottom-0 -right-0 hidden opacity-20 lg:block">
