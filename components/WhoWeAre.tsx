@@ -1,10 +1,13 @@
 "use client";
 import { motion } from "motion/react";
+import { usePathname } from "next/navigation";
 import { fadeInMotionProps } from "@/lib/animations";
 import { cn } from "@/lib/utils";
 import { Button } from "./ui/button";
 
 export default function WhoWeAre({ className }: { className?: string }) {
+  const pathname = usePathname();
+  const isAboutPage = pathname.endsWith("/about-us");
   return (
     <motion.section
       className={cn("bg-white pb-8 pt-16 lg:pb-16 lg:pt-32", className)}
@@ -31,7 +34,7 @@ export default function WhoWeAre({ className }: { className?: string }) {
             </p>
 
             <div className="flex flex-col gap-4 sm:flex-row">
-              <Button variant="outline">Повече за нас</Button>
+              {!isAboutPage && <Button variant="outline">Повече за нас</Button>}
               <Button variant="outline">Галерия</Button>
             </div>
           </div>
