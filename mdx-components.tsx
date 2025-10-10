@@ -15,10 +15,13 @@ import {
   CTA,
   Testimonial,
   BeforeAfter,
+  AnimatedSection,
+  CertificateGrid,
 } from "@/components/mdx";
 import { Button as UIButton } from "@/components/ui/button";
 import LocalizedLink from "@/components/LocalizedLink";
 import ServiceLayout from "@/components/layouts/ServiceLayout";
+import TeamLayout from "@/components/layouts/TeamLayout";
 import Image from "next/image";
 import React from "react";
 
@@ -167,10 +170,14 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     CTA,
     Testimonial,
     BeforeAfter,
+    // Team page components
+    AnimatedSection,
+    CertificateGrid,
     // Next.js Image component
     Image,
-    // Service layout
+    // Layouts
     ServiceLayout,
+    TeamLayout,
     // Inherit any custom components passed in
     ...components,
   };

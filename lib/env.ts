@@ -29,7 +29,7 @@ function getOptionalEnvVar(key: string, fallback?: string): string | undefined {
  * Sanity CMS Configuration
  */
 export const sanity = {
-  projectId: getEnvVar("NEXT_PUBLIC_SANITY_PROJECT_ID", "wtcdboyg"),
+  projectId: getEnvVar("NEXT_PUBLIC_SANITY_PROJECT_ID", "ne3mflgj"),
   dataset: getEnvVar("NEXT_PUBLIC_SANITY_DATASET", "production"),
   apiVersion: getEnvVar("NEXT_PUBLIC_SANITY_API_VERSION", "2025-09-29"),
 
