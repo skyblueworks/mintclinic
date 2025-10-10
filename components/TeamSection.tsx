@@ -5,7 +5,18 @@ import { fadeInMotionProps } from "@/lib/animations";
 import { Button } from "@/components/ui/button";
 import LocalizedLink from "./LocalizedLink";
 
-export default function TeamSection() {
+interface TeamSectionProps {
+  data: {
+    quote: { bg: string; en: string };
+    quoteBold: { bg: string; en: string };
+    description: { bg: string; en: string };
+    buttonText: { bg: string; en: string };
+    imageUrl?: string;
+  };
+  locale: "bg" | "en";
+}
+
+export default function TeamSection({ data, locale }: TeamSectionProps) {
   return (
     <motion.section className="bg-white py-16 lg:pb-32" {...fadeInMotionProps}>
       <div className="mx-auto max-w-7xl px-6">
@@ -19,20 +30,20 @@ export default function TeamSection() {
           {/* Content */}
           <div className="relative w-full lg:w-1/2">
             <h2 className="mb-6 text-3xl font-light leading-tight text-primary lg:text-2xl">
-              Най-големите проблеми не произтичат от ръцете на зъболекарите,{" "}
+              {data.quote[locale]}{" "}
               <span className="font-bold text-primary">
-                а от техните глави.
+                {data.quoteBold[locale]}
               </span>
             </h2>
 
             <p className="text-md mb-8 font-dm-sans leading-relaxed text-primary">
-              Затова ние се съсредоточаваме точно в това- да планираме.
-              Поддържаме умовете си остри и активно развиваме своите умения,
-              посещавайки реномирани следдипломни квалификационни курсове.
+              {data.description[locale]}
             </p>
 
-            <Button variant="outline" asChild>
-              <LocalizedLink href="/about-us">Екип</LocalizedLink>
+            <Button variant="outline">
+              <LocalizedLink href="/about-us">
+                {data.buttonText[locale]}{" "}
+              </LocalizedLink>
             </Button>
 
             {/* Decorative Image */}

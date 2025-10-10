@@ -3,27 +3,36 @@ import { motion } from "motion/react";
 import { fadeInMotionProps } from "@/lib/animations";
 import { FaMapMarkerAlt, FaPhone, FaEnvelope } from "react-icons/fa";
 
-const contactItems = [
-  {
-    icon: FaMapMarkerAlt,
-    content: "Ул. Доктор Стефан\nСарафов 20, 1408 София",
-    href: "https://maps.app.goo.gl/N5WDg2yrsyfKvW7M6",
-    target: "_blank",
-    rel: "noopener noreferrer",
-  },
-  {
-    icon: FaPhone,
-    content: "+359 888 436 838",
-    href: "tel:+359888436838",
-  },
-  {
-    icon: FaEnvelope,
-    content: "info@mintclinic.com",
-    href: "mailto:info@mintclinic.com",
-  },
-];
+interface ContactInfoBarProps {
+  data: {
+    address: { bg: string; en: string };
+    phone: string;
+    email: string;
+    mapUrl: string;
+  };
+  locale: "bg" | "en";
+}
 
-export default function ContactInfoBar() {
+export default function ContactInfoBar({ data, locale }: ContactInfoBarProps) {
+  const contactItems = [
+    {
+      icon: FaMapMarkerAlt,
+      content: data.address[locale],
+      href: data.mapUrl,
+      target: "_blank",
+      rel: "noopener noreferrer",
+    },
+    {
+      icon: FaPhone,
+      content: data.phone,
+      href: `tel:${data.phone.replace(/\s/g, "")}`,
+    },
+    {
+      icon: FaEnvelope,
+      content: data.email,
+      href: `mailto:${data.email}`,
+    },
+  ];
   return (
     <motion.section
       className="bg-white px-6 pb-12 lg:pb-16"

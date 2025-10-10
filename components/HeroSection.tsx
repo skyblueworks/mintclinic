@@ -5,7 +5,20 @@ import { motion } from "motion/react";
 import { fadeInMotionProps } from "@/lib/animations";
 import { Button } from "./ui/button";
 
-export default function HeroSection() {
+interface HeroSectionProps {
+  data: {
+    title: { bg: string; en: string };
+    titleBold: { bg: string; en: string };
+    subtitle: { bg: string; en: string };
+    ctaButton: {
+      text: { bg: string; en: string };
+      url: string;
+    };
+  };
+  locale: "bg" | "en";
+}
+
+export default function HeroSection({ data, locale }: HeroSectionProps) {
   return (
     <motion.div
       className="relative overflow-hidden lg:h-[calc(100vh-130px)]"
@@ -40,23 +53,20 @@ export default function HeroSection() {
           <div className="relative z-10 px-6 pb-16 pt-8 lg:w-1/2 lg:py-20 lg:pr-12">
             <div className="flex flex-col text-left text-foreground">
               <h1 className="mb-6 text-3xl leading-tight lg:text-4xl xl:text-5xl">
-                <span className="font-normal">Вашата усмивка,</span>{" "}
-                <span className="font-bold">усъвършенствана с прецизност</span>
+                <span className="font-normal">{data.title[locale]}</span>{" "}
+                <span className="font-bold">{data.titleBold[locale]}</span>
               </h1>
 
               <p className="text-md mb-8 font-dm-sans lg:text-lg">
-                Изпитайте персонализирана грижа в бутикова дентална клиника,
-                където естетиката среща експертизата. Тук сме, за да направим
-                вашата усмивка по-ярка, посещението ви по-гладко и грижата ви –
-                изключителна!
+                {data.subtitle[locale]}
               </p>
-              <Button className="self-center lg:self-start" size="lg" asChild>
+              <Button className="self-center lg:self-start" size="lg">
                 <a
                   href="https://superdoc.bg/lekar/aleksandar-aleksov"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Запази час
+                  {data.ctaButton.text[locale]}
                 </a>
               </Button>
             </div>

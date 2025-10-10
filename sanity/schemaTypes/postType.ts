@@ -9,14 +9,28 @@ export const postType = defineType({
   fields: [
     defineField({
       name: "title",
-      type: "string",
+      type: "object",
+      fields: [
+        { name: "bg", type: "string", title: "Bulgarian" },
+        { name: "en", type: "string", title: "English" },
+      ],
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "slug",
       type: "slug",
       options: {
-        source: "title",
+        source: "title.bg",
       },
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: "excerpt",
+      type: "object",
+      fields: [
+        { name: "bg", type: "text", title: "Bulgarian", rows: 3 },
+        { name: "en", type: "text", title: "English", rows: 3 },
+      ],
     }),
     defineField({
       name: "mainImage",
@@ -33,28 +47,46 @@ export const postType = defineType({
       ],
     }),
     defineField({
-      name: "categories",
-      type: "array",
-      of: [defineArrayMember({ type: "reference", to: { type: "category" } })],
+      name: "content",
+      type: "object",
+      fields: [
+        { name: "bg", type: "mdx", title: "Bulgarian" },
+        { name: "en", type: "mdx", title: "English" },
+      ],
     }),
     defineField({
       name: "publishedAt",
       type: "datetime",
     }),
     defineField({
-      name: "body",
-      type: "blockContent",
+      name: "seo",
+      type: "object",
+      title: "SEO",
+      fields: [
+        {
+          name: "metaDescription",
+          type: "object",
+          title: "Meta Description",
+          fields: [
+            { name: "bg", type: "text", title: "Bulgarian", rows: 2 },
+            { name: "en", type: "text", title: "English", rows: 2 },
+          ],
+        },
+      ],
     }),
   ],
   preview: {
     select: {
-      title: "title",
-      author: "author.name",
+      titleBg: "title.bg",
+      titleEn: "title.en",
       media: "mainImage",
     },
-    prepare(selection) {
-      const { author } = selection;
-      return { ...selection, subtitle: author && `by ${author}` };
+    prepare({ titleBg, titleEn, media }) {
+      return {
+        title: titleBg || titleEn || "Untitled",
+        subtitle: titleEn || titleBg,
+        media,
+      };
     },
   },
 });

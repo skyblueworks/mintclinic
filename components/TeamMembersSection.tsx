@@ -26,11 +26,20 @@ const teamMembers: TeamMember[] = [
   },
 ];
 
-export default function TeamMembersSection({
-  className,
-}: {
+interface TeamMembersSectionProps {
+  data: {
+    title: { bg: string; en: string };
+    titleBold: { bg: string; en: string };
+  };
+  locale: "bg" | "en";
   className?: string;
-}) {
+}
+
+export default function TeamMembersSection({
+  data,
+  locale,
+  className,
+}: TeamMembersSectionProps) {
   return (
     <motion.section
       className={cn("bg-white py-16 lg:py-24", className)}
@@ -38,7 +47,8 @@ export default function TeamMembersSection({
     >
       <div className="mx-auto max-w-7xl px-6">
         <h2 className="mb-12 text-center text-3xl font-light leading-tight text-primary lg:text-4xl">
-          Запознайте се с <span className="font-bold">нашият екип</span>
+          {data.title[locale]}{" "}
+          <span className="font-bold">{data.titleBold[locale]}</span>
         </h2>
 
         <div className="grid gap-8 md:grid-cols-2 lg:gap-12">

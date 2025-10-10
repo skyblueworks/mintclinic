@@ -7,19 +7,46 @@ import TeamSection from "@/components/TeamSection";
 import FAQSection from "@/components/FAQSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import LocationSection from "@/components/LocationSection";
+import { client } from "@/sanity/lib/client";
+import { homePageQuery, type HomePage } from "@/sanity/lib/page-queries";
+import { getValidLocale, type Locale } from "@/lib/locale";
 
-export default function HomePage() {
+type Props = {
+  params: Promise<{ locale: string }>;
+};
+
+async function getHomePage(): Promise<HomePage | null> {
+  try {
+    return await client.fetch(homePageQuery, {}, { cache: "no-store" });
+  } catch (error) {
+    console.error("Error fetching homepage:", error);
+    return null;
+  }
+}
+
+export default async function HomePage({ params }: Props) {
+  const { locale: localeParam } = await params;
+  const locale: Locale = getValidLocale(localeParam);
+  const pageData = await getHomePage();
+
+  if (!pageData) {
+    return <div>Error loading page</div>;
+  }
+
   return (
     <div>
-      <HeroSection />
-      <WhoWeAre />
-      <TestimonialsSection />
-      <InfoSection />
+      <HeroSection data={pageData.hero} locale={locale} />
+      <WhoWeAre data={pageData.whoWeAre} locale={locale} />
+      <TestimonialsSection
+        data={pageData.testimonialsSection}
+        locale={locale}
+      />
+      <InfoSection data={pageData.infoSection} locale={locale} />
       <ServicesSection className="lg:pt-32" />
-      <WhyMintSection />
-      <TeamSection />
-      <FAQSection />
-      <LocationSection />
+      <WhyMintSection data={pageData.whyMintSection} locale={locale} />
+      <TeamSection data={pageData.teamPreviewSection} locale={locale} />
+      <FAQSection data={pageData.faqSection} locale={locale} />
+      <LocationSection data={pageData.locationSection} locale={locale} />
     </div>
   );
 }

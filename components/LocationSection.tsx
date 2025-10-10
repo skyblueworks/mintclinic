@@ -3,7 +3,18 @@ import { FaMapMarkerAlt } from "react-icons/fa";
 import { motion } from "motion/react";
 import { fadeInMotionProps } from "@/lib/animations";
 
-export default function LocationSection() {
+interface LocationSectionProps {
+  data: {
+    title: { bg: string; en: string };
+    mapEmbedUrl: string;
+  };
+  locale: "bg" | "en";
+}
+
+export default function LocationSection({
+  data,
+  locale,
+}: LocationSectionProps) {
   return (
     <motion.section className="bg-white py-16 lg:py-32" {...fadeInMotionProps}>
       {/* Header with Icon */}
@@ -15,7 +26,7 @@ export default function LocationSection() {
           className="group inline-flex items-center gap-3"
         >
           <h2 className="text-3xl font-light text-primary transition-colors group-hover:text-primary/80 lg:text-4xl">
-            Къде да ни намерите
+            {data.title[locale]}
           </h2>
           <FaMapMarkerAlt className="text-2xl text-primary transition-colors group-hover:text-primary/80" />
         </a>

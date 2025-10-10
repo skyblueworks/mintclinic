@@ -142,10 +142,6 @@ export const postsListQuery = `*[_type == "post"] | order(publishedAt desc){
   title,
   excerpt,
   publishedAt,
-  author->{
-    name,
-    photo
-  },
   mainImage
 }`;
 
@@ -157,13 +153,6 @@ export const postBySlugQuery = `*[_type == "post" && slug.current == $slug][0]{
   content,
   mainImage,
   publishedAt,
-  author->{
-    name,
-    photo
-  },
-  categories[]->{
-    title
-  },
   seo
 }`;
 

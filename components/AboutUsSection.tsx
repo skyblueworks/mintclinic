@@ -3,7 +3,15 @@ import { motion } from "motion/react";
 import { fadeInMotionProps } from "@/lib/animations";
 import { Button } from "./ui/button";
 
-export default function AboutUsSection() {
+interface AboutUsSectionProps {
+  data: {
+    title: { bg: string; en: string };
+    content: { bg: string; en: string };
+  };
+  locale: "bg" | "en";
+}
+
+export default function AboutUsSection({ data, locale }: AboutUsSectionProps) {
   return (
     <motion.section
       className="bg-white px-6 py-16 lg:px-8 lg:py-24"
@@ -11,34 +19,11 @@ export default function AboutUsSection() {
     >
       <div className="mx-auto max-w-5xl">
         <h2 className="mb-[2%] text-[32px] font-light text-primary lg:text-[26px] xl:text-[32px]">
-          <span>Кои сме ние</span>
+          <span>{data.title[locale]}</span>
         </h2>
 
-        <div className="space-y-[0.9rem] text-justify font-dm-sans text-lg font-normal leading-[1.4em] text-foreground lg:text-base xl:text-lg">
-          <p>
-            Основите на Минт са положени през 2012г от потомствения зъболекар
-            Д-р Костадин Хараламиев. Изключително педантичен в работата си, той
-            залага висок стандарт, следван и до ден днешен от неговия племеник и
-            водещ лекар на Минт- д-р Алексов.
-          </p>
-
-          <p>
-            Целта е да се създаде лечебно заведение, което да не напомня на
-            такова и предразполага всеки да се чувства комфортно. Затова
-            въздухът в клиниката е изпълнен с добро настроение и смях. Силно
-            вярваме, че ниското напрежение и спокойните пациенти (и лекари) са
-            предпоставка за качествено изпълнена работа. Отделяме колкото време
-            е необходимо, за да получи всеки най-доброто.
-          </p>
-
-          <p>
-            На фокус е комплексната рехабилитация на захапката и усмивката,
-            възстановяваща загубените функции и естетика на пациентите. Разбира
-            се, обръщаме много внимание и на „малките" случаи и покриваме широк
-            спектър от услуги, така че всеки да може да намери място при нас,
-            независимо дали става дума само за почистване, кореново лечение,
-            пломба и т.н.
-          </p>
+        <div className="space-y-[0.9rem] whitespace-pre-line text-justify font-dm-sans text-lg font-normal leading-[1.4em] text-foreground lg:text-base xl:text-lg">
+          {data.content[locale]}
         </div>
       </div>
     </motion.section>

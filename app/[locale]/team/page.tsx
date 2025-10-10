@@ -1,3 +1,4 @@
+import { getValidLocale, type Locale } from "@/lib/locale";
 import { client } from "@/sanity/lib/client";
 import { teamMembersListQuery } from "@/sanity/lib/queries";
 import Link from "next/link";
@@ -21,7 +22,8 @@ async function getTeamMembers() {
 }
 
 export default async function TeamPage({ params }: Props) {
-  const { locale } = await params;
+  const { locale: localeParam } = await params;
+  const locale: Locale = getValidLocale(localeParam);
   const teamMembers = await getTeamMembers();
 
   return (
@@ -74,21 +76,19 @@ export default async function TeamPage({ params }: Props) {
                   typeof member.name === "string"
                     ? member.name
                     : member.name && typeof member.name === "object"
-                      ? member.name[locale as "bg" | "en"] ||
-                        member.name.bg ||
-                        "Unnamed"
+                      ? member.name[locale] || member.name.bg || "Unnamed"
                       : "Unnamed";
 
                 const roleName =
                   member.role && typeof member.role === "object"
-                    ? member.role[locale as "bg" | "en"] || member.role.bg || ""
+                    ? member.role[locale] || member.role.bg || ""
                     : typeof member.role === "string"
                       ? member.role
                       : "";
 
                 const bioText =
                   member.bio && typeof member.bio === "object"
-                    ? member.bio[locale as "bg" | "en"] || member.bio.bg || ""
+                    ? member.bio[locale] || member.bio.bg || ""
                     : typeof member.bio === "string"
                       ? member.bio
                       : "";

@@ -3,6 +3,7 @@ import { teamMemberBySlugQuery } from "@/sanity/lib/queries";
 import { MDXRenderer } from "@/components/MDXRenderer";
 import { notFound } from "next/navigation";
 import { getLocalizedMDX } from "@/lib/getLocalized";
+import { getValidLocale, type Locale } from "@/lib/locale";
 
 type Props = {
   params: Promise<{ locale: string; slug: string }>;
@@ -44,7 +45,8 @@ export async function generateStaticParams() {
 }
 
 export default async function TeamMemberPage({ params }) {
-  const { locale, slug } = params;
+  const { locale: localeParam, slug } = params;
+  const locale: Locale = getValidLocale(localeParam);
   const member = await getTeamMember(slug);
 
   if (!member) {
@@ -109,17 +111,17 @@ export default async function TeamMemberPage({ params }) {
               <h3 className="mb-2 text-2xl font-bold">
                 {typeof member.name === "string"
                   ? member.name
-                  : member.name[locale as "bg" | "en"] || member.name.bg}
+                  : member.name[locale] || member.name.bg}
               </h3>
             )}
             {member.role && typeof member.role === "object" && (
               <p className="mb-4 text-lg text-blue-600">
-                {member.role[locale as "bg" | "en"] || member.role.bg}
+                {member.role[locale] || member.role.bg}
               </p>
             )}
             {member.bio && typeof member.bio === "object" && (
               <p className="mb-6 text-gray-600">
-                {member.bio[locale as "bg" | "en"] || member.bio.bg}
+                {member.bio[locale] || member.bio.bg}
               </p>
             )}
 
@@ -147,10 +149,7 @@ export default async function TeamMemberPage({ params }) {
                   {locale === "bg" ? "Образование" : "Education"}
                 </h4>
                 <div className="prose max-w-none">
-                  <p>
-                    {member.education[locale as "bg" | "en"] ||
-                      member.education.bg}
-                  </p>
+                  <p>{member.education[locale] || member.education.bg}</p>
                 </div>
               </section>
             )}
@@ -162,10 +161,7 @@ export default async function TeamMemberPage({ params }) {
                   {locale === "bg" ? "Опит" : "Experience"}
                 </h4>
                 <div className="prose max-w-none">
-                  <p>
-                    {member.experience[locale as "bg" | "en"] ||
-                      member.experience.bg}
-                  </p>
+                  <p>{member.experience[locale] || member.experience.bg}</p>
                 </div>
               </section>
             )}

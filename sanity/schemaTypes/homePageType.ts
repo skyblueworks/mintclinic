@@ -32,6 +32,15 @@ export const homePageType = defineType({
           ],
         }),
         defineField({
+          name: "titleBold",
+          type: "object",
+          title: "Title (Bold part)",
+          fields: [
+            { name: "bg", type: "string", title: "Bulgarian" },
+            { name: "en", type: "string", title: "English" },
+          ],
+        }),
+        defineField({
           name: "subtitle",
           type: "object",
           fields: [
@@ -64,6 +73,72 @@ export const homePageType = defineType({
               title: "Button URL",
             }),
           ],
+        }),
+      ],
+    }),
+
+    // Who We Are Section
+    defineField({
+      name: "whoWeAre",
+      title: "Who We Are Section",
+      type: "object",
+      fields: [
+        defineField({
+          name: "label",
+          type: "object",
+          title: "Label (КОИ СМЕ НИЕ)",
+          fields: [
+            { name: "bg", type: "string", title: "Bulgarian" },
+            { name: "en", type: "string", title: "English" },
+          ],
+        }),
+        defineField({
+          name: "title",
+          type: "object",
+          fields: [
+            { name: "bg", type: "string", title: "Bulgarian" },
+            { name: "en", type: "string", title: "English" },
+          ],
+        }),
+        defineField({
+          name: "titleSuffix",
+          type: "object",
+          title: "Title Suffix (в центъра на София)",
+          fields: [
+            { name: "bg", type: "string", title: "Bulgarian" },
+            { name: "en", type: "string", title: "English" },
+          ],
+        }),
+        defineField({
+          name: "description",
+          type: "object",
+          fields: [
+            { name: "bg", type: "text", title: "Bulgarian", rows: 3 },
+            { name: "en", type: "text", title: "English", rows: 3 },
+          ],
+        }),
+        defineField({
+          name: "buttonAbout",
+          type: "object",
+          title: "About Button Text",
+          fields: [
+            { name: "bg", type: "string", title: "Bulgarian" },
+            { name: "en", type: "string", title: "English" },
+          ],
+        }),
+        defineField({
+          name: "buttonGallery",
+          type: "object",
+          title: "Gallery Button Text",
+          fields: [
+            { name: "bg", type: "string", title: "Bulgarian" },
+            { name: "en", type: "string", title: "English" },
+          ],
+        }),
+        defineField({
+          name: "videoUrl",
+          type: "url",
+          title: "Video Embed URL",
         }),
       ],
     }),
@@ -166,8 +241,26 @@ export const homePageType = defineType({
           ],
         }),
         defineField({
+          name: "titleBold",
+          type: "object",
+          title: "Title (Bold part)",
+          fields: [
+            { name: "bg", type: "string", title: "Bulgarian" },
+            { name: "en", type: "string", title: "English" },
+          ],
+        }),
+        defineField({
+          name: "subtitle",
+          type: "object",
+          fields: [
+            { name: "bg", type: "text", title: "Bulgarian", rows: 2 },
+            { name: "en", type: "text", title: "English", rows: 2 },
+          ],
+        }),
+        defineField({
           name: "testimonials",
           type: "array",
+          title: "Testimonials (Optional - defaults to Google reviews)",
           of: [
             defineArrayMember({
               type: "object",
@@ -211,6 +304,251 @@ export const homePageType = defineType({
             }),
           ],
           validation: (Rule) => Rule.max(3),
+        }),
+      ],
+    }),
+
+    // Info Section (Individual Approach)
+    defineField({
+      name: "infoSection",
+      title: "Info Section (Individual Approach)",
+      type: "object",
+      fields: [
+        defineField({
+          name: "title",
+          type: "object",
+          fields: [
+            { name: "bg", type: "string", title: "Bulgarian" },
+            { name: "en", type: "string", title: "English" },
+          ],
+        }),
+        defineField({
+          name: "titleBold",
+          type: "object",
+          title: "Title (Bold part)",
+          fields: [
+            { name: "bg", type: "string", title: "Bulgarian" },
+            { name: "en", type: "string", title: "English" },
+          ],
+        }),
+        defineField({
+          name: "cards",
+          type: "array",
+          of: [
+            defineArrayMember({
+              type: "object",
+              fields: [
+                defineField({
+                  name: "title",
+                  type: "object",
+                  fields: [
+                    { name: "bg", type: "string", title: "Bulgarian" },
+                    { name: "en", type: "string", title: "English" },
+                  ],
+                }),
+                defineField({
+                  name: "subtitle",
+                  type: "object",
+                  fields: [
+                    { name: "bg", type: "string", title: "Bulgarian" },
+                    { name: "en", type: "string", title: "English" },
+                  ],
+                }),
+                defineField({
+                  name: "description",
+                  type: "object",
+                  fields: [
+                    { name: "bg", type: "text", title: "Bulgarian", rows: 4 },
+                    { name: "en", type: "text", title: "English", rows: 4 },
+                  ],
+                }),
+                defineField({
+                  name: "buttonText",
+                  type: "object",
+                  fields: [
+                    { name: "bg", type: "string", title: "Bulgarian" },
+                    { name: "en", type: "string", title: "English" },
+                  ],
+                }),
+                defineField({
+                  name: "buttonUrl",
+                  type: "string",
+                  title: "Button URL",
+                }),
+              ],
+            }),
+          ],
+          validation: (Rule) => Rule.max(3),
+        }),
+      ],
+    }),
+
+    // Why Mint Section
+    defineField({
+      name: "whyMintSection",
+      title: "Why Mint Section",
+      type: "object",
+      fields: [
+        defineField({
+          name: "title",
+          type: "object",
+          fields: [
+            { name: "bg", type: "string", title: "Bulgarian" },
+            { name: "en", type: "string", title: "English" },
+          ],
+        }),
+        defineField({
+          name: "reasons",
+          type: "array",
+          of: [
+            defineArrayMember({
+              type: "object",
+              fields: [
+                defineField({
+                  name: "title",
+                  type: "object",
+                  fields: [
+                    { name: "bg", type: "string", title: "Bulgarian" },
+                    { name: "en", type: "string", title: "English" },
+                  ],
+                }),
+                defineField({
+                  name: "description",
+                  type: "object",
+                  fields: [
+                    { name: "bg", type: "text", title: "Bulgarian", rows: 4 },
+                    { name: "en", type: "text", title: "English", rows: 4 },
+                  ],
+                }),
+              ],
+            }),
+          ],
+          validation: (Rule) => Rule.max(3),
+        }),
+      ],
+    }),
+
+    // Team Preview Section
+    defineField({
+      name: "teamPreviewSection",
+      title: "Team Preview Section",
+      type: "object",
+      fields: [
+        defineField({
+          name: "quote",
+          type: "object",
+          fields: [
+            { name: "bg", type: "string", title: "Bulgarian" },
+            { name: "en", type: "string", title: "English" },
+          ],
+        }),
+        defineField({
+          name: "quoteBold",
+          type: "object",
+          title: "Quote (Bold part)",
+          fields: [
+            { name: "bg", type: "string", title: "Bulgarian" },
+            { name: "en", type: "string", title: "English" },
+          ],
+        }),
+        defineField({
+          name: "description",
+          type: "object",
+          fields: [
+            { name: "bg", type: "text", title: "Bulgarian", rows: 3 },
+            { name: "en", type: "text", title: "English", rows: 3 },
+          ],
+        }),
+        defineField({
+          name: "buttonText",
+          type: "object",
+          fields: [
+            { name: "bg", type: "string", title: "Bulgarian" },
+            { name: "en", type: "string", title: "English" },
+          ],
+        }),
+        defineField({
+          name: "imageUrl",
+          type: "image",
+          title: "Team Image",
+          options: { hotspot: true },
+        }),
+      ],
+    }),
+
+    // FAQ Section
+    defineField({
+      name: "faqSection",
+      title: "FAQ Section",
+      type: "object",
+      fields: [
+        defineField({
+          name: "title",
+          type: "object",
+          fields: [
+            { name: "bg", type: "string", title: "Bulgarian" },
+            { name: "en", type: "string", title: "English" },
+          ],
+        }),
+        defineField({
+          name: "titleBold",
+          type: "object",
+          title: "Title (Bold part)",
+          fields: [
+            { name: "bg", type: "string", title: "Bulgarian" },
+            { name: "en", type: "string", title: "English" },
+          ],
+        }),
+        defineField({
+          name: "items",
+          type: "array",
+          title: "FAQ Items",
+          of: [
+            defineArrayMember({
+              type: "object",
+              fields: [
+                defineField({
+                  name: "question",
+                  type: "object",
+                  fields: [
+                    { name: "bg", type: "text", title: "Bulgarian", rows: 2 },
+                    { name: "en", type: "text", title: "English", rows: 2 },
+                  ],
+                }),
+                defineField({
+                  name: "answer",
+                  type: "object",
+                  fields: [
+                    { name: "bg", type: "text", title: "Bulgarian", rows: 3 },
+                    { name: "en", type: "text", title: "English", rows: 3 },
+                  ],
+                }),
+              ],
+            }),
+          ],
+          validation: (Rule) => Rule.max(10),
+        }),
+      ],
+    }),
+
+    // Location Section
+    defineField({
+      name: "locationSection",
+      title: "Location Section",
+      type: "object",
+      fields: [
+        defineField({
+          name: "title",
+          type: "object",
+          fields: [
+            { name: "bg", type: "string", title: "Bulgarian" },
+            { name: "en", type: "string", title: "English" },
+          ],
+        }),
+        defineField({
+          name: "mapEmbedUrl",
+          type: "url",
+          title: "Google Maps Embed URL",
         }),
       ],
     }),

@@ -8,6 +8,15 @@ import { fadeInMotionProps } from "@/lib/animations";
 import reviews from "@/assets/reviews.json";
 import photoMapping from "@/assets/reviewer-photos/url-to-filename.json";
 
+interface TestimonialsSectionProps {
+  data: {
+    title: { bg: string; en: string };
+    titleBold: { bg: string; en: string };
+    subtitle: { bg: string; en: string };
+  };
+  locale: "bg" | "en";
+}
+
 const testimonials = reviews
   .filter((review) => review.text && review.text.trim()) // Only include reviews with text
   .map((review) => {
@@ -70,7 +79,10 @@ function calculateColumnDuration(
   return baseDuration * variation;
 }
 
-export default function TestimonialsSection() {
+export default function TestimonialsSection({
+  data,
+  locale,
+}: TestimonialsSectionProps) {
   const { width } = useWindowSize();
 
   // Determine number of columns based on screen size
@@ -108,11 +120,10 @@ export default function TestimonialsSection() {
       <div className="mx-auto mb-12 max-w-7xl px-6">
         <div className="text-left">
           <h2 className="mb-4 text-3xl font-bold text-primary lg:text-4xl">
-            <span className="font-light">Какво казват</span> нашите пациенти
+            <span className="font-light">{data.title[locale]}</span>{" "}
+            {data.titleBold[locale]}
           </h2>
-          <p className="text-lg text-foreground">
-            Хиляди пациенти са ни се доверили с грижата за своите усмивки:
-          </p>
+          <p className="text-lg text-foreground">{data.subtitle[locale]}</p>
         </div>
       </div>
 

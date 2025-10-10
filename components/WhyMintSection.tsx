@@ -3,28 +3,18 @@ import Image from "next/image";
 import { motion } from "motion/react";
 import { fadeInMotionProps } from "@/lib/animations";
 
-export default function WhyMintSection() {
-  const reasons = [
-    {
-      id: 1,
-      title: "Сигурност",
-      description:
-        "Работата се извършва по издържани международни протоколи. Последователността на леченията гарантира, че няма да остане необърнат камък по пътя от точка А, до желаната от вас точка В. Така ще можете да се радвате на новата си усмивка за много години напред.",
-    },
-    {
-      id: 2,
-      title: "Лично отношение",
-      description:
-        "Ние ви познаваме, познавате ни и вие. Минт не е част от корпоративна верига, а е малка клиника в сърцето на столицата. За нас личното отношение и комфорта на пациентите са есенциални, което е подчертано от уютния интериор. Откритата комуникация и доверието са в основата на успешното лечение и ние държим на това.",
-    },
-    {
-      id: 3,
-      title: "Високо качество",
-      description:
-        "Успехът е успех, само когато издържи теста на времето. Не само зъболекаря, но и материалите са от съществено значение за постигането на дълготрайни резултати. Ние в Минт се запасяваме само с продукти от доказани производители, за да няма неприятни изненади 🙂.",
-    },
-  ];
+interface WhyMintSectionProps {
+  data: {
+    title: { bg: string; en: string };
+    reasons: Array<{
+      title: { bg: string; en: string };
+      description: { bg: string; en: string };
+    }>;
+  };
+  locale: "bg" | "en";
+}
 
+export default function WhyMintSection({ data, locale }: WhyMintSectionProps) {
   return (
     <motion.section
       className="relative isolate bg-white py-8 lg:px-6 lg:py-16"
@@ -67,17 +57,17 @@ export default function WhyMintSection() {
         {/* Card */}
         <div className="relative rounded-big rounded-bl-none rounded-tr-none bg-gradient-to-br from-primary/80 to-primary p-12 px-6 py-[6rem] text-white md:px-12">
           <h2 className="mb-12 text-center text-4xl font-light text-white lg:text-5xl">
-            Защо MINT?
+            {data.title[locale]}
           </h2>
           <div className="flex flex-col gap-12">
-            {reasons.map((reason) => (
-              <div key={reason.id} className="flex flex-col gap-4">
+            {data.reasons.map((reason, index) => (
+              <div key={index} className="flex flex-col gap-4">
                 <div className="flex-shrink-0 text-6xl font-bold">
-                  {reason.id}.
+                  {index + 1}.
                 </div>
-                <h4 className="text-2xl font-bold">{reason.title}</h4>
+                <h4 className="text-2xl font-bold">{reason.title[locale]}</h4>
                 <p className="font-dm-sans leading-relaxed text-white">
-                  {reason.description}
+                  {reason.description[locale]}
                 </p>
               </div>
             ))}
