@@ -7,6 +7,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { toast } from "sonner";
 
 interface ContactFormSectionProps {
   data: {
@@ -60,10 +61,6 @@ export default function ContactFormSection({
     message: z.string().optional(),
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitMessage, setSubmitMessage] = useState<{
-    type: "success" | "error";
-    text: string;
-  } | null>(null);
 
   const {
     register,
@@ -74,27 +71,30 @@ export default function ContactFormSection({
     resolver: zodResolver(contactFormSchema),
   });
 
-  const onSubmit = async (data: ContactFormData) => {
+  const onSubmit = async (formData: ContactFormData) => {
     setIsSubmitting(true);
-    setSubmitMessage(null);
 
     try {
-      // TODO: Replace with actual form submission logic
-      console.log("Form data:", data);
-
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-
-      setSubmitMessage({
-        type: "success",
-        text: data.messages.success[locale],
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...formData,
+          locale,
+        }),
       });
+
+      if (!response.ok) {
+        throw new Error("Failed to send message");
+      }
+
+      toast.success(data.messages.success[locale]);
       reset();
     } catch (error) {
-      setSubmitMessage({
-        type: "error",
-        text: data.messages.error[locale],
-      });
+      console.error("Form submission error:", error);
+      toast.error(data.messages.error[locale]);
     } finally {
       setIsSubmitting(false);
     }
@@ -185,19 +185,6 @@ export default function ContactFormSection({
                   ? data.submittingButton[locale]
                   : data.submitButton[locale]}
               </Button>
-
-              {/* Submit Message */}
-              {submitMessage && (
-                <div
-                  className={`rounded-2xl p-4 text-sm ${
-                    submitMessage.type === "success"
-                      ? "bg-green-50 text-green-800"
-                      : "bg-red-50 text-red-800"
-                  }`}
-                >
-                  {submitMessage.text}
-                </div>
-              )}
             </form>
           </div>
 

@@ -4,6 +4,7 @@ import { Layout } from "@/components/craft";
 import HeaderSection from "@/components/HeaderSection";
 import Footer from "@/components/Footer";
 import ScrollToTopButton from "@/components/ScrollToTopButton";
+import { Toaster } from "sonner";
 
 import "./globals.css";
 
@@ -93,6 +94,7 @@ export default function RootLayout({
         {children}
         <Footer />
         <ScrollToTopButton />
+        <Toaster position="top-center" richColors />
       </body>
     </Layout>
   );
