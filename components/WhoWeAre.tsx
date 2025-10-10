@@ -52,7 +52,7 @@ export default function WhoWeAre({ data, locale, className }: WhoWeAreProps) {
               {!isAboutPage && (
                 <Button variant="outline" asChild>
                   <LocalizedLink href="/about-us">
-                    data.buttonAbout[locale]
+                    {data.buttonAbout[locale]}
                   </LocalizedLink>
                 </Button>
               )}
