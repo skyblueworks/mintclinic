@@ -24,6 +24,7 @@ import {
   MenubarSub,
   MenubarSubContent,
   MenubarSubTrigger,
+  MenubarSeparator,
   MenubarTrigger,
 } from "@/components/ui/menubar";
 import { cn } from "@/lib/utils";
@@ -205,6 +206,13 @@ export default function HeaderSection({ className }: { className?: string }) {
           />
         </CollapsibleTrigger>
         <CollapsibleContent className="space-y-2 pl-4">
+          <LocalizedLink
+            href={item.href}
+            className="block py-2 font-medium text-primary transition-colors hover:text-primary/80"
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            {locale === "bg" ? "За" : "About"} {item.label}
+          </LocalizedLink>
           {item.children.map((child) => renderMobileNavItem(child, depth + 1))}
         </CollapsibleContent>
       </Collapsible>
@@ -275,6 +283,15 @@ export default function HeaderSection({ className }: { className?: string }) {
       <MenubarSub key={item.href}>
         <MenubarSubTrigger>{item.label}</MenubarSubTrigger>
         <MenubarSubContent>
+          <MenubarItem asChild>
+            <LocalizedLink
+              href={item.href}
+              className="font-semibold text-primary"
+            >
+              {locale === "bg" ? "За" : "About"} {item.label}
+            </LocalizedLink>
+          </MenubarItem>
+          {item.children.length > 0 && <MenubarSeparator />}
           {item.children.map((child) => (
             <MenubarItem key={child.href} asChild>
               <LocalizedLink href={child.href}>{child.label}</LocalizedLink>

@@ -37,10 +37,44 @@ export const categoryType = defineType({
       ],
     }),
     defineField({
+      name: "excerpt",
+      type: "object",
+      title: "Excerpt",
+      fields: [
+        { name: "bg", type: "text", title: "Bulgarian", rows: 3 },
+        { name: "en", type: "text", title: "English", rows: 3 },
+      ],
+    }),
+    defineField({
+      name: "content",
+      type: "object",
+      title: "Content",
+      fields: [
+        { name: "bg", type: "mdx", title: "Bulgarian" },
+        { name: "en", type: "mdx", title: "English" },
+      ],
+    }),
+    defineField({
       name: "order",
       type: "number",
       title: "Display Order",
       description: "Used to order categories in listings",
+    }),
+    defineField({
+      name: "seo",
+      type: "object",
+      title: "SEO",
+      fields: [
+        {
+          name: "metaDescription",
+          type: "object",
+          title: "Meta Description",
+          fields: [
+            { name: "bg", type: "text", title: "Bulgarian", rows: 2 },
+            { name: "en", type: "text", title: "English", rows: 2 },
+          ],
+        },
+      ],
     }),
   ],
   preview: {
