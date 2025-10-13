@@ -291,7 +291,7 @@ export default function HeaderSection({ className }: { className?: string }) {
               {locale === "bg" ? "За" : "About"} {item.label}
             </LocalizedLink>
           </MenubarItem>
-          {item.children.length > 0 && <MenubarSeparator />}
+          {item.children.length > 0 && <MenubarSeparator className="my-0" />}
           {item.children.map((child) => (
             <MenubarItem key={child.href} asChild>
               <LocalizedLink href={child.href}>{child.label}</LocalizedLink>
