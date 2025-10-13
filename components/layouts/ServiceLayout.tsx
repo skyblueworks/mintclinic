@@ -43,7 +43,7 @@ export default function ServiceLayout({
 }: ServiceLayoutProps) {
   return (
     <>
-      <TitleSection title={title} />
+      <TitleSection title={title} className="text-left md:text-center" />
       <Craft.Main>
         <Craft.Section className="py-0 md:py-0">
           <Craft.Container className="!pt-0">{children}</Craft.Container>
