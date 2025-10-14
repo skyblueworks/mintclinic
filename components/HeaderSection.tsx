@@ -6,6 +6,7 @@ import { motion, useScroll, useTransform } from "motion/react";
 import LocalizedLink from "@/components/LocalizedLink";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { RxHamburgerMenu, RxChevronDown, RxChevronRight } from "react-icons/rx";
+import { useTranslation, TK, type Locale } from "@/lib/i18n";
 import {
   Collapsible,
   CollapsibleContent,
@@ -38,114 +39,121 @@ type NavItem = {
   children?: NavItem[];
 };
 
-const NAV_ITEMS: NavItem[] = [
-  { label: "Начало", href: "/" },
-  {
-    label: "Услуги",
-    href: "/uslugi",
-    children: [
-      {
-        label: "Естетична дентална медицина",
-        href: "/uslugi/estetika",
-        children: [
-          { label: "Фасети", href: "/uslugi/estetika/faseti" },
-          { label: "Bonding", href: "/uslugi/estetika/bonding" },
-          {
-            label: "Digital Smile Design",
-            href: "/uslugi/estetika/digital-smile-design",
-          },
-          {
-            label: "Избелване на зъбите",
-            href: "/uslugi/estetika/izbelvane-na-zabite",
-          },
-        ],
-      },
-      {
-        label: "Хирургия",
-        href: "/uslugi/hirurgiya",
-        children: [
-          {
-            label: "Дентални импланти",
-            href: "/uslugi/hirurgiya/dentalni-implanti",
-          },
-          { label: "Екстракции", href: "/uslugi/hirurgiya/ekstrakczii" },
-          {
-            label: "Покриване на рецесии",
-            href: "/uslugi/hirurgiya/pokrivane-na-reczesii",
-          },
-          {
-            label: "Оформяне на венеца",
-            href: "/uslugi/hirurgiya/oformyane-na-venecza",
-          },
-        ],
-      },
-      {
-        label: "Протетика",
-        href: "/uslugi/protetika",
-        children: [
-          { label: "Коронки", href: "/uslugi/protetika/koronki" },
-          { label: "Мостове", href: "/uslugi/protetika/mostove" },
-          { label: "Inlay и Onlay", href: "/uslugi/protetika/inlej-i-onlej" },
-          { label: "Протези", href: "/uslugi/protetika/protezi" },
-          {
-            label: "Функционална рехабилитация",
-            href: "/uslugi/protetika/funkczionalna-rehabilitacziya",
-          },
-          {
-            label: "Шини за бруксисти",
-            href: "/uslugi/protetika/shini-za-bruksisti",
-          },
-        ],
-      },
-      {
-        label: "Консервативна терапия",
-        href: "/uslugi/konservativna-terapiya",
-        children: [
-          {
-            label: "Обтурации",
-            href: "/uslugi/konservativna-terapiya/obturaczii",
-          },
-          {
-            label: "Кореново лечение",
-            href: "/uslugi/konservativna-terapiya/korenovo-lechenie",
-          },
-          {
-            label: "Професионално почистване и профилактика",
-            href: "/uslugi/konservativna-terapiya/profesionalno-pochistvane-i-profilaktika",
-          },
-          {
-            label: "Гингивит, пародонтит",
-            href: "/uslugi/konservativna-terapiya/gingivit-parodontit",
-          },
-        ],
-      },
-      { label: "Алайнери", href: "/uslugi/alajneri" },
-      {
-        label: "Спешна дентална помощ",
-        href: "/uslugi/speshna-dentalna-pomosht",
-      },
-    ],
-  },
-  {
-    label: "За Нас",
-    href: "/about-us",
-    children: [
-      { label: "За нас", href: "/about-us" },
-      { label: "Д-р Алексов", href: "/team/dr-aleksov" },
-      { label: "Д-р Доганова", href: "/team/dr-doganova" },
-      { label: "Галерия", href: "/gallery" },
-      { label: "Блог", href: "/blog" },
-    ],
-  },
-  { label: "Контакти", href: "/contacts" },
-];
+const getNavItems = (
+  t: (key: (typeof TK)[keyof typeof TK]) => string,
+): NavItem[] => {
+  return [
+    { label: t(TK.HOME), href: "/" },
+    {
+      label: t(TK.SERVICES),
+      href: "/uslugi",
+      children: [
+        {
+          label: t(TK.AESTHETIC_DENTAL_MEDICINE),
+          href: "/uslugi/estetika",
+          children: [
+            { label: t(TK.VENEERS), href: "/uslugi/estetika/faseti" },
+            { label: t(TK.BONDING), href: "/uslugi/estetika/bonding" },
+            {
+              label: t(TK.DIGITAL_SMILE_DESIGN),
+              href: "/uslugi/estetika/digital-smile-design",
+            },
+            {
+              label: t(TK.TEETH_WHITENING),
+              href: "/uslugi/estetika/izbelvane-na-zabite",
+            },
+          ],
+        },
+        {
+          label: t(TK.SURGERY),
+          href: "/uslugi/hirurgiya",
+          children: [
+            {
+              label: t(TK.DENTAL_IMPLANTS),
+              href: "/uslugi/hirurgiya/dentalni-implanti",
+            },
+            { label: t(TK.EXTRACTIONS), href: "/uslugi/hirurgiya/ekstrakczii" },
+            {
+              label: t(TK.RECESSION_COVERAGE),
+              href: "/uslugi/hirurgiya/pokrivane-na-reczesii",
+            },
+            {
+              label: t(TK.GUM_CONTOURING),
+              href: "/uslugi/hirurgiya/oformyane-na-venecza",
+            },
+          ],
+        },
+        {
+          label: t(TK.PROSTHETICS),
+          href: "/uslugi/protetika",
+          children: [
+            { label: t(TK.CROWNS), href: "/uslugi/protetika/koronki" },
+            { label: t(TK.BRIDGES), href: "/uslugi/protetika/mostove" },
+            {
+              label: t(TK.INLAY_ONLAY),
+              href: "/uslugi/protetika/inlej-i-onlej",
+            },
+            { label: t(TK.DENTURES), href: "/uslugi/protetika/protezi" },
+            {
+              label: t(TK.FUNCTIONAL_REHABILITATION),
+              href: "/uslugi/protetika/funkczionalna-rehabilitacziya",
+            },
+            {
+              label: t(TK.BRUXISM_SPLINTS),
+              href: "/uslugi/protetika/shini-za-bruksisti",
+            },
+          ],
+        },
+        {
+          label: t(TK.CONSERVATIVE_THERAPY),
+          href: "/uslugi/konservativna-terapiya",
+          children: [
+            {
+              label: t(TK.FILLINGS),
+              href: "/uslugi/konservativna-terapiya/obturaczii",
+            },
+            {
+              label: t(TK.ROOT_CANAL),
+              href: "/uslugi/konservativna-terapiya/korenovo-lechenie",
+            },
+            {
+              label: t(TK.PROFESSIONAL_CLEANING),
+              href: "/uslugi/konservativna-terapiya/profesionalno-pochistvane-i-profilaktika",
+            },
+            {
+              label: t(TK.GINGIVITIS_PERIODONTITIS),
+              href: "/uslugi/konservativna-terapiya/gingivit-parodontit",
+            },
+          ],
+        },
+        { label: t(TK.ALIGNERS), href: "/uslugi/alajneri" },
+        {
+          label: t(TK.EMERGENCY_DENTAL_CARE),
+          href: "/uslugi/speshna-dentalna-pomosht",
+        },
+      ],
+    },
+    {
+      label: t(TK.ABOUT),
+      href: "/about-us",
+      children: [
+        { label: t(TK.ABOUT), href: "/about-us" },
+        { label: t(TK.DR_ALEKSOV), href: "/team/dr-aleksov" },
+        { label: t(TK.DR_DOGANOVA), href: "/team/dr-doganova" },
+        { label: t(TK.GALLERY), href: "/gallery" },
+        { label: t(TK.BLOG), href: "/blog" },
+      ],
+    },
+    { label: t(TK.CONTACT), href: "/contacts" },
+  ];
+};
 
 export default function HeaderSection({ className }: { className?: string }) {
   const pathname = usePathname();
+  const { t, locale } = useTranslation();
 
-  // Extract locale from pathname (e.g., "/bg/page" -> "bg")
-  const locale = pathname.split("/")[1] || "bg";
   const isHomePage = pathname === `/${locale}` || pathname === "/";
+  const NAV_ITEMS = getNavItems(t);
 
   const [servicesMenuOpen, setServicesMenuOpen] = useState(false);
   const [aboutMenuOpen, setAboutMenuOpen] = useState(false);
@@ -250,7 +258,7 @@ export default function HeaderSection({ className }: { className?: string }) {
             className="block py-2 font-medium text-primary transition-colors hover:text-primary/80"
             onClick={() => setMobileMenuOpen(false)}
           >
-            {locale === "bg" ? "За" : "About"} {item.label}
+            {t(TK.ABOUT_PREFIX)} {item.label}
           </LocalizedLink>
           {item.children.map((child) => renderMobileNavItem(child, depth + 1))}
         </CollapsibleContent>
@@ -277,18 +285,18 @@ export default function HeaderSection({ className }: { className?: string }) {
     }
 
     const menuValue = item.label.toLowerCase();
-    const isOpen =
-      menuValue === "услуги"
-        ? servicesMenuOpen
-        : menuValue === "за нас"
-          ? aboutMenuOpen
-          : false;
-    const setOpen =
-      menuValue === "услуги"
-        ? setServicesMenuOpen
-        : menuValue === "за нас"
-          ? setAboutMenuOpen
-          : () => {};
+    const isServicesMenu = item.href === "/uslugi";
+    const isAboutMenu = item.href === "/about-us";
+    const isOpen = isServicesMenu
+      ? servicesMenuOpen
+      : isAboutMenu
+        ? aboutMenuOpen
+        : false;
+    const setOpen = isServicesMenu
+      ? setServicesMenuOpen
+      : isAboutMenu
+        ? setAboutMenuOpen
+        : () => {};
 
     return (
       <MenubarMenu key={item.href} value={menuValue}>
@@ -327,7 +335,7 @@ export default function HeaderSection({ className }: { className?: string }) {
               href={item.href}
               className="font-semibold text-primary"
             >
-              {locale === "bg" ? "За" : "About"} {item.label}
+              {t(TK.ABOUT_PREFIX)} {item.label}
             </LocalizedLink>
           </MenubarItem>
           {item.children.length > 0 && <MenubarSeparator className="my-0" />}
@@ -371,10 +379,16 @@ export default function HeaderSection({ className }: { className?: string }) {
           {/* Desktop Navigation */}
           <Menubar
             className="hidden items-center gap-6 border-0 bg-transparent lg:flex"
-            value={servicesMenuOpen ? "услуги" : aboutMenuOpen ? "за нас" : ""}
+            value={
+              servicesMenuOpen
+                ? t(TK.SERVICES).toLowerCase()
+                : aboutMenuOpen
+                  ? t(TK.ABOUT).toLowerCase()
+                  : ""
+            }
             onValueChange={(value) => {
-              setServicesMenuOpen(value === "услуги");
-              setAboutMenuOpen(value === "за нас");
+              setServicesMenuOpen(value === t(TK.SERVICES).toLowerCase());
+              setAboutMenuOpen(value === t(TK.ABOUT).toLowerCase());
             }}
           >
             {NAV_ITEMS.map((item, index) => renderDesktopNavItem(item, index))}
@@ -389,7 +403,7 @@ export default function HeaderSection({ className }: { className?: string }) {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Запази час
+                  {t(TK.BOOK_APPOINTMENT)}
                 </a>
               </Button>
             </MenubarMenu>
@@ -433,14 +447,14 @@ export default function HeaderSection({ className }: { className?: string }) {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      Запази час
+                      {t(TK.BOOK_APPOINTMENT)}
                     </a>
                   </Button>
 
                   {/* Language Switcher */}
                   <div className="pt-6">
                     <p className="mb-3 text-sm font-medium text-gray-500">
-                      Language / Език
+                      {t(TK.LANGUAGE_SWITCHER)}
                     </p>
                     <LanguageSwitcher variant="mobile" />
                   </div>

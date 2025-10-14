@@ -16,6 +16,8 @@ import { getLocalizedString, getServiceUrl } from "@/lib/getLocalized";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import type { Service } from "@/types/service";
+import { TK, type Locale } from "@/lib/i18n";
+import { getTranslation } from "@/lib/i18n";
 
 interface ServicesSectionClientProps {
   services: Service[];
@@ -43,6 +45,7 @@ function ServiceTile({
   const excerpt = getLocalizedString(service.excerpt, locale);
   const category = categorySlug || service.category?.slug;
   const href = getServiceUrl(locale, service.slug, category);
+  const toServiceText = getTranslation(locale as Locale, TK.TO_SERVICE);
 
   return (
     <div className="flex h-full flex-col justify-between rounded-2xl rounded-bl-none rounded-tr-none border border-primary/20 bg-white p-6 duration-300">
@@ -62,7 +65,7 @@ function ServiceTile({
         </p>
       </div>
       <Button variant="outline" asChild>
-        <Link href={href}>Към услугата</Link>
+        <Link href={href}>{toServiceText}</Link>
       </Button>
     </div>
   );
@@ -82,9 +85,16 @@ function SectionHeader({
   locale: string;
   variant: "carousel" | "grid";
 }) {
+  const moreServicesText = getTranslation(
+    locale as Locale,
+    TK.MORE_SERVICES_FROM,
+  );
+  const ourServicesText = getTranslation(locale as Locale, TK.OUR_SERVICES);
+  const seeAllText = getTranslation(locale as Locale, TK.SEE_ALL);
+
   const title = categoryTitle
-    ? `Още услуги от ${categoryTitle}`
-    : "Нашите услуги";
+    ? `${moreServicesText} ${categoryTitle}`
+    : ourServicesText;
 
   const showSeeAllButton = variant === "grid" && categoryTitle && categorySlug;
 
@@ -93,7 +103,7 @@ function SectionHeader({
       <h2 className="text-3xl font-light text-primary lg:text-4xl">{title}</h2>
       {showSeeAllButton && (
         <Button variant="outline" className="text-nowrap" asChild>
-          <Link href={`/${locale}/uslugi/${categorySlug}`}>Виж всички</Link>
+          <Link href={`/${locale}/uslugi/${categorySlug}`}>{seeAllText}</Link>
         </Button>
       )}
     </div>

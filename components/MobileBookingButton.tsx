@@ -3,13 +3,13 @@ import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "motion/react";
 import { RxCalendar } from "react-icons/rx";
+import { useTranslation, TK } from "@/lib/i18n";
 
 export default function MobileBookingButton() {
   const [isVisible, setIsVisible] = useState(false);
   const pathname = usePathname();
+  const { t, locale } = useTranslation();
 
-  // Check if it's the home page
-  const locale = pathname.split("/")[1] || "bg";
   const isHomePage = pathname === `/${locale}` || pathname === "/";
 
   useEffect(() => {
@@ -44,9 +44,9 @@ export default function MobileBookingButton() {
           exit={{ opacity: 0, y: 20, scale: 0.7 }}
           transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="fixed bottom-8 right-6 z-50 flex h-14 items-center gap-2 rounded-full bg-accent px-6 text-accent-foreground shadow-lg transition-colors hover:bg-accent/90 lg:hidden"
-          aria-label="Запази час"
+          aria-label={t(TK.BOOK_APPOINTMENT)}
         >
-          <span className="text-sm font-black">Запази час</span>
+          <span className="text-sm font-black">{t(TK.BOOK_APPOINTMENT)}</span>
           <RxCalendar className="text-xl" />
         </motion.a>
       )}

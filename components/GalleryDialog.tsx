@@ -12,6 +12,7 @@ import {
   type CarouselApi,
 } from "@/components/ui/carousel";
 import { Button } from "@/components/ui/button";
+import { useTranslation, TK } from "@/lib/i18n";
 
 interface GalleryImage {
   src: string;
@@ -31,6 +32,8 @@ export function GalleryDialog({
   onOpenChange,
   initialIndex = 0,
 }: GalleryDialogProps) {
+  const { t } = useTranslation();
+
   const [api, setApi] = React.useState<CarouselApi>();
   const [current, setCurrent] = React.useState(0);
   const [canScrollPrev, setCanScrollPrev] = React.useState(false);
@@ -150,7 +153,7 @@ export function GalleryDialog({
                 onClick={() => onOpenChange(false)}
               >
                 <X className="h-6 w-6" />
-                <span className="sr-only">Close</span>
+                <span className="sr-only">{t(TK.CLOSE)}</span>
               </Button>
 
               {/* Counter */}
@@ -205,7 +208,7 @@ export function GalleryDialog({
                     disabled={!canScrollPrev}
                   >
                     <ChevronLeft className="h-8 w-8" />
-                    <span className="sr-only">Previous image</span>
+                    <span className="sr-only">{t(TK.PREVIOUS_IMAGE)}</span>
                   </Button>
 
                   <Button
@@ -216,7 +219,7 @@ export function GalleryDialog({
                     disabled={!canScrollNext}
                   >
                     <ChevronRight className="h-8 w-8" />
-                    <span className="sr-only">Next image</span>
+                    <span className="sr-only">{t(TK.NEXT_IMAGE)}</span>
                   </Button>
                 </Carousel>
               </div>

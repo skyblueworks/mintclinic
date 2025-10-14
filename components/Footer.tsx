@@ -12,8 +12,11 @@ import {
 } from "react-icons/fa";
 import { motion } from "motion/react";
 import { fadeInMotionProps } from "@/lib/animations";
+import { useTranslation, TK } from "@/lib/i18n";
 
 export default function Footer() {
+  const { t } = useTranslation();
+
   return (
     <motion.footer
       className="bg-gradient-to-br from-primary/80 to-primary text-white"
@@ -29,8 +32,7 @@ export default function Footer() {
           {/* Left - Tagline */}
           <div className="lg:w-1/2">
             <p className="text-lg leading-relaxed text-white/90">
-              Усмивката е нашето вдъхновение, а вашето здраве – наш приоритет.
-              Доверете се на нашата професионална грижа за вашите зъби.
+              {t(TK.FOOTER_TAGLINE)}
             </p>
           </div>
 
@@ -48,7 +50,7 @@ export default function Footer() {
                 </a>
                 <div className="flex items-center gap-3 text-white/90">
                   <FaClock className="flex-shrink-0 text-xl" />
-                  <span>Пон - Пет, 09:00 - 18:00</span>
+                  <span>{t(TK.WORKING_HOURS)}</span>
                 </div>
               </div>
 
@@ -98,7 +100,7 @@ export default function Footer() {
                 href="tel:+359888436838"
                 className="block w-full rounded-full bg-accent px-6 py-3 text-center font-extrabold text-accent-foreground transition-colors hover:bg-accent/90"
               >
-                Запази час
+                {t(TK.BOOK_APPOINTMENT)}
               </a>
             </div>
 
@@ -112,7 +114,7 @@ export default function Footer() {
                       href="/about-us"
                       className="transition-colors hover:text-white"
                     >
-                      За нас
+                      {t(TK.ABOUT)}
                     </LocalizedLink>
                   </li>
                   <li>
@@ -120,7 +122,7 @@ export default function Footer() {
                       href="/team"
                       className="transition-colors hover:text-white"
                     >
-                      Екип
+                      {t(TK.TEAM)}
                     </LocalizedLink>
                   </li>
                   <li>
@@ -128,7 +130,7 @@ export default function Footer() {
                       href="/uslugi"
                       className="transition-colors hover:text-white"
                     >
-                      Услуги
+                      {t(TK.SERVICES)}
                     </LocalizedLink>
                   </li>
                   <li>
@@ -136,7 +138,7 @@ export default function Footer() {
                       href="/gallery"
                       className="transition-colors hover:text-white"
                     >
-                      Галерия
+                      {t(TK.GALLERY)}
                     </LocalizedLink>
                   </li>
                   <li>
@@ -144,7 +146,7 @@ export default function Footer() {
                       href="/blog"
                       className="transition-colors hover:text-white"
                     >
-                      Блог
+                      {t(TK.BLOG)}
                     </LocalizedLink>
                   </li>
                   <li>
@@ -152,7 +154,7 @@ export default function Footer() {
                       href="/contacts"
                       className="transition-colors hover:text-white"
                     >
-                      Контакт
+                      {t(TK.CONTACT)}
                     </LocalizedLink>
                   </li>
                   <li>
@@ -169,7 +171,7 @@ export default function Footer() {
                       href="/about-us"
                       className="transition-colors hover:text-white"
                     >
-                      За нас
+                      {t(TK.ABOUT)}
                     </LocalizedLink>
                   </li>
                   <li>
@@ -177,7 +179,7 @@ export default function Footer() {
                       href="/uslugi"
                       className="transition-colors hover:text-white"
                     >
-                      Услуги
+                      {t(TK.SERVICES)}
                     </LocalizedLink>
                   </li>
                   <li>
@@ -185,7 +187,7 @@ export default function Footer() {
                       href="/team"
                       className="transition-colors hover:text-white"
                     >
-                      Екип
+                      {t(TK.TEAM)}
                     </LocalizedLink>
                   </li>
                   <li>
@@ -193,7 +195,7 @@ export default function Footer() {
                       href="/gallery"
                       className="transition-colors hover:text-white"
                     >
-                      Галерия
+                      {t(TK.GALLERY)}
                     </LocalizedLink>
                   </li>
                   <li>
@@ -201,7 +203,7 @@ export default function Footer() {
                       href="/blog"
                       className="transition-colors hover:text-white"
                     >
-                      Блог
+                      {t(TK.BLOG)}
                     </LocalizedLink>
                   </li>
                   <li>
@@ -209,7 +211,7 @@ export default function Footer() {
                       href="/contacts"
                       className="transition-colors hover:text-white"
                     >
-                      Контакт
+                      {t(TK.CONTACT)}
                     </LocalizedLink>
                   </li>
                   <li className="col-span-2 flex justify-center">
@@ -220,7 +222,7 @@ export default function Footer() {
 
               {/* Social Media */}
               <div className="flex flex-col items-center gap-4 lg:flex-row lg:items-center lg:justify-end">
-                <h3 className="text-xl font-bold">Последвай ни</h3>
+                <h3 className="text-xl font-bold">{t(TK.FOLLOW_US)}</h3>
                 <div className="flex gap-4">
                   <a
                     href="https://www.facebook.com/mintclinic.bg/"
@@ -251,24 +253,19 @@ export default function Footer() {
       <div className="bg-primary-dark">
         <div className="mx-auto max-w-7xl px-6 py-6">
           <div className="flex flex-col items-center justify-between gap-4 text-sm text-white/70 md:flex-row">
-            <p className="text-center md:text-left">
-              <span className="inline-block">© 2024 Mint Clinic.</span>{" "}
-              <span className="inline-block">
-                Всички права са запазени.
-              </span>{" "}
-            </p>
+            <p className="text-center md:text-left">{t(TK.COPYRIGHT)}</p>
             <div className="flex gap-6">
               <LocalizedLink
                 href="/terms"
                 className="transition-colors hover:text-white"
               >
-                Общи Условия
+                {t(TK.TERMS_AND_CONDITIONS)}
               </LocalizedLink>
               <LocalizedLink
                 href="/privacy-policy"
                 className="transition-colors hover:text-white"
               >
-                Политика за поверителност
+                {t(TK.PRIVACY_POLICY)}
               </LocalizedLink>
             </div>
           </div>

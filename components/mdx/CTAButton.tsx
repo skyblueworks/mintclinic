@@ -1,6 +1,8 @@
+"use client";
 import { Button } from "@/components/ui/button";
 import LocalizedLink from "@/components/LocalizedLink";
 import { Phone } from "lucide-react";
+import { useTranslation, TK } from "@/lib/i18n";
 
 interface CTAButtonProps {
   href?: string;
@@ -15,8 +17,12 @@ interface CTAButtonProps {
 export function CTAButton({
   href = "https://superdoc.bg/lekar/aleksandar-aleksov",
   variant = "default",
-  children = "Запази час",
+  children,
 }: CTAButtonProps) {
+  const { t } = useTranslation();
+
+  // Use provided children or default to translated "bookAppointment"
+  const buttonText = children ?? t(TK.BOOK_APPOINTMENT);
   const isExternal = href?.startsWith("http");
   const isPhone = href?.startsWith("tel:");
 
@@ -35,7 +41,7 @@ export function CTAButton({
           rel={isExternal ? "noopener noreferrer" : undefined}
         >
           {isPhone && <Phone className="mr-2 h-5 w-5" />}
-          {children}
+          {buttonText}
         </a>
       </Button>
     );
@@ -44,7 +50,7 @@ export function CTAButton({
   // Use LocalizedLink only for internal links
   return (
     <Button variant={variant} size="lg" className={buttonClasses} asChild>
-      <LocalizedLink href={href}>{children}</LocalizedLink>
+      <LocalizedLink href={href}>{buttonText}</LocalizedLink>
     </Button>
   );
 }
