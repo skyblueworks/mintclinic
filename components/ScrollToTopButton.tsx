@@ -36,7 +36,7 @@ export default function ScrollToTopButton() {
           exit={{ opacity: 0, y: 20, scale: 0.7 }}
           transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-primary text-white shadow-lg transition-colors hover:bg-primary/90"
+          className="fixed bottom-8 left-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-primary text-white shadow-lg transition-colors hover:bg-primary/90"
           aria-label="Scroll to top"
         >
           <RxChevronUp className="text-xl" />

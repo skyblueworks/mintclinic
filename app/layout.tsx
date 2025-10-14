@@ -4,6 +4,7 @@ import { Layout } from "@/components/craft";
 import HeaderSection from "@/components/HeaderSection";
 import Footer from "@/components/Footer";
 import ScrollToTopButton from "@/components/ScrollToTopButton";
+import MobileBookingButton from "@/components/MobileBookingButton";
 import { Toaster } from "sonner";
 
 import "./globals.css";
@@ -93,6 +94,7 @@ export default function RootLayout({
         <HeaderSection />
         {children}
         <Footer />
+        <MobileBookingButton />
         <ScrollToTopButton />
         <Toaster position="top-center" richColors />
       </body>
