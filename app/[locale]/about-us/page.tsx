@@ -2,6 +2,7 @@ import TitleSection from "@/components/TitleSection";
 import TeamMembersSection from "@/components/TeamMembersSection";
 import WhyMintSection from "@/components/WhyMintSection";
 import AboutUsSection from "@/components/AboutUsSection";
+import WhoWeAre from "@/components/WhoWeAre";
 import GallerySection from "@/components/GallerySection";
 import { client } from "@/sanity/lib/client";
 import { aboutPageQuery, type AboutPage } from "@/sanity/lib/page-queries";
@@ -32,6 +33,7 @@ export default async function AboutUsPage({ params }: Props) {
   return (
     <div className="pb-16">
       <TitleSection title={pageData.title[locale]} />
+      <WhoWeAre data={{} as any} locale={locale} />
       <TeamMembersSection data={pageData.teamMembersSection} locale={locale} />
       <GallerySection data={pageData.gallerySection} locale={locale} />
       <AboutUsSection data={pageData.aboutSection} locale={locale} />

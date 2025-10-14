@@ -24,6 +24,7 @@ interface WhoWeAreProps {
 export default function WhoWeAre({ data, locale, className }: WhoWeAreProps) {
   const pathname = usePathname();
   const isAboutPage = pathname.endsWith("/about-us");
+
   return (
     <motion.section
       className={cn("bg-white pb-8 pt-16 lg:pb-16 lg:pt-32", className)}
@@ -35,30 +36,33 @@ export default function WhoWeAre({ data, locale, className }: WhoWeAreProps) {
           <div className="mb-8 lg:order-2 lg:mb-0 lg:pr-8">
             {!isAboutPage && (
               <p className="mb-4 text-sm font-bold uppercase tracking-wider text-foreground">
-                {data.label[locale]}
+                {data?.label?.[locale] ?? "ЗА НАС"}
               </p>
             )}
 
             <h2 className="mb-6 text-3xl font-bold leading-tight text-primary lg:text-4xl">
-              <span className="font-light">{data.title[locale]}</span>{" "}
-              {data.titleSuffix[locale]}
+              <span className="font-light">
+                {data?.title?.[locale] ?? "Немска дентална клиника"}
+              </span>{" "}
+              {data?.titleSuffix?.[locale] ?? "в центъра на София"}
             </h2>
 
             <p className="text-md mb-8 font-dm-sans text-foreground">
-              {data.description[locale]}
+              {data?.description?.[locale] ??
+                "Оборудвана с модерна техника и движена от млад и мотивиран екип, квалифициран в Германия, Минт е мястото, където можете да получите най-добрата персонална грижа в сферата на модерното зъболечение за вас и вашите близки."}
             </p>
 
             <div className="flex flex-col gap-4 sm:flex-row">
               {!isAboutPage && (
                 <Button variant="outline" asChild>
                   <LocalizedLink href="/about-us">
-                    {data.buttonAbout[locale]}
+                    {data?.buttonAbout?.[locale] ?? "Повече за нас"}
                   </LocalizedLink>
                 </Button>
               )}
               <Button variant="outline" asChild>
                 <LocalizedLink href="/gallery">
-                  {data.buttonGallery[locale]}
+                  {data?.buttonGallery?.[locale] ?? "Галерия"}
                 </LocalizedLink>
               </Button>
             </div>
@@ -69,7 +73,7 @@ export default function WhoWeAre({ data, locale, className }: WhoWeAreProps) {
             <div className="aspect-video overflow-hidden rounded-3xl rounded-bl-none rounded-tr-none">
               <iframe
                 className="h-full w-full"
-                src={data.videoUrl}
+                src="https://www.youtube-nocookie.com/embed/GB_lUZMX1sM"
                 title="Mint Clinic"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
