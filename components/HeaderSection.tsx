@@ -1,7 +1,9 @@
 "use client";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
+import { useMediaQuery } from "@uidotdev/usehooks";
 import Image from "next/image";
+import { motion, useScroll, useTransform } from "motion/react";
 import LocalizedLink from "@/components/LocalizedLink";
 import { RxHamburgerMenu, RxChevronDown, RxChevronRight } from "react-icons/rx";
 import {
@@ -148,6 +150,31 @@ export default function HeaderSection({ className }: { className?: string }) {
   const [servicesMenuOpen, setServicesMenuOpen] = useState(false);
   const [aboutMenuOpen, setAboutMenuOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  // Detect desktop screen size
+  const isDesktop = useMediaQuery("(min-width: 1024px)");
+
+  // Scroll-based animations
+  const { scrollY } = useScroll();
+
+  // Shadow animation for home page
+  const shadowOpacity = useTransform(scrollY, [0, 100], [0, 0.1]);
+  const boxShadow = useTransform(
+    shadowOpacity,
+    (opacity) => `0 25px 50px -12px rgba(0, 128, 128, ${opacity})`,
+  );
+
+  // Height animation for desktop only
+  const headerHeight = useTransform(
+    scrollY,
+    [0, 100],
+    isDesktop ? [130, 80] : [100, 100],
+  );
+  const logoScale = useTransform(
+    scrollY,
+    [0, 100],
+    isDesktop ? [1, 0.75] : [1, 1],
+  );
 
   // Mobile collapsible states - using a map for cleaner state management
   const [mobileOpenStates, setMobileOpenStates] = useState<
@@ -303,24 +330,30 @@ export default function HeaderSection({ className }: { className?: string }) {
   };
 
   return (
-    <header
+    <motion.header
       className={cn(
-        "relative z-50 flex h-[130px] items-center bg-white shadow-2xl shadow-transparent transition-shadow duration-500",
-        !isHomePage && "shadow-primary/10",
+        "sticky top-0 z-50 flex items-center bg-white/90 backdrop-blur-lg",
+        !isHomePage && "shadow-2xl shadow-primary/10",
         className,
       )}
+      style={{
+        ...(isHomePage ? { boxShadow } : {}),
+        height: headerHeight,
+      }}
     >
       <div className="mx-auto w-full max-w-7xl px-6">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <LocalizedLink href="/">
-            <Image
-              src="/logo-colored-cropped.svg"
-              alt="Mint Clinic"
-              width={120}
-              height={35}
-              className="h-10 w-auto"
-            />
+            <motion.div style={{ scale: logoScale }} className="origin-left">
+              <Image
+                src="/logo-colored-cropped.svg"
+                alt="Mint Clinic"
+                width={120}
+                height={35}
+                className="h-10 w-auto"
+              />
+            </motion.div>
           </LocalizedLink>
 
           {/* Desktop Navigation */}
@@ -392,6 +425,6 @@ export default function HeaderSection({ className }: { className?: string }) {
           </Sheet>
         </div>
       </div>
-    </header>
+    </motion.header>
   );
 }
