@@ -10,10 +10,10 @@ interface CTAButtonProps {
 
 /**
  * CTAButton - Styled call-to-action button for service pages
- * Pre-configured with phone number and attractive styling
+ * Pre-configured with Dr. Aleksov's SuperDoc booking page
  */
 export function CTAButton({
-  href = "tel:+359888436838",
+  href = "https://superdoc.bg/lekar/aleksandar-aleksov",
   variant = "default",
   children = "Запази час",
 }: CTAButtonProps) {
@@ -25,10 +25,15 @@ export function CTAButton({
       ? "shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
       : "";
 
-  if (isExternal) {
+  // Use regular anchor tag for external links and phone links
+  if (isExternal || isPhone) {
     return (
       <Button variant={variant} size="lg" className={buttonClasses} asChild>
-        <a href={href} target="_blank" rel="noopener noreferrer">
+        <a
+          href={href}
+          target={isExternal ? "_blank" : undefined}
+          rel={isExternal ? "noopener noreferrer" : undefined}
+        >
           {isPhone && <Phone className="mr-2 h-5 w-5" />}
           {children}
         </a>
@@ -36,12 +41,10 @@ export function CTAButton({
     );
   }
 
+  // Use LocalizedLink only for internal links
   return (
     <Button variant={variant} size="lg" className={buttonClasses} asChild>
-      <LocalizedLink href={href}>
-        {isPhone && <Phone className="mr-2 h-5 w-5" />}
-        {children}
-      </LocalizedLink>
+      <LocalizedLink href={href}>{children}</LocalizedLink>
     </Button>
   );
 }
