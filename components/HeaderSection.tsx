@@ -1,7 +1,6 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
-import { useMediaQuery } from "@uidotdev/usehooks";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "motion/react";
 import LocalizedLink from "@/components/LocalizedLink";
@@ -151,8 +150,20 @@ export default function HeaderSection({ className }: { className?: string }) {
   const [aboutMenuOpen, setAboutMenuOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  // Detect desktop screen size
-  const isDesktop = useMediaQuery("(min-width: 1024px)");
+  // Detect desktop screen size - SSR compatible
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(min-width: 1024px)");
+    setIsDesktop(mediaQuery.matches);
+
+    const handleChange = (e: MediaQueryListEvent) => {
+      setIsDesktop(e.matches);
+    };
+
+    mediaQuery.addEventListener("change", handleChange);
+    return () => mediaQuery.removeEventListener("change", handleChange);
+  }, []);
 
   // Scroll-based animations
   const { scrollY } = useScroll();

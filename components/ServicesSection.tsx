@@ -80,8 +80,9 @@ export default async function ServicesSection({
             <div className="mx-auto max-w-7xl px-6">
               <div className="rounded-lg border-2 border-dashed border-gray-300 p-8 text-center">
                 <p className="text-gray-500">
-                  ServicesSection: No services found in Sanity for category "
-                  {category}".
+                  ServicesSection: No services found in Sanity for category
+                  &quot;
+                  {category}&quot;.
                   <br />
                   Please import services using the import script.
                 </p>
@@ -107,7 +108,8 @@ export default async function ServicesSection({
               <div className="rounded-lg border-2 border-dashed border-yellow-300 bg-yellow-50 p-8 text-center">
                 <p className="text-gray-700">
                   <strong>ServicesSection:</strong> No other services found in
-                  category "{category}" besides "{currentSlug}".
+                  category &quot;{category}&quot; besides &quot;{currentSlug}
+                  &quot;.
                   <br />
                   <span className="text-sm">
                     Total services in category: {services.length}

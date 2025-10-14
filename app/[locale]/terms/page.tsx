@@ -159,9 +159,9 @@ export default async function TermsPage({ params }: Props) {
                   1. Acceptance of Terms
                 </h2>
                 <p className="text-gray-700">
-                  By using Mint Clinic's services, you agree to these terms and
-                  conditions. If you do not agree with these terms, please do
-                  not use our services.
+                  By using Mint Clinic&apos;s services, you agree to these terms
+                  and conditions. If you do not agree with these terms, please
+                  do not use our services.
                 </p>
               </section>
 
@@ -226,9 +226,9 @@ export default async function TermsPage({ params }: Props) {
                   not cover damage caused by:
                 </p>
                 <ul className="list-disc space-y-2 pl-6 text-gray-700">
-                  <li>Non-compliance with doctor's recommendations</li>
+                  <li>Non-compliance with doctor&apos;s recommendations</li>
                   <li>Poor oral hygiene</li>
-                  <li>Trauma or incidents beyond the clinic's control</li>
+                  <li>Trauma or incidents beyond the clinic&apos;s control</li>
                 </ul>
               </section>
 

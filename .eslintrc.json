@@ -3,5 +3,16 @@
     "next/core-web-vitals",
     "plugin:better-tailwindcss/recommended-warn"
   ],
-  "plugins": ["better-tailwindcss"]
+  "plugins": ["better-tailwindcss"],
+  "rules": {
+    "better-tailwindcss/enforce-consistent-line-wrapping": "off",
+    "better-tailwindcss/enforce-consistent-class-order": "warn",
+    "better-tailwindcss/no-unnecessary-whitespace": "warn",
+    "@next/next/no-img-element": "warn"
+  },
+  "settings": {
+    "tailwindcss": {
+      "config": "tailwind.config.ts"
+    }
+  }
 }
