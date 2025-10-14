@@ -3,7 +3,7 @@ import { Comfortaa, DM_Sans } from "next/font/google";
 import { Layout } from "@/components/craft";
 import HeaderSection from "@/components/HeaderSection";
 import Footer from "@/components/Footer";
-import ScrollToTopButton from "@/components/ScrollToTopButton";
+// import ScrollToTopButton from "@/components/ScrollToTopButton";
 import MobileBookingButton from "@/components/MobileBookingButton";
 import { Toaster } from "sonner";
 
@@ -95,7 +95,7 @@ export default function RootLayout({
         {children}
         <Footer />
         <MobileBookingButton />
-        <ScrollToTopButton />
+        {/* <ScrollToTopButton /> */}
         <Toaster position="top-center" richColors />
       </body>
     </Layout>
