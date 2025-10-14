@@ -1,4 +1,5 @@
 "use client";
+import React from "react";
 import Image from "next/image";
 import { motion } from "motion/react";
 import {
@@ -111,8 +112,25 @@ function CarouselLayout({
   locale: string;
   categorySlug?: string;
 }) {
+  const [api, setApi] = React.useState<any>();
+
+  const handlePrevClick = React.useCallback(() => {
+    if (api) {
+      api.scrollPrev();
+      api.plugins()?.autoplay?.reset();
+    }
+  }, [api]);
+
+  const handleNextClick = React.useCallback(() => {
+    if (api) {
+      api.scrollNext();
+      api.plugins()?.autoplay?.reset();
+    }
+  }, [api]);
+
   return (
     <Carousel
+      setApi={setApi}
       opts={{
         duration: 40,
         align: "center",
@@ -140,8 +158,14 @@ function CarouselLayout({
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious className="left-6 size-12 border-primary bg-primary text-white hover:bg-primary/90 hover:text-white" />
-      <CarouselNext className="right-6 size-12 border-primary bg-primary text-white hover:bg-primary/90 hover:text-white" />
+      <CarouselPrevious
+        onClick={handlePrevClick}
+        className="left-6 size-12 border-primary bg-primary text-white hover:bg-primary/90 hover:text-white"
+      />
+      <CarouselNext
+        onClick={handleNextClick}
+        className="right-6 size-12 border-primary bg-primary text-white hover:bg-primary/90 hover:text-white"
+      />
     </Carousel>
   );
 }
