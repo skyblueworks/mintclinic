@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import { MDXRenderer } from "@/components/MDXRenderer";
-import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { BeforeAfter } from "@/components/mdx/BeforeAfter";
 import { CTA } from "@/components/mdx/CTA";
 import { Testimonial } from "@/components/mdx/Testimonial";
@@ -137,10 +136,20 @@ export default function TestStructuredContentPage() {
         {/* Header */}
         <div className="mb-8">
           <div className="mb-6 flex items-center justify-between">
-            <LanguageSwitcher
-              currentLanguage={language}
-              onLanguageChange={setLanguage}
-            />
+            <div className="flex gap-2">
+              <button
+                onClick={() => setLanguage("bg")}
+                className={`rounded px-3 py-1 ${language === "bg" ? "bg-primary text-white" : "bg-gray-200"}`}
+              >
+                BG
+              </button>
+              <button
+                onClick={() => setLanguage("en")}
+                className={`rounded px-3 py-1 ${language === "en" ? "bg-primary text-white" : "bg-gray-200"}`}
+              >
+                EN
+              </button>
+            </div>
           </div>
 
           <div className="text-center">

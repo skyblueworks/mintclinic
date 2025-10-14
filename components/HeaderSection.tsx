@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "motion/react";
 import LocalizedLink from "@/components/LocalizedLink";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { RxHamburgerMenu, RxChevronDown, RxChevronRight } from "react-icons/rx";
 import {
   Collapsible,
@@ -401,7 +402,10 @@ export default function HeaderSection({ className }: { className?: string }) {
                 <RxHamburgerMenu className="h-6 w-6" />
               </button>
             </SheetTrigger>
-            <SheetContent side="left" className="w-80 overflow-y-auto">
+            <SheetContent
+              side="left"
+              className="flex w-80 flex-col overflow-y-auto"
+            >
               <SheetHeader>
                 <SheetTitle>
                   <Image
@@ -415,22 +419,32 @@ export default function HeaderSection({ className }: { className?: string }) {
               </SheetHeader>
 
               {/* Mobile Navigation */}
-              <nav className="mt-8 space-y-2 text-left">
+              <nav className="mt-8 flex flex-1 flex-col space-y-2 text-left">
                 {NAV_ITEMS.map((item) => renderMobileNavItem(item))}
 
-                {/* Mobile CTA */}
-                <Button
-                  asChild
-                  className="mt-6 w-full bg-accent text-accent-foreground hover:bg-accent/90"
-                >
-                  <a
-                    href="https://superdoc.bg/lekar/aleksandar-aleksov"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                <div className="flex flex-1 flex-col justify-end">
+                  {/* Mobile CTA */}
+                  <Button
+                    asChild
+                    className="mt-6 w-full bg-accent text-accent-foreground hover:bg-accent/90"
                   >
-                    Запази час
-                  </a>
-                </Button>
+                    <a
+                      href="https://superdoc.bg/lekar/aleksandar-aleksov"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Запази час
+                    </a>
+                  </Button>
+
+                  {/* Language Switcher */}
+                  <div className="pt-6">
+                    <p className="mb-3 text-sm font-medium text-gray-500">
+                      Language / Език
+                    </p>
+                    <LanguageSwitcher variant="mobile" />
+                  </div>
+                </div>
               </nav>
             </SheetContent>
           </Sheet>

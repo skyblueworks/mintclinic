@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import LocalizedLink from "@/components/LocalizedLink";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 import {
   FaPhone,
   FaClock,
@@ -154,6 +155,9 @@ export default function Footer() {
                       Контакт
                     </LocalizedLink>
                   </li>
+                  <li>
+                    <LanguageSwitcher />
+                  </li>
                 </ul>
               </nav>
 
@@ -207,6 +211,9 @@ export default function Footer() {
                     >
                       Контакт
                     </LocalizedLink>
+                  </li>
+                  <li className="col-span-2 flex justify-center">
+                    <LanguageSwitcher />
                   </li>
                 </ul>
               </nav>
