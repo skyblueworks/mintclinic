@@ -42,7 +42,11 @@ export default async function HomePage({ params }: Props) {
         locale={locale}
       />
       <InfoSection data={pageData.infoSection} locale={locale} />
-      <ServicesSection className="lg:pt-32" />
+      <ServicesSection
+        locale={locale}
+        variant="carousel"
+        className="lg:pt-32"
+      />
       <WhyMintSection data={pageData.whyMintSection} locale={locale} />
       <TeamSection data={pageData.teamPreviewSection} locale={locale} />
       <FAQSection data={pageData.faqSection} locale={locale} />
