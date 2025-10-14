@@ -14,6 +14,7 @@ const config = {
     "./components/**/*.{ts,tsx,mdx}",
     "./app/**/*.{ts,tsx,mdx}",
     "./src/**/*.{ts,tsx,mdx}",
+    "./mdx-components.tsx",
   ],
   safelist: generateSafelist(),
   prefix: "",

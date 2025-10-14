@@ -21,7 +21,9 @@ import {
 import { Button as UIButton } from "@/components/ui/button";
 import LocalizedLink from "@/components/LocalizedLink";
 import ServiceLayout from "@/components/layouts/ServiceLayout";
+import ServicesOverviewLayout from "@/components/layouts/ServicesOverviewLayout";
 import TeamLayout from "@/components/layouts/TeamLayout";
+import ServiceCard from "@/components/ServiceCard";
 import Image from "next/image";
 import React from "react";
 
@@ -177,7 +179,10 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     Image,
     // Layouts
     ServiceLayout,
+    ServicesOverviewLayout,
     TeamLayout,
+    // Service components
+    ServiceCard,
     // Inherit any custom components passed in
     ...components,
   };

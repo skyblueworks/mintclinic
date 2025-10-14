@@ -58,8 +58,8 @@ const styles = {
       "[&_sub]:text-sm [&_sup]:text-sm",
     ],
     links: [
-      "[&_a]:underline [&_a]:underline-offset-4 [&_a]:decoration-primary/50 [&_a]:transition-colors",
-      "hover:[&_a]:decoration-primary hover:[&_a]:text-primary",
+      "[&_a]:not([role=button]):underline [&_a]:not([role=button]):underline-offset-4 [&_a]:not([role=button]):decoration-primary/50 [&_a]:not([role=button]):transition-colors",
+      "[&_a]:hover:not([role=button]):decoration-primary [&_a]:hover:not([role=button]):text-primary",
     ],
     lists: [
       // Unordered lists
