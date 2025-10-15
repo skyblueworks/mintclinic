@@ -65,6 +65,21 @@ export const TK = {
   DR_ALEKSOV: "DR_ALEKSOV",
   DR_DOGANOVA: "DR_DOGANOVA",
 
+  // Team Pages
+  LECTURER: "LECTURER",
+  DIPLOMAS_AND_CERTIFICATES: "DIPLOMAS_AND_CERTIFICATES",
+  EDUCATION_AND_CERTIFICATES: "EDUCATION_AND_CERTIFICATES",
+  PHILOSOPHY: "PHILOSOPHY",
+  DR_ALEKSOV_INTRO_HEADING: "DR_ALEKSOV_INTRO_HEADING",
+  DR_ALEKSOV_BIO_PARA_1: "DR_ALEKSOV_BIO_PARA_1",
+  DR_ALEKSOV_BIO_PARA_2: "DR_ALEKSOV_BIO_PARA_2",
+  DR_ALEKSOV_BIO_PARA_3: "DR_ALEKSOV_BIO_PARA_3",
+  DR_ALEKSOV_PHILOSOPHY_PARA_1: "DR_ALEKSOV_PHILOSOPHY_PARA_1",
+  DR_ALEKSOV_PHILOSOPHY_PARA_2: "DR_ALEKSOV_PHILOSOPHY_PARA_2",
+  DR_DOGANOVA_INTRO_HEADING: "DR_DOGANOVA_INTRO_HEADING",
+  DR_DOGANOVA_BIO_PARA_1: "DR_DOGANOVA_BIO_PARA_1",
+  DR_DOGANOVA_BIO_PARA_2: "DR_DOGANOVA_BIO_PARA_2",
+
   // UI Text
   READ_MORE: "READ_MORE",
   BACK_TO: "BACK_TO",
@@ -145,6 +160,28 @@ export const translations = {
     [TK.DR_ALEKSOV]: "Д-р Алексов",
     [TK.DR_DOGANOVA]: "Д-р Доганова",
 
+    // Team Pages
+    [TK.LECTURER]: "Лектор:",
+    [TK.DIPLOMAS_AND_CERTIFICATES]: "Дипломи и сертификати",
+    [TK.EDUCATION_AND_CERTIFICATES]: "Образование и сертификати",
+    [TK.PHILOSOPHY]: "Философия",
+    [TK.DR_ALEKSOV_INTRO_HEADING]: "Здравейте! Аз съм Александър Алексов.",
+    [TK.DR_ALEKSOV_BIO_PARA_1]:
+      "Целия си професионален опит съм събрал в Германия. Преди това завърших в Хайнрих Хайне университет- Дюселдорф, а много преди това- немската гимназия в София. Въпреки преобладаващото немско влияние в моя живот смятам, че още не съм загубил напълно чувството си за хумор. Нещо повече- научен съм да ценя качеството и да го прилагам в своята работа.",
+    [TK.DR_ALEKSOV_BIO_PARA_2]:
+      "След дипломирането си работих като общопрактикуващ зъболекар в гъсто населен регион, което ми позволи да се докосна до всички сфери на денталната медицина. Е, най-удовлетворен оставах след завършването на сложни хирургически, естетически, или възстановителни случаи… или трите в едно. Затова и започнах активно да се развивам в тази посока и успях да го превърна в своя практика.",
+    [TK.DR_ALEKSOV_BIO_PARA_3]:
+      "Посещавал съм, и продължавам да го правя, редица теоретично-практически курсове и се уча от най- добрите. Някои от тях можете да видите по-долу. Любовта към родината и чичовата клиника бяха причината да се върна в България и да поема Минт. Ще се радвам да се видим там на по чаша ментов чай.",
+    [TK.DR_ALEKSOV_PHILOSOPHY_PARA_1]:
+      'Дълго време в Германия работих по "западния" модел. В много от държавите на запад здравната каса покрива голяма част от сумата за лечението. Следователно денталните практики залагат на високия поток на пациенти, тъй като това е най-доходоносно, а пациентите не възразяват, защото им е евтино. За съжаление обаче, това понякога води до недостатъчно обстойни прегледи, немарливо извършени лечения, или избор на неподходяща терапия. Виждал съм всичко. Въпреки че бързата работа се приема добре от пациентите, които искат да си тръгнат възможно най- бързо от кабинета, тя крие рискове.',
+    [TK.DR_ALEKSOV_PHILOSOPHY_PARA_2]:
+      "Идеята на Минт е различна. Да, можем да работим бързо, но много повече ценим сигурните резултати. Всеки може да препарира зъб за 15 минути и да циментира коронка отгоре. А какво ще се случи с този зъб след 5 години? Предпочитам да отделя още 15 минути, за да изпипам детайлите. И няма да забравя как една колежка се изненада, след като отделих час и половина за първична консултация с пациент. Тези неща са важни, ако искаш работата ти да е прецизна. А аз искам!",
+    [TK.DR_DOGANOVA_INTRO_HEADING]: "Здравейте и от мен!",
+    [TK.DR_DOGANOVA_BIO_PARA_1]:
+      "Аз съм д-р Ивета Доганова, зъболекар, който вярва, че всеки пациент заслужава най-добрата грижа. Завърших Американския колеж в София, а след това продължих обучението си в Германия, в Universität zu Köln. Там се дипломирах с отличие, като придобих не само ценни знания и умения в областта на стоматологията, но и се запознах отблизо с немската култура. Опитът ми в Германия ми даде допълнителна перспектива и до голяма степен оформи подхода ми към работата.",
+    [TK.DR_DOGANOVA_BIO_PARA_2]:
+      "Днес съм отново в София като част от екипа на Минт Клиник, къде то имам възможността да отделям нужното време на пациентите си и да работя с внимание към самите тях и към детайла. Стремя се да осигуря индивидуална грижа и комфорт, за да може всеки пациент да се чувства спокоен и в сигурни ръце. Най-ценното за мен е да виждам пациентите си доволни и уверени в усмивките си.",
+
     // UI Text
     [TK.READ_MORE]: "Прочети повече",
     [TK.BACK_TO]: "Обратно към",
@@ -223,6 +260,28 @@ export const translations = {
     // Navigation - About Menu
     [TK.DR_ALEKSOV]: "Dr. Aleksov",
     [TK.DR_DOGANOVA]: "Dr. Doganova",
+
+    // Team Pages
+    [TK.LECTURER]: "Lecturer:",
+    [TK.DIPLOMAS_AND_CERTIFICATES]: "Diplomas and Certificates",
+    [TK.EDUCATION_AND_CERTIFICATES]: "Education and Certificates",
+    [TK.PHILOSOPHY]: "Philosophy",
+    [TK.DR_ALEKSOV_INTRO_HEADING]: "Hello! I'm Aleksandar Aleksov.",
+    [TK.DR_ALEKSOV_BIO_PARA_1]:
+      "I gathered all my professional experience in Germany. Before that, I graduated from Heinrich Heine University in Düsseldorf, and long before that, from the German High School in Sofia. Despite the predominant German influence in my life, I believe I haven't completely lost my sense of humor yet. Moreover, I've learned to value quality and apply it in my work.",
+    [TK.DR_ALEKSOV_BIO_PARA_2]:
+      "After graduating, I worked as a general practitioner in a densely populated region, which allowed me to touch upon all spheres of dental medicine. Well, I was most satisfied after completing complex surgical, aesthetic, or restorative cases… or all three in one. That's why I actively started developing in this direction and managed to turn it into my practice.",
+    [TK.DR_ALEKSOV_BIO_PARA_3]:
+      "I have attended, and continue to attend, numerous theoretical and practical courses and learn from the best. You can see some of them below. Love for my homeland and my uncle's clinic were the reasons I returned to Bulgaria to take over Mint. I'll be happy to see you there over a cup of mint tea.",
+    [TK.DR_ALEKSOV_PHILOSOPHY_PARA_1]:
+      "For a long time in Germany, I worked according to the \"Western\" model. In many Western countries, health insurance covers a large part of the treatment cost. Consequently, dental practices rely on high patient flow, as this is most profitable, and patients don't object because it's cheap for them. Unfortunately, however, this sometimes leads to insufficiently thorough examinations, carelessly performed treatments, or choosing inappropriate therapy. I've seen it all. Although fast work is well received by patients who want to leave the office as quickly as possible, it carries risks.",
+    [TK.DR_ALEKSOV_PHILOSOPHY_PARA_2]:
+      "Mint's idea is different. Yes, we can work fast, but we value reliable results much more. Anyone can prepare a tooth in 15 minutes and cement a crown on top. But what will happen to that tooth in 5 years? I prefer to spend another 15 minutes to perfect the details. And I won't forget how a colleague was surprised after I spent an hour and a half on an initial consultation with a patient. These things are important if you want your work to be precise. And I do!",
+    [TK.DR_DOGANOVA_INTRO_HEADING]: "Hello from me too!",
+    [TK.DR_DOGANOVA_BIO_PARA_1]:
+      "I'm Dr. Iveta Doganova, a dentist who believes that every patient deserves the best care. I graduated from the American College in Sofia, and then continued my education in Germany at Universität zu Köln. There I graduated with honors, gaining not only valuable knowledge and skills in dentistry, but also becoming closely acquainted with German culture. My experience in Germany gave me an additional perspective and largely shaped my approach to work.",
+    [TK.DR_DOGANOVA_BIO_PARA_2]:
+      "Today I'm back in Sofia as part of the Mint Clinic team, where I have the opportunity to devote the necessary time to my patients and work with attention to both them and the details. I strive to provide individual care and comfort so that each patient can feel calm and in safe hands. The most valuable thing for me is to see my patients satisfied and confident in their smiles.",
 
     // UI Text
     [TK.READ_MORE]: "Read more",

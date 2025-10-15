@@ -5,33 +5,18 @@ import { fadeInMotionProps } from "@/lib/animations";
 import Image from "next/image";
 import { GalleryDialog } from "@/components/GalleryDialog";
 import { useState } from "react";
+import { useTranslation, TK } from "@/lib/i18n";
+import { drDoganovaCertificates } from "@/lib/teamData";
 
 export default function DrDoganovaPage() {
+  const { t, locale } = useTranslation();
   const [dialogOpen, setDialogOpen] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const certificates = [
-    {
-      image:
-        "https://mintclinic.com/wp-content/uploads/2024/11/universitat-zu-koln.webp",
-      title:
-        'Диплома за завършено с отличие висше образование по "Дентална медицина" от медицинския факултет на Университета в Кьолн',
-      lecturer: "",
-      location: "Кьолн, Германия",
-      date: "12.12.2023",
-    },
-    {
-      image:
-        "https://mintclinic.com/wp-content/uploads/2024/11/invisalign_certification.webp",
-      title: "Сертификат за работа с Инвизалайн",
-      lecturer: "",
-      location: "София, България",
-      date: "8-9.11.2024",
-    },
-  ];
+  const certificates = drDoganovaCertificates[locale];
 
   return (
     <div className="pb-16">
-      <TitleSection title="Д-р Доганова" />
+      <TitleSection title={t(TK.DR_DOGANOVA)} />
 
       {/* Introduction Section */}
       <motion.section
@@ -56,28 +41,12 @@ export default function DrDoganovaPage() {
             {/* Content Section */}
             <div className="space-y-6 font-dm-sans font-light text-foreground">
               <h2 className="font-sans text-3xl text-primary lg:text-4xl">
-                Здравейте и от мен!
+                {t(TK.DR_DOGANOVA_INTRO_HEADING)}
               </h2>
 
-              <p>
-                Аз съм д-р Ивета Доганова, зъболекар, който вярва, че всеки
-                пациент заслужава най-добрата грижа. Завърших Американския колеж
-                в София, а след това продължих обучението си в Германия, в
-                Universität zu Köln. Там се дипломирах с отличие, като придобих
-                не само ценни знания и умения в областта на стоматологията, но и
-                се запознах отблизо с немската култура. Опитът ми в Германия ми
-                даде допълнителна перспектива и до голяма степен оформи подхода
-                ми към работата.
-              </p>
+              <p>{t(TK.DR_DOGANOVA_BIO_PARA_1)}</p>
 
-              <p>
-                Днес съм отново в София като част от екипа на Минт Клиник, къде
-                то имам възможността да отделям нужното време на пациентите си и
-                да работя с внимание към самите тях и към детайла. Стремя се да
-                осигуря индивидуална грижа и комфорт, за да може всеки пациент
-                да се чувства спокоен и в сигурни ръце. Най-ценното за мен е да
-                виждам пациентите си доволни и уверени в усмивките си.
-              </p>
+              <p>{t(TK.DR_DOGANOVA_BIO_PARA_2)}</p>
             </div>
           </div>
         </div>
@@ -90,7 +59,7 @@ export default function DrDoganovaPage() {
       >
         <div className="mx-auto max-w-7xl px-6">
           <h2 className="mb-12 text-center font-sans text-3xl text-primary lg:text-4xl">
-            Образование и сертификати
+            {t(TK.EDUCATION_AND_CERTIFICATES)}
           </h2>
 
           <div className="grid gap-8 md:grid-cols-2 lg:gap-12">
@@ -122,7 +91,7 @@ export default function DrDoganovaPage() {
                   </p>
                   {cert.lecturer && (
                     <p className="mb-2 text-xs font-semibold text-primary">
-                      Лектор: {cert.lecturer}
+                      {t(TK.LECTURER)} {cert.lecturer}
                     </p>
                   )}
                   <p className="mb-1 text-xs text-foreground">
