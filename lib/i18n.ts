@@ -1,5 +1,3 @@
-"use client";
-import { usePathname } from "next/navigation";
 import { getValidLocale, type Locale } from "./locale";
 
 export const locales = ["bg", "en"] as const;
@@ -107,6 +105,29 @@ export const TK = {
   CLOSE: "CLOSE",
   PREVIOUS_IMAGE: "PREVIOUS_IMAGE",
   NEXT_IMAGE: "NEXT_IMAGE",
+
+  // Services Page
+  SERVICES_PAGE_TITLE: "SERVICES_PAGE_TITLE",
+  SERVICES_PAGE_DESCRIPTION: "SERVICES_PAGE_DESCRIPTION",
+  SERVICES_PAGE_META_DESCRIPTION: "SERVICES_PAGE_META_DESCRIPTION",
+  AESTHETICS_TITLE: "AESTHETICS_TITLE",
+  AESTHETICS_DESCRIPTION: "AESTHETICS_DESCRIPTION",
+  AESTHETICS_BUTTON: "AESTHETICS_BUTTON",
+  SURGERY_TITLE: "SURGERY_TITLE",
+  SURGERY_DESCRIPTION: "SURGERY_DESCRIPTION",
+  SURGERY_BUTTON: "SURGERY_BUTTON",
+  PROSTHETICS_TITLE: "PROSTHETICS_TITLE",
+  PROSTHETICS_DESCRIPTION: "PROSTHETICS_DESCRIPTION",
+  PROSTHETICS_BUTTON: "PROSTHETICS_BUTTON",
+  CONSERVATIVE_THERAPY_TITLE: "CONSERVATIVE_THERAPY_TITLE",
+  CONSERVATIVE_THERAPY_DESCRIPTION: "CONSERVATIVE_THERAPY_DESCRIPTION",
+  CONSERVATIVE_THERAPY_BUTTON: "CONSERVATIVE_THERAPY_BUTTON",
+  ALIGNERS_TITLE: "ALIGNERS_TITLE",
+  ALIGNERS_DESCRIPTION: "ALIGNERS_DESCRIPTION",
+  ALIGNERS_BUTTON: "ALIGNERS_BUTTON",
+  EMERGENCY_CARE_TITLE: "EMERGENCY_CARE_TITLE",
+  EMERGENCY_CARE_DESCRIPTION: "EMERGENCY_CARE_DESCRIPTION",
+  EMERGENCY_CARE_BUTTON: "EMERGENCY_CARE_BUTTON",
 } as const;
 
 export const translations = {
@@ -210,6 +231,37 @@ export const translations = {
     [TK.CLOSE]: "Затвори",
     [TK.PREVIOUS_IMAGE]: "Предишна снимка",
     [TK.NEXT_IMAGE]: "Следваща снимка",
+
+    // Services Page
+    [TK.SERVICES_PAGE_TITLE]: "Услуги",
+    [TK.SERVICES_PAGE_DESCRIPTION]:
+      "Широка гама от стоматологични услуги с индивидуален подход и фокус върху вашето орално здраве.",
+    [TK.SERVICES_PAGE_META_DESCRIPTION]:
+      "Комплексна грижа за вашата усмивка. Естетична стоматология, хирургия, протетика, консервативна терапия, алайнери и спешна дентална помощ.",
+    [TK.AESTHETICS_TITLE]: "Естетика",
+    [TK.AESTHETICS_DESCRIPTION]:
+      "Тук се нареждат процедурите, чието предназначение е преди всичко да подобрят цвета, формата, хармонията на зъбите. Абе… естетиката. За всеки този термин олицетворява нещо различно. Някои харесват изкрящо бели усмивки, други предпочитат по-дискретна визия. Каквото и да харесвате вие, ние имаме една задача - да направим новата усмивка истински ваша.",
+    [TK.AESTHETICS_BUTTON]: "Естетични услуги",
+    [TK.SURGERY_TITLE]: "Хирургия",
+    [TK.SURGERY_DESCRIPTION]:
+      "Вадене на зъби, поставяне на импланти и всички процедури, свързани с манипулация на меките тъкани спадат към тази категория. Но не оставяйте думата 'хирургия' да ви плаши. В условията, които предоставяме в нашата клиника, вашата задача ще е само да лежите и да държите отворено.",
+    [TK.SURGERY_BUTTON]: "Хирургични услуги",
+    [TK.PROSTHETICS_TITLE]: "Протетика",
+    [TK.PROSTHETICS_DESCRIPTION]:
+      "Всички лечения, изискващи зъботехническа намеса, са част от протетиката. Коронки, мостове, протези… можем тривиално да кажем, че протетиката е дялът от стоматологията, който се занимава с видимата част на зъбите. Тъй като целим перфектни функция и естетика във всяко лечение, другите дисциплини, като например хирургията, се водят основно по планираната протетична реконструкция.",
+    [TK.PROSTHETICS_BUTTON]: "Протетични услуги",
+    [TK.CONSERVATIVE_THERAPY_TITLE]: "Консервативна терапия",
+    [TK.CONSERVATIVE_THERAPY_DESCRIPTION]:
+      "Най-малкият дял, с може би най-голямо значение. Консервативната терапия е основата за успешното лечение. То цели отстраняването на всякакви заболявания в устата: от кариес, през пулпит, до възпаление на венците. Съответно тук ще намерите услуги като обтурация (пломба), кореново лечение, професионално почистване.",
+    [TK.CONSERVATIVE_THERAPY_BUTTON]: "Консервативна терапия",
+    [TK.ALIGNERS_TITLE]: "Алайнери",
+    [TK.ALIGNERS_DESCRIPTION]:
+      "Ортодонтска интервенция в собствена категория. Засега ние предлагаме наместване на зъбите единствено с алайнери, тъй като в нашия опит те са показали, че покриват почти всички случаи, и то много успешно!",
+    [TK.ALIGNERS_BUTTON]: "Алайнери",
+    [TK.EMERGENCY_CARE_TITLE]: "Спешна дентална помощ",
+    [TK.EMERGENCY_CARE_DESCRIPTION]:
+      "При внезапна болка, або подуване - звъннете на 0888 436 838. Ние ще ви вместим веднага в графика!",
+    [TK.EMERGENCY_CARE_BUTTON]: "Спешна дентална помощ",
   },
   en: {
     // Navigation
@@ -311,6 +363,37 @@ export const translations = {
     [TK.CLOSE]: "Close",
     [TK.PREVIOUS_IMAGE]: "Previous image",
     [TK.NEXT_IMAGE]: "Next image",
+
+    // Services Page
+    [TK.SERVICES_PAGE_TITLE]: "Services",
+    [TK.SERVICES_PAGE_DESCRIPTION]:
+      "Wide range of dental services with an individual approach and focus on your oral health.",
+    [TK.SERVICES_PAGE_META_DESCRIPTION]:
+      "Comprehensive care for your smile. Aesthetic dentistry, surgery, prosthetics, conservative therapy, aligners and emergency dental care.",
+    [TK.AESTHETICS_TITLE]: "Aesthetics",
+    [TK.AESTHETICS_DESCRIPTION]:
+      "These are the procedures whose purpose is primarily to improve the color, shape, and harmony of the teeth. Well... aesthetics. For everyone, this term represents something different. Some like sparkling white smiles, others prefer a more discreet look. Whatever you like, we have one task - to make your new smile truly yours.",
+    [TK.AESTHETICS_BUTTON]: "Aesthetic Services",
+    [TK.SURGERY_TITLE]: "Surgery",
+    [TK.SURGERY_DESCRIPTION]:
+      "Tooth extraction, implant placement, and all procedures related to soft tissue manipulation fall into this category. But don't let the word 'surgery' scare you. In the conditions we provide at our clinic, your task will only be to lie down and keep your mouth open.",
+    [TK.SURGERY_BUTTON]: "Surgical Services",
+    [TK.PROSTHETICS_TITLE]: "Prosthetics",
+    [TK.PROSTHETICS_DESCRIPTION]:
+      "All treatments requiring dental laboratory intervention are part of prosthetics. Crowns, bridges, dentures... we can trivially say that prosthetics is the part of dentistry that deals with the visible part of the teeth. Since we aim for perfect function and aesthetics in every treatment, other disciplines, such as surgery, are mainly guided by the planned prosthetic reconstruction.",
+    [TK.PROSTHETICS_BUTTON]: "Prosthetic Services",
+    [TK.CONSERVATIVE_THERAPY_TITLE]: "Conservative Therapy",
+    [TK.CONSERVATIVE_THERAPY_DESCRIPTION]:
+      "The smallest portion, with perhaps the greatest significance. Conservative therapy is the foundation for successful treatment. It aims to eliminate any diseases in the mouth: from caries, through pulpitis, to gum inflammation. Accordingly, here you will find services such as fillings, root canal treatment, professional cleaning.",
+    [TK.CONSERVATIVE_THERAPY_BUTTON]: "Conservative Therapy",
+    [TK.ALIGNERS_TITLE]: "Aligners",
+    [TK.ALIGNERS_DESCRIPTION]:
+      "Orthodontic intervention in its own category. For now, we offer teeth alignment exclusively with aligners, as in our experience they have shown that they cover almost all cases, and very successfully!",
+    [TK.ALIGNERS_BUTTON]: "Aligners",
+    [TK.EMERGENCY_CARE_TITLE]: "Emergency Dental Care",
+    [TK.EMERGENCY_CARE_DESCRIPTION]:
+      "In case of sudden pain or swelling - call 0888 436 838. We will fit you in the schedule immediately!",
+    [TK.EMERGENCY_CARE_BUTTON]: "Emergency Dental Care",
   },
 } as const;
 
@@ -321,19 +404,5 @@ export function getTranslation(
   return translations[locale][key];
 }
 
-/**
- * Custom hook for translations in client components
- *
- * @example
- * const { t, locale } = useTranslation();
- * <button>{t(TK.BOOK_APPOINTMENT)}</button>
- */
-export function useTranslation() {
-  const pathname = usePathname();
-  const locale = getValidLocale(pathname.split("/")[1]);
-
-  const t = (key: (typeof TK)[keyof typeof TK]) =>
-    getTranslation(locale, key as keyof typeof translations.bg);
-
-  return { t, locale };
-}
+// Re-export useTranslation from the client-only module for convenience
+export { useTranslation } from "./useTranslation";
