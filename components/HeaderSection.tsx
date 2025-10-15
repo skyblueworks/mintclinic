@@ -46,90 +46,93 @@ const getNavItems = (
     { label: t(TK.HOME), href: "/" },
     {
       label: t(TK.SERVICES),
-      href: "/uslugi",
+      href: "/services",
       children: [
         {
           label: t(TK.AESTHETIC_DENTAL_MEDICINE),
-          href: "/uslugi/estetika",
+          href: "/services/estetika",
           children: [
-            { label: t(TK.VENEERS), href: "/uslugi/estetika/faseti" },
-            { label: t(TK.BONDING), href: "/uslugi/estetika/bonding" },
+            { label: t(TK.VENEERS), href: "/services/estetika/faseti" },
+            { label: t(TK.BONDING), href: "/services/estetika/bonding" },
             {
               label: t(TK.DIGITAL_SMILE_DESIGN),
-              href: "/uslugi/estetika/digital-smile-design",
+              href: "/services/estetika/digital-smile-design",
             },
             {
               label: t(TK.TEETH_WHITENING),
-              href: "/uslugi/estetika/izbelvane-na-zabite",
+              href: "/services/estetika/izbelvane-na-zabite",
             },
           ],
         },
         {
           label: t(TK.SURGERY),
-          href: "/uslugi/hirurgiya",
+          href: "/services/hirurgiya",
           children: [
             {
               label: t(TK.DENTAL_IMPLANTS),
-              href: "/uslugi/hirurgiya/dentalni-implanti",
+              href: "/services/hirurgiya/dentalni-implanti",
             },
-            { label: t(TK.EXTRACTIONS), href: "/uslugi/hirurgiya/ekstrakczii" },
+            {
+              label: t(TK.EXTRACTIONS),
+              href: "/services/hirurgiya/ekstrakczii",
+            },
             {
               label: t(TK.RECESSION_COVERAGE),
-              href: "/uslugi/hirurgiya/pokrivane-na-reczesii",
+              href: "/services/hirurgiya/pokrivane-na-reczesii",
             },
             {
               label: t(TK.GUM_CONTOURING),
-              href: "/uslugi/hirurgiya/oformyane-na-venecza",
+              href: "/services/hirurgiya/oformyane-na-venecza",
             },
           ],
         },
         {
           label: t(TK.PROSTHETICS),
-          href: "/uslugi/protetika",
+          href: "/services/protetika",
           children: [
-            { label: t(TK.CROWNS), href: "/uslugi/protetika/koronki" },
-            { label: t(TK.BRIDGES), href: "/uslugi/protetika/mostove" },
+            { label: t(TK.CROWNS), href: "/services/protetika/koronki" },
+            { label: t(TK.BRIDGES), href: "/services/protetika/mostove" },
             {
               label: t(TK.INLAY_ONLAY),
-              href: "/uslugi/protetika/inlej-i-onlej",
+              href: "/services/protetika/inlej-i-onlej",
             },
-            { label: t(TK.DENTURES), href: "/uslugi/protetika/protezi" },
+            { label: t(TK.DENTURES), href: "/services/protetika/protezi" },
             {
               label: t(TK.FUNCTIONAL_REHABILITATION),
-              href: "/uslugi/protetika/funkczionalna-rehabilitacziya",
+              href: "/services/protetika/funkczionalna-rehabilitacziya",
             },
             {
               label: t(TK.BRUXISM_SPLINTS),
-              href: "/uslugi/protetika/shini-za-bruksisti",
+              href: "/services/protetika/shini-za-bruksisti",
             },
           ],
         },
         {
           label: t(TK.CONSERVATIVE_THERAPY),
-          href: "/uslugi/konservativna-terapiya",
+          href: "/services/konservativna-terapiya",
           children: [
             {
               label: t(TK.FILLINGS),
-              href: "/uslugi/konservativna-terapiya/obturaczii",
+              href: "/services/konservativna-terapiya/obturaczii",
             },
             {
               label: t(TK.ROOT_CANAL),
-              href: "/uslugi/konservativna-terapiya/korenovo-lechenie",
+              href: "/services/konservativna-terapiya/korenovo-lechenie",
             },
             {
               label: t(TK.PROFESSIONAL_CLEANING),
-              href: "/uslugi/konservativna-terapiya/profesionalno-pochistvane-i-profilaktika",
+              href: "/services/konservativna-terapiya/profesionalno-pochistvane-i-profilaktika",
             },
             {
               label: t(TK.GINGIVITIS_PERIODONTITIS),
-              href: "/uslugi/konservativna-terapiya/gingivit-parodontit",
+              href: "/services/konservativna-terapiya/gingivit-parodontit",
             },
           ],
         },
-        { label: t(TK.ALIGNERS), href: "/uslugi/alajneri" },
+        { label: t(TK.ALIGNERS), href: "/services/alajneri" },
         {
           label: t(TK.EMERGENCY_DENTAL_CARE),
-          href: "/uslugi/speshna-dentalna-pomosht",
+          href: "/services/speshna-dentalna-pomosht",
         },
       ],
     },
@@ -285,7 +288,7 @@ export default function HeaderSection({ className }: { className?: string }) {
     }
 
     const menuValue = item.label.toLowerCase();
-    const isServicesMenu = item.href === "/uslugi";
+    const isServicesMenu = item.href === "/services";
     const isAboutMenu = item.href === "/about-us";
     const isOpen = isServicesMenu
       ? servicesMenuOpen
