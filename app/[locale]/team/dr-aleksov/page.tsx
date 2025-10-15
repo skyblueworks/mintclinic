@@ -29,7 +29,7 @@ export default function DrAleksovPage() {
             <div className="mb-8 lg:mb-0">
               <div className="overflow-hidden rounded-3xl rounded-bl-none rounded-tr-none">
                 <Image
-                  src="/dr-aleksov.webp"
+                  src="https://cdn.sanity.io/images/ne3mflgj/production/0bb8a68be2494f2af2ff34324aab9890480d3075-682x1024.webp"
                   alt="Д-р Александър Алексов"
                   width={682}
                   height={1024}
@@ -76,7 +76,7 @@ export default function DrAleksovPage() {
             <div className="mt-8 lg:mt-0">
               <div className="overflow-hidden rounded-3xl rounded-bl-none rounded-tr-none">
                 <img
-                  src="https://mintclinic.com/wp-content/uploads/2024/10/image00001.webp"
+                  src="https://cdn.sanity.io/images/ne3mflgj/production/f2a84a8dd12ca96c3fdb489f401cd05786e98350-644x903.webp"
                   alt="Mint Clinic"
                   className="h-auto w-full object-cover"
                 />

@@ -52,7 +52,7 @@ function ServiceTile({
       <div>
         <div className="mb-12 flex items-start justify-end rounded-lg">
           <Image
-            src="/mint-colored.svg"
+            src="https://cdn.sanity.io/images/ne3mflgj/production/642cd8639e33bc30bcdaeaed0595cbe8917dcbc0-1175x891.svg"
             alt={title}
             width={60}
             height={60}

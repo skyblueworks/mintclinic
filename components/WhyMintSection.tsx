@@ -24,7 +24,7 @@ export default function WhyMintSection({ data, locale }: WhyMintSectionProps) {
         {/* Decorative mint - top left */}
         <div className="pointer-events-none absolute -left-48 top-6 -z-10 hidden opacity-20 lg:block">
           <Image
-            src="/mint-colored.svg"
+            src="https://cdn.sanity.io/images/ne3mflgj/production/642cd8639e33bc30bcdaeaed0595cbe8917dcbc0-1175x891.svg"
             alt="Decorative mint"
             width={240}
             height={182}
@@ -35,7 +35,7 @@ export default function WhyMintSection({ data, locale }: WhyMintSectionProps) {
         {/* Decorative mint - bottom right */}
         <div className="pointer-events-none absolute -right-48 bottom-6 -z-10 hidden opacity-20 lg:block">
           <Image
-            src="/mint-colored.svg"
+            src="https://cdn.sanity.io/images/ne3mflgj/production/642cd8639e33bc30bcdaeaed0595cbe8917dcbc0-1175x891.svg"
             alt="Decorative mint"
             width={240}
             height={182}
@@ -46,7 +46,7 @@ export default function WhyMintSection({ data, locale }: WhyMintSectionProps) {
         {/* Mobile decorative mint */}
         <div className="pointer-events-none absolute right-8 top-[215px] z-10 opacity-20 lg:hidden">
           <Image
-            src="/mint.svg"
+            src="https://cdn.sanity.io/images/ne3mflgj/production/e02d803b0de454f169579f417d55602f365e003a-1175x891.svg"
             alt="Decorative mints"
             width={100}
             height={100}

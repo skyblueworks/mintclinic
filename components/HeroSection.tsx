@@ -37,7 +37,7 @@ export default function HeroSection({ data, locale }: HeroSectionProps) {
         {/* Hero Image */}
         <div className="absolute inset-0 top-24 flex items-end justify-center px-6">
           <Image
-            src="/hero-girl-v3.webp"
+            src="https://cdn.sanity.io/images/ne3mflgj/production/54e169da94050e317c99642ed72639130a17672f-1024x1024.webp"
             alt="Happy patient"
             width={936}
             height={1046}
@@ -84,7 +84,7 @@ export default function HeroSection({ data, locale }: HeroSectionProps) {
 
             {/* Hero Image */}
             <Image
-              src="/hero-girl-v3.webp"
+              src="https://cdn.sanity.io/images/ne3mflgj/production/54e169da94050e317c99642ed72639130a17672f-1024x1024.webp"
               alt="Happy patient"
               width={936}
               height={1046}

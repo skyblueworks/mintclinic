@@ -56,7 +56,7 @@ export async function generateStaticParams() {
 }
 
 export default async function ServicePage({ params }) {
-  const { locale, category, slug } = params;
+  const { locale, category, slug } = await params;
   const service = await getServiceByCategory(category, slug);
 
   if (!service) {
@@ -73,15 +73,6 @@ export default async function ServicePage({ params }) {
       category={category}
       currentSlug={slug}
     >
-      {/* Service excerpt if available */}
-      {service.excerpt?.[locale] && (
-        <div className="mb-8">
-          <p className="text-lg text-muted-foreground">
-            {service.excerpt[locale]}
-          </p>
-        </div>
-      )}
-
       {/* MDX Content */}
       {content && <MDXRenderer mdxContent={content} />}
 

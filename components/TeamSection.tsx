@@ -22,7 +22,7 @@ export default function TeamSection({ data, locale }: TeamSectionProps) {
       <div className="mx-auto max-w-7xl px-6">
         <div className="flex flex-col items-center gap-16 lg:flex-row">
           <img
-            src="/team-image.webp"
+            src="https://cdn.sanity.io/images/ne3mflgj/production/f7bdb86b191211338ddeccd8735b7f0b8e6be142-2400x3200.webp"
             alt="Team"
             className="h-full max-h-[600px] w-full rounded-big rounded-bl-none rounded-tr-none object-cover lg:w-1/2"
           />
@@ -49,7 +49,7 @@ export default function TeamSection({ data, locale }: TeamSectionProps) {
             {/* Decorative Image */}
             <div className="pointer-events-none absolute -bottom-0 -right-0 hidden opacity-20 lg:block">
               <Image
-                src="/mint-colored.svg"
+                src="https://cdn.sanity.io/images/ne3mflgj/production/642cd8639e33bc30bcdaeaed0595cbe8917dcbc0-1175x891.svg"
                 alt="Decorative mint"
                 width={120}
                 height={120}

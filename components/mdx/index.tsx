@@ -37,6 +37,7 @@ import {
   Process,
   Video,
 } from "./layouts";
+import Image from "next/image";
 
 export const mdxComponents = {
   Gallery,
@@ -55,4 +56,5 @@ export const mdxComponents = {
   Grid,
   Process,
   Video,
+  Image,
 };

@@ -111,7 +111,7 @@ export default function BlogPage() {
                     ) : (
                       <div className="flex h-full items-center justify-center">
                         <Image
-                          src="/mint-colored.svg"
+                          src="https://cdn.sanity.io/images/ne3mflgj/production/642cd8639e33bc30bcdaeaed0595cbe8917dcbc0-1175x891.svg"
                           alt="Mint Clinic"
                           width={80}
                           height={80}

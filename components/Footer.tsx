@@ -87,7 +87,7 @@ export default function Footer() {
               {/* Logo */}
               <div className="flex justify-center lg:justify-start">
                 <Image
-                  src="/mint_white_logo-cropped.svg"
+                  src="https://cdn.sanity.io/images/ne3mflgj/production/a00d7f16155f13736f5268b6e9d95a06245809ea-281x61.svg"
                   alt="Mint Clinic"
                   width={200}
                   height={58}

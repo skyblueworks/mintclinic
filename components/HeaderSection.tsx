@@ -367,7 +367,7 @@ export default function HeaderSection({ className }: { className?: string }) {
           <LocalizedLink href="/">
             <motion.div style={{ scale: logoScale }} className="origin-left">
               <Image
-                src="/logo-colored-cropped.svg"
+                src="https://cdn.sanity.io/images/ne3mflgj/production/1a5cdf622169ecf8f7780bc48e2bfe9a67fac8c1-281x61.svg"
                 alt="Mint Clinic"
                 width={120}
                 height={35}
@@ -423,7 +423,7 @@ export default function HeaderSection({ className }: { className?: string }) {
               <SheetHeader>
                 <SheetTitle>
                   <Image
-                    src="/logo-colored-cropped.svg"
+                    src="https://cdn.sanity.io/images/ne3mflgj/production/1a5cdf622169ecf8f7780bc48e2bfe9a67fac8c1-281x61.svg"
                     alt="Mint Clinic"
                     width={120}
                     height={35}

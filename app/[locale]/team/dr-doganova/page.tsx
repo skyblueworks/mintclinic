@@ -29,7 +29,7 @@ export default function DrDoganovaPage() {
             <div className="mb-8 lg:mb-0">
               <div className="overflow-hidden rounded-3xl rounded-bl-none rounded-tr-none">
                 <Image
-                  src="/dr-doganova.webp"
+                  src="https://cdn.sanity.io/images/ne3mflgj/production/0d955522719b3540fbdcf467d3b2372888424e38-926x1024.webp"
                   alt="Д-р Ивета Доганова"
                   width={800}
                   height={885}
