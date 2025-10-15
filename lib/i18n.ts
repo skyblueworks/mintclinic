@@ -110,6 +110,11 @@ export const TK = {
   SERVICES_PAGE_TITLE: "SERVICES_PAGE_TITLE",
   SERVICES_PAGE_DESCRIPTION: "SERVICES_PAGE_DESCRIPTION",
   SERVICES_PAGE_META_DESCRIPTION: "SERVICES_PAGE_META_DESCRIPTION",
+
+  // Blog Page
+  BLOG_PAGE_TITLE: "BLOG_PAGE_TITLE",
+  BLOG_PAGE_DESCRIPTION: "BLOG_PAGE_DESCRIPTION",
+  BLOG_PAGE_META_DESCRIPTION: "BLOG_PAGE_META_DESCRIPTION",
   AESTHETICS_TITLE: "AESTHETICS_TITLE",
   AESTHETICS_DESCRIPTION: "AESTHETICS_DESCRIPTION",
   AESTHETICS_BUTTON: "AESTHETICS_BUTTON",
@@ -238,6 +243,13 @@ export const translations = {
       "Широка гама от стоматологични услуги с индивидуален подход и фокус върху вашето орално здраве.",
     [TK.SERVICES_PAGE_META_DESCRIPTION]:
       "Комплексна грижа за вашата усмивка. Естетична стоматология, хирургия, протетика, консервативна терапия, алайнери и спешна дентална помощ.",
+
+    // Blog Page
+    [TK.BLOG_PAGE_TITLE]: "Нашият блог",
+    [TK.BLOG_PAGE_DESCRIPTION]:
+      "Открийте последните новини, съвети и статии за дентална грижа и здраве.",
+    [TK.BLOG_PAGE_META_DESCRIPTION]:
+      "Прочетете нашите статии за дентално здраве, съвети за грижа за зъбите и последни новини от света на стоматологията.",
     [TK.AESTHETICS_TITLE]: "Естетика",
     [TK.AESTHETICS_DESCRIPTION]:
       "Тук се нареждат процедурите, чието предназначение е преди всичко да подобрят цвета, формата, хармонията на зъбите. Абе… естетиката. За всеки този термин олицетворява нещо различно. Някои харесват изкрящо бели усмивки, други предпочитат по-дискретна визия. Каквото и да харесвате вие, ние имаме една задача - да направим новата усмивка истински ваша.",
@@ -370,6 +382,13 @@ export const translations = {
       "Wide range of dental services with an individual approach and focus on your oral health.",
     [TK.SERVICES_PAGE_META_DESCRIPTION]:
       "Comprehensive care for your smile. Aesthetic dentistry, surgery, prosthetics, conservative therapy, aligners and emergency dental care.",
+
+    // Blog Page
+    [TK.BLOG_PAGE_TITLE]: "Our Blog",
+    [TK.BLOG_PAGE_DESCRIPTION]:
+      "Discover the latest news, tips, and articles about dental care and health.",
+    [TK.BLOG_PAGE_META_DESCRIPTION]:
+      "Read our articles about dental health, tips for dental care, and the latest news from the world of dentistry.",
     [TK.AESTHETICS_TITLE]: "Aesthetics",
     [TK.AESTHETICS_DESCRIPTION]:
       "These are the procedures whose purpose is primarily to improve the color, shape, and harmony of the teeth. Well... aesthetics. For everyone, this term represents something different. Some like sparkling white smiles, others prefer a more discreet look. Whatever you like, we have one task - to make your new smile truly yours.",

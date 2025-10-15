@@ -18,27 +18,6 @@ async function getCategory(slug: string) {
   }
 }
 
-export async function generateStaticParams() {
-  const categories = await client.fetch(
-    `*[_type == "category" && defined(slug.current)]{ "slug": slug.current }`,
-    {},
-    { cache: "no-store" },
-  );
-
-  const locales = ["bg", "en"];
-  const params: { locale: string; category: string }[] = [];
-
-  for (const category of categories) {
-    if (category.slug && typeof category.slug === "string") {
-      for (const locale of locales) {
-        params.push({ locale, category: category.slug });
-      }
-    }
-  }
-
-  return params;
-}
-
 export default async function CategoryPage({ params }) {
   const { locale, category } = await params;
   const categoryData = await getCategory(category);

@@ -22,39 +22,6 @@ async function getServiceByCategory(category: string, slug: string) {
   }
 }
 
-export async function generateStaticParams() {
-  const services = await client.fetch(
-    `*[_type == "service" && defined(category) && defined(slug.current) && defined(category->slug.current)]{
-      "slug": slug.current,
-      "category": category->slug.current
-    }`,
-    {},
-    { cache: "no-store" },
-  );
-
-  const locales = ["bg", "en"];
-  const params: { locale: string; category: string; slug: string }[] = [];
-
-  for (const service of services) {
-    if (
-      service.category &&
-      typeof service.category === "string" &&
-      service.slug &&
-      typeof service.slug === "string"
-    ) {
-      for (const locale of locales) {
-        params.push({
-          locale,
-          category: service.category,
-          slug: service.slug,
-        });
-      }
-    }
-  }
-
-  return params;
-}
-
 export default async function ServicePage({ params }) {
   const { locale, category, slug } = await params;
   const service = await getServiceByCategory(category, slug);
