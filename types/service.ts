@@ -30,4 +30,9 @@ export interface Category {
     bg: string;
     en: string;
   };
+  excerpt?: {
+    bg: string;
+    en: string;
+  };
+  content: string;
 }

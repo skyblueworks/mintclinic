@@ -102,7 +102,9 @@ export const categoryBySlugQuery = `*[_type == "category" && slug.current == $sl
   _id,
   "slug": slug.current,
   title,
-  description
+  description,
+  excerpt,
+  content
 }`;
 
 // ============================================================================
