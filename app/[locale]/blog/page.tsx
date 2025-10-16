@@ -84,10 +84,11 @@ export default async function BlogPage({ params }: Props) {
                     {/* Image */}
                     <div className="relative aspect-video overflow-hidden rounded-t-2xl rounded-tr-none bg-gradient-to-br from-primary/10 to-primary/5">
                       {post.mainImage?.url ? (
-                        <img
+                        <Image
                           src={post.mainImage.url}
                           alt={post.mainImage.alt || postTitle}
-                          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                          fill
+                          className="object-cover transition-transform duration-500 group-hover:scale-110"
                         />
                       ) : (
                         <div className="flex h-full items-center justify-center">

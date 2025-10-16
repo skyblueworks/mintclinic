@@ -144,7 +144,10 @@ export const postsListQuery = `*[_type == "post"] | order(publishedAt desc){
   title,
   excerpt,
   publishedAt,
-  mainImage
+  mainImage{
+    "url": asset->url,
+    "alt": alt
+  }
 }`;
 
 export const postBySlugQuery = `*[_type == "post" && slug.current == $slug][0]{
@@ -153,7 +156,10 @@ export const postBySlugQuery = `*[_type == "post" && slug.current == $slug][0]{
   title,
   excerpt,
   content,
-  mainImage,
+  mainImage{
+    "url": asset->url,
+    "alt": alt
+  },
   publishedAt,
   seo
 }`;
