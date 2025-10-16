@@ -1,10 +1,16 @@
-import { getValidLocale, type Locale } from "@/lib/locale";
+import { getValidLocale, SUPPORTED_LOCALES, type Locale } from "@/lib/locale";
 import { client } from "@/sanity/lib/client";
 import { teamMembersListQuery } from "@/sanity/lib/queries";
 
 type Props = {
   params: Promise<{ locale: string }>;
 };
+
+export async function generateStaticParams() {
+  return SUPPORTED_LOCALES.map((locale) => ({
+    locale,
+  }));
+}
 
 async function getTeamMembers() {
   try {

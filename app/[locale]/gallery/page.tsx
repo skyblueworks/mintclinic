@@ -1,5 +1,6 @@
 import TitleSection from "@/components/TitleSection";
 import { GalleryGrid } from "@/components/GalleryGrid";
+import { SUPPORTED_LOCALES } from "@/lib/locale";
 import image00054 from "@/assets/images/gallery/image00054.webp";
 import image00053 from "@/assets/images/gallery/image00053.webp";
 import image00052 from "@/assets/images/gallery/image00052.webp";
@@ -21,6 +22,12 @@ import image00002 from "@/assets/images/gallery/image00002.webp";
 type Props = {
   params: Promise<{ locale: string }>;
 };
+
+export async function generateStaticParams() {
+  return SUPPORTED_LOCALES.map((locale) => ({
+    locale,
+  }));
+}
 
 const galleryImages = [
   { src: image00054.src, alt: "Mint Clinic Interior 1" },

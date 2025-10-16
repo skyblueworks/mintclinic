@@ -6,11 +6,17 @@ import WhoWeAre from "@/components/WhoWeAre";
 import GallerySection from "@/components/GallerySection";
 import { client } from "@/sanity/lib/client";
 import { aboutPageQuery, type AboutPage } from "@/sanity/lib/page-queries";
-import { getValidLocale, type Locale } from "@/lib/locale";
+import { getValidLocale, SUPPORTED_LOCALES, type Locale } from "@/lib/locale";
 
 type Props = {
   params: Promise<{ locale: string }>;
 };
+
+export async function generateStaticParams() {
+  return SUPPORTED_LOCALES.map((locale) => ({
+    locale,
+  }));
+}
 
 async function getAboutPage(): Promise<AboutPage | null> {
   try {

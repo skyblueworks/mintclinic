@@ -9,6 +9,8 @@ type Props = {
   params: Promise<{ locale: "bg" | "en"; slug: string }>;
 };
 
+export const dynamicParams = false;
+
 async function getTeamMember(slug: string) {
   try {
     const teamMember = await client.fetch(
@@ -24,24 +26,31 @@ async function getTeamMember(slug: string) {
 }
 
 export async function generateStaticParams() {
-  const members = await client.fetch(
-    `*[_type == "teamMember" && defined(slug.current)]{ "slug": slug.current }`,
-    {},
-    { cache: "no-store" },
-  );
+  try {
+    const members = await client.fetch(
+      `*[_type == "teamMember" && defined(slug.current)]{ "slug": slug.current }`,
+      {},
+      { cache: "no-store" },
+    );
 
-  const locales = ["bg", "en"];
-  const params: { locale: string; slug: string }[] = [];
+    const locales = ["bg", "en"];
+    const params: { locale: string; slug: string }[] = [];
 
-  for (const member of members) {
-    if (member.slug && typeof member.slug === "string") {
-      for (const locale of locales) {
-        params.push({ locale, slug: member.slug });
+    for (const member of members) {
+      if (member.slug && typeof member.slug === "string") {
+        for (const locale of locales) {
+          params.push({ locale, slug: member.slug });
+        }
       }
     }
-  }
 
-  return params;
+    // Return empty array if no members found - Next.js will skip generating these pages
+    return params;
+  } catch (error) {
+    console.error("Error generating static params for team members:", error);
+    // Return empty array on error
+    return [];
+  }
 }
 
 export default async function TeamMemberPage({ params }: Props) {
