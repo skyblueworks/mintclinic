@@ -26,6 +26,21 @@ const teamMembers: TeamMember[] = [
   },
 ];
 
+const teamMembersEn: TeamMember[] = [
+  {
+    name: "Dr. Aleksandar Aleksov",
+    role: "Head Dentist and Owner",
+    image: "/dr-aleksov.webp",
+    href: "/team/dr-aleksov",
+  },
+  {
+    name: "Dr. Iveta Doganova",
+    role: "Dentist",
+    image: "/dr-doganova.webp",
+    href: "/team/dr-doganova",
+  },
+];
+
 interface TeamMembersSectionProps {
   data: {
     title: { bg: string; en: string };
@@ -40,6 +55,7 @@ export default function TeamMembersSection({
   locale,
   className,
 }: TeamMembersSectionProps) {
+  const teamMembersLocale = locale === "bg" ? teamMembers : teamMembersEn;
   return (
     <motion.section
       className={cn("bg-white py-16 lg:py-24", className)}
@@ -52,7 +68,7 @@ export default function TeamMembersSection({
         </h2>
 
         <div className="grid gap-8 md:grid-cols-2 lg:gap-12">
-          {teamMembers.map((member, index) => (
+          {teamMembersLocale.map((member, index) => (
             <motion.div
               key={index}
               className="flex flex-col items-center text-center"

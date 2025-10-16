@@ -17,6 +17,72 @@ export const aboutPageType = defineType({
       validation: (Rule) => Rule.required(),
     }),
 
+    // Who We Are Section
+    defineField({
+      name: "whoWeAre",
+      title: "Who We Are Section",
+      type: "object",
+      fields: [
+        defineField({
+          name: "label",
+          type: "object",
+          title: "Label (КОИ СМЕ НИЕ)",
+          fields: [
+            { name: "bg", type: "string", title: "Bulgarian" },
+            { name: "en", type: "string", title: "English" },
+          ],
+        }),
+        defineField({
+          name: "title",
+          type: "object",
+          fields: [
+            { name: "bg", type: "string", title: "Bulgarian" },
+            { name: "en", type: "string", title: "English" },
+          ],
+        }),
+        defineField({
+          name: "titleSuffix",
+          type: "object",
+          title: "Title Suffix (в центъра на София)",
+          fields: [
+            { name: "bg", type: "string", title: "Bulgarian" },
+            { name: "en", type: "string", title: "English" },
+          ],
+        }),
+        defineField({
+          name: "description",
+          type: "object",
+          fields: [
+            { name: "bg", type: "text", title: "Bulgarian", rows: 3 },
+            { name: "en", type: "text", title: "English", rows: 3 },
+          ],
+        }),
+        defineField({
+          name: "buttonAbout",
+          type: "object",
+          title: "About Button Text",
+          fields: [
+            { name: "bg", type: "string", title: "Bulgarian" },
+            { name: "en", type: "string", title: "English" },
+          ],
+        }),
+        defineField({
+          name: "buttonGallery",
+          type: "object",
+          title: "Gallery Button Text",
+          fields: [
+            { name: "bg", type: "string", title: "Bulgarian" },
+            { name: "en", type: "string", title: "English" },
+          ],
+        }),
+        defineField({
+          name: "videoUrl",
+          type: "url",
+          title: "Video Embed URL",
+        }),
+      ],
+    }),
+
     // About Section (Who We Are)
     defineField({
       name: "aboutSection",

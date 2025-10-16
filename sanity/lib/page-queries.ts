@@ -78,6 +78,15 @@ export const homePageQuery = `*[_type == "homePage"][0]{
 
 export const aboutPageQuery = `*[_type == "aboutPage"][0]{
   title,
+  whoWeAre {
+    label,
+    title,
+    titleSuffix,
+    description,
+    buttonAbout,
+    buttonGallery,
+    videoUrl
+  },
   aboutSection {
     title,
     content
@@ -235,6 +244,15 @@ export interface HomePage {
 
 export interface AboutPage {
   title: { bg: string; en: string };
+  whoWeAre: {
+    label: { bg: string; en: string };
+    title: { bg: string; en: string };
+    titleSuffix: { bg: string; en: string };
+    description: { bg: string; en: string };
+    buttonAbout: { bg: string; en: string };
+    buttonGallery: { bg: string; en: string };
+    videoUrl: string;
+  };
   aboutSection: {
     title: { bg: string; en: string };
     content: { bg: string; en: string };

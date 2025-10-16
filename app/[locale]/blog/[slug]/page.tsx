@@ -1,10 +1,6 @@
 import { client } from "@/sanity/lib/client";
-import {
-  postBySlugQuery,
-  serviceBySlugAndCategoryQuery,
-} from "@/sanity/lib/queries";
+import { postBySlugQuery } from "@/sanity/lib/queries";
 import { MDXRenderer } from "@/components/MDXRenderer";
-import ServiceLayout from "@/components/layouts/ServiceLayout";
 import { notFound } from "next/navigation";
 import { getLocalizedMDX } from "@/lib/getLocalized";
 import { Container } from "@/components/craft";

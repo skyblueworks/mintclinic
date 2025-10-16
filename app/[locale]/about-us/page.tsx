@@ -33,7 +33,7 @@ export default async function AboutUsPage({ params }: Props) {
   return (
     <div className="pb-16">
       <TitleSection title={pageData.title[locale]} />
-      <WhoWeAre data={{} as any} locale={locale} />
+      <WhoWeAre data={pageData.whoWeAre} locale={locale} />
       <TeamMembersSection data={pageData.teamMembersSection} locale={locale} />
       <GallerySection data={pageData.gallerySection} locale={locale} />
       <AboutUsSection data={pageData.aboutSection} locale={locale} />
