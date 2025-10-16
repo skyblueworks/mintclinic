@@ -6,7 +6,7 @@ import { getLocalizedMDX } from "@/lib/getLocalized";
 import { getValidLocale, type Locale } from "@/lib/locale";
 
 type Props = {
-  params: Promise<{ locale: string; slug: string }>;
+  params: Promise<{ locale: "bg" | "en"; slug: string }>;
 };
 
 async function getTeamMember(slug: string) {
@@ -44,8 +44,8 @@ export async function generateStaticParams() {
   return params;
 }
 
-export default async function TeamMemberPage({ params }) {
-  const { locale: localeParam, slug } = params;
+export default async function TeamMemberPage({ params }: Props) {
+  const { locale: localeParam, slug } = await params;
   const locale: Locale = getValidLocale(localeParam);
   const member = await getTeamMember(slug);
 

@@ -1,5 +1,4 @@
 import { compile } from "@mdx-js/mdx";
-import { mdxComponents } from "@/components/mdx";
 import { ReactElement } from "react";
 
 export interface MDXContent {

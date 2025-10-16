@@ -20,13 +20,14 @@ interface TestimonialsSectionProps {
 const testimonials = reviews
   .filter((review) => review.text && review.text.trim()) // Only include reviews with text
   .map((review) => {
+    const mapping = photoMapping as Record<string, string>;
     const localPhotoPath =
-      review.reviewerPhotoUrl && photoMapping[review.reviewerPhotoUrl]
-        ? `/reviewer-photos/${photoMapping[review.reviewerPhotoUrl]}`
+      review.reviewerPhotoUrl && mapping[review.reviewerPhotoUrl]
+        ? `/reviewer-photos/${mapping[review.reviewerPhotoUrl]}`
         : "https://placehold.co/80x80?text=N/A";
 
     return {
-      text: review.text,
+      text: review.text!,
       name: review.name,
       role: "Пациент",
       image: localPhotoPath,

@@ -23,8 +23,6 @@ interface TeamLayoutProps {
  */
 export default function TeamLayout({
   title,
-  locale = "bg",
-  currentSlug,
   children,
 }: TeamLayoutProps) {
   return (

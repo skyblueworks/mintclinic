@@ -1,7 +1,6 @@
 "use client";
 import { motion } from "motion/react";
 import { fadeInMotionProps } from "@/lib/animations";
-import { Button } from "./ui/button";
 
 interface AboutUsSectionProps {
   data: {

@@ -6,7 +6,11 @@ import { notFound } from "next/navigation";
 import { getLocalizedMDX } from "@/lib/getLocalized";
 
 type Props = {
-  params: Promise<{ locale: string; category: string; slug: string }>;
+  params: Promise<{
+    locale: "bg" | "en";
+    category: string;
+    slug: string;
+  }>;
 };
 
 async function getServiceByCategory(category: string, slug: string) {
@@ -22,7 +26,7 @@ async function getServiceByCategory(category: string, slug: string) {
   }
 }
 
-export default async function ServicePage({ params }) {
+export default async function ServicePage({ params }: Props) {
   const { locale, category, slug } = await params;
   const service = await getServiceByCategory(category, slug);
 

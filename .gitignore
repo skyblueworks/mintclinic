@@ -39,3 +39,6 @@ next-env.d.ts
 .sanity
 __pycache__
 /scripts
+
+
+.open-next/

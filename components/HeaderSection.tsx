@@ -6,7 +6,7 @@ import { motion, useScroll, useTransform } from "motion/react";
 import LocalizedLink from "@/components/LocalizedLink";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { RxHamburgerMenu, RxChevronDown, RxChevronRight } from "react-icons/rx";
-import { useTranslation, TK, type Locale } from "@/lib/i18n";
+import { useTranslation, TK } from "@/lib/i18n";
 import {
   Collapsible,
   CollapsibleContent,
@@ -270,10 +270,7 @@ export default function HeaderSection({ className }: { className?: string }) {
   };
 
   // Render desktop navigation item recursively
-  const renderDesktopNavItem = (
-    item: NavItem,
-    index: number,
-  ): React.ReactNode => {
+  const renderDesktopNavItem = (item: NavItem): React.ReactNode => {
     if (!item.children) {
       return (
         <MenubarMenu key={item.href}>
@@ -290,11 +287,6 @@ export default function HeaderSection({ className }: { className?: string }) {
     const menuValue = item.label.toLowerCase();
     const isServicesMenu = item.href === "/services";
     const isAboutMenu = item.href === "/about-us";
-    const isOpen = isServicesMenu
-      ? servicesMenuOpen
-      : isAboutMenu
-        ? aboutMenuOpen
-        : false;
     const setOpen = isServicesMenu
       ? setServicesMenuOpen
       : isAboutMenu
@@ -394,7 +386,7 @@ export default function HeaderSection({ className }: { className?: string }) {
               setAboutMenuOpen(value === t(TK.ABOUT).toLowerCase());
             }}
           >
-            {NAV_ITEMS.map((item, index) => renderDesktopNavItem(item, index))}
+            {NAV_ITEMS.map((item) => renderDesktopNavItem(item))}
 
             <MenubarMenu>
               <Button

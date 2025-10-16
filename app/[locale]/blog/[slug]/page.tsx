@@ -5,6 +5,10 @@ import { notFound } from "next/navigation";
 import { getLocalizedMDX } from "@/lib/getLocalized";
 import { Container } from "@/components/craft";
 
+type Props = {
+  params: Promise<{ locale: "bg" | "en"; slug: string }>;
+};
+
 async function getPost(slug: string) {
   try {
     return await client.fetch(postBySlugQuery, { slug }, { cache: "no-store" });
@@ -14,7 +18,7 @@ async function getPost(slug: string) {
   }
 }
 
-export default async function BlogPostPage({ params }) {
+export default async function BlogPostPage({ params }: Props) {
   const { locale, slug } = await params;
   const post = await getPost(slug);
 
@@ -23,7 +27,6 @@ export default async function BlogPostPage({ params }) {
   }
 
   const content = getLocalizedMDX(post.content, locale);
-  const title = post.title?.[locale] || post.title?.bg || "Post";
 
   return (
     <Container className="max-w-4xl">

@@ -5,6 +5,10 @@ import { getLocalizedMDX } from "@/lib/getLocalized";
 import ServiceLayout from "@/components/layouts/ServiceLayout";
 import { MDXRenderer } from "@/components/MDXRenderer";
 
+type Props = {
+  params: Promise<{ locale: "bg" | "en"; category: string }>;
+};
+
 async function getCategory(slug: string) {
   try {
     return await client.fetch(
@@ -18,7 +22,7 @@ async function getCategory(slug: string) {
   }
 }
 
-export default async function CategoryPage({ params }) {
+export default async function CategoryPage({ params }: Props) {
   const { locale, category } = await params;
   const categoryData = await getCategory(category);
 

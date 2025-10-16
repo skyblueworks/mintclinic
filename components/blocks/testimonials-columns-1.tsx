@@ -5,9 +5,18 @@ import { motion } from "motion/react";
 import { FiExternalLink } from "react-icons/fi";
 import { FaStar } from "react-icons/fa";
 
+interface Testimonial {
+  text: string;
+  image: string;
+  name: string;
+  role: string;
+  reviewUrl?: string;
+  stars?: number;
+}
+
 export const TestimonialsColumn = (props: {
   className?: string;
-  testimonials: any;
+  testimonials: Testimonial[];
   duration?: number;
 }) => {
   return (

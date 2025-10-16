@@ -1,4 +1,4 @@
-import { getValidLocale, type Locale } from "./locale";
+import { type Locale } from "./locale";
 
 export const locales = ["bg", "en"] as const;
 export const defaultLocale = "bg" as const;
