@@ -4,29 +4,10 @@ import { MDXRenderer } from "@/components/MDXRenderer";
 import { notFound } from "next/navigation";
 import { getLocalizedMDX } from "@/lib/getLocalized";
 import { Container } from "@/components/craft";
-import { SUPPORTED_LOCALES } from "@/lib/locale";
 
 type Props = {
   params: Promise<{ locale: "bg" | "en"; slug: string }>;
 };
-
-export async function generateStaticParams() {
-  try {
-    const posts = await client.fetch(
-      `*[_type == "post"]{ "slug": slug.current }`,
-    );
-
-    return SUPPORTED_LOCALES.flatMap((locale) =>
-      posts.map((post: { slug: string }) => ({
-        locale,
-        slug: post.slug,
-      })),
-    );
-  } catch (error) {
-    console.error("Error generating static params for blog:", error);
-    return [];
-  }
-}
 
 async function getPost(slug: string) {
   try {

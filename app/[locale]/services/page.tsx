@@ -4,17 +4,10 @@ import ServiceCard from "@/components/ServiceCard";
 import { CTAButton } from "@/components/mdx/CTAButton";
 import { getTranslation, type Locale } from "@/lib/i18n";
 import { TK } from "@/lib/i18n";
-import { SUPPORTED_LOCALES } from "@/lib/locale";
 
 type Props = {
   params: Promise<{ locale: string }>;
 };
-
-export async function generateStaticParams() {
-  return SUPPORTED_LOCALES.map((locale) => ({
-    locale,
-  }));
-}
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;

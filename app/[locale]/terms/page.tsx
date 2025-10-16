@@ -1,14 +1,6 @@
-import { SUPPORTED_LOCALES } from "@/lib/locale";
-
 type Props = {
   params: Promise<{ locale: string }>;
 };
-
-export async function generateStaticParams() {
-  return SUPPORTED_LOCALES.map((locale) => ({
-    locale,
-  }));
-}
 
 export default async function TermsPage({ params }: Props) {
   const { locale } = await params;

@@ -6,7 +6,6 @@ import { client } from "@/sanity/lib/client";
 import { postsListQuery } from "@/sanity/lib/queries";
 import { getTranslation, TK, type Locale } from "@/lib/i18n";
 import { getLocalizedString } from "@/lib/getLocalized";
-import { SUPPORTED_LOCALES } from "@/lib/locale";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -31,12 +30,6 @@ async function getPosts(): Promise<BlogPost[]> {
     console.error("Error fetching posts:", error);
     return [];
   }
-}
-
-export async function generateStaticParams() {
-  return SUPPORTED_LOCALES.map((locale) => ({
-    locale,
-  }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

@@ -4,7 +4,6 @@ import { MDXRenderer } from "@/components/MDXRenderer";
 import ServiceLayout from "@/components/layouts/ServiceLayout";
 import { notFound } from "next/navigation";
 import { getLocalizedMDX } from "@/lib/getLocalized";
-import { SUPPORTED_LOCALES } from "@/lib/locale";
 
 type Props = {
   params: Promise<{
@@ -13,25 +12,6 @@ type Props = {
     slug: string;
   }>;
 };
-
-export async function generateStaticParams() {
-  try {
-    const services = await client.fetch(
-      `*[_type == "service"]{ "slug": slug.current, "category": category->slug.current }`,
-    );
-
-    return SUPPORTED_LOCALES.flatMap((locale) =>
-      services.map((service: { slug: string; category: string }) => ({
-        locale,
-        category: service.category,
-        slug: service.slug,
-      })),
-    );
-  } catch (error) {
-    console.error("Error generating static params for services:", error);
-    return [];
-  }
-}
 
 async function getServiceByCategory(category: string, slug: string) {
   try {

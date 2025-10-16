@@ -21,7 +21,10 @@ interface TeamLayoutProps {
  *   <MDXContent />
  * </TeamLayout>
  */
-export default function TeamLayout({ title, children }: TeamLayoutProps) {
+export default function TeamLayout({
+  title,
+  children,
+}: TeamLayoutProps) {
   return (
     <>
       <TitleSection title={title} />

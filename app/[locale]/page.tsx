@@ -9,17 +9,11 @@ import TestimonialsSection from "@/components/TestimonialsSection";
 import LocationSection from "@/components/LocationSection";
 import { client } from "@/sanity/lib/client";
 import { homePageQuery, type HomePage } from "@/sanity/lib/page-queries";
-import { getValidLocale, type Locale, SUPPORTED_LOCALES } from "@/lib/locale";
+import { getValidLocale, type Locale } from "@/lib/locale";
 
 type Props = {
   params: Promise<{ locale: string }>;
 };
-
-export async function generateStaticParams() {
-  return SUPPORTED_LOCALES.map((locale) => ({
-    locale,
-  }));
-}
 
 async function getHomePage(): Promise<HomePage | null> {
   try {

@@ -4,17 +4,11 @@ import TitleSection from "@/components/TitleSection";
 import LocationSection from "@/components/LocationSection";
 import { client } from "@/sanity/lib/client";
 import { contactPageQuery, type ContactPage } from "@/sanity/lib/page-queries";
-import { getValidLocale, SUPPORTED_LOCALES, type Locale } from "@/lib/locale";
+import { getValidLocale, type Locale } from "@/lib/locale";
 
 type Props = {
   params: Promise<{ locale: string }>;
 };
-
-export async function generateStaticParams() {
-  return SUPPORTED_LOCALES.map((locale) => ({
-    locale,
-  }));
-}
 
 async function getContactPage(): Promise<ContactPage | null> {
   try {
