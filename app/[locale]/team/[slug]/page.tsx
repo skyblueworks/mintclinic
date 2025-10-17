@@ -23,27 +23,6 @@ async function getTeamMember(slug: string) {
   }
 }
 
-export async function generateStaticParams() {
-  const members = await client.fetch(
-    `*[_type == "teamMember" && defined(slug.current)]{ "slug": slug.current }`,
-    {},
-    { cache: "no-store" },
-  );
-
-  const locales = ["bg", "en"];
-  const params: { locale: string; slug: string }[] = [];
-
-  for (const member of members) {
-    if (member.slug && typeof member.slug === "string") {
-      for (const locale of locales) {
-        params.push({ locale, slug: member.slug });
-      }
-    }
-  }
-
-  return params;
-}
-
 export default async function TeamMemberPage({ params }: Props) {
   const { locale: localeParam, slug } = await params;
   const locale: Locale = getValidLocale(localeParam);
