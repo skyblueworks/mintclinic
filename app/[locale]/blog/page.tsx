@@ -25,7 +25,13 @@ interface BlogPost {
 
 async function getPosts(): Promise<BlogPost[]> {
   try {
-    return await client.fetch(postsListQuery, {}, { cache: "no-store" });
+    return await client.fetch(
+      postsListQuery,
+      {},
+      {
+        next: { revalidate: 1800 }, // Revalidate every 30 minutes (ISR)
+      },
+    );
   } catch (error) {
     console.error("Error fetching posts:", error);
     return [];

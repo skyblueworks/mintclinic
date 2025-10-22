@@ -17,7 +17,13 @@ type Props = {
 
 async function getHomePage(): Promise<HomePage | null> {
   try {
-    return await client.fetch(homePageQuery, {}, { cache: "no-store" });
+    return await client.fetch(
+      homePageQuery,
+      {},
+      {
+        next: { revalidate: 3600 }, // Revalidate every hour (ISR)
+      },
+    );
   } catch (error) {
     console.error("Error fetching homepage:", error);
     return null;

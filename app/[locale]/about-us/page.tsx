@@ -14,7 +14,13 @@ type Props = {
 
 async function getAboutPage(): Promise<AboutPage | null> {
   try {
-    return await client.fetch(aboutPageQuery, {}, { cache: "no-store" });
+    return await client.fetch(
+      aboutPageQuery,
+      {},
+      {
+        next: { revalidate: 3600 }, // Revalidate every hour (ISR)
+      },
+    );
   } catch (error) {
     console.error("Error fetching about page:", error);
     return null;

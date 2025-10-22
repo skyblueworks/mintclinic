@@ -1,5 +1,8 @@
 import { client } from "@/sanity/lib/client";
-import { categoryBySlugQuery } from "@/sanity/lib/queries";
+import {
+  categoryBySlugQuery,
+  allCategorySlugsQuery,
+} from "@/sanity/lib/queries";
 import { notFound } from "next/navigation";
 import { getLocalizedMDX } from "@/lib/getLocalized";
 import ServiceLayout from "@/components/layouts/ServiceLayout";
@@ -9,12 +12,29 @@ type Props = {
   params: Promise<{ locale: "bg" | "en"; category: string }>;
 };
 
+// Generate static params for all categories
+export async function generateStaticParams() {
+  const categories = await client.fetch<{ slug: string }[]>(
+    allCategorySlugsQuery,
+  );
+  const locales = ["bg", "en"] as const;
+
+  return categories.flatMap((category) =>
+    locales.map((locale) => ({
+      locale,
+      category: category.slug,
+    })),
+  );
+}
+
 async function getCategory(slug: string) {
   try {
     return await client.fetch(
       categoryBySlugQuery,
       { slug },
-      { cache: "no-store" },
+      {
+        next: { revalidate: 3600 }, // Revalidate every hour (ISR)
+      },
     );
   } catch (error) {
     console.error("Error fetching category:", error);

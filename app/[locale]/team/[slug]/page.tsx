@@ -1,5 +1,8 @@
 import { client } from "@/sanity/lib/client";
-import { teamMemberBySlugQuery } from "@/sanity/lib/queries";
+import {
+  teamMemberBySlugQuery,
+  allTeamMemberSlugsQuery,
+} from "@/sanity/lib/queries";
 import { MDXRenderer } from "@/components/MDXRenderer";
 import { notFound } from "next/navigation";
 import { getLocalizedMDX } from "@/lib/getLocalized";
@@ -9,12 +12,29 @@ type Props = {
   params: Promise<{ locale: "bg" | "en"; slug: string }>;
 };
 
+// Generate static params for all team members
+export async function generateStaticParams() {
+  const members = await client.fetch<{ slug: string }[]>(
+    allTeamMemberSlugsQuery,
+  );
+  const locales = ["bg", "en"] as const;
+
+  return members.flatMap((member) =>
+    locales.map((locale) => ({
+      locale,
+      slug: member.slug,
+    })),
+  );
+}
+
 async function getTeamMember(slug: string) {
   try {
     const teamMember = await client.fetch(
       teamMemberBySlugQuery,
       { slug },
-      { cache: "no-store" },
+      {
+        next: { revalidate: 3600 }, // Revalidate every hour (ISR)
+      },
     );
     return teamMember;
   } catch (error) {

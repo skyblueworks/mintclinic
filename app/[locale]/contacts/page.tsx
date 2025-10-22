@@ -12,7 +12,13 @@ type Props = {
 
 async function getContactPage(): Promise<ContactPage | null> {
   try {
-    return await client.fetch(contactPageQuery, {}, { cache: "no-store" });
+    return await client.fetch(
+      contactPageQuery,
+      {},
+      {
+        next: { revalidate: 3600 }, // Revalidate every hour (ISR)
+      },
+    );
   } catch (error) {
     console.error("Error fetching contact page:", error);
     return null;

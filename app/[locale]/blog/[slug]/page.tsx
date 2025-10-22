@@ -1,5 +1,5 @@
 import { client } from "@/sanity/lib/client";
-import { postBySlugQuery } from "@/sanity/lib/queries";
+import { postBySlugQuery, allPostSlugsQuery } from "@/sanity/lib/queries";
 import { MDXRenderer } from "@/components/MDXRenderer";
 import { notFound } from "next/navigation";
 import { getLocalizedMDX } from "@/lib/getLocalized";
@@ -9,9 +9,28 @@ type Props = {
   params: Promise<{ locale: "bg" | "en"; slug: string }>;
 };
 
+// Generate static params for all blog posts
+export async function generateStaticParams() {
+  const posts = await client.fetch<{ slug: string }[]>(allPostSlugsQuery);
+  const locales = ["bg", "en"] as const;
+
+  return posts.flatMap((post) =>
+    locales.map((locale) => ({
+      locale,
+      slug: post.slug,
+    })),
+  );
+}
+
 async function getPost(slug: string) {
   try {
-    return await client.fetch(postBySlugQuery, { slug }, { cache: "no-store" });
+    return await client.fetch(
+      postBySlugQuery,
+      { slug },
+      {
+        next: { revalidate: 3600 }, // Revalidate every hour (ISR)
+      },
+    );
   } catch (error) {
     console.error("Error fetching post:", error);
     return null;

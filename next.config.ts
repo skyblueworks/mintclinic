@@ -26,6 +26,9 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  // Enable static optimization and ISR for Vercel
+  // This ensures pages are statically generated at build time when possible
+  // and use ISR (Incremental Static Regeneration) for dynamic content
 };
 
 // Merge MDX config with Next.js config

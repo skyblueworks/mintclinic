@@ -1,5 +1,8 @@
 import { client } from "@/sanity/lib/client";
-import { serviceBySlugAndCategoryQuery } from "@/sanity/lib/queries";
+import {
+  serviceBySlugAndCategoryQuery,
+  allServiceSlugsWithCategoryQuery,
+} from "@/sanity/lib/queries";
 import { MDXRenderer } from "@/components/MDXRenderer";
 import ServiceLayout from "@/components/layouts/ServiceLayout";
 import { notFound } from "next/navigation";
@@ -13,12 +16,30 @@ type Props = {
   }>;
 };
 
+// Generate static params for all services
+export async function generateStaticParams() {
+  const services = await client.fetch<{ slug: string; category: string }[]>(
+    allServiceSlugsWithCategoryQuery,
+  );
+  const locales = ["bg", "en"] as const;
+
+  return services.flatMap((service) =>
+    locales.map((locale) => ({
+      locale,
+      category: service.category,
+      slug: service.slug,
+    })),
+  );
+}
+
 async function getServiceByCategory(category: string, slug: string) {
   try {
     return await client.fetch(
       serviceBySlugAndCategoryQuery,
       { category, slug },
-      { cache: "no-store" },
+      {
+        next: { revalidate: 3600 }, // Revalidate every hour (ISR)
+      },
     );
   } catch (error) {
     console.error("Error fetching service:", error);

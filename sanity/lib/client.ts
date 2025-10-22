@@ -6,5 +6,9 @@ export const client = createClient({
   projectId,
   dataset,
   apiVersion,
-  useCdn: false, // Disabled for development to avoid CDN caching issues
+  useCdn: true, // Enable CDN for production performance
+  perspective: "published", // Only fetch published documents
+  stega: {
+    enabled: false, // Disable for production
+  },
 });

@@ -11,7 +11,9 @@ async function getTeamMembers() {
     const data = await client.fetch(
       teamMembersListQuery,
       {},
-      { cache: "no-store" },
+      {
+        next: { revalidate: 3600 }, // Revalidate every hour (ISR)
+      },
     );
     return data;
   } catch (error) {

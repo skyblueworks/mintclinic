@@ -43,12 +43,16 @@ export default async function ServicesSection({
         client.fetch<Service[]>(
           servicesByCategoryQuery,
           { categorySlug: category },
-          { cache: "no-store" },
+          {
+            next: { revalidate: 3600 }, // Revalidate every hour (ISR)
+          },
         ),
         client.fetch<Category>(
           categoryBySlugQuery,
           { slug: category },
-          { cache: "no-store" },
+          {
+            next: { revalidate: 3600 }, // Revalidate every hour (ISR)
+          },
         ),
       ]);
     } else {
@@ -56,7 +60,9 @@ export default async function ServicesSection({
       services = await client.fetch<Service[]>(
         servicesListQuery,
         {},
-        { cache: "no-store" },
+        {
+          next: { revalidate: 3600 }, // Revalidate every hour (ISR)
+        },
       );
     }
 
