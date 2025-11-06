@@ -28,8 +28,8 @@ export function CTAButton({
 
   const buttonClasses =
     variant === "default"
-      ? "shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
-      : "";
+      ? "shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 no-underline"
+      : "no-underline";
 
   // Use regular anchor tag for external links and phone links
   if (isExternal || isPhone) {

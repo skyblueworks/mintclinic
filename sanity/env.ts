@@ -1,4 +1,4 @@
-import { sanity } from "@/lib/env";
+import { sanity } from "../lib/env";
 
 export const apiVersion = sanity.apiVersion;
 export const dataset = sanity.dataset;

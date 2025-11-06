@@ -1,10 +1,17 @@
 "use client";
 import { usePathname, useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { RxChevronDown } from "react-icons/rx";
 
 interface LanguageSwitcherProps {
   className?: string;
-  variant?: "footer" | "mobile";
+  variant?: "footer" | "mobile" | "dropdown";
 }
 
 export default function LanguageSwitcher({
@@ -29,6 +36,40 @@ export default function LanguageSwitcher({
     { code: "bg", label: "BG", flag: "🇧🇬" },
     { code: "en", label: "EN", flag: "🇬🇧" },
   ];
+
+  const currentLanguage = languages.find((lang) => lang.code === currentLocale);
+
+  if (variant === "dropdown") {
+    return (
+      <DropdownMenu>
+        <DropdownMenuTrigger
+          className={cn(
+            "flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-100 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2",
+            className,
+          )}
+        >
+          <span className="text-base">{currentLanguage?.flag}</span>
+          <span className="font-bold">{currentLanguage?.label}</span>
+          <RxChevronDown className="h-4 w-4" />
+        </DropdownMenuTrigger>
+        <DropdownMenuContent align="end" className="min-w-[120px]">
+          {languages.map((lang) => (
+            <DropdownMenuItem
+              key={lang.code}
+              onClick={() => switchLanguage(lang.code)}
+              className={cn(
+                "flex cursor-pointer items-center gap-2 px-3 py-2",
+                currentLocale === lang.code && "bg-primary/10 text-primary",
+              )}
+            >
+              <span className="text-base">{lang.flag}</span>
+              <span className="font-medium">{lang.label}</span>
+            </DropdownMenuItem>
+          ))}
+        </DropdownMenuContent>
+      </DropdownMenu>
+    );
+  }
 
   if (variant === "mobile") {
     return (

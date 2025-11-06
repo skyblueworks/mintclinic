@@ -239,30 +239,31 @@ export default function HeaderSection({ className }: { className?: string }) {
         open={isOpen}
         onOpenChange={() => toggleMobileState(key)}
       >
-        <CollapsibleTrigger
-          className={`flex w-full items-center justify-between ${
-            depth === 0
-              ? "py-3 font-medium text-gray-700"
-              : "py-2 text-gray-600"
-          } transition-colors hover:text-primary ${
-            depth > 0 ? "text-left" : ""
-          }`}
-        >
-          <span>{item.label}</span>
-          <RxChevronRight
-            className={`flex-shrink-0 text-sm transition-transform ${
-              isOpen ? "rotate-90" : ""
-            }`}
-          />
-        </CollapsibleTrigger>
-        <CollapsibleContent className="space-y-2 pl-4">
+        <div className="flex w-full items-center justify-between">
           <LocalizedLink
             href={item.href}
-            className="block py-2 font-medium text-primary transition-colors hover:text-primary/80"
+            className={`flex-1 ${
+              depth === 0
+                ? "py-3 font-medium text-gray-700"
+                : "py-2 text-gray-600"
+            } transition-colors hover:text-primary`}
             onClick={() => setMobileMenuOpen(false)}
           >
-            {t(TK.ABOUT_PREFIX)} {item.label}
+            {item.label}
           </LocalizedLink>
+          <CollapsibleTrigger
+            className={`px-3 ${
+              depth === 0 ? "py-3" : "py-2"
+            } text-gray-700 transition-colors hover:text-primary`}
+          >
+            <RxChevronRight
+              className={`flex-shrink-0 text-sm transition-transform ${
+                isOpen ? "rotate-90" : ""
+              }`}
+            />
+          </CollapsibleTrigger>
+        </div>
+        <CollapsibleContent className="space-y-2 pl-4">
           {item.children.map((child) => renderMobileNavItem(child, depth + 1))}
         </CollapsibleContent>
       </Collapsible>
@@ -323,17 +324,12 @@ export default function HeaderSection({ className }: { className?: string }) {
 
     return (
       <MenubarSub key={item.href}>
-        <MenubarSubTrigger>{item.label}</MenubarSubTrigger>
+        <LocalizedLink href={item.href}>
+          <MenubarSubTrigger className="cursor-pointer font-medium">
+            {item.label}
+          </MenubarSubTrigger>
+        </LocalizedLink>
         <MenubarSubContent>
-          <MenubarItem asChild>
-            <LocalizedLink
-              href={item.href}
-              className="font-semibold text-primary"
-            >
-              {t(TK.ABOUT_PREFIX)} {item.label}
-            </LocalizedLink>
-          </MenubarItem>
-          {item.children.length > 0 && <MenubarSeparator className="my-0" />}
           {item.children.map((child) => (
             <MenubarItem key={child.href} asChild>
               <LocalizedLink href={child.href}>{child.label}</LocalizedLink>
@@ -402,6 +398,10 @@ export default function HeaderSection({ className }: { className?: string }) {
                 </a>
               </Button>
             </MenubarMenu>
+
+            <MenubarMenu>
+              <LanguageSwitcher variant="dropdown" />
+            </MenubarMenu>
           </Menubar>
 
           {/* Mobile Menu */}
@@ -412,7 +412,7 @@ export default function HeaderSection({ className }: { className?: string }) {
               </button>
             </SheetTrigger>
             <SheetContent
-              side="left"
+              side="right"
               className="flex w-80 flex-col overflow-y-auto"
             >
               <SheetHeader>

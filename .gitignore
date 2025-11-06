@@ -40,5 +40,7 @@ next-env.d.ts
 __pycache__
 /scripts
 
+# sanity studio build
+/dist
 
 .open-next/

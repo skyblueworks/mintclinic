@@ -32,6 +32,7 @@ export const sanity = {
   projectId: getEnvVar("NEXT_PUBLIC_SANITY_PROJECT_ID", "ne3mflgj"),
   dataset: getEnvVar("NEXT_PUBLIC_SANITY_DATASET", "production"),
   apiVersion: getEnvVar("NEXT_PUBLIC_SANITY_API_VERSION", "2025-09-29"),
+  appId: getEnvVar("NEXT_PUBLIC_SANITY_APP_ID", "hguxa1uacpjd7gwr1htmpo4r"),
 
   // API Tokens (server-side only)
   writeToken: getOptionalEnvVar("SANITY_API_WRITE_TOKEN"),
