@@ -27,7 +27,6 @@ import {
   MenubarSub,
   MenubarSubContent,
   MenubarSubTrigger,
-  MenubarSeparator,
   MenubarTrigger,
 } from "@/components/ui/menubar";
 import { cn } from "@/lib/utils";
