@@ -34,7 +34,7 @@ export const drAleksovCertificates: Record<Locale, Certificate[]> = {
     },
     {
       image:
-        "https://mintclinic.com/wp-content/uploads/2025/10/20251004090714-aa-images-0-scaled.jpg",
+        "https://cdn.sanity.io/images/ne3mflgj/production/3893d94e37e9fd287c79bc16638f82d61f8b20fa-1058x1497.jpg",
       title: "50- часов теоретичен курс по имплантология на института gIDE",
       lecturer:
         "Dr. Sascha Jovanovic, Dr. Istvan Urban, Prof. Daniel Buser, Dr. Francesco Mintrone, Dr. Giacomo Fabbri и др.",
@@ -61,7 +61,7 @@ export const drAleksovCertificates: Record<Locale, Certificate[]> = {
     },
     {
       image:
-        "https://mintclinic.com/wp-content/uploads/2025/09/d-r-aleksandr-aleksov-scaled.webp",
+        "https://cdn.sanity.io/images/ne3mflgj/production/b6eec395d58a77b4ebb0d6074613ebf9a8cf6801-3512x2483.webp",
       title: "Теоретично- практически курс за пиезохирургия",
       lecturer: "Prof. Mauro Labanca",
       location: "София, България",
@@ -116,7 +116,7 @@ export const drAleksovCertificates: Record<Locale, Certificate[]> = {
     },
     {
       image:
-        "https://mintclinic.com/wp-content/uploads/2025/10/20251004090714-aa-images-0-scaled.jpg",
+        "https://cdn.sanity.io/images/ne3mflgj/production/3893d94e37e9fd287c79bc16638f82d61f8b20fa-1058x1497.jpg",
       title: "50-hour theoretical course in implantology at the gIDE institute",
       lecturer:
         "Dr. Sascha Jovanovic, Dr. Istvan Urban, Prof. Daniel Buser, Dr. Francesco Mintrone, Dr. Giacomo Fabbri and others",
@@ -143,7 +143,7 @@ export const drAleksovCertificates: Record<Locale, Certificate[]> = {
     },
     {
       image:
-        "https://mintclinic.com/wp-content/uploads/2025/09/d-r-aleksandr-aleksov-scaled.webp",
+        "https://cdn.sanity.io/images/ne3mflgj/production/b6eec395d58a77b4ebb0d6074613ebf9a8cf6801-3512x2483.webp",
       title: "Theoretical-practical course in piezosurgery",
       lecturer: "Prof. Mauro Labanca",
       location: "Sofia, Bulgaria",
