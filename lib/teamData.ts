@@ -16,7 +16,7 @@ export const drAleksovCertificates: Record<Locale, Certificate[]> = {
   bg: [
     {
       image:
-        "https://mintclinic.com/wp-content/uploads/2024/11/certificate_brazil.webp",
+        "https://cdn.sanity.io/images/ne3mflgj/production/d3db4fdb05f13d96509c2f9beaa4253822cb3fa1-768x542.webp",
       title:
         'Двуседмичен теоретично-практически курс за естетика с фасети по дигиталния метод "клонинги", разработен от легендарния Пауло Кано.',
       lecturer: "Dr. Paulo Kano",
@@ -25,7 +25,7 @@ export const drAleksovCertificates: Record<Locale, Certificate[]> = {
     },
     {
       image:
-        "https://mintclinic.com/wp-content/uploads/2024/10/sertifikat_5.webp",
+        "https://cdn.sanity.io/images/ne3mflgj/production/3ccd2c32cd579a5d9b3f282a40d9bd23ee307351-768x548.webp",
       title:
         "Теоретична-практически мастър курс по имплантология и имплантологична протетика - Квалификации по: 1. Теория 2. Имплантологична хирургия (практика) 3. Синус лифт (практика) 4. Протетика върху импланти",
       lecturer: "Prof. Ingo Voges",
@@ -42,7 +42,8 @@ export const drAleksovCertificates: Record<Locale, Certificate[]> = {
       date: "10.2024-10.2025",
     },
     {
-      image: "https://mintclinic.com/wp-content/uploads/2025/07/img_3561.jpg",
+      image:
+        "https://cdn.sanity.io/images/ne3mflgj/production/da6d050a0161a4fc6f367e3661acf1ad8a673be8-768x1116.jpg",
       title:
         "Участие като асистент на Проф. Пауло Кано в курс по естетика с дигитален подход.",
       lecturer: "Dr. Paulo Kano",
@@ -51,7 +52,7 @@ export const drAleksovCertificates: Record<Locale, Certificate[]> = {
     },
     {
       image:
-        "https://mintclinic.com/wp-content/uploads/2024/10/sertifikat_2-e1730733624844.webp",
+        "https://cdn.sanity.io/images/ne3mflgj/production/0228f597ac187ee13b8822ee990bc3cead7a6a0e-768x1094.webp",
       title:
         '"Естетика с композит" - Теоретично-практически курс на тема "Бондинг"',
       lecturer: "Dr. Marcin Krupinski",
@@ -68,7 +69,7 @@ export const drAleksovCertificates: Record<Locale, Certificate[]> = {
     },
     {
       image:
-        "https://mintclinic.com/wp-content/uploads/2024/10/sertifikat_1-scaled.webp",
+        "https://cdn.sanity.io/images/ne3mflgj/production/a2552c026dab5d82a6b59cfd0e1f0d4bef80770b-768x534.webp",
       title:
         'Теоретично- практически семинар на тема "приложение на богат на тромбоцити фибринов материал (prf)"',
       lecturer: "Prof. Mustafa Tunali",
@@ -77,7 +78,7 @@ export const drAleksovCertificates: Record<Locale, Certificate[]> = {
     },
     {
       image:
-        "https://mintclinic.com/wp-content/uploads/2024/10/sertifikat_4-e1730733688284.webp",
+        "https://cdn.sanity.io/images/ne3mflgj/production/e90d1b8289e2e68e4959cc8faeea56ba25ba787c-768x1104.webp",
       title:
         'Теоретичен курс на теми "Дигитален дизайн на усмивката" и дигитализиране на денталната практика',
       lecturer: "Christian Coachman",
@@ -86,7 +87,7 @@ export const drAleksovCertificates: Record<Locale, Certificate[]> = {
     },
     {
       image:
-        "https://mintclinic.com/wp-content/uploads/2024/11/sertifikat_3-1.webp",
+        "https://cdn.sanity.io/images/ne3mflgj/production/d1e4aed4cd3b8519cfecd88db2bedce14f705a6d-678x1027.webp",
       title:
         "Теоретично-практически курс - Физиологична подредба на зъбите и оклузия в тоталната протетика",
       lecturer: "",
@@ -97,7 +98,7 @@ export const drAleksovCertificates: Record<Locale, Certificate[]> = {
   en: [
     {
       image:
-        "https://mintclinic.com/wp-content/uploads/2024/11/certificate_brazil.webp",
+        "https://cdn.sanity.io/images/ne3mflgj/production/d3db4fdb05f13d96509c2f9beaa4253822cb3fa1-768x542.webp",
       title:
         'Two-week theoretical-practical course on aesthetics with veneers using the digital "cloning" method, developed by the legendary Paulo Kano.',
       lecturer: "Dr. Paulo Kano",
@@ -106,7 +107,7 @@ export const drAleksovCertificates: Record<Locale, Certificate[]> = {
     },
     {
       image:
-        "https://mintclinic.com/wp-content/uploads/2024/10/sertifikat_5.webp",
+        "https://cdn.sanity.io/images/ne3mflgj/production/3ccd2c32cd579a5d9b3f282a40d9bd23ee307351-768x548.webp",
       title:
         "Theoretical-practical master course in implantology and implant prosthetics - Qualifications in: 1. Theory 2. Implant surgery (practical) 3. Sinus lift (practical) 4. Prosthetics on implants",
       lecturer: "Prof. Ingo Voges",
@@ -123,7 +124,8 @@ export const drAleksovCertificates: Record<Locale, Certificate[]> = {
       date: "10.2024-10.2025",
     },
     {
-      image: "https://mintclinic.com/wp-content/uploads/2025/07/img_3561.jpg",
+      image:
+        "https://cdn.sanity.io/images/ne3mflgj/production/da6d050a0161a4fc6f367e3661acf1ad8a673be8-768x1116.jpg",
       title:
         "Participation as assistant to Prof. Paulo Kano in a digital approach aesthetics course.",
       lecturer: "Dr. Paulo Kano",
@@ -132,7 +134,7 @@ export const drAleksovCertificates: Record<Locale, Certificate[]> = {
     },
     {
       image:
-        "https://mintclinic.com/wp-content/uploads/2024/10/sertifikat_2-e1730733624844.webp",
+        "https://cdn.sanity.io/images/ne3mflgj/production/0228f597ac187ee13b8822ee990bc3cead7a6a0e-768x1094.webp",
       title:
         '"Composite Aesthetics" - Theoretical-practical course on "Bonding"',
       lecturer: "Dr. Marcin Krupinski",
@@ -149,7 +151,7 @@ export const drAleksovCertificates: Record<Locale, Certificate[]> = {
     },
     {
       image:
-        "https://mintclinic.com/wp-content/uploads/2024/10/sertifikat_1-scaled.webp",
+        "https://cdn.sanity.io/images/ne3mflgj/production/a2552c026dab5d82a6b59cfd0e1f0d4bef80770b-768x534.webp",
       title:
         'Theoretical-practical seminar on "application of platelet-rich fibrin material (PRF)"',
       lecturer: "Prof. Mustafa Tunali",
@@ -158,7 +160,7 @@ export const drAleksovCertificates: Record<Locale, Certificate[]> = {
     },
     {
       image:
-        "https://mintclinic.com/wp-content/uploads/2024/10/sertifikat_4-e1730733688284.webp",
+        "https://cdn.sanity.io/images/ne3mflgj/production/e90d1b8289e2e68e4959cc8faeea56ba25ba787c-768x1104.webp",
       title:
         'Theoretical course on "Digital Smile Design" and digitalization of dental practice',
       lecturer: "Christian Coachman",
@@ -167,7 +169,7 @@ export const drAleksovCertificates: Record<Locale, Certificate[]> = {
     },
     {
       image:
-        "https://mintclinic.com/wp-content/uploads/2024/11/sertifikat_3-1.webp",
+        "https://cdn.sanity.io/images/ne3mflgj/production/d1e4aed4cd3b8519cfecd88db2bedce14f705a6d-678x1027.webp",
       title:
         "Theoretical-practical course - Physiological arrangement of teeth and occlusion in complete dentures",
       lecturer: "",
@@ -185,7 +187,7 @@ export const drDoganovaCertificates: Record<Locale, Certificate[]> = {
   bg: [
     {
       image:
-        "https://mintclinic.com/wp-content/uploads/2024/11/universitat-zu-koln.webp",
+        "https://cdn.sanity.io/images/ne3mflgj/production/41673e593f30257c65d1470aa5be0dabab3a6e5d-768x1075.webp",
       title:
         'Диплома за завършено с отличие висше образование по "Дентална медицина" от медицинския факултет на Университета в Кьолн',
       lecturer: "",
@@ -194,7 +196,7 @@ export const drDoganovaCertificates: Record<Locale, Certificate[]> = {
     },
     {
       image:
-        "https://mintclinic.com/wp-content/uploads/2024/11/invisalign_certification.webp",
+        "https://cdn.sanity.io/images/ne3mflgj/production/cb1c7b301516dbf777b791d31f0d697536e8b042-768x543.webp",
       title: "Сертификат за работа с Инвизалайн",
       lecturer: "",
       location: "София, България",
@@ -204,7 +206,7 @@ export const drDoganovaCertificates: Record<Locale, Certificate[]> = {
   en: [
     {
       image:
-        "https://mintclinic.com/wp-content/uploads/2024/11/universitat-zu-koln.webp",
+        "https://cdn.sanity.io/images/ne3mflgj/production/41673e593f30257c65d1470aa5be0dabab3a6e5d-768x1075.webp",
       title:
         'Diploma for completed with honors higher education in "Dental Medicine" from the Faculty of Medicine at the University of Cologne',
       lecturer: "",
@@ -213,7 +215,7 @@ export const drDoganovaCertificates: Record<Locale, Certificate[]> = {
     },
     {
       image:
-        "https://mintclinic.com/wp-content/uploads/2024/11/invisalign_certification.webp",
+        "https://cdn.sanity.io/images/ne3mflgj/production/cb1c7b301516dbf777b791d31f0d697536e8b042-768x543.webp",
       title: "Invisalign Certification",
       lecturer: "",
       location: "Sofia, Bulgaria",
