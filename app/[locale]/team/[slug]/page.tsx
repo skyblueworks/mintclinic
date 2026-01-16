@@ -12,19 +12,24 @@ type Props = {
   params: Promise<{ locale: "bg" | "en"; slug: string }>;
 };
 
-// Generate static params for all team members
+// Slugs that have custom pages (not using this generic template)
+const CUSTOM_PAGE_SLUGS = ["dr-aleksov", "dr-doganova"];
+
+// Generate static params for team members (excluding those with custom pages)
 export async function generateStaticParams() {
   const members = await client.fetch<{ slug: string }[]>(
     allTeamMemberSlugsQuery,
   );
   const locales = ["bg", "en"] as const;
 
-  return members.flatMap((member) =>
-    locales.map((locale) => ({
-      locale,
-      slug: member.slug,
-    })),
-  );
+  return members
+    .filter((member) => !CUSTOM_PAGE_SLUGS.includes(member.slug))
+    .flatMap((member) =>
+      locales.map((locale) => ({
+        locale,
+        slug: member.slug,
+      })),
+    );
 }
 
 async function getTeamMember(slug: string) {
