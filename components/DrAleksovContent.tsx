@@ -1,0 +1,162 @@
+"use client";
+import TitleSection from "@/components/TitleSection";
+import { motion } from "motion/react";
+import { fadeInMotionProps } from "@/lib/animations";
+import Image from "next/image";
+import { GalleryDialog } from "@/components/GalleryDialog";
+import { useState } from "react";
+import { useTranslation, TK } from "@/lib/i18n";
+import type { SanityCertificate } from "@/lib/types/sanity";
+import type { Locale } from "@/lib/locale";
+
+interface DrAleksovContentProps {
+  certificates: SanityCertificate[];
+  locale: Locale;
+}
+
+export function DrAleksovContent({
+  certificates,
+  locale,
+}: DrAleksovContentProps) {
+  const { t } = useTranslation();
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
+  return (
+    <div className="pb-16">
+      <TitleSection title={t(TK.DR_ALEKSOV)} />
+
+      {/* Introduction Section */}
+      <motion.section
+        className="bg-white py-16 lg:py-24"
+        {...fadeInMotionProps}
+      >
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="lg:grid lg:grid-cols-2 lg:gap-12">
+            {/* Image Section */}
+            <div className="mb-8 lg:mb-0">
+              <div className="overflow-hidden rounded-3xl rounded-bl-none rounded-tr-none">
+                <Image
+                  src="https://cdn.sanity.io/images/ne3mflgj/production/0bb8a68be2494f2af2ff34324aab9890480d3075-682x1024.webp"
+                  alt="Д-р Александър Алексов"
+                  width={682}
+                  height={1024}
+                  className="h-auto w-full max-w-[400px] object-cover"
+                />
+              </div>
+            </div>
+
+            {/* Content Section */}
+            <div className="space-y-6 font-dm-sans font-light text-foreground">
+              <h2 className="font-sans text-3xl text-primary lg:text-4xl">
+                {t(TK.DR_ALEKSOV_INTRO_HEADING)}
+              </h2>
+
+              <p>{t(TK.DR_ALEKSOV_BIO_PARA_1)}</p>
+
+              <p>{t(TK.DR_ALEKSOV_BIO_PARA_2)}</p>
+
+              <p>{t(TK.DR_ALEKSOV_BIO_PARA_3)}</p>
+            </div>
+          </div>
+        </div>
+      </motion.section>
+
+      {/* Philosophy Section */}
+      <motion.section
+        className="bg-white py-16 lg:py-24"
+        {...fadeInMotionProps}
+      >
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="lg:grid lg:grid-cols-2 lg:gap-12">
+            {/* Text Content */}
+            <div className="space-y-6 font-dm-sans font-light text-foreground">
+              <h2 className="font-sans text-3xl text-primary lg:text-4xl">
+                {t(TK.PHILOSOPHY)}
+              </h2>
+
+              <p>{t(TK.DR_ALEKSOV_PHILOSOPHY_PARA_1)}</p>
+
+              <p>{t(TK.DR_ALEKSOV_PHILOSOPHY_PARA_2)}</p>
+            </div>
+
+            {/* Image */}
+            <div className="mt-8 lg:mt-0">
+              <div className="overflow-hidden rounded-3xl rounded-bl-none rounded-tr-none">
+                <img
+                  src="https://cdn.sanity.io/images/ne3mflgj/production/f2a84a8dd12ca96c3fdb489f401cd05786e98350-644x903.webp"
+                  alt="Mint Clinic"
+                  className="h-auto w-full object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </motion.section>
+
+      {/* Certificates Section */}
+      <motion.section
+        className="bg-white py-16 lg:py-24"
+        {...fadeInMotionProps}
+      >
+        <div className="mx-auto max-w-7xl px-6">
+          <h2 className="mb-12 text-center font-sans text-3xl text-primary lg:text-4xl">
+            {t(TK.DIPLOMAS_AND_CERTIFICATES)}
+          </h2>
+
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {certificates.map((cert, index) => (
+              <motion.div
+                key={cert._key}
+                className="flex flex-col overflow-hidden rounded-2xl rounded-bl-none rounded-tr-none bg-gray-50 shadow-lg"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1, duration: 0.5 }}
+              >
+                <button
+                  className="aspect-[4/3] overflow-hidden"
+                  onClick={() => {
+                    setSelectedIndex(index);
+                    setDialogOpen(true);
+                  }}
+                >
+                  <img
+                    src={cert.image.asset.url}
+                    alt={cert.title[locale]}
+                    className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
+                  />
+                </button>
+                <div className="flex flex-1 flex-col p-6">
+                  <p className="mb-4 font-dm-sans text-sm font-light text-foreground">
+                    {cert.title[locale]}
+                  </p>
+                  {cert.lecturer?.[locale] && (
+                    <p className="mb-2 text-xs font-semibold text-primary">
+                      {t(TK.LECTURER)} {cert.lecturer[locale]}
+                    </p>
+                  )}
+                  <p className="mb-1 text-xs text-foreground">
+                    {cert.location[locale]}
+                  </p>
+                  <p className="text-xs text-foreground">{cert.date}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </motion.section>
+
+      {/* Gallery Dialog for Certificates */}
+      <GalleryDialog
+        images={certificates.map((cert) => ({
+          src: cert.image.asset.url,
+          alt: cert.title[locale],
+        }))}
+        open={dialogOpen}
+        onOpenChange={setDialogOpen}
+        initialIndex={selectedIndex}
+      />
+    </div>
+  );
+}

@@ -131,7 +131,15 @@ export const teamMemberBySlugQuery = `*[_type == "teamMember" && slug.current ==
   experience,
   specializations,
   content,
-  seo
+  seo,
+  certificates[]{
+    _key,
+    image{ asset->{ _id, url } },
+    title,
+    lecturer,
+    location,
+    date
+  }
 }`;
 
 // ============================================================================

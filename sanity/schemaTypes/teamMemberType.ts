@@ -55,6 +55,81 @@ export const teamMemberType = defineType({
         { name: "en", type: "string", title: "English" },
       ],
     }),
+    defineField({
+      name: "certificates",
+      title: "Certificates & Diplomas",
+      type: "array",
+      of: [
+        {
+          type: "object",
+          name: "certificate",
+          title: "Certificate",
+          fields: [
+            {
+              name: "image",
+              title: "Image",
+              type: "image",
+              options: { hotspot: true },
+              validation: (Rule) => Rule.required(),
+            },
+            {
+              name: "title",
+              title: "Title",
+              type: "object",
+              fields: [
+                { name: "bg", type: "text", title: "Bulgarian", rows: 3 },
+                { name: "en", type: "text", title: "English", rows: 3 },
+              ],
+              validation: (Rule) => Rule.required(),
+            },
+            {
+              name: "lecturer",
+              title: "Lecturer",
+              type: "object",
+              fields: [
+                { name: "bg", type: "string", title: "Bulgarian" },
+                { name: "en", type: "string", title: "English" },
+              ],
+            },
+            {
+              name: "location",
+              title: "Location",
+              type: "object",
+              fields: [
+                { name: "bg", type: "string", title: "Bulgarian" },
+                { name: "en", type: "string", title: "English" },
+              ],
+              validation: (Rule) => Rule.required(),
+            },
+            {
+              name: "date",
+              title: "Date",
+              type: "string",
+              description:
+                "Flexible date format (e.g., '04.10 - 16.11.24', '2024', '10.2024-10.2025')",
+              validation: (Rule) => Rule.required(),
+            },
+          ],
+          preview: {
+            select: {
+              titleBg: "title.bg",
+              titleEn: "title.en",
+              date: "date",
+              media: "image",
+            },
+            prepare({ titleBg, titleEn, date, media }) {
+              const title = titleBg || titleEn || "Untitled Certificate";
+              return {
+                title:
+                  title.length > 50 ? title.substring(0, 50) + "..." : title,
+                subtitle: date,
+                media,
+              };
+            },
+          },
+        },
+      ],
+    }),
   ],
   preview: {
     select: {
