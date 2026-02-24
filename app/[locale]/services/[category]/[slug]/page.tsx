@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { client } from "@/sanity/lib/client";
 import {
   serviceBySlugAndCategoryQuery,
@@ -7,6 +8,8 @@ import { MDXRenderer } from "@/components/MDXRenderer";
 import ServiceLayout from "@/components/layouts/ServiceLayout";
 import { notFound } from "next/navigation";
 import { getLocalizedMDX } from "@/lib/getLocalized";
+import { localeAlternates, localeOpenGraph } from "@/lib/metadata";
+import type { Locale } from "@/lib/locale";
 
 type Props = {
   params: Promise<{
@@ -15,6 +18,25 @@ type Props = {
     slug: string;
   }>;
 };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale, category, slug } = await params;
+  const service = await getServiceByCategory(category, slug);
+  if (!service) return {};
+  const title = service.title?.[locale] || service.title?.bg || "";
+  const description = service.excerpt?.[locale] || service.excerpt?.bg || "";
+  return {
+    title: `${title} – Mint Clinic`,
+    description,
+    alternates: localeAlternates(`/services/${category}/${slug}`),
+    openGraph: localeOpenGraph(
+      title,
+      description,
+      `/services/${category}/${slug}`,
+      locale as Locale,
+    ),
+  };
+}
 
 // Generate static params for all services
 export async function generateStaticParams() {

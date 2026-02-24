@@ -1,6 +1,25 @@
+import type { Metadata } from "next";
+import { getTranslation, TK, type Locale } from "@/lib/i18n";
+import { localeAlternates, localeOpenGraph } from "@/lib/metadata";
+
 type Props = {
   params: Promise<{ locale: string }>;
 };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const title = getTranslation(locale as Locale, TK.TERMS_PAGE_TITLE);
+  const description = getTranslation(
+    locale as Locale,
+    TK.TERMS_PAGE_META_DESCRIPTION,
+  );
+  return {
+    title: `${title} – Mint Clinic`,
+    description,
+    alternates: localeAlternates("/terms"),
+    openGraph: localeOpenGraph(title, description, "/terms", locale as Locale),
+  };
+}
 
 export default async function TermsPage({ params }: Props) {
   const { locale } = await params;

@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { client } from "@/sanity/lib/client";
 import {
   teamMemberBySlugQuery,
@@ -7,10 +8,31 @@ import { MDXRenderer } from "@/components/MDXRenderer";
 import { notFound } from "next/navigation";
 import { getLocalizedMDX } from "@/lib/getLocalized";
 import { getValidLocale, type Locale } from "@/lib/locale";
+import { localeAlternates, localeOpenGraph } from "@/lib/metadata";
 
 type Props = {
   params: Promise<{ locale: "bg" | "en"; slug: string }>;
 };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale, slug } = await params;
+  const member = await getTeamMember(slug);
+  if (!member) return {};
+  const name =
+    typeof member.name === "string"
+      ? member.name
+      : member.name?.[locale] || member.name?.bg || "";
+  const role =
+    member.role && typeof member.role === "object"
+      ? member.role[locale] || member.role.bg || ""
+      : "";
+  return {
+    title: `${name} – Mint Clinic`,
+    description: role,
+    alternates: localeAlternates(`/team/${slug}`),
+    openGraph: localeOpenGraph(name, role, `/team/${slug}`, locale as Locale),
+  };
+}
 
 // Slugs that have custom pages (not using this generic template)
 const CUSTOM_PAGE_SLUGS = ["dr-aleksov", "dr-doganova"];

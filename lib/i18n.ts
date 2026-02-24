@@ -141,6 +141,22 @@ export const TK = {
   PRICING_PAGE_META_DESCRIPTION: "PRICING_PAGE_META_DESCRIPTION",
   PRICING_NOTE: "PRICING_NOTE",
   PRICING_FILTER_PLACEHOLDER: "PRICING_FILTER_PLACEHOLDER",
+
+  // Page Metadata
+  HOME_PAGE_TITLE: "HOME_PAGE_TITLE",
+  HOME_PAGE_META_DESCRIPTION: "HOME_PAGE_META_DESCRIPTION",
+  ABOUT_PAGE_TITLE: "ABOUT_PAGE_TITLE",
+  ABOUT_PAGE_META_DESCRIPTION: "ABOUT_PAGE_META_DESCRIPTION",
+  CONTACTS_PAGE_TITLE: "CONTACTS_PAGE_TITLE",
+  CONTACTS_PAGE_META_DESCRIPTION: "CONTACTS_PAGE_META_DESCRIPTION",
+  GALLERY_PAGE_TITLE: "GALLERY_PAGE_TITLE",
+  GALLERY_PAGE_META_DESCRIPTION: "GALLERY_PAGE_META_DESCRIPTION",
+  TEAM_PAGE_TITLE: "TEAM_PAGE_TITLE",
+  TEAM_PAGE_META_DESCRIPTION: "TEAM_PAGE_META_DESCRIPTION",
+  TERMS_PAGE_TITLE: "TERMS_PAGE_TITLE",
+  TERMS_PAGE_META_DESCRIPTION: "TERMS_PAGE_META_DESCRIPTION",
+  PRIVACY_PAGE_TITLE: "PRIVACY_PAGE_TITLE",
+  PRIVACY_PAGE_META_DESCRIPTION: "PRIVACY_PAGE_META_DESCRIPTION",
 } as const;
 
 export const translations = {
@@ -293,6 +309,29 @@ export const translations = {
     [TK.PRICING_NOTE]:
       "Посочените цени са ориентировъчни и могат да варират в зависимост от сложността на случая. За точна оценка, моля, запишете се за консултация.",
     [TK.PRICING_FILTER_PLACEHOLDER]: "Търси услуга...",
+
+    // Page Metadata
+    [TK.HOME_PAGE_TITLE]: "Дентална клиника в София",
+    [TK.HOME_PAGE_META_DESCRIPTION]:
+      "Немска дентална клиника в центъра на София. Персонализирана грижа, модерно зъболечение с висококвалифициран екип.",
+    [TK.ABOUT_PAGE_TITLE]: "За нас",
+    [TK.ABOUT_PAGE_META_DESCRIPTION]:
+      "Запознайте се с екипа на Минт Клиник. Немски стандарт на дентална грижа в центъра на София.",
+    [TK.CONTACTS_PAGE_TITLE]: "Контакти",
+    [TK.CONTACTS_PAGE_META_DESCRIPTION]:
+      "Свържете се с Минт Клиник. Адрес, телефон, имейл и работно време. Запишете час за преглед.",
+    [TK.GALLERY_PAGE_TITLE]: "Галерия",
+    [TK.GALLERY_PAGE_META_DESCRIPTION]:
+      "Разгледайте интериора и обстановката на Минт Клиник в София.",
+    [TK.TEAM_PAGE_TITLE]: "Нашият екип",
+    [TK.TEAM_PAGE_META_DESCRIPTION]:
+      "Запознайте се с денталните специалисти на Минт Клиник. Опит, образование и професионална грижа.",
+    [TK.TERMS_PAGE_TITLE]: "Общи условия",
+    [TK.TERMS_PAGE_META_DESCRIPTION]:
+      "Общи условия за ползване на услугите на Минт Клиник, София.",
+    [TK.PRIVACY_PAGE_TITLE]: "Политика за поверителност",
+    [TK.PRIVACY_PAGE_META_DESCRIPTION]:
+      "Политика за поверителност и защита на личните данни на Минт Клиник.",
   },
   en: {
     // Navigation
@@ -443,6 +482,29 @@ export const translations = {
     [TK.PRICING_NOTE]:
       "The listed prices are indicative and may vary depending on the complexity of each case. For an accurate estimate, please schedule a consultation.",
     [TK.PRICING_FILTER_PLACEHOLDER]: "Search services...",
+
+    // Page Metadata
+    [TK.HOME_PAGE_TITLE]: "Dental Clinic in Sofia",
+    [TK.HOME_PAGE_META_DESCRIPTION]:
+      "German-standard dental clinic in the center of Sofia. Personalized care, modern dentistry with a highly qualified team.",
+    [TK.ABOUT_PAGE_TITLE]: "About Us",
+    [TK.ABOUT_PAGE_META_DESCRIPTION]:
+      "Meet the Mint Clinic team. German-standard dental care in the center of Sofia.",
+    [TK.CONTACTS_PAGE_TITLE]: "Contact",
+    [TK.CONTACTS_PAGE_META_DESCRIPTION]:
+      "Contact Mint Clinic. Address, phone, email, and working hours. Book an appointment.",
+    [TK.GALLERY_PAGE_TITLE]: "Gallery",
+    [TK.GALLERY_PAGE_META_DESCRIPTION]:
+      "Explore the interior and atmosphere of Mint Clinic in Sofia.",
+    [TK.TEAM_PAGE_TITLE]: "Our Team",
+    [TK.TEAM_PAGE_META_DESCRIPTION]:
+      "Meet the dental specialists at Mint Clinic. Experience, education, and professional care.",
+    [TK.TERMS_PAGE_TITLE]: "Terms & Conditions",
+    [TK.TERMS_PAGE_META_DESCRIPTION]:
+      "Terms and conditions for using the services of Mint Clinic, Sofia.",
+    [TK.PRIVACY_PAGE_TITLE]: "Privacy Policy",
+    [TK.PRIVACY_PAGE_META_DESCRIPTION]:
+      "Privacy policy and personal data protection at Mint Clinic.",
   },
 } as const;
 

@@ -5,6 +5,7 @@ import TitleSection from "@/components/TitleSection";
 import { client } from "@/sanity/lib/client";
 import { postsListQuery } from "@/sanity/lib/queries";
 import { getTranslation, TK, type Locale } from "@/lib/i18n";
+import { localeAlternates, localeOpenGraph } from "@/lib/metadata";
 import { getLocalizedString } from "@/lib/getLocalized";
 
 type Props = {
@@ -49,6 +50,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${title} – Mint Clinic`,
     description,
+    alternates: localeAlternates("/blog"),
+    openGraph: localeOpenGraph(title, description, "/blog", locale as Locale),
   };
 }
 

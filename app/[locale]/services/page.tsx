@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import ServicesOverviewLayout from "@/components/layouts/ServicesOverviewLayout";
 import ServiceCard from "@/components/ServiceCard";
 import { CTAButton } from "@/components/mdx/CTAButton";
-import { getTranslation, type Locale } from "@/lib/i18n";
-import { TK } from "@/lib/i18n";
+import { getTranslation, TK, type Locale } from "@/lib/i18n";
+import { localeAlternates, localeOpenGraph } from "@/lib/metadata";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -20,6 +20,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${title} – Mint Clinic`,
     description,
+    alternates: localeAlternates("/services"),
+    openGraph: localeOpenGraph(
+      title,
+      description,
+      "/services",
+      locale as Locale,
+    ),
   };
 }
 

@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import HeroSection from "@/components/HeroSection";
 import WhoWeAre from "@/components/WhoWeAre";
 import InfoSection from "@/components/InfoSection";
@@ -10,10 +11,27 @@ import LocationSection from "@/components/LocationSection";
 import { client } from "@/sanity/lib/client";
 import { homePageQuery, type HomePage } from "@/sanity/lib/page-queries";
 import { getValidLocale, type Locale } from "@/lib/locale";
+import { getTranslation, TK } from "@/lib/i18n";
+import { localeAlternates, localeOpenGraph } from "@/lib/metadata";
 
 type Props = {
   params: Promise<{ locale: string }>;
 };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const title = getTranslation(locale as Locale, TK.HOME_PAGE_TITLE);
+  const description = getTranslation(
+    locale as Locale,
+    TK.HOME_PAGE_META_DESCRIPTION,
+  );
+  return {
+    title: `${title} – Mint Clinic`,
+    description,
+    alternates: localeAlternates(""),
+    openGraph: localeOpenGraph(title, description, "", locale as Locale),
+  };
+}
 
 async function getHomePage(): Promise<HomePage | null> {
   try {

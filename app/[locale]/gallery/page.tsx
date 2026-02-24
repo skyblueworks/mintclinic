@@ -1,5 +1,8 @@
+import type { Metadata } from "next";
 import TitleSection from "@/components/TitleSection";
 import { GalleryGrid } from "@/components/GalleryGrid";
+import { getTranslation, TK, type Locale } from "@/lib/i18n";
+import { localeAlternates, localeOpenGraph } from "@/lib/metadata";
 import image00054 from "@/assets/images/gallery/image00054.webp";
 import image00053 from "@/assets/images/gallery/image00053.webp";
 import image00052 from "@/assets/images/gallery/image00052.webp";
@@ -41,6 +44,26 @@ const galleryImages = [
   { src: image00003.src, alt: "Mint Clinic Interior 16" },
   { src: image00002.src, alt: "Mint Clinic Interior 17" },
 ];
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const title = getTranslation(locale as Locale, TK.GALLERY_PAGE_TITLE);
+  const description = getTranslation(
+    locale as Locale,
+    TK.GALLERY_PAGE_META_DESCRIPTION,
+  );
+  return {
+    title: `${title} – Mint Clinic`,
+    description,
+    alternates: localeAlternates("/gallery"),
+    openGraph: localeOpenGraph(
+      title,
+      description,
+      "/gallery",
+      locale as Locale,
+    ),
+  };
+}
 
 export default async function GalleryPage({ params }: Props) {
   const { locale } = await params;

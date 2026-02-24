@@ -1,13 +1,35 @@
+import type { Metadata } from "next";
 import { client } from "@/sanity/lib/client";
 import { postBySlugQuery, allPostSlugsQuery } from "@/sanity/lib/queries";
 import { MDXRenderer } from "@/components/MDXRenderer";
 import { notFound } from "next/navigation";
 import { getLocalizedMDX } from "@/lib/getLocalized";
 import { Container } from "@/components/craft";
+import { localeAlternates, localeOpenGraph } from "@/lib/metadata";
+import type { Locale } from "@/lib/locale";
 
 type Props = {
   params: Promise<{ locale: "bg" | "en"; slug: string }>;
 };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale, slug } = await params;
+  const post = await getPost(slug);
+  if (!post) return {};
+  const title = post.title?.[locale] || post.title?.bg || "";
+  const description = post.excerpt?.[locale] || post.excerpt?.bg || "";
+  return {
+    title: `${title} – Mint Clinic`,
+    description,
+    alternates: localeAlternates(`/blog/${slug}`),
+    openGraph: localeOpenGraph(
+      title,
+      description,
+      `/blog/${slug}`,
+      locale as Locale,
+    ),
+  };
+}
 
 // Generate static params for all blog posts
 export async function generateStaticParams() {

@@ -1,10 +1,28 @@
+import type { Metadata } from "next";
 import { getValidLocale, type Locale } from "@/lib/locale";
 import { client } from "@/sanity/lib/client";
 import { teamMembersListQuery } from "@/sanity/lib/queries";
+import { getTranslation, TK } from "@/lib/i18n";
+import { localeAlternates, localeOpenGraph } from "@/lib/metadata";
 
 type Props = {
   params: Promise<{ locale: string }>;
 };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const title = getTranslation(locale as Locale, TK.TEAM_PAGE_TITLE);
+  const description = getTranslation(
+    locale as Locale,
+    TK.TEAM_PAGE_META_DESCRIPTION,
+  );
+  return {
+    title: `${title} – Mint Clinic`,
+    description,
+    alternates: localeAlternates("/team"),
+    openGraph: localeOpenGraph(title, description, "/team", locale as Locale),
+  };
+}
 
 async function getTeamMembers() {
   try {

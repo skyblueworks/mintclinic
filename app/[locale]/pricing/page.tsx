@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import ServicesOverviewLayout from "@/components/layouts/ServicesOverviewLayout";
 import { CTAButton } from "@/components/mdx/CTAButton";
 import { getTranslation, TK, type Locale } from "@/lib/i18n";
+import { localeAlternates, localeOpenGraph } from "@/lib/metadata";
 import PricingCards from "./PricingCards";
 import { PRICING_DATA } from "./pricing-data";
 
@@ -21,6 +22,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${title} – Mint Clinic`,
     description,
+    alternates: localeAlternates("/pricing"),
+    openGraph: localeOpenGraph(
+      title,
+      description,
+      "/pricing",
+      locale as Locale,
+    ),
   };
 }
 
