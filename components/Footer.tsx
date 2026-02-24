@@ -158,6 +158,14 @@ export default function Footer() {
                     </LocalizedLink>
                   </li>
                   <li>
+                    <LocalizedLink
+                      href="/pricing"
+                      className="transition-colors hover:text-white"
+                    >
+                      {t(TK.PRICING_NAV_LABEL)}
+                    </LocalizedLink>
+                  </li>
+                  <li>
                     <LanguageSwitcher />
                   </li>
                 </ul>
@@ -212,6 +220,14 @@ export default function Footer() {
                       className="transition-colors hover:text-white"
                     >
                       {t(TK.CONTACT)}
+                    </LocalizedLink>
+                  </li>
+                  <li>
+                    <LocalizedLink
+                      href="/pricing"
+                      className="transition-colors hover:text-white"
+                    >
+                      {t(TK.PRICING_NAV_LABEL)}
                     </LocalizedLink>
                   </li>
                   <li className="col-span-2 flex justify-center">

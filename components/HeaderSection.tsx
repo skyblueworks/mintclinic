@@ -133,6 +133,7 @@ const getNavItems = (
           label: t(TK.EMERGENCY_DENTAL_CARE),
           href: "/services/speshna-dentalna-pomosht",
         },
+        { label: t(TK.PRICING_NAV_LABEL), href: "/pricing" },
       ],
     },
     {
@@ -216,6 +217,7 @@ export default function HeaderSection({ className }: { className?: string }) {
     const isOpen = mobileOpenStates[key] || false;
 
     if (!item.children) {
+      const isPricing = item.href === "/pricing";
       return (
         <LocalizedLink
           key={key}
@@ -224,7 +226,7 @@ export default function HeaderSection({ className }: { className?: string }) {
             depth === 0
               ? "py-3 font-medium text-gray-700"
               : "py-2 text-gray-600"
-          } transition-colors hover:text-primary`}
+          } ${isPricing ? "mt-1 rounded-lg bg-primary/5 px-3 font-medium text-primary" : ""} transition-colors hover:text-primary`}
           onClick={() => setMobileMenuOpen(false)}
         >
           {item.label}
@@ -314,8 +316,13 @@ export default function HeaderSection({ className }: { className?: string }) {
 
   const renderDesktopSubmenu = (item: NavItem): React.ReactNode => {
     if (!item.children) {
+      const isPricing = item.href === "/pricing";
       return (
-        <MenubarItem key={item.href} asChild>
+        <MenubarItem
+          key={item.href}
+          asChild
+          className={cn(isPricing && "bg-primary/5 font-medium text-primary")}
+        >
           <LocalizedLink href={item.href}>{item.label}</LocalizedLink>
         </MenubarItem>
       );

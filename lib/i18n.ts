@@ -133,6 +133,14 @@ export const TK = {
   EMERGENCY_CARE_TITLE: "EMERGENCY_CARE_TITLE",
   EMERGENCY_CARE_DESCRIPTION: "EMERGENCY_CARE_DESCRIPTION",
   EMERGENCY_CARE_BUTTON: "EMERGENCY_CARE_BUTTON",
+
+  // Pricing Page
+  PRICING_NAV_LABEL: "PRICING_NAV_LABEL",
+  PRICING_PAGE_TITLE: "PRICING_PAGE_TITLE",
+  PRICING_PAGE_DESCRIPTION: "PRICING_PAGE_DESCRIPTION",
+  PRICING_PAGE_META_DESCRIPTION: "PRICING_PAGE_META_DESCRIPTION",
+  PRICING_NOTE: "PRICING_NOTE",
+  PRICING_FILTER_PLACEHOLDER: "PRICING_FILTER_PLACEHOLDER",
 } as const;
 
 export const translations = {
@@ -274,6 +282,17 @@ export const translations = {
     [TK.EMERGENCY_CARE_DESCRIPTION]:
       "При внезапна болка, або подуване - звъннете на 0888 436 838. Ние ще ви вместим веднага в графика!",
     [TK.EMERGENCY_CARE_BUTTON]: "Спешна дентална помощ",
+
+    // Pricing Page
+    [TK.PRICING_NAV_LABEL]: "Ценоразпис",
+    [TK.PRICING_PAGE_TITLE]: "Ценоразпис",
+    [TK.PRICING_PAGE_DESCRIPTION]:
+      "Ориентировъчни цени на денталните услуги в Минт Клиник.",
+    [TK.PRICING_PAGE_META_DESCRIPTION]:
+      "Цени на стоматологични услуги в Минт Клиник, София. Прегледи, обтурации, протетика, имплантология и други.",
+    [TK.PRICING_NOTE]:
+      "Посочените цени са ориентировъчни и могат да варират в зависимост от сложността на случая. За точна оценка, моля, запишете се за консултация.",
+    [TK.PRICING_FILTER_PLACEHOLDER]: "Търси услуга...",
   },
   en: {
     // Navigation
@@ -413,6 +432,17 @@ export const translations = {
     [TK.EMERGENCY_CARE_DESCRIPTION]:
       "In case of sudden pain or swelling - call 0888 436 838. We will fit you in the schedule immediately!",
     [TK.EMERGENCY_CARE_BUTTON]: "Emergency Dental Care",
+
+    // Pricing Page
+    [TK.PRICING_NAV_LABEL]: "Pricing",
+    [TK.PRICING_PAGE_TITLE]: "Pricing",
+    [TK.PRICING_PAGE_DESCRIPTION]:
+      "Indicative prices for dental services at Mint Clinic.",
+    [TK.PRICING_PAGE_META_DESCRIPTION]:
+      "Dental service prices at Mint Clinic, Sofia. Examinations, fillings, prosthetics, implantology and more.",
+    [TK.PRICING_NOTE]:
+      "The listed prices are indicative and may vary depending on the complexity of each case. For an accurate estimate, please schedule a consultation.",
+    [TK.PRICING_FILTER_PLACEHOLDER]: "Search services...",
   },
 } as const;
 
