@@ -17,3 +17,6 @@ yarn.lock
 
 # Logs
 *.log
+
+# Git worktrees
+.worktrees/
