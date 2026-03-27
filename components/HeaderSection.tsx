@@ -148,7 +148,6 @@ const getNavItems = (
       ],
     },
     { label: t(TK.CONTACT), href: "/contacts" },
-    { label: t(TK.PROMOTIONS), href: "/promotions" },
   ];
 };
 
@@ -219,7 +218,6 @@ export default function HeaderSection({ className }: { className?: string }) {
 
     if (!item.children) {
       const isPricing = item.href === "/pricing";
-      const isPromotions = item.href === "/promotions";
       return (
         <LocalizedLink
           key={key}
@@ -231,12 +229,7 @@ export default function HeaderSection({ className }: { className?: string }) {
           } ${isPricing ? "mt-1 rounded-lg bg-primary/5 px-3 font-medium text-primary" : ""} transition-colors hover:text-primary`}
           onClick={() => setMobileMenuOpen(false)}
         >
-          <span className="relative inline-block">
-            {item.label}
-            {isPromotions && (
-              <span className="absolute -right-3 -top-0.5 h-2 w-2 rounded-full bg-accent" />
-            )}
-          </span>
+          {item.label}
         </LocalizedLink>
       );
     }
@@ -281,17 +274,13 @@ export default function HeaderSection({ className }: { className?: string }) {
   // Render desktop navigation item recursively
   const renderDesktopNavItem = (item: NavItem): React.ReactNode => {
     if (!item.children) {
-      const isPromotions = item.href === "/promotions";
       return (
         <MenubarMenu key={item.href}>
           <LocalizedLink
             href={item.href}
-            className="relative px-3 py-1.5 font-medium text-gray-700 transition-colors hover:text-primary"
+            className="px-3 py-1.5 font-medium text-gray-700 transition-colors hover:text-primary"
           >
             {item.label}
-            {isPromotions && (
-              <span className="absolute -right-0.5 -top-0.5 h-2 w-2 rounded-full bg-accent" />
-            )}
           </LocalizedLink>
         </MenubarMenu>
       );
