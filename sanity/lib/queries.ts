@@ -246,3 +246,18 @@ export const documentCountQuery = `{
   "posts": count(*[_type == "post"]),
   "pages": count(*[_type == "page"])
 }`;
+
+// ============================================================================
+// PRICING QUERIES
+// ============================================================================
+
+export const pricingCategoriesQuery = `*[_type == "pricingCategory"] | order(order asc) {
+  _id,
+  title,
+  icon,
+  items[] {
+    name,
+    priceBgn,
+    priceEur
+  }
+}`;
