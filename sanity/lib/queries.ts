@@ -246,3 +246,31 @@ export const documentCountQuery = `{
   "posts": count(*[_type == "post"]),
   "pages": count(*[_type == "page"])
 }`;
+
+// ============================================================================
+// PROMOTION QUERIES
+// ============================================================================
+
+export const activePromotionsQuery = `*[_type == "promotion" && isActive == true] | order(order asc) {
+  _id,
+  title,
+  description,
+  badge,
+  image { asset->{ _id, url }, hotspot, crop },
+  originalPrice,
+  promoPrice,
+  savings,
+  validUntil,
+  order
+}`;
+
+export const bannerPromotionQuery = `*[_type == "promotion" && isActive == true && showInBanner == true] | order(order asc) [0] {
+  _id,
+  badge,
+  bannerText,
+  title
+}`;
+
+export const siteSettingsQuery = `*[_type == "siteSettings"][0] {
+  noPromotionsText
+}`;

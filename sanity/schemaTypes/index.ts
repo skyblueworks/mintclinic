@@ -10,6 +10,8 @@ import { homePageType } from "./homePageType";
 import { aboutPageType } from "./aboutPageType";
 import { contactPageType } from "./contactPageType";
 import { mdxType } from "./mdxType";
+import { promotionType } from "./promotionType";
+import { siteSettingsType } from "./siteSettingsType";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -26,5 +28,8 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     // Keep blog types for potential blog section
     categoryType,
     postType,
+    // Promotions
+    promotionType,
+    siteSettingsType,
   ],
 };
