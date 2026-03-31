@@ -17,7 +17,8 @@ const client = createClient({
   useCdn: false,
 });
 
-const promotions = [
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const promotions: any[] = [
   {
     _type: "promotion",
     title: {

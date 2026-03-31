@@ -98,6 +98,13 @@ export const promotionType = defineType({
       ],
     }),
     defineField({
+      name: "serviceUrl",
+      title: "Service page link",
+      type: "string",
+      description:
+        'Optional path to the related service page, e.g. "/uslugi/estetika/izbelvane".',
+    }),
+    defineField({
       name: "order",
       title: "Display order",
       type: "number",

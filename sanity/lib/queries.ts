@@ -261,6 +261,7 @@ export const activePromotionsQuery = `*[_type == "promotion" && isActive == true
   promoPrice,
   savings,
   validUntil,
+  serviceUrl,
   order
 }`;
 

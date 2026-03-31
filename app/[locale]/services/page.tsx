@@ -46,7 +46,7 @@ export default async function ServicesPage({ params }: Props) {
       <ServiceCard
         title={t(TK.AESTHETICS_TITLE)}
         description={t(TK.AESTHETICS_DESCRIPTION)}
-        imageUrl="https://mintclinic.com/wp-content/uploads/2024/10/aesthetics-1024x683.webp"
+        imageUrl="/images/aesthetics-1024x683_08d29196.webp"
         imageAlt={t(TK.AESTHETICS_TITLE)}
         buttonText={t(TK.AESTHETICS_BUTTON)}
         buttonHref={`/${locale}/services/estetika`}
@@ -56,7 +56,7 @@ export default async function ServicesPage({ params }: Props) {
       <ServiceCard
         title={t(TK.SURGERY_TITLE)}
         description={t(TK.SURGERY_DESCRIPTION)}
-        imageUrl="https://mintclinic.com/wp-content/uploads/2024/10/surgery-683x1024.webp"
+        imageUrl="/images/surgery-683x1024_bb00e9ee.webp"
         imageAlt={t(TK.SURGERY_TITLE)}
         buttonText={t(TK.SURGERY_BUTTON)}
         buttonHref={`/${locale}/services/hirurgiya`}
@@ -66,7 +66,7 @@ export default async function ServicesPage({ params }: Props) {
       <ServiceCard
         title={t(TK.PROSTHETICS_TITLE)}
         description={t(TK.PROSTHETICS_DESCRIPTION)}
-        imageUrl="https://mintclinic.com/wp-content/uploads/2024/10/prostetics-1024x683.webp"
+        imageUrl="/images/protetika_7142b504.webp"
         imageAlt={t(TK.PROSTHETICS_TITLE)}
         buttonText={t(TK.PROSTHETICS_BUTTON)}
         buttonHref={`/${locale}/services/protetika`}
@@ -76,7 +76,7 @@ export default async function ServicesPage({ params }: Props) {
       <ServiceCard
         title={t(TK.CONSERVATIVE_THERAPY_TITLE)}
         description={t(TK.CONSERVATIVE_THERAPY_DESCRIPTION)}
-        imageUrl="https://mintclinic.com/wp-content/uploads/2024/10/general-1024x681.webp"
+        imageUrl="/images/general-1024x681_34cb3d31.webp"
         imageAlt={t(TK.CONSERVATIVE_THERAPY_TITLE)}
         buttonText={t(TK.CONSERVATIVE_THERAPY_BUTTON)}
         buttonHref={`/${locale}/services/konservativna-terapiya`}
@@ -86,7 +86,7 @@ export default async function ServicesPage({ params }: Props) {
       <ServiceCard
         title={t(TK.ALIGNERS_TITLE)}
         description={t(TK.ALIGNERS_DESCRIPTION)}
-        imageUrl="https://mintclinic.com/wp-content/uploads/2024/10/aligners.webp"
+        imageUrl="/images/aligners_f3f5e619.webp"
         imageAlt={t(TK.ALIGNERS_TITLE)}
         buttonText={t(TK.ALIGNERS_BUTTON)}
         buttonHref={`/${locale}/services/alajneri`}
@@ -96,7 +96,7 @@ export default async function ServicesPage({ params }: Props) {
       <ServiceCard
         title={t(TK.EMERGENCY_CARE_TITLE)}
         description={t(TK.EMERGENCY_CARE_DESCRIPTION)}
-        imageUrl="https://mintclinic.com/wp-content/uploads/2024/10/emergency_help-1024x1024.webp"
+        imageUrl="/images/emergency_help-1024x1024_08702cf3.webp"
         imageAlt={t(TK.EMERGENCY_CARE_TITLE)}
         buttonText={t(TK.EMERGENCY_CARE_BUTTON)}
         buttonHref={`/${locale}/speshna-dentalna-pomosth`}
