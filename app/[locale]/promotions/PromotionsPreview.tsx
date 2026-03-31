@@ -122,9 +122,18 @@ export default function PromotionsPreview({
                     <span className="w-fit rounded-full bg-accent px-4 py-1.5 text-sm font-extrabold text-white">
                       {featured.badge}
                     </span>
-                    <h2 className="font-comfortaa text-3xl font-medium text-primary">
-                      {featured.title[locale]}
-                    </h2>
+                    {featured.serviceUrl ? (
+                      <Link
+                        href={`/${locale}${featured.serviceUrl}`}
+                        className="font-comfortaa text-3xl font-medium text-primary hover:underline hover:underline-offset-4"
+                      >
+                        {featured.title[locale]}
+                      </Link>
+                    ) : (
+                      <h2 className="font-comfortaa text-3xl font-medium text-primary">
+                        {featured.title[locale]}
+                      </h2>
+                    )}
                     {featured.description?.[locale] && (
                       <ExpandableText
                         text={featured.description[locale]}
@@ -204,9 +213,18 @@ export default function PromotionsPreview({
                           <span className="w-fit rounded-full bg-accent/15 px-2.5 py-0.5 text-xs font-bold text-accent">
                             {promo.badge}
                           </span>
-                          <h3 className="font-comfortaa text-lg font-medium text-primary">
-                            {promo.title[locale]}
-                          </h3>
+                          {promo.serviceUrl ? (
+                            <Link
+                              href={`/${locale}${promo.serviceUrl}`}
+                              className="font-comfortaa mt-0.5 block text-lg font-medium text-primary hover:underline hover:underline-offset-2"
+                            >
+                              {promo.title[locale]}
+                            </Link>
+                          ) : (
+                            <h3 className="font-comfortaa mt-0.5 text-lg font-medium text-primary">
+                              {promo.title[locale]}
+                            </h3>
+                          )}
                         </div>
                       </div>
 
