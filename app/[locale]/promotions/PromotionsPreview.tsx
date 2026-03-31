@@ -27,16 +27,12 @@ const ui = {
     validUntil: "Важи до",
     bookNow: "Запазете час",
     title: "Промоции",
-    subtitle:
-      "Сезонни оферти и специални пакети в Mint Clinic. Запазете час и спестете.",
   },
   en: {
     youSave: "You save",
     validUntil: "Valid until",
     bookNow: "Book Now",
     title: "Promotions",
-    subtitle:
-      "Seasonal offers and special packages at Mint Clinic. Book now and save.",
   },
 };
 
@@ -59,23 +55,40 @@ export default function PromotionsPreview({
 
   return (
     <>
-      {/* Page title */}
-      <section className="bg-white px-6 pb-12 pt-16 text-center lg:pb-16 lg:pt-24">
-        <h1 className="font-comfortaa text-4xl font-light text-primary lg:text-5xl">
-          {t.title}
-        </h1>
-        <p className="mx-auto mt-4 max-w-2xl font-dm-sans text-lg leading-relaxed text-primary/80">
-          {t.subtitle}
-        </p>
-      </section>
-
-      {/* Content */}
-      <section className="bg-gradient-to-br from-primary/[4%] to-white py-12">
+      {/* Page title + content — single seamless section */}
+      <section className="bg-gradient-to-br from-primary/[4%] to-white">
+        <div className="px-6 pb-12 pt-16 text-center lg:pb-16 lg:pt-24">
+          <h1 className="font-comfortaa text-4xl font-light text-primary lg:text-5xl">
+            {t.title}
+          </h1>
+        </div>
         <div className="mx-auto max-w-7xl px-6">
           {promos.length === 0 ? (
-            <p className="py-16 text-center font-dm-sans text-lg text-primary/60">
-              {noPromotionsText}
-            </p>
+            <div className="flex justify-center py-12">
+              <div className="flex max-w-md flex-col items-center gap-4 rounded-2xl rounded-bl-none rounded-tr-none border border-primary/10 bg-white px-10 py-12 text-center shadow-md shadow-primary/10">
+                <div className="bg-primary/8 flex h-16 w-16 items-center justify-center rounded-full">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="h-8 w-8 text-primary/40"
+                  >
+                    <path d="M20 12V22H4V12" />
+                    <path d="M22 7H2v5h20V7z" />
+                    <path d="M12 22V7" />
+                    <path d="M12 7H7.5a2.5 2.5 0 010-5C11 2 12 7 12 7z" />
+                    <path d="M12 7h4.5a2.5 2.5 0 000-5C13 2 12 7 12 7z" />
+                  </svg>
+                </div>
+                <p className="font-dm-sans text-base leading-relaxed text-primary/60">
+                  {noPromotionsText}
+                </p>
+              </div>
+            </div>
           ) : (
             <div className="flex flex-col gap-8">
               {/* Featured card */}
