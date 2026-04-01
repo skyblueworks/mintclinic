@@ -67,9 +67,18 @@ export const promotionType = defineType({
       description: 'Optional. e.g. "60 лв." — shown as "You save 60 лв."',
     }),
     defineField({
+      name: "validFrom",
+      title: "Valid from",
+      type: "date",
+      description:
+        "Optional start date. If set in the future, the promotion appears under upcoming offers.",
+      options: { dateFormat: "YYYY-MM-DD" },
+    }),
+    defineField({
       name: "validUntil",
       title: "Valid until",
       type: "date",
+      description: "Optional end date.",
       options: { dateFormat: "YYYY-MM-DD" },
     }),
     defineField({

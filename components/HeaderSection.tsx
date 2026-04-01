@@ -41,7 +41,7 @@ type NavItem = {
 const getNavItems = (
   t: (key: (typeof TK)[keyof typeof TK]) => string,
 ): NavItem[] => {
-  return [
+  const items: NavItem[] = [
     { label: t(TK.HOME), href: "/" },
     {
       label: t(TK.SERVICES),
@@ -150,6 +150,15 @@ const getNavItems = (
     { label: t(TK.CONTACT), href: "/contacts" },
     { label: t(TK.PROMOTIONS), href: "/promotions" },
   ];
+  // Promotions also appears as first item in services dropdown (lg to xl only)
+  const servicesItem = items.find((i) => i.href === "/services");
+  if (servicesItem?.children) {
+    servicesItem.children = [
+      { label: t(TK.PROMOTIONS), href: "/promotions" },
+      ...servicesItem.children,
+    ];
+  }
+  return items;
 };
 
 export default function HeaderSection({ className }: { className?: string }) {
@@ -286,7 +295,7 @@ export default function HeaderSection({ className }: { className?: string }) {
         <MenubarMenu key={item.href}>
           <LocalizedLink
             href={item.href}
-            className="relative px-3 py-1.5 font-medium text-gray-700 transition-colors hover:text-primary"
+            className={`relative px-3 py-1.5 font-medium text-gray-700 transition-colors hover:text-primary ${isPromotions ? "hidden xl:block" : ""}`}
           >
             {item.label}
             {isPromotions && (
@@ -309,13 +318,16 @@ export default function HeaderSection({ className }: { className?: string }) {
     return (
       <MenubarMenu key={item.href} value={menuValue}>
         <MenubarTrigger
-          className="flex cursor-pointer items-center gap-1 font-medium text-gray-700 transition-colors hover:text-primary"
+          className="relative flex cursor-pointer items-center gap-1 font-medium text-gray-700 transition-colors hover:text-primary"
           onMouseEnter={() => setOpen(true)}
           asChild
         >
           <LocalizedLink href={item.href}>
             {item.label}
             <RxChevronDown className="text-sm" />
+            {isServicesMenu && (
+              <span className="absolute -right-0.5 -top-0.5 block h-2 w-2 rounded-full bg-accent xl:hidden" />
+            )}
           </LocalizedLink>
         </MenubarTrigger>
         <MenubarContent className="w-64">
@@ -328,11 +340,15 @@ export default function HeaderSection({ className }: { className?: string }) {
   const renderDesktopSubmenu = (item: NavItem): React.ReactNode => {
     if (!item.children) {
       const isPricing = item.href === "/pricing";
+      const isPromotions = item.href === "/promotions";
       return (
         <MenubarItem
           key={item.href}
           asChild
-          className={cn(isPricing && "bg-primary/5 font-medium text-primary")}
+          className={cn(
+            isPricing && "bg-primary/5 font-medium text-primary",
+            isPromotions && "bg-accent/10 font-medium text-accent focus:bg-accent/20 xl:hidden",
+          )}
         >
           <LocalizedLink href={item.href}>{item.label}</LocalizedLink>
         </MenubarItem>
