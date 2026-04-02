@@ -34,8 +34,8 @@ const ui = {
     learnMore: "Научете повече",
     readMore: "Прочети повече",
     readLess: "Скрий",
-    title: "Активни промоции",
-    upcoming: "Бъдещи оферти",
+    title: "Актуално",
+    upcoming: "Предстоящо",
   },
   en: {
     youSave: "You save",
@@ -46,8 +46,8 @@ const ui = {
     learnMore: "Learn more",
     readMore: "Read more",
     readLess: "Show less",
-    title: "Active promotions",
-    upcoming: "Upcoming offers",
+    title: "What's On",
+    upcoming: "Coming Soon",
   },
 };
 
@@ -108,7 +108,12 @@ function DateBadge({
       <div className="inline-flex items-center gap-1.5 rounded-full bg-primary/20 px-3.5 py-1.5 text-sm font-bold text-primary">
         <CalendarIcon />
         {t.from} {formatDate(promo.validFrom, locale, { showYear: false })}
-        {promo.validUntil && <> {t.to} {formatDate(promo.validUntil, locale, { showYear: false })}</>}
+        {promo.validUntil && (
+          <>
+            {" "}
+            {t.to} {formatDate(promo.validUntil, locale, { showYear: false })}
+          </>
+        )}
       </div>
     );
   }
@@ -117,7 +122,8 @@ function DateBadge({
     return (
       <div className="inline-flex items-center gap-1.5 rounded-full bg-accent/15 px-3.5 py-1.5 text-sm font-bold text-accent">
         <CalendarIcon />
-        {t.validUntil} {formatDate(promo.validUntil, locale, { showYear: false })}
+        {t.validUntil}{" "}
+        {formatDate(promo.validUntil, locale, { showYear: false })}
       </div>
     );
   }
@@ -140,9 +146,7 @@ function PromoCard({
   upcoming?: boolean;
 }) {
   return (
-    <div
-      className="overflow-hidden rounded-2xl rounded-bl-none rounded-tr-none bg-white transition-shadow duration-300 [box-shadow:0px_4px_20px_2px_hsla(var(--mintclinic-mint-dark-hsl)_/_.10)]"
-    >
+    <div className="overflow-hidden rounded-2xl rounded-bl-none rounded-tr-none bg-white transition-shadow duration-300 [box-shadow:0px_4px_20px_2px_hsla(var(--mintclinic-mint-dark-hsl)_/_.10)]">
       <div className="grid lg:grid-cols-[minmax(0,1fr)_minmax(0,3fr)]">
         {/* Image */}
         {promo.image ? (
@@ -308,22 +312,12 @@ export default function PromotionsPreview({
           <div className="flex flex-col gap-8 lg:gap-10">
             {/* ---- Featured promotion ---- */}
             {featured && (
-              <PromoCard
-                promo={featured}
-                locale={locale}
-                t={t}
-                featured
-              />
+              <PromoCard promo={featured} locale={locale} t={t} featured />
             )}
 
             {/* ---- Remaining current promotions ---- */}
             {rest.map((promo) => (
-              <PromoCard
-                key={promo._id}
-                promo={promo}
-                locale={locale}
-                t={t}
-              />
+              <PromoCard key={promo._id} promo={promo} locale={locale} t={t} />
             ))}
 
             {/* ---- Upcoming offers ---- */}

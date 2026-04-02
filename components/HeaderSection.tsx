@@ -347,7 +347,8 @@ export default function HeaderSection({ className }: { className?: string }) {
           asChild
           className={cn(
             isPricing && "bg-primary/5 font-medium text-primary",
-            isPromotions && "bg-accent/10 font-medium text-accent focus:bg-accent/20 xl:hidden",
+            isPromotions &&
+              "bg-accent/10 font-medium text-accent focus:bg-accent/20 xl:hidden",
           )}
         >
           <LocalizedLink href={item.href}>{item.label}</LocalizedLink>

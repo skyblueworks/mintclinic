@@ -31,8 +31,8 @@ export default async function PromotionsPage({ params }: Props) {
   const noPromotionsText =
     siteSettings?.noPromotionsText?.[locale as Locale] ??
     (locale === "en"
-      ? "There are no active promotions at the moment. Stay tuned for upcoming offers."
-      : "В момента няма активни промоции. Следете ни за предстоящи оферти.");
+      ? "Nothing on at the moment — check back soon."
+      : "В момента няма активни оферти. Очаквайте скоро нови.");
 
   return (
     <main>

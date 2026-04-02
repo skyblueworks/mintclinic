@@ -170,7 +170,7 @@ export const translations = {
     [TK.ABOUT]: "За нас",
     [TK.CONTACT]: "Контакти",
     [TK.GALLERY]: "Галерия",
-    [TK.PROMOTIONS]: "Промоции",
+    [TK.PROMOTIONS]: "Актуално",
     [TK.ALL_SERVICES]: "Всички услуги",
     [TK.CATEGORIES]: "Категории",
 
@@ -344,7 +344,7 @@ export const translations = {
     [TK.ABOUT]: "About Us",
     [TK.CONTACT]: "Contact",
     [TK.GALLERY]: "Gallery",
-    [TK.PROMOTIONS]: "Promotions",
+    [TK.PROMOTIONS]: "What's On",
     [TK.ALL_SERVICES]: "All Services",
     [TK.CATEGORIES]: "Categories",
 
