@@ -276,3 +276,18 @@ export const bannerPromotionQuery = `*[_type == "promotion" && isActive == true 
 export const siteSettingsQuery = `*[_type == "siteSettings"][0] {
   noPromotionsText
 }`;
+
+// ============================================================================
+// PRICING QUERIES
+// ============================================================================
+
+export const pricingCategoriesQuery = `*[_type == "pricingCategory"] | order(order asc) {
+  _id,
+  title,
+  icon,
+  items[] {
+    name,
+    priceBgn,
+    priceEur
+  }
+}`;

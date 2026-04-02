@@ -12,6 +12,7 @@ import { contactPageType } from "./contactPageType";
 import { mdxType } from "./mdxType";
 import { promotionType } from "./promotionType";
 import { siteSettingsType } from "./siteSettingsType";
+import { pricingCategoryType } from "./pricingCategoryType";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -31,5 +32,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     // Promotions
     promotionType,
     siteSettingsType,
+    // Pricing
+    pricingCategoryType,
   ],
 };
