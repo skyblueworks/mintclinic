@@ -161,7 +161,13 @@ const getNavItems = (
   return items;
 };
 
-export default function HeaderSection({ className }: { className?: string }) {
+export default function HeaderSection({
+  className,
+  hasActivePromotions = false,
+}: {
+  className?: string;
+  hasActivePromotions?: boolean;
+}) {
   const pathname = usePathname();
   const { t, locale } = useTranslation();
 
@@ -242,7 +248,7 @@ export default function HeaderSection({ className }: { className?: string }) {
         >
           <span className="relative inline-block">
             {item.label}
-            {isPromotions && (
+            {isPromotions && hasActivePromotions && (
               <span className="absolute -right-3 -top-0.5 h-2 w-2 rounded-full bg-accent" />
             )}
           </span>
@@ -298,7 +304,7 @@ export default function HeaderSection({ className }: { className?: string }) {
             className={`relative px-3 py-1.5 font-medium text-gray-700 transition-colors hover:text-primary ${isPromotions ? "hidden xl:block" : ""}`}
           >
             {item.label}
-            {isPromotions && (
+            {isPromotions && hasActivePromotions && (
               <span className="absolute -right-0.5 -top-0.5 h-2 w-2 rounded-full bg-accent" />
             )}
           </LocalizedLink>

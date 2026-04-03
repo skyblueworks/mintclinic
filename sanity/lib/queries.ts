@@ -266,6 +266,8 @@ export const activePromotionsQuery = `*[_type == "promotion" && isActive == true
   order
 }`;
 
+export const activePromotionsCountQuery = `count(*[_type == "promotion" && isActive == true])`;
+
 export const bannerPromotionQuery = `*[_type == "promotion" && isActive == true && showInBanner == true] | order(order asc) [0] {
   _id,
   badge,

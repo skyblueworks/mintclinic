@@ -7,6 +7,8 @@ import Footer from "@/components/Footer";
 import MobileBookingButton from "@/components/MobileBookingButton";
 import { Toaster } from "sonner";
 import PromotionBanner from "@/components/PromotionBanner";
+import { client } from "@/sanity/lib/client";
+import { activePromotionsCountQuery } from "@/sanity/lib/queries";
 
 import "./globals.css";
 
@@ -74,11 +76,17 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const promoCount = await client.fetch<number>(
+    activePromotionsCountQuery,
+    {},
+    { next: { revalidate: 300 } },
+  );
+
   return (
     <Layout>
       <Head>
@@ -93,7 +101,7 @@ export default function RootLayout({
         )}
       >
         <PromotionBanner />
-        <HeaderSection />
+        <HeaderSection hasActivePromotions={promoCount > 0} />
         {children}
         <Footer />
         <MobileBookingButton />
