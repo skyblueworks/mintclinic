@@ -22,6 +22,7 @@ export const TK = {
   ABOUT: "ABOUT",
   CONTACT: "CONTACT",
   GALLERY: "GALLERY",
+  PROMOTIONS: "PROMOTIONS",
   ALL_SERVICES: "ALL_SERVICES",
   CATEGORIES: "CATEGORIES",
 
@@ -169,6 +170,7 @@ export const translations = {
     [TK.ABOUT]: "За нас",
     [TK.CONTACT]: "Контакти",
     [TK.GALLERY]: "Галерия",
+    [TK.PROMOTIONS]: "Актуално",
     [TK.ALL_SERVICES]: "Всички услуги",
     [TK.CATEGORIES]: "Категории",
 
@@ -342,6 +344,7 @@ export const translations = {
     [TK.ABOUT]: "About Us",
     [TK.CONTACT]: "Contact",
     [TK.GALLERY]: "Gallery",
+    [TK.PROMOTIONS]: "What's New",
     [TK.ALL_SERVICES]: "All Services",
     [TK.CATEGORIES]: "Categories",
 

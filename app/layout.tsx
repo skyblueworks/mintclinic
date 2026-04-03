@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 // import ScrollToTopButton from "@/components/ScrollToTopButton";
 import MobileBookingButton from "@/components/MobileBookingButton";
 import { Toaster } from "sonner";
+import PromotionBanner from "@/components/PromotionBanner";
 
 import "./globals.css";
 
@@ -91,6 +92,7 @@ export default function RootLayout({
           comfortaa.className,
         )}
       >
+        <PromotionBanner />
         <HeaderSection />
         {children}
         <Footer />

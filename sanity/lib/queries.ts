@@ -248,6 +248,36 @@ export const documentCountQuery = `{
 }`;
 
 // ============================================================================
+// PROMOTION QUERIES
+// ============================================================================
+
+export const activePromotionsQuery = `*[_type == "promotion" && isActive == true] | order(order asc) {
+  _id,
+  title,
+  description,
+  badge,
+  image { asset->{ _id, url }, hotspot, crop },
+  originalPrice,
+  promoPrice,
+  savings,
+  validFrom,
+  validUntil,
+  serviceUrl,
+  order
+}`;
+
+export const bannerPromotionQuery = `*[_type == "promotion" && isActive == true && showInBanner == true] | order(order asc) [0] {
+  _id,
+  badge,
+  bannerText,
+  title
+}`;
+
+export const siteSettingsQuery = `*[_type == "siteSettings"][0] {
+  noPromotionsText
+}`;
+
+// ============================================================================
 // PRICING QUERIES
 // ============================================================================
 
