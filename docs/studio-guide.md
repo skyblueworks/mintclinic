@@ -9,7 +9,7 @@ This guide explains how to manage content on the Mint Clinic website using Sanit
 ## Table of Contents
 
 1. [Logging in](#1-logging-in)
-2. [Managing "Актуално" (What's On)](#2-managing-актуално-whats-on)
+2. [Managing "Актуално" (What's New)](#2-managing-актуално-whats-on)
 3. [The announcement banner](#3-the-announcement-banner)
 4. [Site Settings](#4-site-settings)
 
@@ -23,7 +23,7 @@ This guide explains how to manage content on the Mint Clinic website using Sanit
 
 ---
 
-## 2. Managing "Актуално" (What's On)
+## 2. Managing "Актуално" (What's New)
 
 ### Finding promotions
 

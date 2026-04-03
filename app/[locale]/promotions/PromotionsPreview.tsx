@@ -46,7 +46,7 @@ const ui = {
     learnMore: "Learn more",
     readMore: "Read more",
     readLess: "Show less",
-    title: "What's On",
+    title: "What's New",
     upcoming: "Coming Soon",
   },
 };
@@ -236,7 +236,7 @@ function PromoCard({
           {/* CTAs */}
           <div className="flex flex-wrap gap-3 pt-1">
             <Link
-              href={`/${locale}/contacts`}
+              href={`https://superdoc.bg/lekar/aleksandar-aleksov`}
               className={`rounded-full px-6 py-2 text-xs font-extrabold transition-colors duration-200 ${
                 upcoming
                   ? "border border-primary text-primary hover:bg-primary hover:text-white"
