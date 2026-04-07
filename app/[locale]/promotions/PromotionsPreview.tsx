@@ -11,7 +11,7 @@ type SanityPromo = {
   image?: { asset: { _id: string; url: string } };
   originalPrice?: string;
   promoPrice?: string;
-  savings?: string;
+  savings?: { bg: string; en: string };
   validFrom?: string;
   validUntil?: string;
   serviceUrl?: string;
@@ -185,7 +185,7 @@ function PromoCard({
           {/* Title */}
           {promo.serviceUrl ? (
             <Link
-              href={`/${locale}${promo.serviceUrl}`}
+              href={promo.serviceUrl!}
               className={`font-medium text-primary transition-colors duration-200 hover:text-primary/80 ${
                 featured ? "text-2xl lg:text-3xl" : "text-xl lg:text-2xl"
               }`}
@@ -226,9 +226,9 @@ function PromoCard({
                 {promo.originalPrice}
               </span>
             )}
-            {promo.savings && (
+            {promo.savings?.[locale] && (
               <span className="font-dm-sans text-xs font-medium text-accent">
-                {t.youSave} {promo.savings}
+                {t.youSave} {promo.savings?.[locale]}
               </span>
             )}
           </div>
@@ -247,7 +247,7 @@ function PromoCard({
             </Link>
             {promo.serviceUrl && (
               <Link
-                href={`/${locale}${promo.serviceUrl}`}
+                href={promo.serviceUrl!}
                 className="rounded-full border border-primary px-6 py-2 text-xs font-extrabold text-primary transition-colors duration-200 hover:bg-primary hover:text-white"
               >
                 {t.learnMore}

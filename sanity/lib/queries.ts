@@ -259,7 +259,7 @@ export const activePromotionsQuery = `*[_type == "promotion" && isActive == true
   image { asset->{ _id, url }, hotspot, crop },
   originalPrice,
   promoPrice,
-  savings,
+  savings { bg, en },
   validFrom,
   validUntil,
   serviceUrl,

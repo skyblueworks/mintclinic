@@ -63,8 +63,12 @@ export const promotionType = defineType({
     defineField({
       name: "savings",
       title: "Savings amount",
-      type: "string",
-      description: 'Optional. e.g. "60 лв." — shown as "You save 60 лв."',
+      type: "object",
+      description: 'Optional. Shown as "You save …" / "Спестявате …"',
+      fields: [
+        defineField({ name: "bg", title: "Bulgarian", type: "string" }),
+        defineField({ name: "en", title: "English", type: "string" }),
+      ],
     }),
     defineField({
       name: "validFrom",
@@ -109,9 +113,9 @@ export const promotionType = defineType({
     defineField({
       name: "serviceUrl",
       title: "Service page link",
-      type: "string",
+      type: "url",
       description:
-        'Optional path to the related service page, e.g. "/uslugi/estetika/izbelvane".',
+        'Optional. Full URL to the related service page, e.g. "https://mintclinic.bg/bg/uslugi/estetika".',
     }),
     defineField({
       name: "order",
